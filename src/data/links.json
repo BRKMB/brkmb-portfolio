@@ -1,26 +1,98 @@
 [
   {
-    "id": "website",
-    "label": "brkmb.com",
-    "description": "Portfolio & founder HQ",
-    "href": "https://brkmb.com",
-    "platform": "website",
+    "id": "behance",
+    "label": "Behance",
+    "description": "Freelancer · CEO of AdZology",
+    "href": "https://www.behance.net/baher-bottros",
+    "platform": "behance",
     "featured": true
   },
   {
-    "id": "email",
-    "label": "Email",
+    "id": "facebook-profile",
+    "label": "Facebook Profile",
+    "description": "BRKMB · verified profile",
+    "href": "https://www.facebook.com/BRKMB",
+    "platform": "facebook",
+    "featured": true
+  },
+  {
+    "id": "linkedin",
+    "label": "LinkedIn",
+    "description": "baher-bottros",
+    "href": "https://www.linkedin.com/in/baher-bottros/",
+    "platform": "linkedin",
+    "featured": true
+  },
+  {
+    "id": "instagram",
+    "label": "Instagram",
+    "description": "@BAHER.BOTTROS",
+    "href": "https://www.instagram.com/BAHER.BOTTROS",
+    "platform": "instagram",
+    "featured": true
+  },
+  {
+    "id": "tiktok",
+    "label": "TikTok",
+    "description": "@baher.bottros",
+    "href": "https://www.tiktok.com/@baher.bottros",
+    "platform": "tiktok",
+    "featured": true
+  },
+  {
+    "id": "youtube",
+    "label": "YouTube",
+    "description": "Baher Magally / baherrody",
+    "href": "https://www.youtube.com/baherrody",
+    "platform": "youtube",
+    "featured": true
+  },
+  {
+    "id": "paypal",
+    "label": "PayPal",
+    "description": "paypal.me/baherbottros",
+    "href": "https://paypal.me/baherbottros",
+    "platform": "paypal",
+    "featured": true
+  },
+  {
+    "id": "facebook-page",
+    "label": "Facebook Page",
+    "description": "Baher Bottros official page",
+    "href": "https://www.facebook.com/BaherBottros1/",
+    "platform": "facebook",
+    "featured": true
+  },
+  {
+    "id": "contact",
+    "label": "Contact",
     "description": "hello@brkmb.com",
     "href": "mailto:hello@brkmb.com",
     "platform": "email",
     "featured": true
   },
   {
-    "id": "linkedin",
-    "label": "LinkedIn",
-    "description": "Professional profile",
-    "href": "https://linkedin.com",
-    "platform": "linkedin",
+    "id": "adzology",
+    "label": "ADZOLOGY",
+    "description": "AdZology — all links",
+    "href": "https://linktr.ee/adz.ology",
+    "platform": "website",
+    "featured": true
+  },
+  {
+    "id": "bolder-fb",
+    "label": "BOLDER Facebook",
+    "description": "BR.BoldeR page",
+    "href": "https://www.facebook.com/BR.BoldeR/",
+    "platform": "facebook",
+    "featured": true
+  },
+  {
+    "id": "brkmb",
+    "label": "brkmb.com",
+    "description": "Portfolio & founder HQ",
+    "href": "https://brkmb.com",
+    "platform": "website",
     "featured": true
   },
   {
@@ -30,69 +102,5 @@
     "href": "https://github.com/BRKMB",
     "platform": "github",
     "featured": true
-  },
-  {
-    "id": "instagram",
-    "label": "Instagram",
-    "description": "Design & behind the build",
-    "href": "https://instagram.com",
-    "platform": "instagram",
-    "featured": true
-  },
-  {
-    "id": "twitter",
-    "label": "X (Twitter)",
-    "description": "Thoughts & updates",
-    "href": "https://x.com",
-    "platform": "twitter",
-    "featured": false
-  },
-  {
-    "id": "youtube",
-    "label": "YouTube",
-    "description": "Motion & tutorials",
-    "href": "https://youtube.com",
-    "platform": "youtube",
-    "featured": false
-  },
-  {
-    "id": "behance",
-    "label": "Behance",
-    "description": "Creative work",
-    "href": "https://behance.net",
-    "platform": "behance",
-    "featured": true
-  },
-  {
-    "id": "dribbble",
-    "label": "Dribbble",
-    "description": "UI shots",
-    "href": "https://dribbble.com",
-    "platform": "dribbble",
-    "featured": false
-  },
-  {
-    "id": "whatsapp",
-    "label": "WhatsApp",
-    "description": "Quick message",
-    "href": "https://wa.me/",
-    "platform": "whatsapp",
-    "featured": true
-  },
-  {
-    "id": "telegram",
-    "label": "Telegram",
-    "description": "Direct chat",
-    "href": "https://t.me",
-    "platform": "telegram",
-    "featured": false
-  },
-  {
-    "id": "tiktok",
-    "label": "TikTok",
-    "description": "Short-form",
-    "href": "https://tiktok.com",
-    "platform": "tiktok",
-    "featured": false
   }
 ]

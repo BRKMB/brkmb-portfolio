@@ -30,6 +30,7 @@ export default function LinksPage() {
           </div>
           <p className="font-display text-title-2 mt-4 v-primary">{site.name}</p>
           <p className="text-subheadline mt-1 v-secondary">{site.tagline}</p>
+          <p className="text-footnote mt-1 v-tertiary">AKA Baher Rody · Baher Bottros</p>
         </motion.div>
 
         <ul className="mt-10 flex flex-col gap-3">
