@@ -24,7 +24,48 @@ function stripHtml(html) {
 
 function parseTextColor(html) {
   const m = html?.match(/color:\s*(#[0-9a-fA-F]{3,8}|rgba?\([^)]+\))/);
-  return m?.[1] ?? "rgba(255,255,255,0.92)";
+  return m?.[1];
+}
+
+function parseFontSize(html) {
+  const m = html?.match(/font-size:\s*(\d+)px/i);
+  if (!m) return "md";
+  const px = Number(m[1]);
+  if (px >= 28) return "lg";
+  if (px <= 14) return "sm";
+  return "md";
+}
+
+function parseTextAlign(mod) {
+  if (mod.alignment === "center") return "center";
+  if (mod.alignment === "right") return "right";
+  return "left";
+}
+
+function behanceToolNames(project) {
+  return (project.tools ?? [])
+    .map((t) => (t.title || "").replace(/^Adobe\s+/i, "").trim())
+    .filter(Boolean);
+}
+
+/** Category chip: from Behance tags only (never invented). */
+function behanceCategory(project) {
+  const tags = project.tags?.map((t) => t.title).filter(Boolean) ?? [];
+  const prefer = [
+    "Packaging",
+    "Logo Design",
+    "Photography",
+    "Advertising",
+    "Web Design",
+    "Branding",
+    "Illustration",
+    "Art Direction",
+  ];
+  for (const p of prefer) {
+    const hit = tags.find((t) => t.toLowerCase().includes(p.toLowerCase()));
+    if (hit) return hit;
+  }
+  return (tags[0] ?? "Graphic design").trim();
 }
 
 function pickImageUrl(mod) {
@@ -71,29 +112,22 @@ function modulesToBlocks(modules, slug) {
         caption: mod.caption || undefined,
       });
     } else if (mod.__typename === "TextModule") {
-      const content = stripHtml(mod.text);
+      const linkMatch = mod.text?.match(/<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i);
+      const link = linkMatch?.[1];
+      const linkLabel = linkMatch ? stripHtml(linkMatch[2]) : "";
+      const content = linkLabel || stripHtml(mod.text);
       if (!content) continue;
-      const link = mod.text?.match(/href="([^"]+)"/)?.[1];
-      if (link && !/youtube|vimeo|dailymotion/i.test(link)) {
-        blocks.push({
-          id: `${id}-txt`,
-          type: "text",
-          content: content.split("\n")[0] || content,
-          href: link,
-          align: mod.alignment === "center" ? "center" : mod.alignment === "right" ? "right" : "left",
-          color: parseTextColor(mod.text),
-          fontSize: mod.text?.includes("font-size:32px") ? "lg" : "md",
-        });
-        continue;
-      }
-      blocks.push({
+      const textBlock = {
         id: `${id}-txt`,
         type: "text",
         content,
-        align: mod.alignment === "center" ? "center" : mod.alignment === "right" ? "right" : "left",
-        color: parseTextColor(mod.text),
-        fontSize: mod.text?.includes("font-size:32px") ? "lg" : "md",
-      });
+        align: parseTextAlign(mod),
+        fontSize: parseFontSize(mod.text),
+      };
+      const color = parseTextColor(mod.text);
+      if (color) textBlock.color = color;
+      if (link && !/youtube|vimeo|dailymotion/i.test(link)) textBlock.href = link;
+      blocks.push(textBlock);
     } else if (mod.__typename === "MediaCollectionModule") {
       for (let ci = 0; ci < (mod.components ?? []).length; ci++) {
         const comp = mod.components[ci];
@@ -227,18 +261,18 @@ export async function importBehanceGallery(galleryId, opts = {}) {
   const firstImage = blocks.find((b) => b.type === "image")?.src ?? coverLocal;
   const pageBg = parsePageBackground(project.stylesInline);
 
+  const description = stripHtml(project.description);
   const item = {
     id: `behance-${galleryId}`,
     slug,
     title: project.name,
-    category: opts.category ?? "Graphic design",
+    category: behanceCategory(project),
     image: coverLocal,
-    description: stripHtml(project.description) || project.name,
-    overview: stripHtml(project.description) || project.name,
-    role: opts.role ?? "Design",
-    tools: opts.tools ?? ["Photoshop", "Illustrator"],
-    tags: project.tags?.map((t) => t.title) ?? [],
-    year: opts.year ?? new Date(project.publishedOn * 1000).getFullYear().toString(),
+    description: description || undefined,
+    overview: description || undefined,
+    tools: behanceToolNames(project),
+    tags: project.tags?.map((t) => t.title?.trim()).filter(Boolean) ?? [],
+    year: new Date(project.publishedOn * 1000).getFullYear().toString(),
     styleDefaults: pageBg ? { pageBackground: pageBg } : undefined,
     blocks,
   };

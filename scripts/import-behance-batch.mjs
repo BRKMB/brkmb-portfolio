@@ -35,10 +35,6 @@ for (const meta of pending) {
     const { item } = await importBehanceGallery(String(meta.galleryId), {
       slugPath,
       slug: meta.slug,
-      category: "Graphic design",
-      tools: ["Photoshop", "Illustrator"],
-      role: "Design",
-      year: meta.published?.slice(0, 4) ?? "2021",
     });
     item.slug = meta.slug;
     portfolio.push(item);
