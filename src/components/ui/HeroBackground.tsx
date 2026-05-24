@@ -8,7 +8,7 @@ export function HeroBackground() {
     <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
       <motion.div
         className="absolute -top-20 left-[5%] h-[420px] w-[420px] rounded-full bg-[#c9f31d]/25 blur-[100px]"
-        animate={{ opacity: [0.4, 0.65, 0.4], scale: [1, 1.06, 1] }}
+        animate={{ opacity: [0.4, 0.65, 0.4] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
       />
       <motion.div
