@@ -1,0 +1,4 @@
+# Cloudflare Pages — static site (no build step)
+name = "brkmb-portfolio"
+compatibility_date = "2025-05-01"
+pages_build_output_dir = "."
