@@ -1,7 +1,7 @@
 [
   {
     "id": "personal",
-    "title": "Baher · Personal",
+    "title": "Personal links",
     "subtitle": "Profiles, contact & payments",
     "defaultOpen": false,
     "links": [
@@ -78,50 +78,6 @@
     ]
   },
   {
-    "id": "adzology",
-    "title": "AdZology",
-    "subtitle": "Digital marketing agency",
-    "accent": "#43E660",
-    "defaultOpen": false,
-    "links": [
-      {
-        "id": "adz-hub",
-        "label": "All AdZology links",
-        "description": "linktr.ee/adz.ology",
-        "href": "https://linktr.ee/adz.ology",
-        "platform": "linktree"
-      },
-      {
-        "id": "adz-instagram",
-        "label": "Instagram",
-        "description": "@adz.ology",
-        "href": "https://www.instagram.com/adz.ology",
-        "platform": "instagram"
-      },
-      {
-        "id": "adz-facebook",
-        "label": "Facebook",
-        "description": "AdZology Agency",
-        "href": "https://www.facebook.com/AdZology.Agency",
-        "platform": "facebook"
-      },
-      {
-        "id": "adz-tiktok",
-        "label": "TikTok",
-        "description": "@adz.ology",
-        "href": "https://www.tiktok.com/@adz.ology",
-        "platform": "tiktok"
-      },
-      {
-        "id": "adz-behance",
-        "label": "Behance",
-        "description": "Agency portfolio",
-        "href": "https://www.behance.net/baher-bottros",
-        "platform": "behance"
-      }
-    ]
-  },
-  {
     "id": "baryq",
     "title": "BARYQ",
     "subtitle": "Luxury fashion brand",
@@ -130,17 +86,17 @@
     "defaultOpen": false,
     "links": [
       {
+        "id": "baryq-project",
+        "label": "Project page",
+        "description": "Case study on brkmb.com",
+        "href": "https://brkmb.com/projects/BARYQ/",
+        "platform": "website"
+      },
+      {
         "id": "baryq-shop",
         "label": "BARYQ Store",
         "description": "baryq.com",
         "href": "https://www.baryq.com/",
-        "platform": "website"
-      },
-      {
-        "id": "baryq-links",
-        "label": "Our Links",
-        "description": "All BARYQ socials",
-        "href": "https://www.baryq.com/pages/our-links",
         "platform": "website"
       },
       {
@@ -177,20 +133,6 @@
         "description": "BARYQofficial",
         "href": "https://pinterest.com/BARYQofficial/",
         "platform": "pinterest"
-      },
-      {
-        "id": "baryq-contact",
-        "label": "Contact",
-        "description": "Customer support",
-        "href": "https://www.baryq.com/pages/contact",
-        "platform": "website"
-      },
-      {
-        "id": "baryq-story",
-        "label": "Our Story",
-        "description": "Brand story",
-        "href": "https://www.baryq.com/pages/our-story",
-        "platform": "website"
       }
     ]
   },
@@ -203,52 +145,17 @@
     "defaultOpen": false,
     "links": [
       {
+        "id": "raby-project",
+        "label": "Project page",
+        "description": "Case study on brkmb.com",
+        "href": "https://brkmb.com/projects/RABY/",
+        "platform": "website"
+      },
+      {
         "id": "raby-site",
-        "label": "RABY Website",
+        "label": "RABY website",
         "description": "raby.pages.dev",
         "href": "https://raby.pages.dev/",
-        "platform": "website"
-      },
-      {
-        "id": "raby-subscribe",
-        "label": "Subscribe",
-        "description": "Plans & pricing",
-        "href": "https://raby.pages.dev/subscribe/",
-        "platform": "website"
-      },
-      {
-        "id": "raby-signup",
-        "label": "Sign up",
-        "description": "Create account",
-        "href": "https://raby.pages.dev/signup/",
-        "platform": "website"
-      },
-      {
-        "id": "raby-mac",
-        "label": "Download for Mac",
-        "description": "macOS app",
-        "href": "https://raby.pages.dev/downloads/mac.dmg",
-        "platform": "website"
-      },
-      {
-        "id": "raby-win",
-        "label": "Download for Windows",
-        "description": "Windows app",
-        "href": "https://raby.pages.dev/downloads/windows.exe",
-        "platform": "website"
-      },
-      {
-        "id": "raby-email",
-        "label": "Support Email",
-        "description": "support@raby.app",
-        "href": "mailto:support@raby.app",
-        "platform": "email"
-      },
-      {
-        "id": "raby-refund",
-        "label": "Refund Policy",
-        "description": "Subscription policy",
-        "href": "https://raby.pages.dev/refund/",
         "platform": "website"
       }
     ]
@@ -284,6 +191,50 @@
         "description": "Case study on brkmb.com",
         "href": "https://brkmb.com/projects/BlinkOTP/",
         "platform": "website"
+      },
+      {
+        "id": "blinkotp-chrome",
+        "label": "Chrome Web Store",
+        "description": "Extension link — coming soon",
+        "href": "#chrome-extension",
+        "platform": "website"
+      }
+    ]
+  },
+  {
+    "id": "adzology",
+    "title": "AdZology",
+    "subtitle": "Digital marketing agency",
+    "accent": "#43E660",
+    "defaultOpen": false,
+    "links": [
+      {
+        "id": "adz-instagram",
+        "label": "Instagram",
+        "description": "@adz.ology",
+        "href": "https://www.instagram.com/adz.ology",
+        "platform": "instagram"
+      },
+      {
+        "id": "adz-facebook",
+        "label": "Facebook",
+        "description": "AdZology Agency",
+        "href": "https://www.facebook.com/AdZology.Agency",
+        "platform": "facebook"
+      },
+      {
+        "id": "adz-tiktok",
+        "label": "TikTok",
+        "description": "@adz.ology",
+        "href": "https://www.tiktok.com/@adz.ology",
+        "platform": "tiktok"
+      },
+      {
+        "id": "adz-behance",
+        "label": "Behance",
+        "description": "Agency portfolio",
+        "href": "https://www.behance.net/baher-bottros",
+        "platform": "behance"
       }
     ]
   }
