@@ -2,15 +2,41 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { brands } from "@/lib/data";
-import { statusColor, cn } from "@/lib/utils";
+
+function BrandLogo({ brand }: { brand: (typeof brands)[0] }) {
+  return (
+    <Link
+      href={brand.href || `/projects/${brand.name}/`}
+      data-cursor
+      className="brand-marquee__item focus-ring"
+      aria-label={brand.name}
+    >
+      <span className="brand-marquee__logo-wrap">
+        {brand.logoImage ? (
+          <Image
+            src={brand.logoImage}
+            alt=""
+            width={40}
+            height={40}
+            className="brand-marquee__logo-img"
+          />
+        ) : (
+          <span className="brand-marquee__logo-text" style={{ color: brand.accent }}>
+            {brand.logo}
+          </span>
+        )}
+      </span>
+      <span className="brand-marquee__name">{brand.name}</span>
+    </Link>
+  );
+}
 
 export function VenturesStrip() {
   const ventures = brands.filter((b) => b.id !== "future");
 
   return (
-    <section className="px-4 py-16 md:px-8 md:py-20">
+    <section className="px-4 py-14 md:px-8 md:py-18">
       <div className="mx-auto max-w-6xl">
         <div className="flex items-end justify-between gap-4">
           <div>
@@ -22,53 +48,19 @@ export function VenturesStrip() {
           </Link>
         </div>
 
-        <div className="mt-8 flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory">
-          {ventures.map((brand, i) => (
-            <motion.div
-              key={brand.id}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              className="w-[280px] shrink-0 snap-start"
-            >
-              <Link
-                href={brand.href || `/projects/${brand.name}/`}
-                data-cursor
-                className="glass-card focus-ring block p-5 !rounded-[18px]"
-              >
-                <div
-                  className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-[12px] text-title-2 font-semibold"
-                  style={{
-                    background: `${brand.accent}18`,
-                    boxShadow: `inset 0 1px 0.5px rgba(255,255,255,0.15)`,
-                  }}
-                >
-                  {brand.logoImage ? (
-                    <Image
-                      src={brand.logoImage}
-                      alt={brand.name}
-                      width={56}
-                      height={56}
-                      className="h-full w-full object-cover"
-                    />
-                  ) : (
-                    <span style={{ color: brand.accent }}>{brand.logo}</span>
-                  )}
-                </div>
-                <h3 className="font-display text-headline mt-4 v-primary">{brand.name}</h3>
-                <p className="text-footnote mt-2 line-clamp-2 v-tertiary">{brand.description}</p>
-                <span
-                  className={cn(
-                    "text-caption mt-4 inline-block rounded-full border px-2.5 py-0.5",
-                    statusColor(brand.status)
-                  )}
-                >
-                  {brand.status}
-                </span>
-              </Link>
-            </motion.div>
-          ))}
+        <div className="brand-marquee mt-10" aria-label="Venture logos">
+          <div className="brand-marquee__track">
+            <div className="brand-marquee__group">
+              {ventures.map((brand) => (
+                <BrandLogo key={brand.id} brand={brand} />
+              ))}
+            </div>
+            <div className="brand-marquee__group" aria-hidden>
+              {ventures.map((brand) => (
+                <BrandLogo key={`${brand.id}-dup`} brand={brand} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
