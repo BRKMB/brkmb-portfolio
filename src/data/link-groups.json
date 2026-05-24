@@ -137,30 +137,6 @@
     ]
   },
   {
-    "id": "raby",
-    "title": "RABY",
-    "subtitle": "Business management ERP",
-    "logoImage": "/images/projects/raby.svg",
-    "accent": "#7cb342",
-    "defaultOpen": false,
-    "links": [
-      {
-        "id": "raby-project",
-        "label": "Project page",
-        "description": "Case study on brkmb.com",
-        "href": "https://brkmb.com/projects/RABY/",
-        "platform": "website"
-      },
-      {
-        "id": "raby-site",
-        "label": "RABY website",
-        "description": "raby.pages.dev",
-        "href": "https://raby.pages.dev/",
-        "platform": "website"
-      }
-    ]
-  },
-  {
     "id": "benou",
     "title": "BENOU",
     "subtitle": "Travel mobile app",
@@ -197,6 +173,30 @@
         "label": "Chrome Web Store",
         "description": "Extension link — coming soon",
         "href": "#chrome-extension",
+        "platform": "website"
+      }
+    ]
+  },
+  {
+    "id": "raby",
+    "title": "RABY",
+    "subtitle": "Business management ERP",
+    "logoImage": "/images/projects/raby.svg",
+    "accent": "#7cb342",
+    "defaultOpen": false,
+    "links": [
+      {
+        "id": "raby-project",
+        "label": "Project page",
+        "description": "Case study on brkmb.com",
+        "href": "https://brkmb.com/projects/RABY/",
+        "platform": "website"
+      },
+      {
+        "id": "raby-site",
+        "label": "RABY website",
+        "description": "raby.pages.dev",
+        "href": "https://raby.pages.dev/",
         "platform": "website"
       }
     ]
