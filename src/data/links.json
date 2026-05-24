@@ -86,21 +86,5 @@
     "href": "https://www.facebook.com/BR.BoldeR/",
     "platform": "facebook",
     "featured": true
-  },
-  {
-    "id": "brkmb",
-    "label": "brkmb.com",
-    "description": "Portfolio & founder HQ",
-    "href": "https://brkmb.com",
-    "platform": "website",
-    "featured": true
-  },
-  {
-    "id": "github",
-    "label": "GitHub",
-    "description": "@BRKMB",
-    "href": "https://github.com/BRKMB",
-    "platform": "github",
-    "featured": true
   }
 ]
