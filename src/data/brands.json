@@ -1,0 +1,52 @@
+[
+  {
+    "id": "baryq",
+    "name": "BARYQ",
+    "slug": "baryq",
+    "logo": "B",
+    "description": "Luxury clothing brand — premium identity and visual world.",
+    "status": "Building",
+    "accent": "#c9a962",
+    "href": "#projects"
+  },
+  {
+    "id": "benou",
+    "name": "Benou",
+    "slug": "benou",
+    "logo": "Bn",
+    "description": "Travel mobile app — discovery, booking, and seamless journeys.",
+    "status": "Building",
+    "accent": "#5b8def",
+    "href": "#projects"
+  },
+  {
+    "id": "blinkotp",
+    "name": "BlinkOTP",
+    "slug": "blinkotp",
+    "logo": "⚡",
+    "description": "Chrome extension for fast, secure OTP capture and autofill.",
+    "status": "Live",
+    "accent": "#22d3ee",
+    "href": "#projects"
+  },
+  {
+    "id": "erp",
+    "name": "ERP Desktop",
+    "slug": "erp-desktop",
+    "logo": "E",
+    "description": "Business management system — sales, inventory, accounting.",
+    "status": "Building",
+    "accent": "#a78bfa",
+    "href": "#projects"
+  },
+  {
+    "id": "future",
+    "name": "Future Projects",
+    "slug": "future",
+    "logo": "∞",
+    "description": "SaaS ventures, mobile products, and brand experiments in pipeline.",
+    "status": "Coming Soon",
+    "accent": "#f472b6",
+    "href": "#contact"
+  }
+]

@@ -1,0 +1,12 @@
+{
+  "who": "I'm Baher — known as Joo. A graphic designer who became a founder because I wanted my designs to live in real products, not just mockups.",
+  "build": "I build brands (BARYQ), mobile apps (Benou), tools (BlinkOTP), and enterprise software (ERP). brkmb.com is my digital headquarters — one place for everything I create.",
+  "believe": "Design is strategy. Speed is a feature. Premium doesn't mean complicated — it means intentional. Every pixel should earn its place.",
+  "process": "Research → Direction → Design → Build → Ship → Iterate. I move fast, but never sloppy.",
+  "roles": [
+    { "title": "Designer", "desc": "Visual systems, UI, motion, and brand worlds." },
+    { "title": "Founder", "desc": "Products, teams, and ventures from zero to market." },
+    { "title": "Problem Solver", "desc": "Turning messy business needs into clear experiences." },
+    { "title": "Builder", "desc": "Shipping — not just presenting — real software and brands." }
+  ]
+}

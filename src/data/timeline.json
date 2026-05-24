@@ -1,0 +1,6 @@
+[
+  { "id": "t1", "project": "BlinkOTP", "task": "Improving features & UX polish", "progress": 85 },
+  { "id": "t2", "project": "Benou", "task": "Mobile app development", "progress": 62 },
+  { "id": "t3", "project": "ERP System", "task": "Desktop architecture & modules", "progress": 45 },
+  { "id": "t4", "project": "BARYQ", "task": "Brand growth & campaign rollout", "progress": 38 }
+]

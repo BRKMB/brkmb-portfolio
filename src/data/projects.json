@@ -1,0 +1,134 @@
+[
+  {
+    "slug": "baryq-brand",
+    "title": "BARYQ — Luxury Brand Identity",
+    "shortDescription": "Full visual identity for a premium clothing brand.",
+    "description": "End-to-end brand system: logo, typography, packaging, and campaign visuals.",
+    "category": "Branding",
+    "status": "In Progress",
+    "thumbnail": "/images/projects/baryq.svg",
+    "tools": ["Illustrator", "Photoshop", "Figma"],
+    "overview": "BARYQ is a luxury fashion brand requiring a distinctive, elevated visual language that communicates craftsmanship and exclusivity.",
+    "role": "Founder, Creative Director, Lead Designer",
+    "process": [
+      "Market & competitor research",
+      "Mood boards and art direction",
+      "Logo and typography system",
+      "Packaging and lookbook design"
+    ],
+    "results": [
+      "Cohesive luxury brand system",
+      "Scalable identity for digital and print",
+      "Launch-ready campaign assets"
+    ],
+    "gallery": ["/images/projects/baryq.svg", "/images/placeholders/gallery-1.svg", "/images/placeholders/gallery-2.svg"],
+    "featured": true
+  },
+  {
+    "slug": "benou-app",
+    "title": "Benou — Travel Mobile App",
+    "shortDescription": "UI/UX and product design for a travel discovery platform.",
+    "description": "Mobile-first experience for exploring destinations and managing trips.",
+    "category": "UI/UX",
+    "status": "In Progress",
+    "thumbnail": "/images/projects/benou.svg",
+    "tools": ["Figma", "Principle", "After Effects"],
+    "overview": "Benou connects travelers with curated experiences through an intuitive, beautiful mobile interface.",
+    "role": "Co-founder, Product Designer",
+    "process": [
+      "User flows and wireframes",
+      "Design system and components",
+      "Prototype and usability testing",
+      "Developer handoff"
+    ],
+    "results": [
+      "Complete UI kit for iOS & Android",
+      "Reduced onboarding friction",
+      "Premium travel-app aesthetic"
+    ],
+    "gallery": ["/images/projects/benou.svg", "/images/placeholders/gallery-3.svg"],
+    "featured": true
+  },
+  {
+    "slug": "blinkotp",
+    "title": "BlinkOTP — Chrome Extension",
+    "shortDescription": "Secure OTP extension with premium UX.",
+    "description": "Browser extension for capturing and managing one-time passwords efficiently.",
+    "category": "Extensions",
+    "status": "Live",
+    "thumbnail": "/images/projects/blinkotp.svg",
+    "tools": ["Figma", "React", "Chrome APIs"],
+    "overview": "BlinkOTP streamlines 2FA workflows for power users who need speed without sacrificing security.",
+    "role": "Founder, Designer, Product Lead",
+    "process": [
+      "Problem validation with users",
+      "UX for capture and autofill flows",
+      "Visual design and icon system",
+      "Launch on Chrome Web Store"
+    ],
+    "results": [
+      "Live on Chrome Web Store",
+      "Sub-second OTP retrieval",
+      "Clean, minimal interface"
+    ],
+    "gallery": ["/images/projects/blinkotp.svg", "/images/placeholders/gallery-4.svg"],
+    "featured": true
+  },
+  {
+    "slug": "erp-desktop",
+    "title": "ERP Desktop System",
+    "shortDescription": "Enterprise desktop UI for business operations.",
+    "description": "Comprehensive ERP interface for sales, inventory, and accounting.",
+    "category": "Applications",
+    "status": "In Progress",
+    "thumbnail": "/images/projects/erp.svg",
+    "tools": ["Figma", "React", "Electron"],
+    "overview": "A desktop-first ERP built for SMEs who need powerful tools without enterprise complexity.",
+    "role": "Founder, Product Designer, UX Architect",
+    "process": [
+      "Workflow mapping with stakeholders",
+      "Dashboard and module design",
+      "Design system for data-heavy UI",
+      "Iterative prototyping"
+    ],
+    "results": [
+      "Modular dashboard architecture",
+      "Unified design language across modules",
+      "Reduced training time for operators"
+    ],
+    "gallery": ["/images/projects/erp.svg", "/images/placeholders/gallery-5.svg"],
+    "featured": true
+  },
+  {
+    "slug": "cinema-poster-series",
+    "title": "Cinema Poster Series",
+    "shortDescription": "Motion-inspired movie poster collection.",
+    "description": "Experimental poster designs blending typography and cinematic composition.",
+    "category": "Motion",
+    "status": "Completed",
+    "thumbnail": "/images/placeholders/poster.svg",
+    "tools": ["Photoshop", "Illustrator", "After Effects"],
+    "overview": "A personal series exploring film poster aesthetics and bold typographic treatments.",
+    "role": "Designer",
+    "process": ["Concept sketches", "Typography exploration", "Color grading", "Final compositing"],
+    "results": ["Portfolio-ready poster set", "Social engagement series"],
+    "gallery": ["/images/placeholders/poster.svg", "/images/placeholders/gallery-1.svg"],
+    "featured": false
+  },
+  {
+    "slug": "client-brand-refresh",
+    "title": "Client Brand Refresh",
+    "shortDescription": "External client identity modernization.",
+    "description": "Rebrand for a regional business — logo, stationery, and social templates.",
+    "category": "External Client Work",
+    "status": "Completed",
+    "thumbnail": "/images/placeholders/client.svg",
+    "tools": ["Figma", "Illustrator", "InDesign"],
+    "overview": "Strategic refresh to align an established brand with contemporary markets.",
+    "role": "Lead Graphic Designer",
+    "process": ["Brand audit", "Stakeholder workshops", "Identity design", "Guidelines delivery"],
+    "results": ["Approved identity system", "30+ template assets"],
+    "gallery": ["/images/placeholders/client.svg"],
+    "featured": false
+  }
+]

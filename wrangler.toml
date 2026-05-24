@@ -1,4 +1,4 @@
-# Cloudflare Pages — static site (no build step)
+# Cloudflare Pages — static export from Next.js (output: out/)
 name = "brkmb-portfolio"
 compatibility_date = "2025-05-01"
-pages_build_output_dir = "."
+pages_build_output_dir = "out"

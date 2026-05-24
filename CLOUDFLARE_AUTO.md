@@ -30,8 +30,9 @@ git push -u origin main
 | | |
 |--|--|
 | Production branch | `main` |
-| Build command | *(فارغ)* |
-| Build output | `.` |
+| Build command | `npm run build` |
+| Build output | `out` |
+| Node version | `20` |
 
 4. **Save and Deploy**
 

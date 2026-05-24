@@ -1,0 +1,40 @@
+{
+  "summary": "Graphic designer, founder, and product builder. I design premium brands, ship SaaS and mobile products, and lead creative direction from concept to launch.",
+  "education": {
+    "school": "Vistula University",
+    "degree": "Bachelor of Graphic Design"
+  },
+  "skills": [
+    "Graphic Design",
+    "Branding",
+    "UI/UX",
+    "Photoshop",
+    "Illustrator",
+    "Figma",
+    "Motion Design",
+    "Product Design",
+    "Founding",
+    "Creative Direction"
+  ],
+  "experience": [
+    {
+      "period": "2022 — Present",
+      "role": "Founder & Creative Director",
+      "company": "BRKMB / Independent Ventures",
+      "description": "Building BARYQ, Benou, BlinkOTP, ERP Desktop, and multiple SaaS products. Leading brand, UI, and product strategy."
+    },
+    {
+      "period": "2020 — 2022",
+      "role": "Senior Graphic Designer",
+      "company": "Freelance & Agency Clients",
+      "description": "Brand identity, campaigns, and UI for regional and international clients."
+    },
+    {
+      "period": "2018 — 2020",
+      "role": "Graphic Designer",
+      "company": "Creative Studio",
+      "description": "Print, digital, and social design across fashion, tech, and lifestyle brands."
+    }
+  ],
+  "cvDownloadUrl": "/cv/baher-cv.pdf"
+}

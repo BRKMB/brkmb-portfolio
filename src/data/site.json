@@ -1,0 +1,13 @@
+{
+  "name": "Baher (Joo)",
+  "tagline": "Graphic Designer • Founder • Product Builder",
+  "title": "BRKMB — Baher | Designer & Founder",
+  "description": "I design brands, build products, and turn ideas into real experiences. Premium digital headquarters of Baher — graphic designer, founder, and product builder.",
+  "email": "hello@brkmb.com",
+  "stats": [
+    { "label": "Projects Completed", "value": "48", "suffix": "+" },
+    { "label": "Brands Built", "value": "12", "suffix": "+" },
+    { "label": "Products Created", "value": "8", "suffix": "+" },
+    { "label": "Years of Experience", "value": "6", "suffix": "+" }
+  ]
+}

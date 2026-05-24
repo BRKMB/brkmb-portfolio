@@ -1,19 +1,52 @@
-# BRKMB Portfolio
+# BRKMB — Premium Personal Site
 
-Personal hub & portfolio for [brkmb.com](https://brkmb.com) — graphic design, SaaS, mobile apps, and ERP ventures.
+Digital headquarters for **Baher (Joo)** — Designer, Founder, Product Builder.
 
-Static site — deploy free on **Cloudflare Pages**. Full Arabic setup guide: [SETUP_AR.md](./SETUP_AR.md).
-
-## Local preview
-
-```bash
-cd ~/Projects/brkmb-portfolio
-python3 -m http.server 8080
-# open http://localhost:8080
-```
+**Live:** [brkmb.com](https://brkmb.com)
 
 ## Stack
 
-- HTML / CSS / JavaScript (no build step)
-- [FormSubmit](https://formsubmit.co) for free contact form
-- Cloudflare Pages recommended for hosting
+- Next.js 15 (App Router)
+- TypeScript
+- Tailwind CSS v4
+- Framer Motion
+- Static export → Cloudflare Pages (free)
+
+## Local dev
+
+```bash
+npm install
+npm run dev
+# http://localhost:3000
+```
+
+## Add content (no core code edits)
+
+Edit JSON in `src/data/`:
+
+| File | Content |
+|------|---------|
+| `site.json` | Name, tagline, stats, email |
+| `brands.json` | Ventures (BARYQ, Benou, …) |
+| `projects.json` | Project cards + case study pages |
+| `portfolio.json` | Masonry gallery items |
+| `timeline.json` | Currently building section |
+| `about.json` | About copy + role cards |
+| `contact.json` | Social links |
+| `resume.json` | CV / experience |
+
+Add images to `public/images/`.
+
+## Deploy (auto via Git)
+
+Push to `main` → Cloudflare Pages rebuilds.
+
+**Build settings:**
+
+| Field | Value |
+|-------|--------|
+| Build command | `npm run build` |
+| Output directory | `out` |
+| Node version | 20+ |
+
+See [CLOUDFLARE_AUTO.md](./CLOUDFLARE_AUTO.md).

@@ -1,8 +1,10 @@
 .DS_Store
-Archive.zip
 node_modules/
+.next/
+out/
 .wrangler/
 .dev.vars
 *.log
 .env
 .env.*
+Archive.zip
