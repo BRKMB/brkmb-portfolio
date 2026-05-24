@@ -19,6 +19,7 @@ export interface DesignImageBlock extends DesignBlockBase {
 export interface DesignTextBlock extends DesignBlockBase {
   type: "text";
   content: string;
+  href?: string;
   align?: TextAlign;
   color?: string;
   fontSize?: TextSize;

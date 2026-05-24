@@ -2,12 +2,130 @@
   "profile": "https://www.behance.net/baher-bottros",
   "note": "Oldest first (bottom of Behance grid = published earliest). Import index 0 is next.",
   "imported": [
+    "b3e-perfume-logo-design",
+    "baristas-caf-logo-design",
+    "elwadi-mall-website-design",
+    "farouk-pasha-corner",
+    "pollo-planet-restaurant-logo-design",
+    "muizz-street",
+    "nature-session-short-footage",
+    "2-soul-rose",
+    "stay-in-your-right-place-to-rise",
+    "lord-of-rings",
+    "sun-rose",
+    "slo-mo-free-bird",
     "pre-tea-packaging-logo-design",
-    "port-hapi-manipulation"
+    "port-hapi-manipulation",
+    "cinematic-nature-shot",
+    "hope-movie-poster-design",
+    "insurance-company-manipulation-ad",
+    "sok-juice-logo-ad-design",
+    "bit-airlines-logo-design",
+    "new-egyptian-passport-design",
+    "media-illusion",
+    "nescafe-gold-blend-ad-design",
+    "mcdonalds-advertisements",
+    "gap-re-branding"
   ],
   "projects": [
     {
       "order": 1,
+      "title": "B3E Perfume Logo Design",
+      "slug": "b3e-perfume-logo-design",
+      "galleryId": 127142319,
+      "url": "https://www.behance.net/gallery/127142319/B3E-Perfume-Logo-Design",
+      "status": "imported"
+    },
+    {
+      "order": 2,
+      "title": "Baristas Caf Logo Design",
+      "slug": "baristas-caf-logo-design",
+      "galleryId": 127064501,
+      "url": "https://www.behance.net/gallery/127064501/Baristas-Caf-Logo-Design",
+      "status": "imported"
+    },
+    {
+      "order": 3,
+      "title": "ELWADI MALL Website Design",
+      "slug": "elwadi-mall-website-design",
+      "galleryId": 127062567,
+      "url": "https://www.behance.net/gallery/127062567/ELWADI-MALL-Website-Design",
+      "status": "imported"
+    },
+    {
+      "order": 4,
+      "title": "Farouk Pasha Corner",
+      "slug": "farouk-pasha-corner",
+      "galleryId": 124128653,
+      "url": "https://www.behance.net/gallery/124128653/Farouk-Pasha-Corner",
+      "status": "imported"
+    },
+    {
+      "order": 5,
+      "title": "Pollo Planet Restaurant Logo Design",
+      "slug": "pollo-planet-restaurant-logo-design",
+      "galleryId": 124073461,
+      "url": "https://www.behance.net/gallery/124073461/Pollo-Planet-Restaurant-Logo-Design",
+      "status": "imported"
+    },
+    {
+      "order": 6,
+      "title": "Muizz Street",
+      "slug": "muizz-street",
+      "galleryId": 109430527,
+      "url": "https://www.behance.net/gallery/109430527/Muizz-Street",
+      "status": "imported"
+    },
+    {
+      "order": 7,
+      "title": "NATURE SESSION SHORT FOOTAGE",
+      "slug": "nature-session-short-footage",
+      "galleryId": 107778681,
+      "url": "https://www.behance.net/gallery/107778681/NATURE-SESSION-SHORT-FOOTAGE",
+      "status": "imported"
+    },
+    {
+      "order": 8,
+      "title": "2 Soul Rose",
+      "slug": "2-soul-rose",
+      "galleryId": 105875455,
+      "url": "https://www.behance.net/gallery/105875455/2-Soul-Rose",
+      "status": "imported"
+    },
+    {
+      "order": 9,
+      "title": "Stay in your right place to Rise",
+      "slug": "stay-in-your-right-place-to-rise",
+      "galleryId": 105875231,
+      "url": "https://www.behance.net/gallery/105875231/Stay-in-your-right-place-to-Rise",
+      "status": "imported"
+    },
+    {
+      "order": 10,
+      "title": "Lord of Rings",
+      "slug": "lord-of-rings",
+      "galleryId": 105873183,
+      "url": "https://www.behance.net/gallery/105873183/Lord-of-Rings",
+      "status": "imported"
+    },
+    {
+      "order": 11,
+      "title": "Sun Rose",
+      "slug": "sun-rose",
+      "galleryId": 105873019,
+      "url": "https://www.behance.net/gallery/105873019/Sun-Rose",
+      "status": "imported"
+    },
+    {
+      "order": 12,
+      "title": "Slo Mo Free Bird",
+      "slug": "slo-mo-free-bird",
+      "galleryId": 105797069,
+      "url": "https://www.behance.net/gallery/105797069/Slo-Mo-Free-Bird",
+      "status": "imported"
+    },
+    {
+      "order": 13,
       "title": "Pre Tea - Packaging & Logo Design",
       "slug": "pre-tea-packaging-logo-design",
       "galleryId": 128220721,
@@ -16,7 +134,7 @@
       "status": "imported"
     },
     {
-      "order": 2,
+      "order": 14,
       "title": "Port Hapi - Manipulation",
       "slug": "port-hapi-manipulation",
       "galleryId": 128573121,
@@ -25,84 +143,84 @@
       "published": "2021-10-03"
     },
     {
-      "order": 3,
+      "order": 15,
       "title": "Cinematic Nature Shot - Trying Neural Filter",
       "slug": "cinematic-nature-shot",
       "galleryId": 128793951,
       "url": "https://www.behance.net/gallery/128793951/Cinematic-Nature-Shot-Trying-Neural-Filter",
-      "status": "pending"
+      "status": "imported"
     },
     {
-      "order": 4,
+      "order": 16,
       "title": "HOPE - Movie Poster Design",
       "slug": "hope-movie-poster-design",
       "galleryId": 129064439,
       "url": "https://www.behance.net/gallery/129064439/HOPE-Movie-Poster-Design",
-      "status": "pending"
+      "status": "imported"
     },
     {
-      "order": 5,
+      "order": 17,
       "title": "Insurance Company - Manipulation AD Design",
       "slug": "insurance-company-manipulation-ad",
       "galleryId": 129214199,
       "url": "https://www.behance.net/gallery/129214199/Insurance-Company-Manipulation-AD-Design",
-      "status": "pending"
+      "status": "imported"
     },
     {
-      "order": 6,
+      "order": 18,
       "title": "SöK Juice - Logo & AD Design",
       "slug": "sok-juice-logo-ad-design",
       "galleryId": 129643627,
       "url": "https://www.behance.net/gallery/129643627/SoeK-Juice-Logo-AD-Design",
-      "status": "pending"
+      "status": "imported"
     },
     {
-      "order": 7,
+      "order": 19,
       "title": "BIT AIRLINES - LOGO DESIGN",
       "slug": "bit-airlines-logo-design",
       "galleryId": 139296863,
       "url": "https://www.behance.net/gallery/139296863/BIT-AIRLINES-LOGO-DESIGN",
-      "status": "pending"
+      "status": "imported"
     },
     {
-      "order": 8,
+      "order": 20,
       "title": "New Egyptian Passport Design!",
       "slug": "new-egyptian-passport-design",
       "galleryId": 143898315,
       "url": "https://www.behance.net/gallery/143898315/New-Egyptian-Passport-Design",
-      "status": "pending"
+      "status": "imported"
     },
     {
-      "order": 9,
+      "order": 21,
       "title": "MEDIA ILLUSION",
       "slug": "media-illusion",
-      "galleryId": null,
-      "url": null,
-      "status": "pending"
+      "galleryId": 160908207,
+      "url": "https://www.behance.net/gallery/160908207/MEDIA-ILLUSION",
+      "status": "imported"
     },
     {
-      "order": 10,
+      "order": 22,
       "title": "Nescafe Gold Blend - AD Design",
       "slug": "nescafe-gold-blend-ad-design",
       "galleryId": 179053187,
       "url": "https://www.behance.net/gallery/179053187/Nescafe-Gold-Blend-AD-Design",
-      "status": "pending"
+      "status": "imported"
     },
     {
-      "order": 11,
+      "order": 23,
       "title": "McDonald's Advertisements",
       "slug": "mcdonalds-advertisements",
-      "galleryId": null,
-      "url": null,
-      "status": "pending"
+      "galleryId": 179496517,
+      "url": "https://www.behance.net/gallery/179496517/McDonalds-Advertisements",
+      "status": "imported"
     },
     {
-      "order": 12,
+      "order": 24,
       "title": "GAP Re-Branding",
       "slug": "gap-re-branding",
-      "galleryId": null,
-      "url": null,
-      "status": "pending"
+      "galleryId": 179609151,
+      "url": "https://www.behance.net/gallery/179609151/GAP-Re-Branding",
+      "status": "imported"
     }
   ]
 }

@@ -1,42 +1,796 @@
 [
   {
+    "id": "behance-127142319",
+    "slug": "b3e-perfume-logo-design",
+    "title": "B3E Perfume - Logo Design",
+    "category": "Graphic design",
+    "image": "/images/behance/b3e-perfume-logo-design/thumb.jpg",
+    "description": "B3E Perfume - Logo Design",
+    "overview": "B3E Perfume - Logo Design",
+    "role": "Design",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "Advertising ",
+      "B3E Perfume - Logo Design",
+      "brand identity",
+      "graphic design ",
+      "Logo Design",
+      "logos",
+      "marketing  ",
+      "packaging design",
+      "perfume",
+      "perfume logo"
+    ],
+    "year": "2020",
+    "styleDefaults": {
+      "pageBackground": "#000000"
+    },
+    "blocks": [
+      {
+        "id": "b3e-perfume-logo-design-0-img",
+        "type": "image",
+        "src": "/images/behance/b3e-perfume-logo-design/cover.jpg"
+      },
+      {
+        "id": "b3e-perfume-logo-design-1-txt",
+        "type": "text",
+        "content": "B3E Perfume - Logo Design",
+        "align": "center",
+        "color": "#FF7E7E",
+        "fontSize": "md"
+      },
+      {
+        "id": "b3e-perfume-logo-design-2-img",
+        "type": "image",
+        "src": "/images/behance/b3e-perfume-logo-design/01.jpg"
+      },
+      {
+        "id": "b3e-perfume-logo-design-3-img",
+        "type": "image",
+        "src": "/images/behance/b3e-perfume-logo-design/02.jpg"
+      },
+      {
+        "id": "b3e-perfume-logo-design-4-img",
+        "type": "image",
+        "src": "/images/behance/b3e-perfume-logo-design/03.jpg"
+      }
+    ]
+  },
+  {
+    "id": "behance-127064501",
+    "slug": "baristas-caf-logo-design",
+    "title": "Baristas Café - Logo Design",
+    "category": "Graphic design",
+    "image": "/images/behance/baristas-caf-logo-design/thumb.jpg",
+    "description": "Baristas Café - Logo Design",
+    "overview": "Baristas Café - Logo Design",
+    "role": "Design",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "brand",
+      "brand identity",
+      "branding ",
+      "cafe",
+      "coffe shop",
+      "Coffee",
+      "design",
+      "logo",
+      "Mockup",
+      "Packaging"
+    ],
+    "year": "2020",
+    "styleDefaults": {
+      "pageBackground": "#000000"
+    },
+    "blocks": [
+      {
+        "id": "baristas-caf-logo-design-0-img",
+        "type": "image",
+        "src": "/images/behance/baristas-caf-logo-design/cover.jpg",
+        "alt": "Image may contain: table, waste container and sitting"
+      }
+    ]
+  },
+  {
+    "id": "behance-127062567",
+    "slug": "elwadi-mall-website-design",
+    "title": "ELWADI MALL - Website Design",
+    "category": "Graphic design",
+    "image": "/images/behance/elwadi-mall-website-design/thumb.jpg",
+    "description": "ELWADI MALL - Website Design",
+    "overview": "ELWADI MALL - Website Design",
+    "role": "Design",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "css",
+      "fancy",
+      "HTML",
+      "JavaScript",
+      "UI",
+      "ui design",
+      "UI/UX",
+      "user interface",
+      "Web",
+      "Website Design"
+    ],
+    "year": "2020",
+    "styleDefaults": {
+      "pageBackground": "#000000"
+    },
+    "blocks": [
+      {
+        "id": "elwadi-mall-website-design-0-img",
+        "type": "image",
+        "src": "/images/behance/elwadi-mall-website-design/cover.jpg",
+        "alt": "Image may contain: screenshot and indoor"
+      },
+      {
+        "id": "elwadi-mall-website-design-1-img",
+        "type": "image",
+        "src": "/images/behance/elwadi-mall-website-design/01.jpg",
+        "alt": "Image may contain: screenshot and indoor"
+      },
+      {
+        "id": "elwadi-mall-website-design-2-txt",
+        "type": "text",
+        "content": "www.ELWADIMALL.com",
+        "href": "http://www.ELWADIMALL.com",
+        "align": "center",
+        "color": "#FFDC00",
+        "fontSize": "md"
+      }
+    ]
+  },
+  {
+    "id": "behance-124128653",
+    "slug": "farouk-pasha-corner",
+    "title": "Farouk Pasha Corner",
+    "category": "Graphic design",
+    "image": "/images/behance/farouk-pasha-corner/thumb.jpg",
+    "description": "Farouk Pasha Corner",
+    "overview": "Farouk Pasha Corner",
+    "role": "Design",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "colorful",
+      "egypt",
+      "history",
+      "museum",
+      "PHARAONIC",
+      "Photography ",
+      "photoshop",
+      "portrait",
+      "statues"
+    ],
+    "year": "2020",
+    "styleDefaults": {
+      "pageBackground": "#000000"
+    },
+    "blocks": [
+      {
+        "id": "farouk-pasha-corner-0-txt",
+        "type": "text",
+        "content": "Any attempt to take this Photos will expose itself to legal accountability...!!",
+        "align": "center",
+        "color": "#FFFFFF",
+        "fontSize": "md"
+      },
+      {
+        "id": "farouk-pasha-corner-1-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/cover.jpg",
+        "alt": "Image may contain: human face, statue and indoor"
+      },
+      {
+        "id": "farouk-pasha-corner-2-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/01.jpg",
+        "alt": "Image may contain: statue, indoor and human face"
+      },
+      {
+        "id": "farouk-pasha-corner-3-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/02.jpg",
+        "alt": "Image may contain: indoor and wall"
+      },
+      {
+        "id": "farouk-pasha-corner-4-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/03.jpg",
+        "alt": "Image may contain: clock"
+      },
+      {
+        "id": "farouk-pasha-corner-5-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/04.jpg",
+        "alt": "Image may contain: indoor, church and wooden"
+      },
+      {
+        "id": "farouk-pasha-corner-6-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/05.jpg",
+        "alt": "Image may contain: wall, clock and indoor"
+      },
+      {
+        "id": "farouk-pasha-corner-7-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/06.jpg",
+        "alt": "Image may contain: wall, indoor and museum"
+      },
+      {
+        "id": "farouk-pasha-corner-8-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/07.jpg"
+      },
+      {
+        "id": "farouk-pasha-corner-9-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/08.jpg",
+        "alt": "Image may contain: indoor"
+      },
+      {
+        "id": "farouk-pasha-corner-10-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/09.jpg",
+        "alt": "Image may contain: painting, wall and human face"
+      },
+      {
+        "id": "farouk-pasha-corner-11-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/10.jpg"
+      },
+      {
+        "id": "farouk-pasha-corner-12-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/11.jpg",
+        "alt": "Image may contain: statue, human face and indoor"
+      },
+      {
+        "id": "farouk-pasha-corner-13-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/12.jpg",
+        "alt": "Image may contain: ship, indoor and table"
+      },
+      {
+        "id": "farouk-pasha-corner-14-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/13.jpg",
+        "alt": "Image may contain: indoor and bird"
+      },
+      {
+        "id": "farouk-pasha-corner-15-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/14.jpg",
+        "alt": "Image may contain: wall, indoor and painting"
+      },
+      {
+        "id": "farouk-pasha-corner-16-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/15.jpg",
+        "alt": "Image may contain: wedding dress, bride and person"
+      },
+      {
+        "id": "farouk-pasha-corner-17-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/16.jpg",
+        "alt": "Image may contain: shoji, statue and building"
+      },
+      {
+        "id": "farouk-pasha-corner-18-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/17.jpg",
+        "alt": "Image may contain: indoor and statue"
+      },
+      {
+        "id": "farouk-pasha-corner-19-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/18.jpg",
+        "alt": "Image may contain: outdoor, street light and candle"
+      },
+      {
+        "id": "farouk-pasha-corner-20-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/19.jpg",
+        "alt": "Image may contain: painting and picture frame"
+      },
+      {
+        "id": "farouk-pasha-corner-21-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/20.jpg",
+        "alt": "Image may contain: furniture, piano and indoor"
+      },
+      {
+        "id": "farouk-pasha-corner-22-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/21.jpg",
+        "alt": "Image may contain: floor, furniture and indoor"
+      },
+      {
+        "id": "farouk-pasha-corner-23-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/22.jpg",
+        "alt": "Image may contain: plant, flower and bouquet"
+      },
+      {
+        "id": "farouk-pasha-corner-24-img",
+        "type": "image",
+        "src": "/images/behance/farouk-pasha-corner/23.jpg",
+        "alt": "Image may contain: flower and plant"
+      }
+    ]
+  },
+  {
+    "id": "behance-124073461",
+    "slug": "pollo-planet-restaurant-logo-design",
+    "title": "Pollo Planet Restaurant - Logo Design",
+    "category": "Graphic design",
+    "image": "/images/behance/pollo-planet-restaurant-logo-design/thumb.jpg",
+    "description": "Pollo Planet Restaurant - Logo Design",
+    "overview": "Pollo Planet Restaurant - Logo Design",
+    "role": "Design",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "brand",
+      "burger",
+      "chicken",
+      "franchising",
+      "logo",
+      "Mockup",
+      "planet",
+      "pollo",
+      "restaurant"
+    ],
+    "year": "2020",
+    "styleDefaults": {
+      "pageBackground": "#000000"
+    },
+    "blocks": [
+      {
+        "id": "pollo-planet-restaurant-logo-design-0-img",
+        "type": "image",
+        "src": "/images/behance/pollo-planet-restaurant-logo-design/cover.jpg"
+      },
+      {
+        "id": "pollo-planet-restaurant-logo-design-1-img",
+        "type": "image",
+        "src": "/images/behance/pollo-planet-restaurant-logo-design/01.jpg"
+      },
+      {
+        "id": "pollo-planet-restaurant-logo-design-2-img",
+        "type": "image",
+        "src": "/images/behance/pollo-planet-restaurant-logo-design/02.jpg"
+      },
+      {
+        "id": "pollo-planet-restaurant-logo-design-3-img",
+        "type": "image",
+        "src": "/images/behance/pollo-planet-restaurant-logo-design/03.jpg"
+      },
+      {
+        "id": "pollo-planet-restaurant-logo-design-4-img",
+        "type": "image",
+        "src": "/images/behance/pollo-planet-restaurant-logo-design/04.jpg"
+      },
+      {
+        "id": "pollo-planet-restaurant-logo-design-5-img",
+        "type": "image",
+        "src": "/images/behance/pollo-planet-restaurant-logo-design/05.jpg"
+      },
+      {
+        "id": "pollo-planet-restaurant-logo-design-6-img",
+        "type": "image",
+        "src": "/images/behance/pollo-planet-restaurant-logo-design/06.jpg"
+      },
+      {
+        "id": "pollo-planet-restaurant-logo-design-7-img",
+        "type": "image",
+        "src": "/images/behance/pollo-planet-restaurant-logo-design/07.jpg"
+      },
+      {
+        "id": "pollo-planet-restaurant-logo-design-8-img",
+        "type": "image",
+        "src": "/images/behance/pollo-planet-restaurant-logo-design/08.jpg"
+      },
+      {
+        "id": "pollo-planet-restaurant-logo-design-9-img",
+        "type": "image",
+        "src": "/images/behance/pollo-planet-restaurant-logo-design/09.jpg"
+      },
+      {
+        "id": "pollo-planet-restaurant-logo-design-10-txt",
+        "type": "text",
+        "content": "Totally Designed by: Baher Bottros\nAny attempt to take this design will expose itself to legal accountability..!!",
+        "align": "center",
+        "color": "#FFFFFF",
+        "fontSize": "md"
+      }
+    ]
+  },
+  {
+    "id": "behance-109430527",
+    "slug": "muizz-street",
+    "title": "Muizz Street",
+    "category": "Graphic design",
+    "image": "/images/behance/muizz-street/thumb.jpg",
+    "description": "Muizz Street",
+    "overview": "Muizz Street",
+    "role": "Design",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "Ancient",
+      "Baher Bottros",
+      "colors",
+      "fullcolor",
+      "islam",
+      "muizz",
+      "Photography ",
+      "retouching ",
+      "المعز",
+      "خان الخليلي"
+    ],
+    "year": "2020",
+    "styleDefaults": {
+      "pageBackground": "#000000"
+    },
+    "blocks": [
+      {
+        "id": "muizz-street-0-img",
+        "type": "image",
+        "src": "/images/behance/muizz-street/cover.jpg",
+        "alt": "Image may contain: sky, tower and outdoor"
+      },
+      {
+        "id": "muizz-street-1-img",
+        "type": "image",
+        "src": "/images/behance/muizz-street/01.jpg",
+        "alt": "Image may contain: outdoor, sky and tower"
+      },
+      {
+        "id": "muizz-street-2-img",
+        "type": "image",
+        "src": "/images/behance/muizz-street/02.jpg",
+        "alt": "Image may contain: light"
+      },
+      {
+        "id": "muizz-street-3-img",
+        "type": "image",
+        "src": "/images/behance/muizz-street/03.jpg",
+        "alt": "Image may contain: building and outdoor"
+      },
+      {
+        "id": "muizz-street-4-img",
+        "type": "image",
+        "src": "/images/behance/muizz-street/04.jpg",
+        "alt": "Image may contain: different"
+      },
+      {
+        "id": "muizz-street-5-img",
+        "type": "image",
+        "src": "/images/behance/muizz-street/05.jpg"
+      }
+    ]
+  },
+  {
+    "id": "behance-107778681",
+    "slug": "nature-session-short-footage",
+    "title": "NATURE SESSION + SHORT FOOTAGE",
+    "category": "Graphic design",
+    "image": "/images/behance/nature-session-short-footage/thumb.jpg",
+    "description": "NATURE SESSION + SHORT FOOTAGE",
+    "overview": "NATURE SESSION + SHORT FOOTAGE",
+    "role": "Design",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "Baher",
+      "birds",
+      "blues",
+      "Greens",
+      "Nature",
+      "river",
+      "session",
+      "short footage",
+      "Sun",
+      "water"
+    ],
+    "year": "2021",
+    "styleDefaults": {
+      "pageBackground": "#000000"
+    },
+    "blocks": [
+      {
+        "id": "nature-session-short-footage-0-txt",
+        "type": "text",
+        "content": "NATURE SHOT",
+        "align": "center",
+        "color": "#FFFFFF",
+        "fontSize": "md"
+      },
+      {
+        "id": "nature-session-short-footage-1-img",
+        "type": "image",
+        "src": "/images/behance/nature-session-short-footage/cover.jpg",
+        "alt": "Image may contain: bird, sitting and perched"
+      },
+      {
+        "id": "nature-session-short-footage-2-txt",
+        "type": "text",
+        "content": "SHORT FOOTAGE",
+        "align": "center",
+        "color": "#FFFFFF",
+        "fontSize": "md"
+      },
+      {
+        "id": "nature-session-short-footage-3-embed",
+        "type": "embed",
+        "url": "https://www-ccv.adobe.io/v1/player/ccv/IppFvPjdrC9/embed?api_key=behance1&bgcolor=%23191919"
+      }
+    ]
+  },
+  {
+    "id": "behance-105875455",
+    "slug": "2-soul-rose",
+    "title": "2 Soul Rose",
+    "category": "Graphic design",
+    "image": "/images/behance/2-soul-rose/thumb.jpg",
+    "description": "2 Soul Rose",
+    "overview": "2 Soul Rose",
+    "role": "Design",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "Baher",
+      "Canon",
+      "edit",
+      "flower",
+      "Greens",
+      "Nature",
+      "Outdoor",
+      "Photography ",
+      "rose",
+      "Sun"
+    ],
+    "year": "2020",
+    "styleDefaults": {
+      "pageBackground": "#FFFFFF"
+    },
+    "blocks": [
+      {
+        "id": "2-soul-rose-0-img",
+        "type": "image",
+        "src": "/images/behance/2-soul-rose/cover.jpg",
+        "alt": "Image may contain: plant, flower and outdoor"
+      }
+    ]
+  },
+  {
+    "id": "behance-105875231",
+    "slug": "stay-in-your-right-place-to-rise",
+    "title": "Stay in your right place to Rise",
+    "category": "Graphic design",
+    "image": "/images/behance/stay-in-your-right-place-to-rise/thumb.jpg",
+    "description": "Stay in your right place to Rise",
+    "overview": "Stay in your right place to Rise",
+    "role": "Design",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "Baher",
+      "Canon",
+      "FLOOR",
+      "Flowers",
+      "Outdoor",
+      "Photography ",
+      "rise",
+      "Roses",
+      "sand",
+      "Sun"
+    ],
+    "year": "2020",
+    "styleDefaults": {
+      "pageBackground": "#FFFFFF"
+    },
+    "blocks": [
+      {
+        "id": "stay-in-your-right-place-to-rise-0-img",
+        "type": "image",
+        "src": "/images/behance/stay-in-your-right-place-to-rise/cover.jpg",
+        "alt": "Image may contain: ground, outdoor and plant"
+      }
+    ]
+  },
+  {
+    "id": "behance-105873183",
+    "slug": "lord-of-rings",
+    "title": "Lord of Rings",
+    "category": "Graphic design",
+    "image": "/images/behance/lord-of-rings/thumb.jpg",
+    "description": "Lord of Rings",
+    "overview": "Lord of Rings",
+    "role": "Design",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "Flowers",
+      "Lord of Rings",
+      "Outdoor",
+      "Photography ",
+      "Roses",
+      "Sun"
+    ],
+    "year": "2020",
+    "styleDefaults": {
+      "pageBackground": "#FFFFFF"
+    },
+    "blocks": [
+      {
+        "id": "lord-of-rings-0-img",
+        "type": "image",
+        "src": "/images/behance/lord-of-rings/cover.jpg"
+      }
+    ]
+  },
+  {
+    "id": "behance-105873019",
+    "slug": "sun-rose",
+    "title": "Sun Rose",
+    "category": "Graphic design",
+    "image": "/images/behance/sun-rose/thumb.jpg",
+    "description": "Sun Rose",
+    "overview": "Sun Rose",
+    "role": "Design",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "Canon",
+      "flower",
+      "Flowers",
+      "Outdoor",
+      "Photography ",
+      "Roses",
+      "Sun",
+      "Sun Rose"
+    ],
+    "year": "2020",
+    "styleDefaults": {
+      "pageBackground": "#FFFFFF"
+    },
+    "blocks": [
+      {
+        "id": "sun-rose-0-img",
+        "type": "image",
+        "src": "/images/behance/sun-rose/cover.jpg"
+      },
+      {
+        "id": "sun-rose-1-txt",
+        "type": "text",
+        "content": "SUN ROSE",
+        "align": "center",
+        "color": "rgba(255,255,255,0.92)",
+        "fontSize": "md"
+      }
+    ]
+  },
+  {
+    "id": "behance-105797069",
+    "slug": "slo-mo-free-bird",
+    "title": "Slo-Mo Free Bird",
+    "category": "Graphic design",
+    "image": "/images/behance/slo-mo-free-bird/thumb.jpg",
+    "description": "Slo-Mo Free Bird",
+    "overview": "Slo-Mo Free Bird",
+    "role": "Design",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "90D",
+      "Baher",
+      "bird",
+      "Canon",
+      "eos",
+      "freedom",
+      "Photography ",
+      "slo-mo",
+      "Slo-Mo Free Bird",
+      "videography"
+    ],
+    "year": "2021",
+    "styleDefaults": {
+      "pageBackground": "#FFFFFF"
+    },
+    "blocks": [
+      {
+        "id": "slo-mo-free-bird-0-txt",
+        "type": "text",
+        "content": "Slo-Mo Free Bird",
+        "align": "center",
+        "color": "#B60000",
+        "fontSize": "md"
+      },
+      {
+        "id": "slo-mo-free-bird-1-embed",
+        "type": "embed",
+        "url": "https://www-ccv.adobe.io/v1/player/ccv/Na9NREiXway/embed?api_key=behance1&bgcolor=%23191919"
+      }
+    ]
+  },
+  {
     "id": "behance-128220721",
     "slug": "pre-tea-packaging-logo-design",
     "title": "Pre Tea - Packaging & Logo Design",
     "category": "Packaging",
-    "image": "/images/behance/pre-tea/cover.jpg",
-    "description": "Logo and packaging design for a tea café — brand identity, visual system, and product application.",
-    "overview": "Pre Tea explores a warm café aesthetic through logo construction, packaging layouts, and visual applications for a tea brand. Creative fields: Graphic Design, Illustration, Product Design.",
+    "image": "/images/behance/pre-tea-packaging-logo-design/thumb.png",
+    "description": "Pre Tea - Packaging & Logo Design",
+    "overview": "Pre Tea - Packaging & Logo Design",
     "role": "Art direction, logo design, packaging",
-    "tools": ["Photoshop", "Illustrator"],
-    "tags": ["brand identity", "cafe", "Logo Design", "Packaging", "tea", "visual"],
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "brand identity",
+      "cafe",
+      "Logo Design",
+      "Packaging",
+      "tea",
+      "visual"
+    ],
     "year": "2021",
+    "styleDefaults": {
+      "pageBackground": "#070F13"
+    },
     "blocks": [
       {
-        "id": "pre-tea-img-cover",
+        "id": "pre-tea-packaging-logo-design-0-img",
         "type": "image",
-        "src": "/images/behance/pre-tea/cover.jpg",
-        "alt": "Pre Tea packaging and logo design"
+        "src": "/images/behance/pre-tea-packaging-logo-design/cover.jpg",
+        "alt": "Image may contain: screenshot and cartoon"
       },
       {
-        "id": "pre-tea-txt-intro",
+        "id": "pre-tea-packaging-logo-design-1-txt",
         "type": "text",
-        "content": "Packaging and logo design for Pre Tea — a café-oriented tea brand. Identity exploration, logo lockups, and packaging mockups.\n\nPublished September 2021 on Behance.",
-        "align": "left",
-        "color": "rgba(255,255,255,0.92)",
-        "fontSize": "lg"
+        "content": "© 2021 Baher Rody - CEO of ADZology  -  All Rights Reserved. ©",
+        "align": "center",
+        "color": "#FF2020",
+        "fontSize": "md"
       },
       {
-        "id": "pre-tea-img-01",
-        "type": "image",
-        "src": "/images/behance/pre-tea/01.jpg",
-        "alt": "Pre Tea brand application"
-      },
-      {
-        "id": "pre-tea-img-02",
-        "type": "image",
-        "src": "/images/behance/pre-tea/02.jpg",
-        "alt": "Pre Tea packaging detail"
+        "id": "pre-tea-packaging-logo-design-2-txt",
+        "type": "text",
+        "content": "Steps",
+        "href": "https://vm.tiktok.com/ZM8JpB6wo/",
+        "align": "center",
+        "color": "#FF2020",
+        "fontSize": "md"
       }
     ]
   },
@@ -44,64 +798,925 @@
     "id": "behance-128573121",
     "slug": "port-hapi-manipulation",
     "title": "Port Hapi - Manipulation",
-    "category": "Graphic design",
-    "image": "/images/behance/port-hapi-manipulation/cover.jpg",
-    "description": "Photo manipulation celebrating Port Said — compositing, color grading, and cinematic atmosphere.",
-    "overview": "A personal manipulation piece inspired by Port Said (Port Hapi), blending photography and digital compositing in Photoshop. Published October 2021.",
-    "role": "Photography, photo manipulation, art direction",
-    "tools": ["Photoshop"],
-    "tags": ["manipulation", "photography", "Port Said", "composite", "visual"],
+    "category": "Photo manipulation",
+    "image": "/images/behance/port-hapi-manipulation/thumb.jpg",
+    "description": "Port Hapi - Manipulation",
+    "overview": "Port Hapi - Manipulation",
+    "role": "Photo manipulation",
+    "tools": [
+      "Photoshop"
+    ],
+    "tags": [
+      "bird",
+      "egypt",
+      "manipulation",
+      "nile",
+      "Photography ",
+      "pirates",
+      "pyramids",
+      "river",
+      "ship",
+      "water"
+    ],
     "year": "2021",
+    "styleDefaults": {
+      "pageBackground": "#000000"
+    },
     "blocks": [
       {
-        "id": "port-hapi-cover",
+        "id": "port-hapi-manipulation-0-img",
         "type": "image",
         "src": "/images/behance/port-hapi-manipulation/cover.jpg",
-        "alt": "Port Hapi manipulation"
+        "alt": "Image may contain: screenshot and poster"
       },
       {
-        "id": "port-hapi-intro",
-        "type": "text",
-        "content": "Port Hapi — a photo manipulation tribute to Port Said. Built from layered composites, lighting, and color work in Photoshop.\n\nPublished October 2021 on Behance.",
-        "align": "left",
-        "color": "rgba(255,255,255,0.92)",
-        "fontSize": "lg"
-      },
-      {
-        "id": "port-hapi-01",
+        "id": "port-hapi-manipulation-1-img",
         "type": "image",
         "src": "/images/behance/port-hapi-manipulation/01.jpg",
-        "alt": "Port Hapi detail"
+        "alt": "Image may contain: water, ship and sky"
       },
       {
-        "id": "port-hapi-02",
+        "id": "port-hapi-manipulation-2-img",
         "type": "image",
         "src": "/images/behance/port-hapi-manipulation/02.jpg",
-        "alt": "Port Hapi composite"
+        "alt": "Image may contain: outdoor, water and sky"
       },
       {
-        "id": "port-hapi-03",
+        "id": "port-hapi-manipulation-3-img",
         "type": "image",
         "src": "/images/behance/port-hapi-manipulation/03.jpg",
-        "alt": "Port Hapi scene"
+        "alt": "Image may contain: water, bird and cloud"
       },
       {
-        "id": "port-hapi-04",
+        "id": "port-hapi-manipulation-4-img",
         "type": "image",
-        "src": "/images/behance/port-hapi-manipulation/04.png",
-        "alt": "Port Hapi graphic"
+        "src": "/images/behance/port-hapi-manipulation/04.png"
       },
       {
-        "id": "port-hapi-05",
+        "id": "port-hapi-manipulation-5-img",
         "type": "image",
-        "src": "/images/behance/port-hapi-manipulation/05.jpg",
-        "alt": "Port Hapi finish"
+        "src": "/images/behance/port-hapi-manipulation/05.jpg"
       },
       {
-        "id": "port-hapi-06",
+        "id": "port-hapi-manipulation-6-img",
         "type": "image",
-        "src": "/images/behance/port-hapi-manipulation/06.gif",
-        "alt": "Port Hapi process animation"
+        "src": "/images/behance/port-hapi-manipulation/06.gif"
+      },
+      {
+        "id": "port-hapi-manipulation-7-txt",
+        "type": "text",
+        "content": "ADZOLOGY Social Links",
+        "align": "center",
+        "color": "#FF5656",
+        "fontSize": "md"
+      }
+    ]
+  },
+  {
+    "id": "behance-128793951",
+    "slug": "cinematic-nature-shot",
+    "title": "Cinematic Nature Shot - Trying Neural Filter",
+    "category": "Photography",
+    "image": "/images/behance/cinematic-nature-shot/thumb.jpg",
+    "description": "Cinematic Nature Shot - Trying Neural Filter",
+    "overview": "Cinematic Nature Shot - Trying Neural Filter",
+    "role": "Photography, retouching",
+    "tools": [
+      "Photoshop"
+    ],
+    "tags": [
+      "egypt",
+      "Landscape",
+      "Nature",
+      "Photography ",
+      "sea",
+      "SKY",
+      "sunset",
+      "Travel",
+      "Tree ",
+      "water"
+    ],
+    "year": "2021",
+    "styleDefaults": {
+      "pageBackground": "#000000"
+    },
+    "blocks": [
+      {
+        "id": "cinematic-nature-shot-0-txt",
+        "type": "text",
+        "content": "BEFORE EDIT",
+        "align": "center",
+        "color": "#FFFFFF",
+        "fontSize": "md"
+      },
+      {
+        "id": "cinematic-nature-shot-1-img",
+        "type": "image",
+        "src": "/images/behance/cinematic-nature-shot/cover.jpg",
+        "alt": "Image may contain: sky, outdoor and ship"
+      },
+      {
+        "id": "cinematic-nature-shot-2-txt",
+        "type": "text",
+        "content": "AFTER EDIT",
+        "align": "center",
+        "color": "#FFFFFF",
+        "fontSize": "md"
+      },
+      {
+        "id": "cinematic-nature-shot-3-img",
+        "type": "image",
+        "src": "/images/behance/cinematic-nature-shot/01.jpg",
+        "alt": "Image may contain: outdoor, sky and water"
+      },
+      {
+        "id": "cinematic-nature-shot-4-txt",
+        "type": "text",
+        "content": "CINEMATIC EDIT",
+        "align": "center",
+        "color": "#FFFFFF",
+        "fontSize": "md"
+      },
+      {
+        "id": "cinematic-nature-shot-5-img",
+        "type": "image",
+        "src": "/images/behance/cinematic-nature-shot/02.jpg"
+      },
+      {
+        "id": "cinematic-nature-shot-6-txt",
+        "type": "text",
+        "content": "Trying Neural Filter",
+        "align": "center",
+        "color": "#FFFFFF",
+        "fontSize": "md"
+      },
+      {
+        "id": "cinematic-nature-shot-8-txt",
+        "type": "text",
+        "content": "2021 ADZOLOGY. ALL RIGHTS RESERVED.",
+        "align": "center",
+        "color": "#FFFFFF",
+        "fontSize": "md"
+      }
+    ]
+  },
+  {
+    "id": "behance-129064439",
+    "slug": "hope-movie-poster-design",
+    "title": "HOPE - Movie Poster Design",
+    "category": "Graphic design",
+    "image": "/images/behance/hope-movie-poster-design/thumb.jpg",
+    "description": "HOPE - Movie Poster Design",
+    "overview": "HOPE - Movie Poster Design",
+    "role": "Poster design",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "Cinema",
+      "Digital Art ",
+      "Film  ",
+      "graphic",
+      "manipulation",
+      "movie",
+      "movie poster",
+      "poster",
+      "Poster Design",
+      "posters"
+    ],
+    "year": "2021",
+    "styleDefaults": {
+      "pageBackground": "#000000"
+    },
+    "blocks": [
+      {
+        "id": "hope-movie-poster-design-0-img",
+        "type": "image",
+        "src": "/images/behance/hope-movie-poster-design/cover.jpg",
+        "alt": "Image may contain: screenshot"
+      },
+      {
+        "id": "hope-movie-poster-design-1-img",
+        "type": "image",
+        "src": "/images/behance/hope-movie-poster-design/01.jpg",
+        "alt": "Image may contain: screenshot and person"
+      },
+      {
+        "id": "hope-movie-poster-design-2-img",
+        "type": "image",
+        "src": "/images/behance/hope-movie-poster-design/02.jpg",
+        "alt": "Image may contain: outdoor and screenshot"
+      },
+      {
+        "id": "hope-movie-poster-design-4-img",
+        "type": "image",
+        "src": "/images/behance/hope-movie-poster-design/03.jpg"
+      },
+      {
+        "id": "hope-movie-poster-design-5-img",
+        "type": "image",
+        "src": "/images/behance/hope-movie-poster-design/04.jpg",
+        "alt": "Image may contain: outdoor and screenshot"
+      },
+      {
+        "id": "hope-movie-poster-design-6-img",
+        "type": "image",
+        "src": "/images/behance/hope-movie-poster-design/05.jpg",
+        "alt": "Image may contain: screenshot and outdoor"
+      },
+      {
+        "id": "hope-movie-poster-design-7-img",
+        "type": "image",
+        "src": "/images/behance/hope-movie-poster-design/06.jpg",
+        "alt": "Image may contain: screenshot, outdoor and door"
+      }
+    ]
+  },
+  {
+    "id": "behance-129214199",
+    "slug": "insurance-company-manipulation-ad",
+    "title": "Insurance Company - Manipulation AD Design",
+    "category": "Graphic design",
+    "image": "/images/behance/insurance-company-manipulation-ad/thumb.jpg",
+    "description": "Insurance Company - Manipulation AD Design",
+    "overview": "Insurance Company - Manipulation AD Design",
+    "role": "Design",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "Advertising ",
+      "design",
+      "facebook",
+      "instagram",
+      "insurance company",
+      "manipulation",
+      "marketing  ",
+      "Social media post",
+      "Socialmedia",
+      "Whale"
+    ],
+    "year": "2021",
+    "styleDefaults": {
+      "pageBackground": "#000000"
+    },
+    "blocks": [
+      {
+        "id": "insurance-company-manipulation-ad-0-img",
+        "type": "image",
+        "src": "/images/behance/insurance-company-manipulation-ad/cover.jpg",
+        "alt": "Image may contain: screenshot, person and water"
+      },
+      {
+        "id": "insurance-company-manipulation-ad-1-img",
+        "type": "image",
+        "src": "/images/behance/insurance-company-manipulation-ad/01.jpg",
+        "alt": "Image may contain: water and swimming"
+      },
+      {
+        "id": "insurance-company-manipulation-ad-2-img",
+        "type": "image",
+        "src": "/images/behance/insurance-company-manipulation-ad/02.jpg",
+        "alt": "Image may contain: water, marine mammal and wave"
+      },
+      {
+        "id": "insurance-company-manipulation-ad-3-img",
+        "type": "image",
+        "src": "/images/behance/insurance-company-manipulation-ad/03.jpg",
+        "alt": "Image may contain: water and swimming"
+      },
+      {
+        "id": "insurance-company-manipulation-ad-4-img",
+        "type": "image",
+        "src": "/images/behance/insurance-company-manipulation-ad/04.jpg"
+      },
+      {
+        "id": "insurance-company-manipulation-ad-7-img",
+        "type": "image",
+        "src": "/images/behance/insurance-company-manipulation-ad/05.gif"
+      }
+    ]
+  },
+  {
+    "id": "behance-129643627",
+    "slug": "sok-juice-logo-ad-design",
+    "title": "SöK Juice - Logo & AD Design",
+    "category": "Graphic design",
+    "image": "/images/behance/sok-juice-logo-ad-design/thumb.jpg",
+    "description": "SöK Juice - Logo & AD Design",
+    "overview": "SöK Juice - Logo & AD Design",
+    "role": "Design",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "ad",
+      "ads",
+      "Advertising ",
+      "graphic design ",
+      "juice",
+      "logo",
+      "marketing  ",
+      "media",
+      "post",
+      "social"
+    ],
+    "year": "2021",
+    "styleDefaults": {
+      "pageBackground": "#00070A"
+    },
+    "blocks": [
+      {
+        "id": "sok-juice-logo-ad-design-0-txt",
+        "type": "text",
+        "content": "A complete design attempt for a Polish Juice Company that manufactures all its products from scratch using high-quality methods. The name \"SöK\" signifies the word raw in Polish. I designed a logo and also designed professional manipulation for advertising use.",
+        "align": "center",
+        "color": "#FFFFFF",
+        "fontSize": "md"
+      },
+      {
+        "id": "sok-juice-logo-ad-design-1-img",
+        "type": "image",
+        "src": "/images/behance/sok-juice-logo-ad-design/cover.jpg",
+        "caption": "<div>Final Image</div>"
+      },
+      {
+        "id": "sok-juice-logo-ad-design-2-img",
+        "type": "image",
+        "src": "/images/behance/sok-juice-logo-ad-design/01.jpg",
+        "caption": "<div>Color Palette<br></div>"
+      },
+      {
+        "id": "sok-juice-logo-ad-design-3-img",
+        "type": "image",
+        "src": "/images/behance/sok-juice-logo-ad-design/02.gif",
+        "caption": "<div>Steps</div>"
+      },
+      {
+        "id": "sok-juice-logo-ad-design-4-img",
+        "type": "image",
+        "src": "/images/behance/sok-juice-logo-ad-design/03.jpg",
+        "caption": "<div>Just a mockup..</div>"
+      },
+      {
+        "id": "sok-juice-logo-ad-design-6-img",
+        "type": "image",
+        "src": "/images/behance/sok-juice-logo-ad-design/04.gif"
+      }
+    ]
+  },
+  {
+    "id": "behance-139296863",
+    "slug": "bit-airlines-logo-design",
+    "title": "BIT AIRLINES - LOGO DESIGN",
+    "category": "Graphic design",
+    "image": "/images/behance/bit-airlines-logo-design/thumb.jpg",
+    "description": "BIT AIRLINES - LOGO DESIGN",
+    "overview": "BIT AIRLINES - LOGO DESIGN",
+    "role": "Design",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "Advertising ",
+      "Airlines",
+      "brand identity",
+      "campaign",
+      "flight",
+      "Flights",
+      "logo",
+      "plane",
+      "SKY",
+      "Travel"
+    ],
+    "year": "2021",
+    "styleDefaults": {
+      "pageBackground": "#000000"
+    },
+    "blocks": [
+      {
+        "id": "bit-airlines-logo-design-0-img",
+        "type": "image",
+        "src": "/images/behance/bit-airlines-logo-design/cover.jpg",
+        "alt": "Image may contain: sky, screenshot and outdoor"
+      },
+      {
+        "id": "bit-airlines-logo-design-1-img",
+        "type": "image",
+        "src": "/images/behance/bit-airlines-logo-design/01.gif",
+        "alt": "Image may contain: screenshot"
+      },
+      {
+        "id": "bit-airlines-logo-design-3-img",
+        "type": "image",
+        "src": "/images/behance/bit-airlines-logo-design/02.jpg",
+        "alt": "Image may contain: screenshot"
+      }
+    ]
+  },
+  {
+    "id": "behance-143898315",
+    "slug": "new-egyptian-passport-design",
+    "title": "New Egyptian Passport Design!",
+    "category": "Graphic design",
+    "image": "/images/behance/new-egyptian-passport-design/thumb.jpg",
+    "description": "New Egyptian Passport Design!",
+    "overview": "New Egyptian Passport Design!",
+    "role": "Design",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [],
+    "year": "2021",
+    "styleDefaults": {
+      "pageBackground": "#000000"
+    },
+    "blocks": [
+      {
+        "id": "new-egyptian-passport-design-0-img",
+        "type": "image",
+        "src": "/images/behance/new-egyptian-passport-design/cover.jpg"
+      },
+      {
+        "id": "new-egyptian-passport-design-5-txt",
+        "type": "text",
+        "content": "This design has not been implemented...\nAnd it is designed only to express the designer's imagination to make a good and unique new identity just for renewal.\nThe designer disclaims all responsibility for any other uses.\nAll rights reserved to the designer Baher Bottros.",
+        "align": "center",
+        "color": "#ff4646",
+        "fontSize": "md"
+      }
+    ]
+  },
+  {
+    "id": "behance-160908207",
+    "slug": "media-illusion",
+    "title": "MEDIA ILLUSION",
+    "category": "Graphic design",
+    "image": "/images/behance/media-illusion/thumb.jpg",
+    "description": "MEDIA ILLUSION",
+    "overview": "MEDIA ILLUSION",
+    "role": "Design",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "artwork",
+      "design",
+      "designer",
+      "Digital Art ",
+      "illusion",
+      "manipulation",
+      "media",
+      "Media Illusion",
+      "photoshop",
+      "social media"
+    ],
+    "year": "2021",
+    "styleDefaults": {
+      "pageBackground": "#000000"
+    },
+    "blocks": [
+      {
+        "id": "media-illusion-0-txt",
+        "type": "text",
+        "content": "MEDIA ILLUSION",
+        "align": "center",
+        "color": "#ffffff",
+        "fontSize": "md"
+      },
+      {
+        "id": "media-illusion-1-txt",
+        "type": "text",
+        "content": "Media and social media can often create the illusion of a perfect life or a certain standard of beauty, success, or happiness that may be difficult or impossible to attain. This can lead to feelings of inadequacy or even depression as individuals compare their own lives to the filtered and often highly curated images and narratives they see online. It is important to be aware of the potential for media and social media to create these illusions and to approach them with a critical eye.",
+        "align": "center",
+        "color": "#e4e4e4",
+        "fontSize": "md"
+      },
+      {
+        "id": "media-illusion-2-img",
+        "type": "image",
+        "src": "/images/behance/media-illusion/cover.jpg"
+      }
+    ]
+  },
+  {
+    "id": "behance-179053187",
+    "slug": "nescafe-gold-blend-ad-design",
+    "title": "Nescafe Gold Blend - AD Design",
+    "category": "Graphic design",
+    "image": "/images/behance/nescafe-gold-blend-ad-design/thumb.jpg",
+    "description": "Nescafe Gold Blend - AD Design",
+    "overview": "Nescafe Gold Blend - AD Design",
+    "role": "Design",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "Coffee",
+      "nescafe",
+      "Social media post",
+      "Advertising ",
+      "marketing  ",
+      "manipulation",
+      "Baher Bottros",
+      "Nescafe Gold Blend",
+      "Sunny Mountain Lake"
+    ],
+    "year": "2021",
+    "styleDefaults": {
+      "pageBackground": "#000000"
+    },
+    "blocks": [
+      {
+        "id": "nescafe-gold-blend-ad-design-0-txt",
+        "type": "text",
+        "content": "Nescafe Gold Blend - Elegance in Every Sip",
+        "align": "center",
+        "color": "#ffffff",
+        "fontSize": "md"
+      },
+      {
+        "id": "nescafe-gold-blend-ad-design-1-txt",
+        "type": "text",
+        "content": "Indulge in a symphony of taste and luxury with Nescafe Gold Blend. Our carefully crafted coffee awakens your senses, one golden drop at a time. Savor the richness, embrace the elegance, and make every moment a masterpiece. Nescafe Gold Blend - Where Every Sip is a Work of Art.",
+        "align": "center",
+        "color": "#faf3e9",
+        "fontSize": "md"
+      },
+      {
+        "id": "nescafe-gold-blend-ad-design-2-img",
+        "type": "image",
+        "src": "/images/behance/nescafe-gold-blend-ad-design/cover.jpg",
+        "alt": "Image may contain: table, sky and cup",
+        "caption": "<div><span class=\"texteditor-inline-fontsize\" style=\"font-size:19px;\"><span style=\"color:#faf3e9;\" class=\"texteditor-inline-color\">The arrangement of a table with a sunny lake view and mountains as the backdrop creates a serene and inviting atmosphere. The presence of the Nescafe Gold Blend jar, cup, and coffee bean adds authenticity to the scene and immediately connects with coffee lovers. The lens flare of the sun enhances the warmth and coziness of the design, making it visually appealing. The balance between the natural beauty of the surroundings and the professional presentation of the product strikes a harmonious chord, making it an engaging and well-rounded ad.</span></span></div>"
+      },
+      {
+        "id": "nescafe-gold-blend-ad-design-3-txt",
+        "type": "text",
+        "content": "Before & After",
+        "align": "center",
+        "color": "#ffffff",
+        "fontSize": "md"
+      },
+      {
+        "id": "nescafe-gold-blend-ad-design-5-txt",
+        "type": "text",
+        "content": "Color Palette",
+        "align": "center",
+        "color": "#faf3e9",
+        "fontSize": "md"
+      },
+      {
+        "id": "nescafe-gold-blend-ad-design-6-img",
+        "type": "image",
+        "src": "/images/behance/nescafe-gold-blend-ad-design/01.jpg",
+        "alt": "Image may contain: screenshot"
+      },
+      {
+        "id": "nescafe-gold-blend-ad-design-7-txt",
+        "type": "text",
+        "content": "Mockups",
+        "align": "center",
+        "color": "#faf3e9",
+        "fontSize": "md"
+      },
+      {
+        "id": "nescafe-gold-blend-ad-design-9-img",
+        "type": "image",
+        "src": "/images/behance/nescafe-gold-blend-ad-design/02.gif"
+      },
+      {
+        "id": "nescafe-gold-blend-ad-design-10-txt",
+        "type": "text",
+        "content": "Thank You",
+        "align": "center",
+        "color": "#ffffff",
+        "fontSize": "md"
+      }
+    ]
+  },
+  {
+    "id": "behance-179496517",
+    "slug": "mcdonalds-advertisements",
+    "title": "McDonald's Advertisements",
+    "category": "Graphic design",
+    "image": "/images/behance/mcdonalds-advertisements/thumb.jpg",
+    "description": "McDonald's Advertisements",
+    "overview": "McDonald's Advertisements",
+    "role": "Design",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "mcdonald's",
+      "advertisements",
+      "commercial",
+      "ads",
+      "Social media post",
+      "marketing  ",
+      "brand identity",
+      "Advertising ",
+      "graphic design ",
+      "concept design"
+    ],
+    "year": "2021",
+    "styleDefaults": {
+      "pageBackground": "#121214"
+    },
+    "blocks": [
+      {
+        "id": "mcdonalds-advertisements-0-txt",
+        "type": "text",
+        "content": "A post for international burger's day",
+        "align": "center",
+        "color": "#ffcc00",
+        "fontSize": "md"
+      },
+      {
+        "id": "mcdonalds-advertisements-1-img",
+        "type": "image",
+        "src": "/images/behance/mcdonalds-advertisements/cover.jpg",
+        "alt": "Image may contain: cloud, building and sky"
+      },
+      {
+        "id": "mcdonalds-advertisements-2-txt",
+        "type": "text",
+        "content": "DESIGN IDEA",
+        "align": "center",
+        "color": "#ffcc00",
+        "fontSize": "md"
+      },
+      {
+        "id": "mcdonalds-advertisements-3-txt",
+        "type": "text",
+        "content": "\"In the heart of snow-covered mountains, where adventure meets appetite, The perfect blend of warmth and flavor. Our snowy landscape, with a train bridge shaped like the iconic 'M' of McDonald's, symbolizes our commitment to being with you wherever your journey takes you.",
+        "align": "center",
+        "color": "#ffffff",
+        "fontSize": "md"
+      },
+      {
+        "id": "mcdonalds-advertisements-4-txt",
+        "type": "text",
+        "content": "Celebrating International Burger's Day, Embarking on a delicious adventure. cool palette colors harmonize with the serene surroundings, creating a visual feast that mirrors the satisfaction of biting into a McDonald's burger. It's a celebration that transcends borders and welcomes you to savor the world's most loved burgers.",
+        "align": "center",
+        "color": "#ffffff",
+        "fontSize": "md"
+      },
+      {
+        "id": "mcdonalds-advertisements-5-txt",
+        "type": "text",
+        "content": "Color Palette",
+        "align": "center",
+        "color": "#ffcc00",
+        "fontSize": "md"
+      },
+      {
+        "id": "mcdonalds-advertisements-6-img",
+        "type": "image",
+        "src": "/images/behance/mcdonalds-advertisements/01.png"
+      },
+      {
+        "id": "mcdonalds-advertisements-7-txt",
+        "type": "text",
+        "content": "before & AFTER",
+        "align": "center",
+        "color": "#ffcc00",
+        "fontSize": "md"
+      },
+      {
+        "id": "mcdonalds-advertisements-8-embed",
+        "type": "embed",
+        "url": "https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=2b91de06-4de4-11ee-b5be-6595d9b17862"
+      },
+      {
+        "id": "mcdonalds-advertisements-9-txt",
+        "type": "text",
+        "content": "Offer Post",
+        "align": "center",
+        "color": "#ffcc00",
+        "fontSize": "md"
+      },
+      {
+        "id": "mcdonalds-advertisements-10-img",
+        "type": "image",
+        "src": "/images/behance/mcdonalds-advertisements/02.jpg"
+      },
+      {
+        "id": "mcdonalds-advertisements-11-txt",
+        "type": "text",
+        "content": "Color Palette",
+        "align": "center",
+        "color": "#ffcc00",
+        "fontSize": "md"
+      },
+      {
+        "id": "mcdonalds-advertisements-12-img",
+        "type": "image",
+        "src": "/images/behance/mcdonalds-advertisements/03.png"
+      },
+      {
+        "id": "mcdonalds-advertisements-13-txt",
+        "type": "text",
+        "content": "mOCKUPS",
+        "align": "center",
+        "color": "#ffcc00",
+        "fontSize": "md"
+      },
+      {
+        "id": "mcdonalds-advertisements-14-img-0",
+        "type": "image",
+        "src": "/images/behance/mcdonalds-advertisements/04.jpg"
+      },
+      {
+        "id": "mcdonalds-advertisements-14-img-1",
+        "type": "image",
+        "src": "/images/behance/mcdonalds-advertisements/05.jpg"
+      },
+      {
+        "id": "mcdonalds-advertisements-15-txt",
+        "type": "text",
+        "content": "new limited edition sandwich Post",
+        "align": "center",
+        "color": "#ffcc00",
+        "fontSize": "md"
+      },
+      {
+        "id": "mcdonalds-advertisements-16-img",
+        "type": "image",
+        "src": "/images/behance/mcdonalds-advertisements/06.jpg"
+      },
+      {
+        "id": "mcdonalds-advertisements-17-txt",
+        "type": "text",
+        "content": "Color Palette",
+        "align": "center",
+        "color": "#ffcc00",
+        "fontSize": "md"
+      },
+      {
+        "id": "mcdonalds-advertisements-18-img",
+        "type": "image",
+        "src": "/images/behance/mcdonalds-advertisements/07.png"
+      },
+      {
+        "id": "mcdonalds-advertisements-19-txt",
+        "type": "text",
+        "content": "Steps",
+        "align": "center",
+        "color": "#ffcc00",
+        "fontSize": "md"
+      },
+      {
+        "id": "mcdonalds-advertisements-20-img",
+        "type": "image",
+        "src": "/images/behance/mcdonalds-advertisements/08.gif"
+      },
+      {
+        "id": "mcdonalds-advertisements-21-txt",
+        "type": "text",
+        "content": "summary",
+        "align": "center",
+        "color": "#ffcc00",
+        "fontSize": "md"
+      },
+      {
+        "id": "mcdonalds-advertisements-22-img-0",
+        "type": "image",
+        "src": "/images/behance/mcdonalds-advertisements/09.jpg"
+      },
+      {
+        "id": "mcdonalds-advertisements-22-img-1",
+        "type": "image",
+        "src": "/images/behance/mcdonalds-advertisements/10.jpg"
+      },
+      {
+        "id": "mcdonalds-advertisements-22-img-2",
+        "type": "image",
+        "src": "/images/behance/mcdonalds-advertisements/11.jpg"
+      },
+      {
+        "id": "mcdonalds-advertisements-23-txt",
+        "type": "text",
+        "content": "1. International Burger's Day:",
+        "href": "https://emojipedia.org/bridge-at-night",
+        "align": "center",
+        "color": "#ffffff",
+        "fontSize": "md"
+      },
+      {
+        "id": "mcdonalds-advertisements-24-img",
+        "type": "image",
+        "src": "/images/behance/mcdonalds-advertisements/12.gif"
+      }
+    ]
+  },
+  {
+    "id": "behance-179609151",
+    "slug": "gap-re-branding",
+    "title": "GAP Re-Branding",
+    "category": "Graphic design",
+    "image": "/images/behance/gap-re-branding/thumb.jpg",
+    "description": "GAP Re-Branding",
+    "overview": "GAP Re-Branding",
+    "role": "Design",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "design",
+      "logo",
+      "brand identity",
+      "Social media post",
+      "Advertising ",
+      "ads",
+      "marketing  ",
+      "visual identity",
+      "adobe illustrator",
+      "photoshop"
+    ],
+    "year": "2021",
+    "styleDefaults": {
+      "pageBackground": "#121214"
+    },
+    "blocks": [
+      {
+        "id": "gap-re-branding-1-img",
+        "type": "image",
+        "src": "/images/behance/gap-re-branding/cover.jpg",
+        "alt": "Image may contain: illustration and screenshot"
+      },
+      {
+        "id": "gap-re-branding-2-txt",
+        "type": "text",
+        "content": "GAP Logo Re-Branding",
+        "align": "center",
+        "color": "#ffffff",
+        "fontSize": "md"
+      },
+      {
+        "id": "gap-re-branding-3-txt",
+        "type": "text",
+        "content": "\"GAP: Your Wardrobe's Best Friend,\"\nis a warm and inviting slogan that communicates a sense of trust and reliability in GAP's clothing offerings. It implies that GAP is not just a clothing brand but a dependable companion in helping customers build and maintain their wardrobes.\n\nDesign Concept:\nThe design concept for GAP's brand identity centers around the idea of GAP being your wardrobe's best friend, symbolized by a clothes hanger. The color palette primarily consists of red and white, which together convey a sense of passion, energy, and timelessness.\n\nLogo:\nThe GAP logo prominently features a clean and stylized clothes hanger, positioned creatively to form the letters \"G,\" \"A,\" and \"P.\" This innovative integration of the hanger represents the brand's close relationship with customers' wardrobes.\n\nImagery:\nImagery that represents diversity and inclusivity, showcasing people of different backgrounds, ages, and styles wearing GAP clothing.\n\nColor Palette:\nRed: The primary color, symbolizing passion, energy, and GAP's bold presence in the fashion world.\n\nWhite: The secondary color, representing simplicity, purity, and the timeless appeal of GAP's clothing.\n\nOverall Aesthetic:\nThe clothes hanger logo uniquely symbolizes GAP's role as a dependable companion in customers' wardrobes while maintaining the warmth, reliability, and timeless style that GAP represents.",
+        "align": "center",
+        "color": "#ffffff",
+        "fontSize": "md"
+      },
+      {
+        "id": "gap-re-branding-4-img",
+        "type": "image",
+        "src": "/images/behance/gap-re-branding/01.jpg",
+        "alt": "Image may contain: sign"
+      },
+      {
+        "id": "gap-re-branding-5-img",
+        "type": "image",
+        "src": "/images/behance/gap-re-branding/02.jpg",
+        "alt": "Image may contain: window and indoor"
+      },
+      {
+        "id": "gap-re-branding-6-img",
+        "type": "image",
+        "src": "/images/behance/gap-re-branding/03.jpg",
+        "alt": "Image may contain: building"
+      },
+      {
+        "id": "gap-re-branding-7-img",
+        "type": "image",
+        "src": "/images/behance/gap-re-branding/04.jpg",
+        "alt": "Image may contain: building, outdoor and window"
+      },
+      {
+        "id": "gap-re-branding-8-img",
+        "type": "image",
+        "src": "/images/behance/gap-re-branding/05.jpg"
+      },
+      {
+        "id": "gap-re-branding-11-img",
+        "type": "image",
+        "src": "/images/behance/gap-re-branding/06.jpg",
+        "alt": "Image may contain: coffee cup, tableware and vase"
+      },
+      {
+        "id": "gap-re-branding-15-txt",
+        "type": "text",
+        "content": "Sale Post Design",
+        "align": "center",
+        "color": "#ffffff",
+        "fontSize": "md"
+      },
+      {
+        "id": "gap-re-branding-16-img",
+        "type": "image",
+        "src": "/images/behance/gap-re-branding/07.jpg"
       }
     ]
   }

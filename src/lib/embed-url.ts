@@ -59,6 +59,13 @@ export function parseEmbedUrl(raw: string): ParsedEmbed | null {
   const dailymotion = trimmed.match(/dailymotion\.com\/video\/([^_/?#]+)/i);
   if (dailymotion) return { src: `https://www.dailymotion.com/embed/video/${dailymotion[1]}` };
 
+  const tiktok = trimmed.match(/tiktok\.com\/@[\w.]+\/video\/(\d+)/i);
+  if (tiktok) return { src: `https://www.tiktok.com/embed/v2/${tiktok[1]}` };
+
+  if (/vm\.tiktok\.com\//i.test(trimmed)) {
+    return { src: trimmed, compact: true };
+  }
+
   if (/^https?:\/\//i.test(trimmed) && (trimmed.includes("embed") || trimmed.includes("player"))) {
     const compact =
       /spotify\.com|soundcloud\.com|bandcamp\.com/i.test(trimmed) && !trimmed.includes("youtube");

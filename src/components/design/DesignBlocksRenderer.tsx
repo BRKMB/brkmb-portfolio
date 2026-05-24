@@ -44,12 +44,14 @@ function BlockPlaceholder({
 
 function TextBlockView({
   content,
+  href,
   align,
   color,
   fontSize,
   studio,
 }: {
   content: string;
+  href?: string;
   align?: string;
   color?: string;
   fontSize?: string;
@@ -64,6 +66,8 @@ function TextBlockView({
 
   const resolvedColor = studio ? studioReadableColor(color) : color || "rgba(255,255,255,0.88)";
 
+  const body = content || (studio ? "Your text will appear here…" : "");
+
   return (
     <div
       className={cn("behance-text-block whitespace-pre-wrap", sizeClass)}
@@ -72,7 +76,13 @@ function TextBlockView({
         textAlign: (align as CSSProperties["textAlign"]) || "left",
       }}
     >
-      {content || (studio ? "Your text will appear here…" : "")}
+      {href && body ? (
+        <a href={href} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">
+          {body}
+        </a>
+      ) : (
+        body
+      )}
     </div>
   );
 }
@@ -121,6 +131,7 @@ function BlockView({ block, studio }: { block: DesignBlock; studio?: boolean }) 
         <div className="behance-project__text-wrap mx-auto max-w-[720px] px-0 md:px-0">
           <TextBlockView
             content={block.content}
+            href={block.href}
             align={block.align}
             color={block.color}
             fontSize={block.fontSize}
