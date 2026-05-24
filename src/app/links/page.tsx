@@ -48,9 +48,7 @@ export default function LinksPage() {
                 data-cursor
                 className="link-tree-card focus-ring group flex items-center gap-4"
               >
-                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white/8 text-accent">
-                  <PlatformIcon platform={link.platform} className="h-5 w-5" />
-                </span>
+                <PlatformIcon platform={link.platform} variant="badge" className="h-6 w-6" />
                 <span className="min-w-0 flex-1 text-left">
                   <span className="font-display text-headline block v-primary">{link.label}</span>
                   <span className="text-footnote block truncate v-tertiary">{link.description}</span>
@@ -74,7 +72,12 @@ export default function LinksPage() {
                     data-cursor
                     className="link-tree-card link-tree-card--compact focus-ring flex items-center gap-3"
                   >
-                    <PlatformIcon platform={link.platform} className="h-4 w-4 text-accent" />
+                    <PlatformIcon
+                      platform={link.platform}
+                      variant="badge"
+                      badgeSize="sm"
+                      className="h-4 w-4"
+                    />
                     <span className="text-subheadline v-secondary">{link.label}</span>
                   </a>
                 </li>

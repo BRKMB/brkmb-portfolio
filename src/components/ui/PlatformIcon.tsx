@@ -1,103 +1,110 @@
-import type { ReactNode } from "react";
+import type { IconType } from "react-icons";
+import {
+  FaBehance,
+  FaFacebook,
+  FaLinkedin,
+  FaInstagram,
+  FaTiktok,
+  FaYoutube,
+  FaPaypal,
+  FaGithub,
+  FaX,
+  FaDribbble,
+  FaWhatsapp,
+  FaTelegram,
+} from "react-icons/fa6";
+import { SiLinktree } from "react-icons/si";
+import { HiOutlineGlobeAlt, HiOutlineEnvelope } from "react-icons/hi2";
 
-const icons: Record<string, ReactNode> = {
-  website: (
-    <path
-      fill="currentColor"
-      d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm7.93 9h-3.18a15.6 15.6 0 0 0-1.2-5.02A8.03 8.03 0 0 1 19.93 11ZM12 4c.97 1.66 1.66 3.8 1.92 6H10.08C10.34 7.8 11.03 5.66 12 4ZM8.45 5.98A15.6 15.6 0 0 0 7.25 11H4.07a8.03 8.03 0 0 1 4.38-5.02ZM4.07 13h3.18c.22 1.86.7 3.6 1.2 5.02A8.03 8.03 0 0 1 4.07 13Zm7.93 6c-.97-1.66-1.66-3.8-1.92-6h3.84c-.26 2.2-.95 4.34-1.92 6Zm3.55-1.98c.5-1.42.98-3.16 1.2-5.02h3.18a8.03 8.03 0 0 1-4.38 5.02Z"
-    />
-  ),
-  email: (
-    <path
-      fill="currentColor"
-      d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm8 7.17L19.59 6H4.41L12 11.17ZM4 8.23V18h16V8.23l-7.76 6.52a1 1 0 0 1-1.28 0L4 8.23Z"
-    />
-  ),
-  linkedin: (
-    <path
-      fill="currentColor"
-      d="M6.94 6.5A1.94 1.94 0 1 1 6.94 3a1.94 1.94 0 0 1 0 3.5ZM4.75 20h4.38V9H4.75v11ZM13.5 9c-2.37 0-3.88 1.29-4.5 2.5V9H4.62v11h4.38v-6c0-1.66 1.34-3 3-3s3 1.34 3 3v6h4.38v-7c0-3.31-2.69-6-6-6Z"
-    />
-  ),
-  github: (
-    <path
-      fill="currentColor"
-      d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.12-1.47-1.12-1.47-.92-.63.07-.62.07-.62 1.02.07 1.55 1.05 1.55 1.05.9 1.55 2.37 1.1 2.95.84.09-.66.35-1.1.64-1.35-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0 1 12 6.8c.85 0 1.71.11 2.51.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"
-    />
-  ),
-  instagram: (
-    <path
-      fill="currentColor"
-      d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm-5 4.5A5.5 5.5 0 1 1 6.5 14 5.5 5.5 0 0 1 12 8.5Zm0 2A3.5 3.5 0 1 0 15.5 14 3.5 3.5 0 0 0 12 10.5ZM17.25 6a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 17.25 6Z"
-    />
-  ),
-  twitter: (
-    <path
-      fill="currentColor"
-      d="M14.23 10.16 22.5 2h-1.96l-7.15 7.77L7.5 2H2l8.67 12.62L2 22h1.96l7.55-8.18L16.5 22H22l-7.77-11.84ZM11.88 13.28l-.87-1.24L4.74 3.5h2.98l5.58 7.96.87 1.24 7.26 10.36h-2.98l-6.54-9.28Z"
-    />
-  ),
-  youtube: (
-    <path
-      fill="currentColor"
-      d="M21.58 7.2a2.5 2.5 0 0 0-1.76-1.77C18.25 5 12 5 12 5s-6.25 0-7.82.43A2.5 2.5 0 0 0 2.42 7.2 26.4 26.4 0 0 0 2 12c0 1.55.14 3.1.42 4.8a2.5 2.5 0 0 0 1.76 1.77C5.75 19 12 19 12 19s6.25 0 7.82-.43a2.5 2.5 0 0 0 1.76-1.77c.28-1.7.42-3.25.42-4.8 0-1.55-.14-3.1-.42-4.8ZM10 15.5v-7l6 3.5-6 3.5Z"
-    />
-  ),
-  behance: (
-    <path
-      fill="currentColor"
-      d="M6.94 5.5H2v13h5.2c2.55 0 4.3-1.55 4.3-3.85 0-1.25-.6-2.15-1.55-2.65 1.15-.45 1.9-1.5 1.9-2.95C12.05 6.7 10.2 5.5 6.94 5.5ZM4.5 7.5h2.2c1.15 0 1.8.55 1.8 1.45 0 .95-.65 1.55-1.8 1.55H4.5V7.5Zm2.45 6.5H4.5v-3.6h2.45c1.35 0 2.1.65 2.1 1.8s-.75 1.8-2.1 1.8ZM14 8h5.5V6.5H14V8Zm5.35 7.15c0-2.1-1.2-3.45-3.35-3.45-2.25 0-3.55 1.45-3.55 3.75 0 2.4 1.4 3.85 3.8 3.85 1.75 0 2.95-.75 3.35-2.15h-2.1c-.3.55-.85.85-1.55.85-1 0-1.6-.55-1.7-1.55h5.1Zm-4.95-1.1c.1-.9.7-1.45 1.65-1.45.95 0 1.55.55 1.65 1.45H14.4Z"
-    />
-  ),
-  dribbble: (
-    <path
-      fill="currentColor"
-      d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm7.82 5.5a8.4 8.4 0 0 1 2.05 4.35h-4.5a14.2 14.2 0 0 0-2.35-4.05c1.55-.55 3-.95 4.8-1.3ZM12 4c.95 0 2.35.35 3.75.9a12.8 12.8 0 0 1 2.2 3.85H6.05A12.8 12.8 0 0 1 8.25 4.9C9.65 4.35 11.05 4 12 4ZM4.5 12c0-.55.05-1.1.15-1.65h5.35c-.05.55-.08 1.1-.08 1.65s.03 1.1.08 1.65H4.65c-.1-.55-.15-1.1-.15-1.65Zm.68 3.5a8.4 8.4 0 0 1-1.35-3.5h4.45c.35 1.35.95 2.6 1.75 3.7-1.45.55-2.95 1-4.85 1.2Zm4.32 4.05c-.75 0-1.55-.15-2.35-.4a11.5 11.5 0 0 1-2-3.45h7.35a8.2 8.2 0 0 1-3 3.85Zm4.05-.55c1.15-.95 2.05-2.25 2.55-3.75h4.55a8.35 8.35 0 0 1-7.1 3.75Z"
-    />
-  ),
-  whatsapp: (
-    <path
-      fill="currentColor"
-      d="M12 2a10 10 0 0 0-8.66 15.03L2 22l5.12-1.34A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.07-1.12l-.29-.17-3.04.8.81-2.97-.19-.3A8 8 0 1 1 12 20Zm4.4-5.73c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1-.37-1.9-1.18-.7-.62-1.18-1.39-1.32-1.63-.14-.24-.02-.37.1-.49.1-.1.24-.26.36-.4.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.42-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.52.58.18 1.1.16 1.52.1.46-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z"
-    />
-  ),
-  telegram: (
-    <path
-      fill="currentColor"
-      d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm4.65 6.9-1.6 7.55c-.12.55-.44.68-.9.42l-2.48-1.83-1.2 1.16c-.13.13-.24.24-.49.24l.18-2.56 4.6-4.16c.2-.18-.04-.28-.31-.1l-5.68 3.58-2.45-.77c-.53-.16-.54-.53.11-.79l9.56-3.69c.44-.16.83.1.69.79Z"
-    />
-  ),
-  tiktok: (
-    <path
-      fill="currentColor"
-      d="M14 3h2.5c.1 1.55.85 3 2.2 3.95V9h-2.2c-1.35-.05-2.55-.55-3.5-1.35v7.1a4.75 4.75 0 1 1-4.75-4.75c.25 0 .5.02.75.07V9.07a7.25 7.25 0 1 0 7.25 7.25V3Z"
-    />
-  ),
-  facebook: (
-    <path
-      fill="currentColor"
-      d="M13.5 3h3.5l-1.5 4h-2.5c-.83 0-1.5.67-1.5 1.5V11h4l-.75 4H12v9h-4v-9H5v-4h3V7.5C8 4.46 10.46 2 13.5 2H17v4h-3.5Z"
-    />
-  ),
-  paypal: (
-    <path
-      fill="currentColor"
-      d="M8.32 3h7.38c2.98 0 5.3 2.52 4.9 5.48-.35 2.65-2.55 4.52-5.22 4.52H11.8l-.95 6H7.05l1.27-16Zm1.38 6.5h2.35c1.28 0 2.32-1.05 2.15-2.32-.15-1.15-1.15-1.98-2.32-1.98H9.1l.6 4.3Z"
-    />
-  ),
+type BrandConfig = {
+  icon: IconType;
+  color: string;
+  gradient?: string;
 };
+
+const brands: Record<string, BrandConfig> = {
+  behance: { icon: FaBehance, color: "#1769FF" },
+  facebook: { icon: FaFacebook, color: "#1877F2" },
+  linkedin: { icon: FaLinkedin, color: "#0A66C2" },
+  instagram: {
+    icon: FaInstagram,
+    color: "#FFFFFF",
+    gradient: "linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)",
+  },
+  tiktok: { icon: FaTiktok, color: "#FFFFFF" },
+  youtube: { icon: FaYoutube, color: "#FF0000" },
+  paypal: { icon: FaPaypal, color: "#003087" },
+  github: { icon: FaGithub, color: "#FFFFFF" },
+  twitter: { icon: FaX, color: "#FFFFFF" },
+  dribbble: { icon: FaDribbble, color: "#EA4C89" },
+  whatsapp: { icon: FaWhatsapp, color: "#25D366" },
+  telegram: { icon: FaTelegram, color: "#26A5E4" },
+  email: { icon: HiOutlineEnvelope, color: "#EA4335" },
+  website: { icon: HiOutlineGlobeAlt, color: "#5c5c5c" },
+  linktree: { icon: SiLinktree, color: "#43E660" },
+};
+
+function badgeBackground(key: string, brand: BrandConfig): string {
+  if (key === "instagram" && brand.gradient) return brand.gradient;
+  if (key === "tiktok" || key === "twitter") return "#000000";
+  if (key === "github") return "#24292f";
+  if (key === "whatsapp") return "#25D366";
+  if (key === "telegram") return "#26A5E4";
+  if (key === "facebook") return "#1877F2";
+  if (key === "linkedin") return "#0A66C2";
+  if (key === "youtube") return "#FF0000";
+  if (key === "behance") return "#1769FF";
+  if (key === "paypal") return "#ffffff";
+  return "#ffffff";
+}
+
+function badgeIconColor(key: string, brand: BrandConfig): string {
+  if (
+    key === "instagram" ||
+    key === "tiktok" ||
+    key === "github" ||
+    key === "twitter" ||
+    key === "facebook" ||
+    key === "linkedin" ||
+    key === "youtube" ||
+    key === "behance"
+  ) {
+    return "#ffffff";
+  }
+  return brand.color;
+}
 
 export function PlatformIcon({
   platform,
-  className = "h-5 w-5",
+  className = "h-6 w-6",
+  variant = "default",
+  badgeSize = "md",
 }: {
   platform: string;
   className?: string;
+  variant?: "default" | "badge";
+  badgeSize?: "md" | "sm";
 }) {
-  const path = icons[platform] ?? icons.website;
-  return (
-    <svg className={className} viewBox="0 0 24 24" aria-hidden>
-      {path}
-    </svg>
-  );
+  const key = platform.toLowerCase();
+  const brand = brands[key] ?? brands.website;
+  const Icon = brand.icon;
+
+  if (variant === "badge") {
+    const wrap =
+      badgeSize === "sm"
+        ? "flex h-9 w-9 shrink-0 items-center justify-center rounded-full"
+        : "flex h-11 w-11 shrink-0 items-center justify-center rounded-full";
+
+    return (
+      <span
+        className={wrap}
+        style={{ background: badgeBackground(key, brand) }}
+        aria-hidden
+      >
+        <Icon className={className} style={{ color: badgeIconColor(key, brand) }} />
+      </span>
+    );
+  }
+
+  return <Icon className={className} style={{ color: brand.color }} aria-hidden />;
 }
