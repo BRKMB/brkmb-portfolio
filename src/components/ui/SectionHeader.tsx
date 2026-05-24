@@ -20,7 +20,7 @@ export function SectionHeader({ label, title, description }: Props) {
       <span className="text-caption text-accent font-medium tracking-[0.2em] uppercase">
         {label}
       </span>
-      <h2 className="font-display text-title-1 mt-4 v-primary">{title}</h2>
+      <h2 className="font-display text-title-1 mt-4 v-primary [text-wrap:balance]">{title}</h2>
       {description && (
         <p className="text-body mt-5 max-w-2xl v-secondary leading-relaxed">{description}</p>
       )}

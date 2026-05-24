@@ -47,50 +47,44 @@ export function Navigation() {
     >
       <div
         className={cn(
-          "nav-shell pointer-events-auto w-full",
-          scrolled && "nav-shell-scrolled"
+          "nav-bar pointer-events-auto flex w-full items-center justify-between gap-3 rounded-full px-2 py-1.5",
+          scrolled && "nav-bar-scrolled"
         )}
       >
-        {/* Blur layer — no transform, no isolation on parent */}
-        <div className="nav-blur-layer" aria-hidden />
-        <div className="nav-scrim-layer" aria-hidden />
+        <Link
+          href="/"
+          data-cursor
+          className="focus-ring flex min-h-[44px] items-center gap-2.5 rounded-full px-2 v-primary"
+        >
+          <span className="flex h-9 w-9 items-center justify-center rounded-full btn-primary !min-h-0 !px-0 !py-0 text-sm font-bold">
+            B
+          </span>
+          <span className="font-display text-headline hidden sm:inline">Baher</span>
+        </Link>
 
-        <nav className="nav-content flex items-center justify-between gap-3 px-2 py-1.5">
-          <Link
-            href="/"
-            data-cursor
-            className="focus-ring flex min-h-[44px] items-center gap-2.5 rounded-full px-2 v-primary"
-          >
-            <span className="flex h-9 w-9 items-center justify-center rounded-full btn-primary !min-h-0 !px-0 !py-0 text-sm font-bold">
-              B
-            </span>
-            <span className="font-display text-headline hidden sm:inline">Baher</span>
-          </Link>
+        <ul className="hidden items-center gap-0.5 lg:flex">
+          {links.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                data-cursor
+                className={cn(
+                  "focus-ring flex min-h-[44px] items-center rounded-full px-3.5 text-subheadline transition-all duration-200",
+                  active && link.href === `#${active}`
+                    ? "chip-glass-active"
+                    : "v-secondary hover:v-primary hover:bg-white/5"
+                )}
+                style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
 
-          <ul className="hidden items-center gap-0.5 lg:flex">
-            {links.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  data-cursor
-                  className={cn(
-                    "focus-ring flex min-h-[44px] items-center rounded-full px-3.5 text-subheadline transition-all duration-200",
-                    active && link.href === `#${active}`
-                      ? "chip-glass-active"
-                      : "v-secondary hover:v-primary hover:bg-white/5"
-                  )}
-                  style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          <Link href="#contact" data-cursor className="btn-primary text-subheadline shrink-0">
-            Let&apos;s talk
-          </Link>
-        </nav>
+        <Link href="#contact" data-cursor className="btn-primary text-subheadline shrink-0">
+          Let&apos;s talk
+        </Link>
       </div>
     </header>
   );

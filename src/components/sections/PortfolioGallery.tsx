@@ -11,7 +11,7 @@ export function PortfolioGallery() {
   const active = portfolio.find((p) => p.id === lightbox);
 
   return (
-    <section id="portfolio" className="scroll-mt-36 px-4 py-24 md:px-8 md:py-32">
+    <section id="portfolio" className="scroll-mt-40 px-4 py-24 md:px-8 md:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
           label="Graphic design"
