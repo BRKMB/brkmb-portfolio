@@ -4,7 +4,8 @@ import linkGroupsData from "@/data/link-groups.json";
 import resumeData from "@/data/resume.json";
 import type { CmsData, LinkGroup } from "@/types";
 
-export const CMS_STORAGE_KEY = "brkmb-cms-v1";
+/** Bumped when default portfolio structure changes (Behance-only grid). */
+export const CMS_STORAGE_KEY = "brkmb-cms-v2";
 export const CMS_AUTH_KEY = "brkmb-cms-auth";
 export const CMS_PREVIEW_KEY = "brkmb-cms-preview";
 

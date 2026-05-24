@@ -3,8 +3,8 @@ import { normalizePortfolio } from "@/lib/portfolio";
 import { ensureLinkGroupsComplete } from "@/lib/link-groups-order";
 import { defaultCmsData } from "./defaults";
 
-/** Legacy demo items use ids like p1, p2 — keep them hidden when defaults say so. */
-function isLegacyPlaceholder(item: PortfolioItem) {
+/** Demo portfolio entries shipped before Behance import — never show again. */
+export function isLegacyPlaceholder(item: PortfolioItem) {
   return /^p\d+$/.test(item.id);
 }
 
@@ -28,16 +28,16 @@ export function mergePortfolioWithDefaults(
       continue;
     }
     storedBySlug.delete(def.slug);
-    const useDefaultHidden = isLegacyPlaceholder(def) && def.hidden === true;
     merged.push({
       ...def,
       ...fromStore,
       blocks: fromStore.blocks?.length ? fromStore.blocks : def.blocks,
-      hidden: useDefaultHidden ? true : (fromStore.hidden ?? def.hidden),
+      hidden: fromStore.hidden ?? def.hidden,
     });
   }
 
   for (const extra of storedBySlug.values()) {
+    if (isLegacyPlaceholder(extra)) continue;
     merged.push(extra);
   }
 
