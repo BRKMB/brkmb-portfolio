@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 const links = [
@@ -17,10 +16,8 @@ const links = [
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("");
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
     const onScroll = () => setScrolled(window.scrollY > 8);
     const sections = ["brands", "portfolio", "projects", "about", "contact"];
     const observer = new IntersectionObserver(
@@ -45,20 +42,20 @@ export function Navigation() {
 
   return (
     <header
-      className="pointer-events-none fixed top-5 right-4 left-4 z-[9990] mx-auto max-w-4xl md:top-6"
+      className="pointer-events-none fixed top-5 right-4 left-4 z-[10000] mx-auto max-w-4xl md:top-6"
       aria-label="Site navigation"
     >
-      {/* Glass bar on inner div — NO transform here (transform breaks backdrop-filter) */}
-      <motion.div
-        initial={false}
-        animate={{ opacity: mounted ? 1 : 0 }}
-        transition={{ delay: 2.1, duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
+      <div
         className={cn(
-          "glass-nav pointer-events-auto w-full px-2 py-1.5",
-          scrolled && "glass-nav-scrolled"
+          "nav-shell pointer-events-auto w-full",
+          scrolled && "nav-shell-scrolled"
         )}
       >
-        <nav className="flex items-center justify-between gap-3">
+        {/* Blur layer — no transform, no isolation on parent */}
+        <div className="nav-blur-layer" aria-hidden />
+        <div className="nav-scrim-layer" aria-hidden />
+
+        <nav className="nav-content flex items-center justify-between gap-3 px-2 py-1.5">
           <Link
             href="/"
             data-cursor
@@ -94,7 +91,7 @@ export function Navigation() {
             Let&apos;s talk
           </Link>
         </nav>
-      </motion.div>
+      </div>
     </header>
   );
 }

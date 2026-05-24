@@ -11,7 +11,10 @@ export function ClientProviders({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const t = setTimeout(() => setLoading(false), 2200);
+    const t = setTimeout(() => {
+      setLoading(false);
+      document.documentElement.classList.add("site-ready");
+    }, 2200);
     return () => clearTimeout(t);
   }, []);
 

@@ -180,34 +180,57 @@ main {
   transition-duration: 100ms;
 }
 
-/* Nav bar — must sit on element WITHOUT CSS transform (see Navigation.tsx) */
-.glass-nav {
+/* Nav — layered blur (no isolation: isolate — that breaks backdrop-filter) */
+.nav-shell {
   position: relative;
-  isolation: isolate;
+  overflow: hidden;
   border-radius: 9999px;
-  border: 0.5px solid rgba(255, 255, 255, 0.14);
-  background: rgba(22, 22, 24, 0.45);
-  backdrop-filter: blur(64px) saturate(200%);
-  -webkit-backdrop-filter: blur(64px) saturate(200%);
+  border: 0.5px solid rgba(255, 255, 255, 0.16);
   box-shadow:
-    inset 0 1px 0.5px 0 rgba(255, 255, 255, 0.28),
-    0 12px 40px -8px rgba(0, 0, 0, 0.5);
-  will-change: backdrop-filter;
+    inset 0 1px 0.5px 0 rgba(255, 255, 255, 0.3),
+    0 12px 40px -8px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.32, 0.72, 0, 1) 2s;
+}
+
+html.site-ready .nav-shell {
+  opacity: 1;
+}
+
+.nav-blur-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  backdrop-filter: blur(80px) saturate(220%);
+  -webkit-backdrop-filter: blur(80px) saturate(220%);
+}
+
+.nav-scrim-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  background: rgba(14, 14, 16, 0.5);
+  pointer-events: none;
+}
+
+.nav-shell-scrolled .nav-scrim-layer {
+  background: rgba(8, 8, 10, 0.68);
+}
+
+.nav-content {
+  position: relative;
+  z-index: 2;
 }
 
 @supports not (backdrop-filter: blur(1px)) {
-  .glass-nav {
-    background: rgba(18, 18, 20, 0.92);
+  .nav-blur-layer {
+    display: none;
   }
-}
-
-.glass-nav-scrolled {
-  background: rgba(14, 14, 16, 0.58);
-  backdrop-filter: blur(72px) saturate(210%);
-  -webkit-backdrop-filter: blur(72px) saturate(210%);
-  box-shadow:
-    inset 0 1px 0.5px 0 rgba(255, 255, 255, 0.32),
-    0 16px 48px -10px rgba(0, 0, 0, 0.6);
+  .nav-scrim-layer {
+    background: rgba(12, 12, 14, 0.94);
+  }
 }
 
 /* Custom cursor — hide system pointer on desktop */
