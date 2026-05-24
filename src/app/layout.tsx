@@ -1,20 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Playfair_Display } from "next/font/google";
 import { ClientProviders } from "@/components/providers/ClientProviders";
 import { Footer } from "@/components/layout/Footer";
 import { site } from "@/lib/data";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-});
 
 export const metadata: Metadata = {
   title: site.title,
@@ -42,9 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body
-        className={`${geistSans.variable} ${playfair.variable} relative antialiased`}
-      >
+      <body className="relative antialiased">
         <div className="noise" aria-hidden />
         <ClientProviders>{children}</ClientProviders>
         <Footer />

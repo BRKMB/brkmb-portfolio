@@ -1,6 +1,6 @@
 # BRKMB — Premium Personal Site
 
-Digital headquarters for **Baher (Joo)** — Designer, Founder, Product Builder.
+Digital headquarters for **Baher** — Founder, Product Builder, Graphic Designer.
 
 **Live:** [brkmb.com](https://brkmb.com)
 

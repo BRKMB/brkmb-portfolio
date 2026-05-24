@@ -14,7 +14,7 @@ const icons: Record<string, string> = {
 
 export function Contact() {
   return (
-    <section id="contact" className="scroll-mt-28 px-4 py-24 md:px-8 md:py-32">
+    <section id="contact" className="scroll-mt-32 px-4 py-24 md:px-8 md:py-32">
       <div className="mx-auto max-w-6xl">
         <SectionHeader
           label="Contact"
@@ -30,19 +30,24 @@ export function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               data-cursor
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.06 }}
-              whileHover={{ y: -8, scale: 1.02 }}
-              className="glass gradient-border group flex items-center gap-4 rounded-2xl p-6"
+              transition={{ delay: i * 0.05, ease: [0.32, 0.72, 0, 1] }}
+              className="glass-card focus-ring flex min-h-[72px] items-center gap-4 p-5 !rounded-[20px]"
             >
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#c9f31d]/12 text-lg font-bold text-accent transition group-hover:bg-[#c9f31d]/20">
+              <span
+                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[12px] text-headline font-semibold text-accent"
+                style={{
+                  background: "rgba(201, 243, 29, 0.12)",
+                  boxShadow: "inset 0 1px 0.5px rgba(255,255,255,0.2)",
+                }}
+              >
                 {icons[item.icon] || "→"}
               </span>
               <div>
-                <p className="font-medium text-white">{item.label}</p>
-                <p className="text-sm text-white/40">Open →</p>
+                <p className="text-headline v-primary">{item.label}</p>
+                <p className="text-footnote v-tertiary">Open →</p>
               </div>
             </motion.a>
           ))}

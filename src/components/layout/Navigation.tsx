@@ -19,8 +19,7 @@ export function Navigation() {
   const [active, setActive] = useState("");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-
+    const onScroll = () => setScrolled(window.scrollY > 24);
     const sections = ["brands", "portfolio", "projects", "about", "contact"];
     const observer = new IntersectionObserver(
       (entries) => {
@@ -30,12 +29,10 @@ export function Navigation() {
       },
       { rootMargin: "-40% 0px -50% 0px" }
     );
-
     sections.forEach((id) => {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
-
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", onScroll);
@@ -45,20 +42,24 @@ export function Navigation() {
 
   return (
     <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ delay: 2.2, duration: 0.6 }}
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ delay: 2.1, duration: 0.55, ease: [0.32, 0.72, 0, 1] }}
       className={cn(
-        "fixed top-4 right-4 left-4 z-[9990] mx-auto max-w-5xl rounded-full px-4 py-2.5 transition-all duration-300 md:top-6",
-        scrolled ? "glass shadow-lg shadow-black/30" : "bg-transparent"
+        "fixed top-5 right-4 left-4 z-[9990] mx-auto max-w-4xl px-2 py-1.5 transition-all duration-200 md:top-6",
+        scrolled ? "glass-nav" : "glass-nav opacity-95"
       )}
     >
-      <nav className="flex items-center justify-between gap-4">
-        <Link href="/" data-cursor className="flex items-center gap-2 font-medium text-white">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-[#d4ff4d] to-[#7cb342] text-sm font-bold text-[#0a1008]">
+      <nav className="flex items-center justify-between gap-3">
+        <Link
+          href="/"
+          data-cursor
+          className="focus-ring flex min-h-[44px] items-center gap-2.5 rounded-full px-2 v-primary"
+        >
+          <span className="flex h-9 w-9 items-center justify-center rounded-full btn-primary !min-h-0 !px-0 !py-0 text-sm font-bold">
             B
           </span>
-          <span className="hidden font-display text-lg sm:inline">brkmb</span>
+          <span className="font-display text-headline hidden sm:inline">brkmb</span>
         </Link>
 
         <ul className="hidden items-center gap-0.5 lg:flex">
@@ -68,11 +69,12 @@ export function Navigation() {
                 href={link.href}
                 data-cursor
                 className={cn(
-                  "rounded-full px-3 py-2 text-sm transition-colors",
+                  "focus-ring flex min-h-[44px] items-center rounded-full px-3.5 text-subheadline transition-all duration-200",
                   active && link.href === `#${active}`
-                    ? "bg-[#c9f31d]/15 text-accent"
-                    : "text-white/45 hover:text-white"
+                    ? "chip-glass-active"
+                    : "v-secondary hover:v-primary hover:bg-white/5"
                 )}
+                style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
               >
                 {link.label}
               </Link>
@@ -80,11 +82,7 @@ export function Navigation() {
           ))}
         </ul>
 
-        <Link
-          href="#contact"
-          data-cursor
-          className="btn-primary rounded-full px-4 py-2 text-sm font-semibold"
-        >
+        <Link href="#contact" data-cursor className="btn-primary text-subheadline shrink-0">
           Let&apos;s talk
         </Link>
       </nav>
