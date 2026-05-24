@@ -1,33 +1,19 @@
-# Design engagement (views, likes, comments)
+# Design engagement — already configured
 
-The `/design` grid and project pages use **Cloudflare D1** via Pages Functions (`/api/design/...`).
+Views, likes, and comments on `/design` use **Cloudflare D1** (`brkmb-portfolio-engagement`).
 
-## One-time setup
+Setup is done in this repo:
 
-1. Create the database:
+- `wrangler.toml` — D1 binding `DB`
+- `migrations/d1/001_design_engagement.sql` — applied on Cloudflare
+- `functions/api/design/` — API routes
 
-```bash
-npx wrangler d1 create brkmb-portfolio-engagement
-```
+No dashboard steps needed unless you create a new Pages project from scratch.
 
-2. Copy the `database_id` from the output into `wrangler.toml` (replace the placeholder).
-
-3. Apply the schema:
+## Quick test
 
 ```bash
-npx wrangler d1 execute brkmb-portfolio-engagement --remote --file=./migrations/d1/001_design_engagement.sql
+curl "https://brkmb.com/api/design/stats?slugs=baryq-identity"
 ```
 
-4. In **Cloudflare Dashboard** → your Pages project → **Settings** → **Functions** → **D1 bindings**:
-   - Variable name: `DB`
-   - D1 database: `brkmb-portfolio-engagement`
-
-5. Redeploy the site.
-
-## Behaviour
-
-- **Views**: counted once per browser tab session per project.
-- **Likes**: toggled per visitor (anonymous ID in `localStorage`), no login.
-- **Comments**: name + text only, no login.
-
-Until D1 is bound, the UI shows `0` and actions no-op silently.
+You should see JSON with `views` and `likes`.

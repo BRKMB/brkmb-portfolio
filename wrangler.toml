@@ -3,11 +3,8 @@ name = "brkmb-portfolio"
 compatibility_date = "2025-05-01"
 pages_build_output_dir = "out"
 
-# Design engagement (views, likes, comments) — create DB then set database_id:
-#   wrangler d1 create brkmb-portfolio-engagement
-#   wrangler d1 execute brkmb-portfolio-engagement --remote --file=./migrations/d1/001_design_engagement.sql
-# Then bind in Cloudflare Dashboard → Pages → Settings → Functions → D1 bindings (name: DB)
+# Design engagement (views, likes, comments)
 [[d1_databases]]
 binding = "DB"
 database_name = "brkmb-portfolio-engagement"
-database_id = "00000000-0000-0000-0000-000000000000"
+database_id = "21e60a9a-74ef-4d5b-8887-78161b4d1ca7"
