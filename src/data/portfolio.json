@@ -1,5 +1,56 @@
 [
   {
+    "id": "behance-128220721",
+    "slug": "pre-tea-packaging-logo-design",
+    "title": "Pre Tea - Packaging & Logo Design",
+    "category": "Packaging",
+    "image": "/images/behance/pre-tea/cover.jpg",
+    "description": "Logo and packaging design for a tea café — brand identity, visual system, and product application.",
+    "overview": "Pre Tea explores a warm café aesthetic through logo construction, packaging layouts, and visual applications for a tea brand. Creative fields: Graphic Design, Illustration, Product Design.",
+    "role": "Art direction, logo design, packaging",
+    "tools": [
+      "Photoshop",
+      "Illustrator"
+    ],
+    "tags": [
+      "brand identity",
+      "cafe",
+      "Logo Design",
+      "Packaging",
+      "tea",
+      "visual"
+    ],
+    "year": "2021",
+    "blocks": [
+      {
+        "id": "pre-tea-img-cover",
+        "type": "image",
+        "src": "/images/behance/pre-tea/cover.jpg",
+        "alt": "Pre Tea packaging and logo design"
+      },
+      {
+        "id": "pre-tea-txt-intro",
+        "type": "text",
+        "content": "Packaging and logo design for Pre Tea — a café-oriented tea brand. Identity exploration, logo lockups, and packaging mockups.\n\nPublished September 2021 on Behance.",
+        "align": "left",
+        "color": "rgba(255,255,255,0.92)",
+        "fontSize": "lg"
+      },
+      {
+        "id": "pre-tea-img-01",
+        "type": "image",
+        "src": "/images/behance/pre-tea/01.jpg",
+        "alt": "Pre Tea brand application"
+      },
+      {
+        "id": "pre-tea-img-02",
+        "type": "image",
+        "src": "/images/behance/pre-tea/02.jpg",
+        "alt": "Pre Tea packaging detail"
+      }
+    ]
+  },
+  {
     "id": "p1",
     "slug": "baryq-identity",
     "title": "BARYQ Identity",
@@ -8,13 +59,18 @@
     "description": "Luxury fashion identity system — logo, palette, and campaign direction.",
     "overview": "A complete luxury fashion identity for BARYQ — from monogram construction and gold-black palette to campaign-ready lockups and social templates.",
     "role": "Creative direction, logo design, brand system",
-    "tools": ["Illustrator", "Photoshop", "Figma"],
+    "tools": [
+      "Illustrator",
+      "Photoshop",
+      "Figma"
+    ],
     "year": "2024",
     "gallery": [
       "/images/projects/baryq.png",
       "/images/placeholders/gallery-1.svg",
       "/images/placeholders/gallery-2.svg"
-    ]
+    ],
+    "hidden": true
   },
   {
     "id": "p2",
@@ -25,13 +81,17 @@
     "description": "Travel app interface — onboarding, discovery, and trip flows.",
     "overview": "Mobile UI for a travel companion app — onboarding, destination discovery, and trip planning with a bright, approachable visual language.",
     "role": "UI/UX design, prototyping",
-    "tools": ["Figma", "Principle"],
+    "tools": [
+      "Figma",
+      "Principle"
+    ],
     "year": "2024",
     "gallery": [
       "/images/projects/benou.svg",
       "/images/placeholders/gallery-3.svg",
       "/images/placeholders/gallery-4.svg"
-    ]
+    ],
+    "hidden": true
   },
   {
     "id": "p3",
@@ -42,12 +102,16 @@
     "description": "Motion-inspired poster series with bold typography.",
     "overview": "A cinematic poster series exploring contrast, grain, and kinetic typography for short-form storytelling.",
     "role": "Art direction, layout, typography",
-    "tools": ["Photoshop", "After Effects"],
+    "tools": [
+      "Photoshop",
+      "After Effects"
+    ],
     "year": "2023",
     "gallery": [
       "/images/placeholders/poster.svg",
       "/images/placeholders/gallery-1.svg"
-    ]
+    ],
+    "hidden": true
   },
   {
     "id": "p4",
@@ -58,12 +122,16 @@
     "description": "Chrome extension UI — capture, vault, and autofill flows.",
     "overview": "Interface design for a Chrome extension that streamlines 2FA — popup flows, settings, and vault management with clarity at small sizes.",
     "role": "Product UI, extension UX",
-    "tools": ["Figma", "Chrome UX"],
+    "tools": [
+      "Figma",
+      "Chrome UX"
+    ],
     "year": "2024",
     "gallery": [
       "/images/projects/blinkotp.png",
       "/images/placeholders/gallery-4.svg"
-    ]
+    ],
+    "hidden": true
   },
   {
     "id": "p5",
@@ -74,13 +142,18 @@
     "description": "Multi-format social campaign for a product launch.",
     "overview": "Cross-platform launch creatives — feed, story, and paid formats with a unified grid and motion-ready exports.",
     "role": "Campaign design, art direction",
-    "tools": ["Photoshop", "Figma", "CapCut"],
+    "tools": [
+      "Photoshop",
+      "Figma",
+      "CapCut"
+    ],
     "year": "2023",
     "gallery": [
       "/images/placeholders/gallery-1.svg",
       "/images/placeholders/gallery-2.svg",
       "/images/placeholders/gallery-3.svg"
-    ]
+    ],
+    "hidden": true
   },
   {
     "id": "p6",
@@ -91,12 +164,17 @@
     "description": "Premium unboxing experience and label system.",
     "overview": "Packaging exploration for a premium product line — dielines, label hierarchy, and unboxing moments.",
     "role": "Packaging design, 3D mockups",
-    "tools": ["Illustrator", "Blender", "Photoshop"],
+    "tools": [
+      "Illustrator",
+      "Blender",
+      "Photoshop"
+    ],
     "year": "2023",
     "gallery": [
       "/images/placeholders/gallery-2.svg",
       "/images/placeholders/gallery-4.svg"
-    ]
+    ],
+    "hidden": true
   },
   {
     "id": "p7",
@@ -107,13 +185,17 @@
     "description": "ERP dashboard — sales, inventory, and reporting modules.",
     "overview": "Dashboard UI for RABY ERP — dense data made readable through hierarchy, module cards, and reporting views.",
     "role": "Product UI, design system",
-    "tools": ["Figma", "FigJam"],
+    "tools": [
+      "Figma",
+      "FigJam"
+    ],
     "year": "2025",
     "gallery": [
       "/images/projects/raby.svg",
       "/images/placeholders/gallery-3.svg",
       "/images/placeholders/gallery-1.svg"
-    ]
+    ],
+    "hidden": true
   },
   {
     "id": "p8",
@@ -124,12 +206,17 @@
     "description": "External client identity modernization.",
     "overview": "Identity refresh for an external client — logo refinement, color system, and application across print and digital.",
     "role": "Brand design, client delivery",
-    "tools": ["Illustrator", "InDesign", "Figma"],
+    "tools": [
+      "Illustrator",
+      "InDesign",
+      "Figma"
+    ],
     "year": "2023",
     "gallery": [
       "/images/placeholders/client.svg",
       "/images/placeholders/gallery-2.svg"
-    ]
+    ],
+    "hidden": true
   },
   {
     "id": "p9",
@@ -140,12 +227,16 @@
     "description": "Short motion piece for brand storytelling.",
     "overview": "A short motion teaser — logo reveal, type animation, and sound-driven cuts for social and pitch decks.",
     "role": "Motion design, editing",
-    "tools": ["After Effects", "Premiere Pro"],
+    "tools": [
+      "After Effects",
+      "Premiere Pro"
+    ],
     "year": "2024",
     "gallery": [
       "/images/placeholders/gallery-3.svg",
       "/images/placeholders/poster.svg"
-    ]
+    ],
+    "hidden": true
   },
   {
     "id": "p10",
@@ -156,12 +247,17 @@
     "description": "Comprehensive brand book and asset library.",
     "overview": "Brand guidelines document — logo usage, color specs, typography, and downloadable asset library for teams.",
     "role": "Brand systems, documentation",
-    "tools": ["InDesign", "Figma", "Illustrator"],
+    "tools": [
+      "InDesign",
+      "Figma",
+      "Illustrator"
+    ],
     "year": "2024",
     "gallery": [
       "/images/placeholders/gallery-4.svg",
       "/images/placeholders/gallery-1.svg",
       "/images/placeholders/gallery-2.svg"
-    ]
+    ],
+    "hidden": true
   }
 ]
