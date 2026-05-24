@@ -15,7 +15,7 @@
 cd ~/Projects/brkmb-portfolio
 git add .
 git commit -m "BRKMB portfolio + auto deploy"
-git remote add origin https://github.com/YOUR_USERNAME/brkmb-portfolio.git
+git remote set-url origin https://github.com/BRKMB/brkmb-portfolio.git
 git push -u origin main
 ```
 
@@ -39,7 +39,11 @@ git push -u origin main
 
 ---
 
-**طريبة B: GitHub Actions + Wrangler** (لو مش عايز تربط Git من Cloudflare)
+**طريقة B: GitHub Actions + Wrangler** (اختياري — يحتاج PAT بصلاحية `workflow`)
+
+> ملف الـ workflow اتشال من المشروع لأن **طريقة A** كافية. لو احتجت B، أنشئ `.github/workflows/deploy.yml` من جديد.
+
+**طريقة B (قديمة): GitHub Actions + Wrangler** (لو مش عايز تربط Git من Cloudflare)
 
 1. Cloudflare → **My Profile** → **API Tokens** → **Create** → قالب **Edit Cloudflare Workers**
 2. انسخ الـ Token
