@@ -1,7 +1,7 @@
 import type { CmsData, LegacyCmsData, LinkGroup, PortfolioItem } from "@/types";
 import { normalizePortfolio } from "@/lib/portfolio";
 import { ensureLinkGroupsComplete } from "@/lib/link-groups-order";
-import { defaultCmsData } from "./defaults";
+import { CMS_PORTFOLIO_REVISION, defaultCmsData } from "./defaults";
 
 /** Demo portfolio entries shipped before Behance import — never show again. */
 export function isLegacyPlaceholder(item: PortfolioItem) {
@@ -28,10 +28,15 @@ export function mergePortfolioWithDefaults(
       continue;
     }
     storedBySlug.delete(def.slug);
+    const storedUsesLegacyAssets = fromStore.blocks?.some(
+      (b) => b.type === "image" && b.src?.includes("/behance/pre-tea/")
+    );
     merged.push({
       ...def,
       ...fromStore,
-      blocks: fromStore.blocks?.length ? fromStore.blocks : def.blocks,
+      image: storedUsesLegacyAssets ? def.image : (fromStore.image || def.image),
+      blocks:
+        fromStore.blocks?.length && !storedUsesLegacyAssets ? fromStore.blocks : def.blocks,
       hidden: fromStore.hidden ?? def.hidden,
     });
   }
@@ -63,8 +68,13 @@ export function resolveLinkGroups(parsed: LegacyCmsData): LinkGroup[] {
 }
 
 export function normalizeCmsData(parsed: LegacyCmsData): CmsData {
-  const portfolio = parsed.portfolio?.length
-    ? mergePortfolioWithDefaults(parsed.portfolio, defaultCmsData.portfolio)
+  const revision = parsed.portfolioRevision ?? 0;
+  const storedPortfolio =
+    revision >= CMS_PORTFOLIO_REVISION && parsed.portfolio?.length
+      ? parsed.portfolio
+      : [];
+  const portfolio = storedPortfolio.length
+    ? mergePortfolioWithDefaults(storedPortfolio, defaultCmsData.portfolio)
     : defaultCmsData.portfolio;
 
   return {
@@ -72,5 +82,6 @@ export function normalizeCmsData(parsed: LegacyCmsData): CmsData {
     portfolio,
     linkGroups: resolveLinkGroups(parsed),
     resume: { ...defaultCmsData.resume, ...parsed.resume },
+    portfolioRevision: CMS_PORTFOLIO_REVISION,
   };
 }

@@ -151,6 +151,8 @@ export interface CmsData {
   portfolio: PortfolioItem[];
   linkGroups: LinkGroup[];
   resume: ResumeData;
+  /** Bumped with CMS_PORTFOLIO_REVISION when portfolio.json changes. */
+  portfolioRevision?: number;
 }
 
 /** @deprecated Legacy CMS export shape — migrated to linkGroups on load */

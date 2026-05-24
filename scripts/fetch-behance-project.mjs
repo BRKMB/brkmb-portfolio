@@ -29,7 +29,11 @@ function parseTextColor(html) {
 
 function pickImageUrl(mod) {
   const sizes = mod.imageSizes?.allAvailable ?? [];
-  const prefer = ["source", "fs", "2800", "1400", "max_1200", "hd", "disp"];
+  /** Avoid source/fs — files can exceed Cloudflare Pages 25 MiB limit. */
+  const isGif = sizes.some((s) => s.url?.endsWith(".gif"));
+  const prefer = isGif
+    ? ["max_158", "max_316", "max_632", "disp", "hd"]
+    : ["max_1200", "1400", "hd", "2800", "disp", "max_808", "808"];
   for (const key of prefer) {
     const found = sizes.find((s) => s.url?.includes(`/${key}/`) || s.url?.includes(`_${key}/`));
     if (found?.url && !found.url.endsWith(".webp")) return found.url;
@@ -40,7 +44,7 @@ function pickImageUrl(mod) {
 
 function pickCoverUrl(project) {
   const sizes = project.covers?.allAvailable ?? [];
-  const prefer = ["max_808", "808", "404", "original"];
+  const prefer = ["max_808", "808", "404", "disp", "original"];
   for (const key of prefer) {
     const found = sizes.find((s) => s.url?.includes(`/${key}/`));
     if (found?.url) return found.url;
