@@ -55,6 +55,8 @@ export interface PortfolioItem {
   role?: string;
   tools?: string[];
   tags?: string[];
+  /** Behance `publishedOn` (Unix seconds). */
+  publishedOn?: number;
   year?: string;
   /** @deprecated Migrated to `blocks` on load */
   gallery?: string[];

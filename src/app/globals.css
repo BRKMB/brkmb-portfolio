@@ -598,6 +598,15 @@ main {
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
 }
 
+.behance-card-v2__date {
+  margin-top: 0.2rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.72);
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
 .behance-card-v2__stats {
   display: flex;
   shrink: 0;

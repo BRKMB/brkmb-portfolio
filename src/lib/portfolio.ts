@@ -1,4 +1,5 @@
 import portfolioData from "@/data/portfolio.json";
+import { sortPortfolioNewestFirst } from "@/lib/behance-dates";
 import { ensurePortfolioBlocks } from "@/lib/portfolio-blocks";
 import type { PortfolioItem } from "@/types";
 
@@ -22,7 +23,7 @@ export function normalizePortfolioItem(item: PortfolioItem): PortfolioItem {
 }
 
 export function normalizePortfolio(items: PortfolioItem[]): PortfolioItem[] {
-  return items.map(normalizePortfolioItem);
+  return sortPortfolioNewestFirst(items.map(normalizePortfolioItem));
 }
 
 export function getPortfolioBySlug(slug: string, items = defaultPortfolio): PortfolioItem | undefined {

@@ -39,6 +39,7 @@ for (const g of galleries) {
   }
 }
 
+portfolio.sort((a, b) => b.publishedOn - a.publishedOn);
 fs.writeFileSync(portfolioPath, JSON.stringify(portfolio, null, 2) + "\n");
 
 const order = {

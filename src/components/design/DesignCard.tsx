@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { HiEye, HiHeart, HiLink } from "react-icons/hi2";
 import type { PortfolioItem } from "@/types";
+import { formatBehancePublishedDate } from "@/lib/behance-dates";
 import type { ProjectStats } from "@/lib/design-engagement/api";
 import { projectPublicUrl } from "@/lib/design-engagement/api";
 
@@ -59,7 +60,14 @@ export function DesignCard({ item, stats = { views: 0, likes: 0 } }: Props) {
           <HiLink className="h-3.5 w-3.5" />
         </button>
         <div className="behance-card-v2__footer">
-          <h2 className="behance-card-v2__title">{item.title}</h2>
+          <div>
+            <h2 className="behance-card-v2__title">{item.title}</h2>
+            {item.publishedOn ? (
+              <p className="behance-card-v2__date">
+                {formatBehancePublishedDate(item.publishedOn)}
+              </p>
+            ) : null}
+          </div>
           <div className="behance-card-v2__stats">
             <span className="behance-card-v2__stat">
               <HiHeart className="h-3.5 w-3.5" aria-hidden />

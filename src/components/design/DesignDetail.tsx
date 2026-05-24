@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { DesignBlocksRenderer } from "@/components/design/DesignBlocksRenderer";
 import { DesignEngagement } from "@/components/design/DesignEngagement";
 import { usePortfolioItem } from "@/components/providers/CmsProvider";
+import { formatBehancePublishedDate } from "@/lib/behance-dates";
 import { site } from "@/lib/data";
 
 export function DesignDetail({ slug }: { slug: string }) {
@@ -23,7 +24,11 @@ export function DesignDetail({ slug }: { slug: string }) {
   }
 
   const blocks = item.blocks ?? [];
-  const published = item.year ? `${item.year}` : "2024";
+  const publishedLabel = item.publishedOn
+    ? formatBehancePublishedDate(item.publishedOn)
+    : item.year
+      ? item.year
+      : null;
 
   const pageBg = item.styleDefaults?.pageBackground;
 
@@ -71,8 +76,14 @@ export function DesignDetail({ slug }: { slug: string }) {
             <span>{site.name}</span>
             <span aria-hidden>·</span>
             <span>{site.tagline.split("•")[0]?.trim() || "Designer"}</span>
-            <span aria-hidden>·</span>
-            <span>{published}</span>
+            {publishedLabel ? (
+              <>
+                <span aria-hidden>·</span>
+                <time dateTime={item.publishedOn ? new Date(item.publishedOn * 1000).toISOString() : undefined}>
+                  Published: {publishedLabel}
+                </time>
+              </>
+            ) : null}
           </div>
 
           <div className="mt-4 flex flex-wrap gap-2">
@@ -142,7 +153,15 @@ export function DesignDetail({ slug }: { slug: string }) {
         </div>
       ) : null}
 
-      <footer className="mx-auto mt-16 max-w-[720px] border-t border-white/10 px-4 pt-10 md:px-8">
+      {publishedLabel ? (
+        <p className="text-footnote mx-auto mt-16 max-w-[720px] px-4 v-tertiary md:px-8">
+          <time dateTime={item.publishedOn ? new Date(item.publishedOn * 1000).toISOString() : undefined}>
+            Published: {publishedLabel}
+          </time>
+        </p>
+      ) : null}
+
+      <footer className="mx-auto mt-10 max-w-[720px] border-t border-white/10 px-4 pt-10 md:px-8">
         <Link
           href="/design/"
           data-cursor

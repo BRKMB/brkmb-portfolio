@@ -272,6 +272,7 @@ export async function importBehanceGallery(galleryId, opts = {}) {
     overview: description || undefined,
     tools: behanceToolNames(project),
     tags: project.tags?.map((t) => t.title?.trim()).filter(Boolean) ?? [],
+    publishedOn: project.publishedOn,
     year: new Date(project.publishedOn * 1000).getFullYear().toString(),
     styleDefaults: pageBg ? { pageBackground: pageBg } : undefined,
     blocks,
