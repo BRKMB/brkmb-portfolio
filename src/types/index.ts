@@ -15,6 +15,7 @@ export interface Brand {
   name: string;
   slug: string;
   logo: string;
+  logoImage?: string;
   description: string;
   ownership: string;
   status: BrandStatus;

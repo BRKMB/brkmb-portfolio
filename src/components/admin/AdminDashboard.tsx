@@ -3,14 +3,15 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useCms } from "@/components/providers/CmsProvider";
-import type { LinkItem, PortfolioItem, Project } from "@/types";
+import type { LinkItem, PortfolioItem, Project, ResumeData } from "@/types";
 
-type Tab = "projects" | "design" | "links" | "data";
+type Tab = "projects" | "design" | "links" | "resume" | "data";
 
 export function AdminDashboard() {
   const cms = useCms();
   const [tab, setTab] = useState<Tab>("projects");
-  const { data, setProjects, setPortfolio, setLinks, previewAsVisitor, setPreviewAsVisitor } = cms;
+  const { data, setProjects, setPortfolio, setLinks, setResume, previewAsVisitor, setPreviewAsVisitor } =
+    cms;
 
   if (previewAsVisitor) {
     return (
@@ -51,7 +52,7 @@ export function AdminDashboard() {
         </div>
 
         <div className="mt-8 flex flex-wrap gap-2">
-          {(["projects", "design", "links", "data"] as Tab[]).map((t) => (
+          {(["projects", "design", "links", "resume", "data"] as Tab[]).map((t) => (
             <button
               key={t}
               type="button"
@@ -70,6 +71,7 @@ export function AdminDashboard() {
           <PortfolioEditor items={data.portfolio} onChange={setPortfolio} />
         )}
         {tab === "links" && <LinksEditor links={data.links} onChange={setLinks} />}
+        {tab === "resume" && <ResumeEditor resume={data.resume} onChange={setResume} />}
         {tab === "data" && <DataPanel />}
       </div>
     </div>
@@ -261,6 +263,97 @@ function LinksEditor({
           <button type="button" className="chip-glass text-caption px-3 py-2 text-red-300" onClick={() => onChange(links.filter((_, i) => i !== idx))}>
             Delete
           </button>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function ResumeEditor({
+  resume,
+  onChange,
+}: {
+  resume: ResumeData;
+  onChange: (r: ResumeData) => void;
+}) {
+  return (
+    <div className="mt-8 space-y-4">
+      <div className="glass-card p-5">
+        <label className="text-footnote v-tertiary">Summary</label>
+        <textarea
+          className="admin-input mt-2 w-full min-h-[100px]"
+          value={resume.summary}
+          onChange={(e) => onChange({ ...resume, summary: e.target.value })}
+        />
+      </div>
+      <div className="glass-card space-y-3 p-5">
+        <p className="text-caption text-accent uppercase tracking-widest">Education</p>
+        <input
+          className="admin-input w-full"
+          value={resume.education.school}
+          onChange={(e) =>
+            onChange({ ...resume, education: { ...resume.education, school: e.target.value } })
+          }
+        />
+        <input
+          className="admin-input w-full"
+          value={resume.education.degree}
+          onChange={(e) =>
+            onChange({ ...resume, education: { ...resume.education, degree: e.target.value } })
+          }
+        />
+      </div>
+      <div className="glass-card p-5">
+        <label className="text-footnote v-tertiary">Skills (comma separated)</label>
+        <input
+          className="admin-input mt-2 w-full"
+          value={resume.skills.join(", ")}
+          onChange={(e) =>
+            onChange({
+              ...resume,
+              skills: e.target.value.split(",").map((s) => s.trim()).filter(Boolean),
+            })
+          }
+        />
+      </div>
+      {resume.experience.map((exp, idx) => (
+        <div key={exp.period} className="glass-card space-y-2 p-5">
+          <input
+            className="admin-input w-full"
+            value={exp.period}
+            onChange={(e) => {
+              const next = [...resume.experience];
+              next[idx] = { ...exp, period: e.target.value };
+              onChange({ ...resume, experience: next });
+            }}
+          />
+          <input
+            className="admin-input w-full"
+            value={exp.role}
+            onChange={(e) => {
+              const next = [...resume.experience];
+              next[idx] = { ...exp, role: e.target.value };
+              onChange({ ...resume, experience: next });
+            }}
+          />
+          <input
+            className="admin-input w-full"
+            value={exp.company}
+            onChange={(e) => {
+              const next = [...resume.experience];
+              next[idx] = { ...exp, company: e.target.value };
+              onChange({ ...resume, experience: next });
+            }}
+          />
+          <textarea
+            className="admin-input w-full min-h-[72px]"
+            value={exp.description}
+            onChange={(e) => {
+              const next = [...resume.experience];
+              next[idx] = { ...exp, description: e.target.value };
+              onChange({ ...resume, experience: next });
+            }}
+          />
         </div>
       ))}
     </div>

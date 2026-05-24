@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Hero } from "@/components/sections/Hero";
+import { VenturesStrip } from "@/components/sections/VenturesStrip";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const hubs = [
@@ -22,6 +23,12 @@ const hubs = [
     emoji: "↗",
   },
   {
+    href: "/about/",
+    title: "About",
+    desc: "Story, process, and how I work as founder and designer.",
+    emoji: "◇",
+  },
+  {
     href: "/resume/",
     title: "Resume",
     desc: "Experience, skills, and a downloadable PDF CV.",
@@ -33,6 +40,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <VenturesStrip />
       <ScrollReveal>
         <section className="px-4 pb-24 md:px-8">
           <div className="mx-auto max-w-4xl">

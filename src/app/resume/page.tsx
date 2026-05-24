@@ -1,11 +1,23 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import { site } from "@/lib/data";
 import { useResume } from "@/components/providers/CmsProvider";
-import { DownloadCvButton } from "@/components/resume/DownloadCvButton";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Button } from "@/components/ui/Button";
+
+const DownloadCvButton = dynamic(
+  () => import("@/components/resume/DownloadCvButton").then((m) => m.DownloadCvButton),
+  {
+    ssr: false,
+    loading: () => (
+      <span className="btn-primary text-subheadline inline-flex min-h-[44px] cursor-wait items-center justify-center rounded-full px-6 py-3 opacity-70">
+        Loading PDF…
+      </span>
+    ),
+  }
+);
 
 export default function ResumePage() {
   const resume = useResume();
@@ -21,7 +33,10 @@ export default function ResumePage() {
           transition={{ delay: 0.1, ease: [0.32, 0.72, 0, 1] }}
           className="mt-8 flex flex-wrap gap-3"
         >
-          <DownloadCvButton resume={resume} className="btn-primary text-subheadline inline-flex min-h-[44px] items-center justify-center rounded-full px-6 py-3" />
+          <DownloadCvButton
+            resume={resume}
+            className="btn-primary text-subheadline inline-flex min-h-[44px] items-center justify-center rounded-full px-6 py-3"
+          />
           <Button href={`mailto:${site.email}`} variant="ghost" external>
             Email me
           </Button>

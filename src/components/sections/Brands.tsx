@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { brands } from "@/lib/data";
@@ -23,14 +24,17 @@ function BrandCard({ brand }: { brand: (typeof brands)[0] }) {
           {brand.ownership}
         </p>
         <div
-          className="mt-4 mb-4 flex h-14 w-14 items-center justify-center rounded-[12px] text-title-2 font-semibold"
+          className="mt-4 mb-4 flex h-14 w-14 items-center justify-center overflow-hidden rounded-[12px] text-title-2 font-semibold"
           style={{
             background: `${brand.accent}20`,
-            color: brand.accent,
             boxShadow: `inset 0 1px 0.5px rgba(255,255,255,0.2)`,
           }}
         >
-          {brand.logo}
+          {brand.logoImage ? (
+            <Image src={brand.logoImage} alt={brand.name} width={56} height={56} className="h-full w-full object-cover" />
+          ) : (
+            <span style={{ color: brand.accent }}>{brand.logo}</span>
+          )}
         </div>
         <h3 className="font-display text-title-3 v-primary">{brand.name}</h3>
         <p className="text-subheadline mt-3 leading-relaxed v-secondary">{brand.description}</p>
