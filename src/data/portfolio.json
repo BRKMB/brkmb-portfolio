@@ -5,7 +5,7 @@
   { "id": "p4", "title": "BlinkOTP UI", "category": "UI designs", "image": "/images/projects/blinkotp.svg", "aspect": "square" },
   { "id": "p5", "title": "Social Campaign", "category": "Social media designs", "image": "/images/placeholders/gallery-1.svg", "aspect": "wide" },
   { "id": "p6", "title": "Packaging Concept", "category": "Packaging", "image": "/images/placeholders/gallery-2.svg", "aspect": "tall" },
-  { "id": "p7", "title": "ERP Dashboard", "category": "UI designs", "image": "/images/projects/erp.svg", "aspect": "wide" },
+  { "id": "p7", "title": "RABY Dashboard", "category": "UI designs", "image": "/images/projects/raby.svg", "aspect": "wide" },
   { "id": "p8", "title": "Client Rebrand", "category": "Client work", "image": "/images/placeholders/client.svg", "aspect": "square" },
   { "id": "p9", "title": "Motion Teaser", "category": "Motion", "image": "/images/placeholders/gallery-3.svg", "aspect": "tall" },
   { "id": "p10", "title": "Brand Guidelines", "category": "Brand identity", "image": "/images/placeholders/gallery-4.svg", "aspect": "wide" }

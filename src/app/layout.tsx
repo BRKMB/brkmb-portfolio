@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Playfair_Display } from "next/font/google";
 import { ClientProviders } from "@/components/providers/ClientProviders";
 import { Footer } from "@/components/layout/Footer";
 import { site } from "@/lib/data";
@@ -10,9 +10,10 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -41,7 +42,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body
+        className={`${geistSans.variable} ${playfair.variable} relative antialiased`}
+      >
         <div className="noise" aria-hidden />
         <ClientProviders>{children}</ClientProviders>
         <Footer />

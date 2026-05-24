@@ -1,13 +1,13 @@
 {
   "name": "Baher (Joo)",
-  "tagline": "Graphic Designer • Founder • Product Builder",
-  "title": "BRKMB — Baher | Designer & Founder",
-  "description": "I design brands, build products, and turn ideas into real experiences. Premium digital headquarters of Baher — graphic designer, founder, and product builder.",
+  "tagline": "Founder • Product Builder • Graphic Designer",
+  "heroLine": "I conceive brands from zero — then build them into real products.",
+  "title": "BRKMB — Baher | Founder & Builder",
+  "description": "Founder-led brands and products. BARYQ, BENOU, BlinkOTP, RABY — conceived, designed, and built by Baher. Graphic design is the craft; building is the mission.",
   "email": "hello@brkmb.com",
   "stats": [
-    { "label": "Projects Completed", "value": "48", "suffix": "+" },
-    { "label": "Brands Built", "value": "12", "suffix": "+" },
-    { "label": "Products Created", "value": "8", "suffix": "+" },
-    { "label": "Years of Experience", "value": "6", "suffix": "+" }
+    { "label": "Brands I founded", "value": "5", "suffix": "" },
+    { "label": "Products shipped", "value": "8", "suffix": "+" },
+    { "label": "Years creating", "value": "6", "suffix": "+" }
   ]
 }

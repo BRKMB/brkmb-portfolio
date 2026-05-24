@@ -6,11 +6,11 @@ export function statusColor(status: string): string {
   switch (status) {
     case "Live":
     case "Completed":
-      return "text-emerald-400 bg-emerald-400/10 border-emerald-400/30";
+      return "text-[#c9f31d] bg-[#c9f31d]/10 border-[#c9f31d]/25";
     case "In Progress":
     case "Building":
-      return "text-amber-400 bg-amber-400/10 border-amber-400/30";
+      return "text-[#d4ff4d] bg-[#d4ff4d]/10 border-[#d4ff4d]/20";
     default:
-      return "text-violet-400 bg-violet-400/10 border-violet-400/30";
+      return "text-[#a8d86a] bg-[#a8d86a]/10 border-[#a8d86a]/20";
   }
 }

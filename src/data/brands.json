@@ -4,49 +4,54 @@
     "name": "BARYQ",
     "slug": "baryq",
     "logo": "B",
-    "description": "Luxury clothing brand — premium identity and visual world.",
+    "description": "Luxury clothing brand — my concept, my visual world, my direction from day one.",
+    "ownership": "Founded & created by me",
     "status": "Building",
     "accent": "#c9a962",
-    "href": "#projects"
+    "href": "/projects/baryq-brand/"
   },
   {
     "id": "benou",
-    "name": "Benou",
+    "name": "BENOU",
     "slug": "benou",
     "logo": "Bn",
-    "description": "Travel mobile app — discovery, booking, and seamless journeys.",
+    "description": "Travel mobile app — born from my idea, designed and product-led by me.",
+    "ownership": "Founded & created by me",
     "status": "Building",
-    "accent": "#5b8def",
-    "href": "#projects"
+    "accent": "#c9f31d",
+    "href": "/projects/benou-app/"
   },
   {
     "id": "blinkotp",
     "name": "BlinkOTP",
     "slug": "blinkotp",
     "logo": "⚡",
-    "description": "Chrome extension for fast, secure OTP capture and autofill.",
+    "description": "Chrome extension I imagined, designed, and shipped — not a client brief.",
+    "ownership": "Founded & created by me",
     "status": "Live",
-    "accent": "#22d3ee",
-    "href": "#projects"
+    "accent": "#d4ff4d",
+    "href": "/projects/blinkotp/"
   },
   {
-    "id": "erp",
-    "name": "ERP Desktop",
-    "slug": "erp-desktop",
-    "logo": "E",
-    "description": "Business management system — sales, inventory, accounting.",
+    "id": "raby",
+    "name": "RABY",
+    "slug": "raby",
+    "logo": "R",
+    "description": "Desktop ERP system — my architecture, my UX, my product vision for business ops.",
+    "ownership": "Founded & created by me",
     "status": "Building",
-    "accent": "#a78bfa",
-    "href": "#projects"
+    "accent": "#7cb342",
+    "href": "/projects/raby/"
   },
   {
     "id": "future",
-    "name": "Future Projects",
+    "name": "Next ventures",
     "slug": "future",
     "logo": "∞",
-    "description": "SaaS ventures, mobile products, and brand experiments in pipeline.",
+    "description": "More SaaS and brand experiments already forming — same playbook: idea first, then build.",
+    "ownership": "In my pipeline",
     "status": "Coming Soon",
-    "accent": "#f472b6",
+    "accent": "#a8d86a",
     "href": "#contact"
   }
 ]

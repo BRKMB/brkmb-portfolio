@@ -17,14 +17,16 @@ export function SectionHeader({ label, title, description }: Props) {
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       className="mb-12 md:mb-16"
     >
-      <span className="text-xs font-medium tracking-[0.2em] text-indigo-400 uppercase">
+      <span className="text-xs font-medium tracking-[0.25em] text-accent uppercase">
         {label}
       </span>
-      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-5xl">
+      <h2 className="font-display mt-4 text-3xl font-medium tracking-tight text-white md:text-5xl">
         {title}
       </h2>
       {description && (
-        <p className="mt-4 max-w-2xl text-base text-white/50 md:text-lg">{description}</p>
+        <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/50 md:text-lg">
+          {description}
+        </p>
       )}
     </motion.div>
   );

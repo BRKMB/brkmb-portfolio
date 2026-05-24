@@ -14,7 +14,7 @@ export default function ResumePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <Link href="/" className="text-sm text-indigo-400 hover:text-indigo-300">
+          <Link href="/" className="text-sm text-accent hover:text-[#d4ff4d]">
             ← Back home
           </Link>
 
@@ -39,7 +39,7 @@ export default function ResumePage() {
           transition={{ delay: 0.15 }}
           className="mt-16"
         >
-          <h2 className="text-sm tracking-[0.2em] text-indigo-400 uppercase">Education</h2>
+          <h2 className="text-sm tracking-[0.2em] text-accent uppercase">Education</h2>
           <div className="glass gradient-border mt-4 rounded-2xl p-6">
             <h3 className="text-xl font-semibold text-white">{resume.education.school}</h3>
             <p className="mt-1 text-white/50">{resume.education.degree}</p>
@@ -52,7 +52,7 @@ export default function ResumePage() {
           transition={{ delay: 0.25 }}
           className="mt-12"
         >
-          <h2 className="text-sm tracking-[0.2em] text-indigo-400 uppercase">Skills</h2>
+          <h2 className="text-sm tracking-[0.2em] text-accent uppercase">Skills</h2>
           <div className="mt-4 flex flex-wrap gap-2">
             {resume.skills.map((skill) => (
               <span
@@ -71,12 +71,12 @@ export default function ResumePage() {
           transition={{ delay: 0.35 }}
           className="mt-12"
         >
-          <h2 className="text-sm tracking-[0.2em] text-indigo-400 uppercase">Experience</h2>
+          <h2 className="text-sm tracking-[0.2em] text-accent uppercase">Experience</h2>
           <div className="mt-6 space-y-6 border-l border-white/10 pl-8">
             {resume.experience.map((exp) => (
               <div key={exp.period} className="relative">
-                <span className="absolute top-1 -left-[37px] h-3 w-3 rounded-full bg-indigo-500" />
-                <p className="text-sm text-indigo-400">{exp.period}</p>
+                <span className="absolute top-1 -left-[37px] h-3 w-3 rounded-full bg-[#c9f31d]" />
+                <p className="text-sm text-accent">{exp.period}</p>
                 <h3 className="mt-1 text-lg font-semibold text-white">{exp.role}</h3>
                 <p className="text-white/60">{exp.company}</p>
                 <p className="mt-2 text-white/45">{exp.description}</p>

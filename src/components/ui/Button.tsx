@@ -20,10 +20,10 @@ export function Button({
   external,
 }: ButtonProps) {
   const styles = cn(
-    "inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-medium transition-colors",
+    "inline-flex items-center justify-center rounded-full px-7 py-3 text-sm font-medium transition-all",
     variant === "primary"
-      ? "bg-white text-black hover:bg-white/90 shadow-[0_0_40px_rgba(99,102,241,0.25)]"
-      : "glass text-white hover:bg-white/10",
+      ? "btn-primary"
+      : "glass text-white/80 hover:border-[#c9f31d]/30 hover:text-white",
     className
   );
 

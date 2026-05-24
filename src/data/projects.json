@@ -26,14 +26,14 @@
   },
   {
     "slug": "benou-app",
-    "title": "Benou — Travel Mobile App",
+    "title": "BENOU — Travel Mobile App",
     "shortDescription": "UI/UX and product design for a travel discovery platform.",
     "description": "Mobile-first experience for exploring destinations and managing trips.",
     "category": "UI/UX",
     "status": "In Progress",
     "thumbnail": "/images/projects/benou.svg",
     "tools": ["Figma", "Principle", "After Effects"],
-    "overview": "Benou connects travelers with curated experiences through an intuitive, beautiful mobile interface.",
+    "overview": "BENOU connects travelers with curated experiences through an intuitive, beautiful mobile interface.",
     "role": "Co-founder, Product Designer",
     "process": [
       "User flows and wireframes",
@@ -75,15 +75,15 @@
     "featured": true
   },
   {
-    "slug": "erp-desktop",
-    "title": "ERP Desktop System",
-    "shortDescription": "Enterprise desktop UI for business operations.",
-    "description": "Comprehensive ERP interface for sales, inventory, and accounting.",
+    "slug": "raby",
+    "title": "RABY — Business Management System",
+    "shortDescription": "Desktop ERP I founded — sales, inventory, accounting.",
+    "description": "Comprehensive ERP interface conceived and designed from my own product vision.",
     "category": "Applications",
     "status": "In Progress",
-    "thumbnail": "/images/projects/erp.svg",
+    "thumbnail": "/images/projects/raby.svg",
     "tools": ["Figma", "React", "Electron"],
-    "overview": "A desktop-first ERP built for SMEs who need powerful tools without enterprise complexity.",
+    "overview": "RABY is a desktop-first ERP I created for SMEs — powerful operations without enterprise bloat.",
     "role": "Founder, Product Designer, UX Architect",
     "process": [
       "Workflow mapping with stakeholders",
@@ -96,7 +96,7 @@
       "Unified design language across modules",
       "Reduced training time for operators"
     ],
-    "gallery": ["/images/projects/erp.svg", "/images/placeholders/gallery-5.svg"],
+    "gallery": ["/images/projects/raby.svg", "/images/placeholders/gallery-5.svg"],
     "featured": true
   },
   {

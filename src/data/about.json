@@ -1,12 +1,12 @@
 {
-  "who": "I'm Baher — known as Joo. A graphic designer who became a founder because I wanted my designs to live in real products, not just mockups.",
-  "build": "I build brands (BARYQ), mobile apps (Benou), tools (BlinkOTP), and enterprise software (ERP). brkmb.com is my digital headquarters — one place for everything I create.",
-  "believe": "Design is strategy. Speed is a feature. Premium doesn't mean complicated — it means intentional. Every pixel should earn its place.",
-  "process": "Research → Direction → Design → Build → Ship → Iterate. I move fast, but never sloppy.",
+  "who": "I'm Baher — Joo. I don't wait for a client to say \"design us a brand.\" I conceive the brand, the product, and the business — then I make it real.",
+  "build": "BARYQ, BENOU, BlinkOTP, RABY — every one started as my idea. Strategy, naming, visual identity, UX, and build: mine. brkmb.com is where they all live.",
+  "believe": "The best work happens when design and ownership sit in the same hands. Luxury isn't decoration — it's clarity. Speed without soul is noise.",
+  "process": "Idea → Art direction → Brand world → Product → Ship. Graphic design is how I think; founding is how I finish.",
   "roles": [
-    { "title": "Designer", "desc": "Visual systems, UI, motion, and brand worlds." },
-    { "title": "Founder", "desc": "Products, teams, and ventures from zero to market." },
-    { "title": "Problem Solver", "desc": "Turning messy business needs into clear experiences." },
-    { "title": "Builder", "desc": "Shipping — not just presenting — real software and brands." }
+    { "title": "Founder", "desc": "I create ventures — not deliverables on someone else's vision." },
+    { "title": "Builder", "desc": "Apps, extensions, ERP — shipped, not slideware." },
+    { "title": "Creative Director", "desc": "End-to-end visual and product direction." },
+    { "title": "Graphic Designer", "desc": "The craft behind everything — always, but never the only label." }
   ]
 }

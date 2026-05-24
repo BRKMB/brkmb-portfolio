@@ -18,8 +18,8 @@ export function Contact() {
       <div className="mx-auto max-w-6xl">
         <SectionHeader
           label="Contact"
-          title="Let's build something"
-          description="Open for collaborations, founding partnerships, and premium design work."
+          title="Build with me"
+          description="Partnerships, ventures, or selective design collaborations — if it starts with a real idea."
         />
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -37,7 +37,7 @@ export function Contact() {
               whileHover={{ y: -8, scale: 1.02 }}
               className="glass gradient-border group flex items-center gap-4 rounded-2xl p-6"
             >
-              <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500/20 text-lg font-bold text-indigo-300 transition group-hover:bg-indigo-500/30">
+              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#c9f31d]/12 text-lg font-bold text-accent transition group-hover:bg-[#c9f31d]/20">
                 {icons[item.icon] || "→"}
               </span>
               <div>
