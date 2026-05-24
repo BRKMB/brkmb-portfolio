@@ -21,8 +21,8 @@ export function ClientProviders({ children }: { children: ReactNode }) {
   return (
     <>
       <ScrollProgress />
-      <CustomCursor />
       <Navigation />
+      <CustomCursor />
       <AnimatePresence mode="wait">
         {loading ? <Loader key="loader" /> : null}
       </AnimatePresence>

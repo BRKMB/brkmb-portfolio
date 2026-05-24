@@ -267,13 +267,30 @@ main {
   text-shadow: none;
 }
 
-/* Custom cursor — above nav (10001), portaled to body */
+/* Cursor root — above nav backdrop-filter compositor layer (Chromium) */
+#custom-cursor-root {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  pointer-events: none;
+  overflow: visible;
+  isolation: isolate;
+}
+
+.custom-cursor-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  will-change: left, top;
+}
+
 .custom-cursor-ring {
-  z-index: 11000;
+  z-index: 1;
 }
 
 .custom-cursor-core {
-  z-index: 11001;
+  z-index: 2;
 }
 
 /* Custom cursor — hide system pointer on desktop */

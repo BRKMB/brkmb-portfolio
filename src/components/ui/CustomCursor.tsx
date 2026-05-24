@@ -1,11 +1,59 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
-import { motion, useSpring } from "framer-motion";
+import {
+  motion,
+  useMotionValueEvent,
+  useSpring,
+  type MotionValue,
+} from "framer-motion";
+
+const CURSOR_ROOT_ID = "custom-cursor-root";
+
+function ensureCursorRoot(): HTMLElement {
+  let root = document.getElementById(CURSOR_ROOT_ID);
+  if (!root) {
+    root = document.createElement("div");
+    root.id = CURSOR_ROOT_ID;
+    document.body.appendChild(root);
+  } else {
+    document.body.appendChild(root);
+  }
+  return root;
+}
+
+function CursorLayer({
+  x,
+  y,
+  offset,
+  className,
+  children,
+}: {
+  x: MotionValue<number>;
+  y: MotionValue<number>;
+  offset: number;
+  className: string;
+  children: ReactNode;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useMotionValueEvent(x, "change", (v) => {
+    if (ref.current) ref.current.style.left = `${v - offset}px`;
+  });
+  useMotionValueEvent(y, "change", (v) => {
+    if (ref.current) ref.current.style.top = `${v - offset}px`;
+  });
+
+  return (
+    <div ref={ref} className={className}>
+      {children}
+    </div>
+  );
+}
 
 export function CustomCursor() {
-  const [mounted, setMounted] = useState(false);
+  const [root, setRoot] = useState<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
   const [hovering, setHovering] = useState(false);
   const [clicking, setClicking] = useState(false);
@@ -15,7 +63,9 @@ export function CustomCursor() {
   const ringX = useSpring(0, { stiffness: 280, damping: 28, mass: 0.4 });
   const ringY = useSpring(0, { stiffness: 280, damping: 28, mass: 0.4 });
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setRoot(ensureCursorRoot());
+  }, []);
 
   useEffect(() => {
     const fine = window.matchMedia("(pointer: fine)").matches;
@@ -53,18 +103,28 @@ export function CustomCursor() {
     };
   }, [cursorX, cursorY, ringX, ringY]);
 
-  if (!mounted || !visible) return null;
+  useEffect(() => {
+    if (!root) return;
+    const pinOnTop = () => {
+      if (document.body.lastElementChild !== root) {
+        document.body.appendChild(root);
+      }
+    };
+    pinOnTop();
+    const observer = new MutationObserver(pinOnTop);
+    observer.observe(document.body, { childList: true });
+    return () => observer.disconnect();
+  }, [root]);
+
+  if (!root || !visible) return null;
 
   const cursor = (
     <>
-      <motion.div
-        className="custom-cursor-ring pointer-events-none fixed hidden md:block"
-        style={{
-          left: ringX,
-          top: ringY,
-          marginLeft: -18,
-          marginTop: -18,
-        }}
+      <CursorLayer
+        x={ringX}
+        y={ringY}
+        offset={18}
+        className="custom-cursor-layer custom-cursor-ring hidden md:block"
       >
         <motion.div
           className="rounded-full border border-[#c9f31d]/40"
@@ -79,16 +139,13 @@ export function CustomCursor() {
               "0 0 20px rgba(201, 243, 29, 0.35), 0 0 40px rgba(201, 243, 29, 0.12)",
           }}
         />
-      </motion.div>
+      </CursorLayer>
 
-      <motion.div
-        className="custom-cursor-core pointer-events-none fixed hidden md:block"
-        style={{
-          left: cursorX,
-          top: cursorY,
-          marginLeft: -5,
-          marginTop: -5,
-        }}
+      <CursorLayer
+        x={cursorX}
+        y={cursorY}
+        offset={5}
+        className="custom-cursor-layer custom-cursor-core hidden md:block"
       >
         <motion.div
           animate={{ scale: clicking ? 0.85 : hovering ? 1.35 : 1 }}
@@ -102,9 +159,9 @@ export function CustomCursor() {
               "0 0 10px rgba(201, 243, 29, 0.85), 0 0 22px rgba(201, 243, 29, 0.45), 0 0 36px rgba(201, 243, 29, 0.2)",
           }}
         />
-      </motion.div>
+      </CursorLayer>
     </>
   );
 
-  return createPortal(cursor, document.body);
+  return createPortal(cursor, root);
 }
