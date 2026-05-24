@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: Props) {
   const project = getProjectBySlug(slug);
   if (!project) return { title: "Project Not Found" };
   return {
-    title: `${project.title} | BRKMB`,
+    title: `${project.title} | Baher Magally`,
     description: project.shortDescription,
   };
 }

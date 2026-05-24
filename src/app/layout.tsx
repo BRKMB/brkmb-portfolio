@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: site.title,
     description: site.description,
     url: "https://brkmb.com",
-    siteName: "BRKMB",
+    siteName: "Baher Magally",
     type: "website",
   },
   twitter: {

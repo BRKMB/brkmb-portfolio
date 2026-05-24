@@ -61,7 +61,7 @@ export function Navigation() {
           <span className="flex h-9 w-9 items-center justify-center rounded-full btn-primary !min-h-0 !px-0 !py-0 text-sm font-bold">
             B
           </span>
-          <span className="font-display text-headline hidden sm:inline">brkmb</span>
+          <span className="font-display text-headline hidden sm:inline">Baher</span>
         </Link>
 
         <ul className="hidden items-center gap-0.5 lg:flex">

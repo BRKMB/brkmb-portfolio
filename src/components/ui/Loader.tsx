@@ -23,7 +23,7 @@ export function Loader() {
         animate={{ opacity: 1 }}
         transition={{ delay: 0.3 }}
       >
-        BRKMB
+        Baher
       </motion.p>
       <div className="mt-5 h-1 w-28 overflow-hidden rounded-full glass-ultra-thin">
         <motion.div

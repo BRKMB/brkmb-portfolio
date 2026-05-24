@@ -1,6 +1,6 @@
-# BRKMB — Premium Personal Site
+# Baher Magally — Personal Site
 
-Digital headquarters for **Baher** — Founder, Product Builder, Graphic Designer.
+Digital headquarters for **Baher Magally** — Founder, Product Builder, Graphic Designer.
 
 **Live:** [brkmb.com](https://brkmb.com)
 
