@@ -12,6 +12,7 @@ import {
   FaDribbble,
   FaWhatsapp,
   FaTelegram,
+  FaPinterest,
 } from "react-icons/fa6";
 import { SiLinktree } from "react-icons/si";
 import { HiOutlineGlobeAlt, HiOutlineEnvelope } from "react-icons/hi2";
@@ -42,6 +43,7 @@ const brands: Record<string, BrandConfig> = {
   email: { icon: HiOutlineEnvelope, color: "#EA4335" },
   website: { icon: HiOutlineGlobeAlt, color: "#5c5c5c" },
   linktree: { icon: SiLinktree, color: "#43E660" },
+  pinterest: { icon: FaPinterest, color: "#E60023" },
 };
 
 function badgeBackground(key: string, brand: BrandConfig): string {
@@ -54,6 +56,7 @@ function badgeBackground(key: string, brand: BrandConfig): string {
   if (key === "linkedin") return "#0A66C2";
   if (key === "youtube") return "#FF0000";
   if (key === "behance") return "#1769FF";
+  if (key === "pinterest") return "#E60023";
   if (key === "paypal") return "#ffffff";
   return "#ffffff";
 }
@@ -67,7 +70,8 @@ function badgeIconColor(key: string, brand: BrandConfig): string {
     key === "facebook" ||
     key === "linkedin" ||
     key === "youtube" ||
-    key === "behance"
+    key === "behance" ||
+    key === "pinterest"
   ) {
     return "#ffffff";
   }

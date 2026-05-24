@@ -1,0 +1,253 @@
+[
+  {
+    "id": "personal",
+    "title": "Baher · Personal",
+    "subtitle": "Profiles, contact & payments",
+    "defaultOpen": true,
+    "links": [
+      {
+        "id": "behance",
+        "label": "Behance",
+        "description": "Freelancer · CEO of AdZology",
+        "href": "https://www.behance.net/baher-bottros",
+        "platform": "behance"
+      },
+      {
+        "id": "facebook-profile",
+        "label": "Facebook Profile",
+        "description": "BRKMB · verified",
+        "href": "https://www.facebook.com/BRKMB",
+        "platform": "facebook"
+      },
+      {
+        "id": "linkedin",
+        "label": "LinkedIn",
+        "description": "baher-bottros",
+        "href": "https://www.linkedin.com/in/baher-bottros/",
+        "platform": "linkedin"
+      },
+      {
+        "id": "instagram",
+        "label": "Instagram",
+        "description": "@BAHER.BOTTROS",
+        "href": "https://www.instagram.com/BAHER.BOTTROS",
+        "platform": "instagram"
+      },
+      {
+        "id": "tiktok",
+        "label": "TikTok",
+        "description": "@baher.bottros",
+        "href": "https://www.tiktok.com/@baher.bottros",
+        "platform": "tiktok"
+      },
+      {
+        "id": "youtube",
+        "label": "YouTube",
+        "description": "Baher Magally / baherrody",
+        "href": "https://www.youtube.com/baherrody",
+        "platform": "youtube"
+      },
+      {
+        "id": "paypal",
+        "label": "PayPal",
+        "description": "paypal.me/baherbottros",
+        "href": "https://paypal.me/baherbottros",
+        "platform": "paypal"
+      },
+      {
+        "id": "facebook-page",
+        "label": "Facebook Page",
+        "description": "Baher Bottros",
+        "href": "https://www.facebook.com/BaherBottros1/",
+        "platform": "facebook"
+      },
+      {
+        "id": "contact",
+        "label": "Email",
+        "description": "hello@brkmb.com",
+        "href": "mailto:hello@brkmb.com",
+        "platform": "email"
+      },
+      {
+        "id": "adzology",
+        "label": "ADZOLOGY",
+        "description": "AdZology links",
+        "href": "https://linktr.ee/adz.ology",
+        "platform": "linktree"
+      },
+      {
+        "id": "bolder-fb",
+        "label": "BOLDER",
+        "description": "Facebook page",
+        "href": "https://www.facebook.com/BR.BoldeR/",
+        "platform": "facebook"
+      }
+    ]
+  },
+  {
+    "id": "baryq",
+    "title": "BARYQ",
+    "subtitle": "Luxury fashion brand",
+    "logoImage": "/images/projects/baryq.svg",
+    "accent": "#c9a962",
+    "defaultOpen": false,
+    "links": [
+      {
+        "id": "baryq-shop",
+        "label": "BARYQ Store",
+        "description": "baryq.com",
+        "href": "https://www.baryq.com/",
+        "platform": "website"
+      },
+      {
+        "id": "baryq-links",
+        "label": "Our Links",
+        "description": "All BARYQ socials",
+        "href": "https://www.baryq.com/pages/our-links",
+        "platform": "website"
+      },
+      {
+        "id": "baryq-instagram",
+        "label": "Instagram",
+        "description": "@baryq.official",
+        "href": "https://www.instagram.com/baryq.official/",
+        "platform": "instagram"
+      },
+      {
+        "id": "baryq-facebook",
+        "label": "Facebook",
+        "description": "baryq.fb",
+        "href": "https://www.facebook.com/baryq.fb/",
+        "platform": "facebook"
+      },
+      {
+        "id": "baryq-tiktok",
+        "label": "TikTok",
+        "description": "@baryq.official",
+        "href": "https://www.tiktok.com/@baryq.official",
+        "platform": "tiktok"
+      },
+      {
+        "id": "baryq-linkedin",
+        "label": "LinkedIn",
+        "description": "BARYQ company",
+        "href": "https://www.linkedin.com/company/baryq",
+        "platform": "linkedin"
+      },
+      {
+        "id": "baryq-pinterest",
+        "label": "Pinterest",
+        "description": "BARYQofficial",
+        "href": "https://pinterest.com/BARYQofficial/",
+        "platform": "pinterest"
+      },
+      {
+        "id": "baryq-contact",
+        "label": "Contact",
+        "description": "Customer support",
+        "href": "https://www.baryq.com/pages/contact",
+        "platform": "website"
+      },
+      {
+        "id": "baryq-story",
+        "label": "Our Story",
+        "description": "Brand story",
+        "href": "https://www.baryq.com/pages/our-story",
+        "platform": "website"
+      }
+    ]
+  },
+  {
+    "id": "raby",
+    "title": "RABY",
+    "subtitle": "Business management ERP",
+    "logoImage": "/images/projects/raby.svg",
+    "accent": "#7cb342",
+    "defaultOpen": false,
+    "links": [
+      {
+        "id": "raby-site",
+        "label": "RABY Website",
+        "description": "raby.pages.dev",
+        "href": "https://raby.pages.dev/",
+        "platform": "website"
+      },
+      {
+        "id": "raby-subscribe",
+        "label": "Subscribe",
+        "description": "Plans & pricing",
+        "href": "https://raby.pages.dev/subscribe/",
+        "platform": "website"
+      },
+      {
+        "id": "raby-signup",
+        "label": "Sign up",
+        "description": "Create account",
+        "href": "https://raby.pages.dev/signup/",
+        "platform": "website"
+      },
+      {
+        "id": "raby-mac",
+        "label": "Download for Mac",
+        "description": "macOS app",
+        "href": "https://raby.pages.dev/downloads/mac.dmg",
+        "platform": "website"
+      },
+      {
+        "id": "raby-win",
+        "label": "Download for Windows",
+        "description": "Windows app",
+        "href": "https://raby.pages.dev/downloads/windows.exe",
+        "platform": "website"
+      },
+      {
+        "id": "raby-email",
+        "label": "Support Email",
+        "description": "support@raby.app",
+        "href": "mailto:support@raby.app",
+        "platform": "email"
+      },
+      {
+        "id": "raby-refund",
+        "label": "Refund Policy",
+        "description": "Subscription policy",
+        "href": "https://raby.pages.dev/refund/",
+        "platform": "website"
+      }
+    ]
+  },
+  {
+    "id": "benou",
+    "title": "BENOU",
+    "subtitle": "Travel mobile app",
+    "logoImage": "/images/projects/benou.svg",
+    "accent": "#c9f31d",
+    "defaultOpen": false,
+    "links": [
+      {
+        "id": "benou-project",
+        "label": "Project page",
+        "description": "Case study on brkmb.com",
+        "href": "https://brkmb.com/projects/BENOU/",
+        "platform": "website"
+      }
+    ]
+  },
+  {
+    "id": "blinkotp",
+    "title": "BlinkOTP",
+    "subtitle": "Chrome extension",
+    "logoImage": "/images/projects/blinkotp.svg",
+    "accent": "#d4ff4d",
+    "defaultOpen": false,
+    "links": [
+      {
+        "id": "blinkotp-project",
+        "label": "Project page",
+        "description": "Case study on brkmb.com",
+        "href": "https://brkmb.com/projects/BlinkOTP/",
+        "platform": "website"
+      }
+    ]
+  }
+]

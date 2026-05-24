@@ -62,6 +62,16 @@ export interface LinkItem {
   featured?: boolean;
 }
 
+export interface LinkGroup {
+  id: string;
+  title: string;
+  subtitle?: string;
+  logoImage?: string;
+  accent?: string;
+  defaultOpen?: boolean;
+  links: LinkItem[];
+}
+
 export interface TimelineItem {
   id: string;
   project: string;
@@ -109,6 +119,12 @@ export interface SiteConfig {
 export interface CmsData {
   projects: Project[];
   portfolio: PortfolioItem[];
-  links: LinkItem[];
+  linkGroups: LinkGroup[];
   resume: ResumeData;
+}
+
+/** @deprecated Legacy CMS export shape — migrated to linkGroups on load */
+export interface LegacyCmsData extends Omit<CmsData, "linkGroups"> {
+  links?: LinkItem[];
+  linkGroups?: LinkGroup[];
 }

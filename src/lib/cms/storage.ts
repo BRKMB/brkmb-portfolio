@@ -1,18 +1,14 @@
-import type { CmsData } from "@/types";
+import type { CmsData, LegacyCmsData } from "@/types";
 import { CMS_STORAGE_KEY, defaultCmsData } from "./defaults";
+import { normalizeCmsData } from "./normalize";
 
 export function loadCmsData(): CmsData {
   if (typeof window === "undefined") return defaultCmsData;
   try {
     const raw = localStorage.getItem(CMS_STORAGE_KEY);
     if (!raw) return defaultCmsData;
-    const parsed = JSON.parse(raw) as CmsData;
-    return {
-      projects: parsed.projects?.length ? parsed.projects : defaultCmsData.projects,
-      portfolio: parsed.portfolio?.length ? parsed.portfolio : defaultCmsData.portfolio,
-      links: parsed.links?.length ? parsed.links : defaultCmsData.links,
-      resume: { ...defaultCmsData.resume, ...parsed.resume },
-    };
+    const parsed = JSON.parse(raw) as LegacyCmsData;
+    return normalizeCmsData(parsed);
   } catch {
     return defaultCmsData;
   }

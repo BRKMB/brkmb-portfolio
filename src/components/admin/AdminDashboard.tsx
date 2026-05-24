@@ -3,14 +3,14 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useCms } from "@/components/providers/CmsProvider";
-import type { LinkItem, PortfolioItem, Project, ResumeData } from "@/types";
+import type { LinkGroup, LinkItem, PortfolioItem, Project, ResumeData } from "@/types";
 
 type Tab = "projects" | "design" | "links" | "resume" | "data";
 
 export function AdminDashboard() {
   const cms = useCms();
   const [tab, setTab] = useState<Tab>("projects");
-  const { data, setProjects, setPortfolio, setLinks, setResume, previewAsVisitor, setPreviewAsVisitor } =
+  const { data, setProjects, setPortfolio, setLinkGroups, setResume, previewAsVisitor, setPreviewAsVisitor } =
     cms;
 
   if (previewAsVisitor) {
@@ -70,7 +70,7 @@ export function AdminDashboard() {
         {tab === "design" && (
           <PortfolioEditor items={data.portfolio} onChange={setPortfolio} />
         )}
-        {tab === "links" && <LinksEditor links={data.links} onChange={setLinks} />}
+        {tab === "links" && <LinkGroupsEditor groups={data.linkGroups} onChange={setLinkGroups} />}
         {tab === "resume" && <ResumeEditor resume={data.resume} onChange={setResume} />}
         {tab === "data" && <DataPanel />}
       </div>
@@ -225,44 +225,148 @@ function PortfolioEditor({
   );
 }
 
-function LinksEditor({
-  links,
+function LinkGroupsEditor({
+  groups,
   onChange,
 }: {
-  links: LinkItem[];
-  onChange: (l: LinkItem[]) => void;
+  groups: LinkGroup[];
+  onChange: (g: LinkGroup[]) => void;
 }) {
-  const add = () =>
+  const addGroup = () =>
     onChange([
-      ...links,
+      ...groups,
       {
-        id: `link-${Date.now()}`,
-        label: "New link",
-        description: "",
-        href: "https://",
-        platform: "website",
-        featured: true,
+        id: `group-${Date.now()}`,
+        title: "New group",
+        subtitle: "",
+        defaultOpen: false,
+        links: [],
       },
     ]);
 
+  const addLink = (groupIdx: number) => {
+    const next = [...groups];
+    next[groupIdx] = {
+      ...next[groupIdx],
+      links: [
+        ...next[groupIdx].links,
+        {
+          id: `link-${Date.now()}`,
+          label: "New link",
+          description: "",
+          href: "https://",
+          platform: "website",
+        },
+      ],
+    };
+    onChange(next);
+  };
+
+  const patchGroup = (groupIdx: number, patchValue: Partial<LinkGroup>) => {
+    const next = [...groups];
+    next[groupIdx] = { ...next[groupIdx], ...patchValue };
+    onChange(next);
+  };
+
+  const patchLink = (groupIdx: number, linkIdx: number, patchValue: Partial<LinkItem>) => {
+    const next = [...groups];
+    const links = [...next[groupIdx].links];
+    links[linkIdx] = { ...links[linkIdx], ...patchValue };
+    next[groupIdx] = { ...next[groupIdx], links };
+    onChange(next);
+  };
+
+  const deleteLink = (groupIdx: number, linkIdx: number) => {
+    const next = [...groups];
+    next[groupIdx] = {
+      ...next[groupIdx],
+      links: next[groupIdx].links.filter((_, i) => i !== linkIdx),
+    };
+    onChange(next);
+  };
+
   return (
-    <div className="mt-8 space-y-4">
-      <button type="button" className="btn-primary text-subheadline" onClick={add}>
-        + Add link
+    <div className="mt-8 space-y-6">
+      <button type="button" className="btn-primary text-subheadline" onClick={addGroup}>
+        + Add dropdown group
       </button>
-      {links.map((link, idx) => (
-        <div key={link.id} className="glass-card space-y-3 p-5">
-          <input className="admin-input w-full" value={link.label} onChange={(e) => patch(links, idx, { label: e.target.value }, onChange)} />
-          <input className="admin-input w-full" value={link.href} onChange={(e) => patch(links, idx, { href: e.target.value }, onChange)} />
-          <input className="admin-input w-full" value={link.description} onChange={(e) => patch(links, idx, { description: e.target.value }, onChange)} />
-          <input className="admin-input w-full" value={link.platform} onChange={(e) => patch(links, idx, { platform: e.target.value }, onChange)} placeholder="linkedin, github, instagram..." />
+      {groups.map((group, gIdx) => (
+        <div key={group.id} className="glass-card space-y-4 p-5">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <p className="text-caption v-tertiary uppercase tracking-wide">Dropdown</p>
+            <button
+              type="button"
+              className="chip-glass text-caption px-3 py-2 text-red-300"
+              onClick={() => onChange(groups.filter((_, i) => i !== gIdx))}
+            >
+              Delete group
+            </button>
+          </div>
+          <input
+            className="admin-input w-full"
+            value={group.title}
+            onChange={(e) => patchGroup(gIdx, { title: e.target.value })}
+            placeholder="Group title"
+          />
+          <input
+            className="admin-input w-full"
+            value={group.subtitle ?? ""}
+            onChange={(e) => patchGroup(gIdx, { subtitle: e.target.value })}
+            placeholder="Subtitle"
+          />
+          <input
+            className="admin-input w-full"
+            value={group.logoImage ?? ""}
+            onChange={(e) => patchGroup(gIdx, { logoImage: e.target.value || undefined })}
+            placeholder="Logo path (optional)"
+          />
           <label className="flex items-center gap-2 text-subheadline v-secondary">
-            <input type="checkbox" checked={link.featured !== false} onChange={(e) => patch(links, idx, { featured: e.target.checked }, onChange)} />
-            Featured on /links
+            <input
+              type="checkbox"
+              checked={group.defaultOpen === true}
+              onChange={(e) => patchGroup(gIdx, { defaultOpen: e.target.checked })}
+            />
+            Open by default on /links
           </label>
-          <button type="button" className="chip-glass text-caption px-3 py-2 text-red-300" onClick={() => onChange(links.filter((_, i) => i !== idx))}>
-            Delete
-          </button>
+
+          <div className="space-y-3 border-t border-white/10 pt-4">
+            <p className="text-subheadline v-secondary">Links in this group</p>
+            {group.links.map((link, lIdx) => (
+              <div key={link.id} className="space-y-2 rounded-xl bg-black/25 p-4">
+                <input
+                  className="admin-input w-full"
+                  value={link.label}
+                  onChange={(e) => patchLink(gIdx, lIdx, { label: e.target.value })}
+                />
+                <input
+                  className="admin-input w-full"
+                  value={link.href}
+                  onChange={(e) => patchLink(gIdx, lIdx, { href: e.target.value })}
+                />
+                <input
+                  className="admin-input w-full"
+                  value={link.description}
+                  onChange={(e) => patchLink(gIdx, lIdx, { description: e.target.value })}
+                />
+                <input
+                  className="admin-input w-full"
+                  value={link.platform}
+                  onChange={(e) => patchLink(gIdx, lIdx, { platform: e.target.value })}
+                  placeholder="linkedin, instagram, pinterest..."
+                />
+                <button
+                  type="button"
+                  className="chip-glass text-caption px-3 py-2 text-red-300"
+                  onClick={() => deleteLink(gIdx, lIdx)}
+                >
+                  Delete link
+                </button>
+              </div>
+            ))}
+            <button type="button" className="chip-glass text-subheadline px-4 py-2" onClick={() => addLink(gIdx)}>
+              + Add link
+            </button>
+          </div>
         </div>
       ))}
     </div>

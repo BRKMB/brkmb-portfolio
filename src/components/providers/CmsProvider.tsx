@@ -9,7 +9,8 @@ import {
   useState,
   type ReactNode,
 } from "react";
-import type { CmsData, LinkItem, PortfolioItem, Project, ResumeData } from "@/types";
+import type { CmsData, LegacyCmsData, LinkGroup, PortfolioItem, Project, ResumeData } from "@/types";
+import { normalizeCmsData } from "@/lib/cms/normalize";
 import {
   CMS_AUTH_KEY,
   CMS_PREVIEW_KEY,
@@ -27,7 +28,7 @@ type CmsContextValue = {
   updateData: (patch: Partial<CmsData>) => void;
   setProjects: (projects: Project[]) => void;
   setPortfolio: (portfolio: PortfolioItem[]) => void;
-  setLinks: (links: LinkItem[]) => void;
+  setLinkGroups: (linkGroups: LinkGroup[]) => void;
   setResume: (resume: ResumeData) => void;
   resetToDefaults: () => void;
   exportJson: () => void;
@@ -85,7 +86,7 @@ export function CmsProvider({ children }: { children: ReactNode }) {
       updateData,
       setProjects: (projects) => updateData({ projects }),
       setPortfolio: (portfolio) => updateData({ portfolio }),
-      setLinks: (links) => updateData({ links }),
+      setLinkGroups: (linkGroups) => updateData({ linkGroups }),
       setResume: (resume) => updateData({ resume }),
       resetToDefaults: () => {
         resetCmsData();
@@ -102,9 +103,10 @@ export function CmsProvider({ children }: { children: ReactNode }) {
       },
       importJson: (json) => {
         try {
-          const parsed = JSON.parse(json) as CmsData;
-          if (!parsed.projects || !parsed.portfolio || !parsed.links) return false;
-          persist(parsed);
+          const parsed = JSON.parse(json) as LegacyCmsData;
+          if (!parsed.projects || !parsed.portfolio) return false;
+          if (!parsed.linkGroups?.length && !parsed.links?.length) return false;
+          persist(normalizeCmsData(parsed));
           return true;
         } catch {
           return false;
@@ -138,9 +140,9 @@ export function usePortfolio() {
   return data.portfolio;
 }
 
-export function useLinks() {
+export function useLinkGroups() {
   const { data } = useCms();
-  return data.links;
+  return data.linkGroups;
 }
 
 export function useResume() {
