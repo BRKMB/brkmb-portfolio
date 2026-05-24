@@ -11,6 +11,7 @@ import {
 } from "react";
 import type { CmsData, LegacyCmsData, LinkGroup, PortfolioItem, Project, ResumeData } from "@/types";
 import { normalizeCmsData } from "@/lib/cms/normalize";
+import { normalizePortfolio } from "@/lib/portfolio";
 import { ensureLinkGroupsComplete } from "@/lib/link-groups-order";
 import { visibleLinkGroups } from "@/lib/link-groups-visible";
 import {
@@ -87,7 +88,7 @@ export function CmsProvider({ children }: { children: ReactNode }) {
       },
       updateData,
       setProjects: (projects) => updateData({ projects }),
-      setPortfolio: (portfolio) => updateData({ portfolio }),
+      setPortfolio: (portfolio) => updateData({ portfolio: normalizePortfolio(portfolio) }),
       setLinkGroups: (linkGroups) =>
         updateData({ linkGroups: ensureLinkGroupsComplete(linkGroups) }),
       setResume: (resume) => updateData({ resume }),
@@ -140,7 +141,12 @@ export function useProject(slug: string) {
 
 export function usePortfolio() {
   const { data } = useCms();
-  return data.portfolio;
+  return normalizePortfolio(data.portfolio);
+}
+
+export function usePortfolioItem(slug: string) {
+  const { data } = useCms();
+  return normalizePortfolio(data.portfolio).find((p) => p.slug === slug || p.id === slug);
 }
 
 export function useLinkGroups() {

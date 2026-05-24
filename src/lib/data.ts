@@ -45,4 +45,6 @@ export function getAllProjectSlugs(): string[] {
   return projects.map((p) => p.slug);
 }
 
+export { getPortfolioBySlug, getAllPortfolioSlugs, normalizePortfolio } from "@/lib/portfolio";
+
 export const ventureProjects = projects.filter((p) => p.kind !== "work");

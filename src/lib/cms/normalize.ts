@@ -1,4 +1,5 @@
 import type { CmsData, LegacyCmsData, LinkGroup } from "@/types";
+import { normalizePortfolio } from "@/lib/portfolio";
 import { ensureLinkGroupsComplete } from "@/lib/link-groups-order";
 import { defaultCmsData } from "./defaults";
 
@@ -21,9 +22,13 @@ export function resolveLinkGroups(parsed: LegacyCmsData): LinkGroup[] {
 }
 
 export function normalizeCmsData(parsed: LegacyCmsData): CmsData {
+  const portfolio = parsed.portfolio?.length
+    ? normalizePortfolio(parsed.portfolio)
+    : defaultCmsData.portfolio;
+
   return {
     projects: parsed.projects?.length ? parsed.projects : defaultCmsData.projects,
-    portfolio: parsed.portfolio?.length ? parsed.portfolio : defaultCmsData.portfolio,
+    portfolio,
     linkGroups: resolveLinkGroups(parsed),
     resume: { ...defaultCmsData.resume, ...parsed.resume },
   };

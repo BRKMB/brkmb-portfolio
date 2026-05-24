@@ -1,82 +1,167 @@
 [
   {
     "id": "p1",
+    "slug": "baryq-identity",
     "title": "BARYQ Identity",
     "category": "Brand identity",
     "image": "/images/projects/baryq.png",
-    "aspect": "tall",
-    "description": "Luxury fashion identity system — logo, palette, and campaign direction."
+    "description": "Luxury fashion identity system — logo, palette, and campaign direction.",
+    "overview": "A complete luxury fashion identity for BARYQ — from monogram construction and gold-black palette to campaign-ready lockups and social templates.",
+    "role": "Creative direction, logo design, brand system",
+    "tools": ["Illustrator", "Photoshop", "Figma"],
+    "year": "2024",
+    "gallery": [
+      "/images/projects/baryq.png",
+      "/images/placeholders/gallery-1.svg",
+      "/images/placeholders/gallery-2.svg"
+    ]
   },
   {
     "id": "p2",
+    "slug": "benou-ui",
     "title": "Benou UI",
     "category": "UI designs",
     "image": "/images/projects/benou.svg",
-    "aspect": "wide",
-    "description": "Travel app interface — onboarding, discovery, and trip flows."
+    "description": "Travel app interface — onboarding, discovery, and trip flows.",
+    "overview": "Mobile UI for a travel companion app — onboarding, destination discovery, and trip planning with a bright, approachable visual language.",
+    "role": "UI/UX design, prototyping",
+    "tools": ["Figma", "Principle"],
+    "year": "2024",
+    "gallery": [
+      "/images/projects/benou.svg",
+      "/images/placeholders/gallery-3.svg",
+      "/images/placeholders/gallery-4.svg"
+    ]
   },
   {
     "id": "p3",
+    "slug": "cinema-poster",
     "title": "Cinema Poster",
     "category": "Movie posters",
     "image": "/images/placeholders/poster.svg",
-    "aspect": "tall",
-    "description": "Motion-inspired poster series with bold typography."
+    "description": "Motion-inspired poster series with bold typography.",
+    "overview": "A cinematic poster series exploring contrast, grain, and kinetic typography for short-form storytelling.",
+    "role": "Art direction, layout, typography",
+    "tools": ["Photoshop", "After Effects"],
+    "year": "2023",
+    "gallery": [
+      "/images/placeholders/poster.svg",
+      "/images/placeholders/gallery-1.svg"
+    ]
   },
   {
     "id": "p4",
+    "slug": "blinkotp-ui",
     "title": "BlinkOTP UI",
     "category": "UI designs",
     "image": "/images/projects/blinkotp.png",
-    "aspect": "square",
-    "description": "Chrome extension UI — capture, vault, and autofill flows."
+    "description": "Chrome extension UI — capture, vault, and autofill flows.",
+    "overview": "Interface design for a Chrome extension that streamlines 2FA — popup flows, settings, and vault management with clarity at small sizes.",
+    "role": "Product UI, extension UX",
+    "tools": ["Figma", "Chrome UX"],
+    "year": "2024",
+    "gallery": [
+      "/images/projects/blinkotp.png",
+      "/images/placeholders/gallery-4.svg"
+    ]
   },
   {
     "id": "p5",
+    "slug": "social-campaign",
     "title": "Social Campaign",
     "category": "Social media designs",
     "image": "/images/placeholders/gallery-1.svg",
-    "aspect": "wide",
-    "description": "Multi-format social campaign for a product launch."
+    "description": "Multi-format social campaign for a product launch.",
+    "overview": "Cross-platform launch creatives — feed, story, and paid formats with a unified grid and motion-ready exports.",
+    "role": "Campaign design, art direction",
+    "tools": ["Photoshop", "Figma", "CapCut"],
+    "year": "2023",
+    "gallery": [
+      "/images/placeholders/gallery-1.svg",
+      "/images/placeholders/gallery-2.svg",
+      "/images/placeholders/gallery-3.svg"
+    ]
   },
   {
     "id": "p6",
+    "slug": "packaging-concept",
     "title": "Packaging Concept",
     "category": "Packaging",
     "image": "/images/placeholders/gallery-2.svg",
-    "aspect": "tall",
-    "description": "Premium unboxing experience and label system."
+    "description": "Premium unboxing experience and label system.",
+    "overview": "Packaging exploration for a premium product line — dielines, label hierarchy, and unboxing moments.",
+    "role": "Packaging design, 3D mockups",
+    "tools": ["Illustrator", "Blender", "Photoshop"],
+    "year": "2023",
+    "gallery": [
+      "/images/placeholders/gallery-2.svg",
+      "/images/placeholders/gallery-4.svg"
+    ]
   },
   {
     "id": "p7",
+    "slug": "raby-dashboard",
     "title": "RABY Dashboard",
     "category": "UI designs",
     "image": "/images/projects/raby.svg",
-    "aspect": "wide",
-    "description": "ERP dashboard — sales, inventory, and reporting modules."
+    "description": "ERP dashboard — sales, inventory, and reporting modules.",
+    "overview": "Dashboard UI for RABY ERP — dense data made readable through hierarchy, module cards, and reporting views.",
+    "role": "Product UI, design system",
+    "tools": ["Figma", "FigJam"],
+    "year": "2025",
+    "gallery": [
+      "/images/projects/raby.svg",
+      "/images/placeholders/gallery-3.svg",
+      "/images/placeholders/gallery-1.svg"
+    ]
   },
   {
     "id": "p8",
+    "slug": "client-rebrand",
     "title": "Client Rebrand",
     "category": "Client work",
     "image": "/images/placeholders/client.svg",
-    "aspect": "square",
-    "description": "External client identity modernization."
+    "description": "External client identity modernization.",
+    "overview": "Identity refresh for an external client — logo refinement, color system, and application across print and digital.",
+    "role": "Brand design, client delivery",
+    "tools": ["Illustrator", "InDesign", "Figma"],
+    "year": "2023",
+    "gallery": [
+      "/images/placeholders/client.svg",
+      "/images/placeholders/gallery-2.svg"
+    ]
   },
   {
     "id": "p9",
+    "slug": "motion-teaser",
     "title": "Motion Teaser",
     "category": "Motion",
     "image": "/images/placeholders/gallery-3.svg",
-    "aspect": "tall",
-    "description": "Short motion piece for brand storytelling."
+    "description": "Short motion piece for brand storytelling.",
+    "overview": "A short motion teaser — logo reveal, type animation, and sound-driven cuts for social and pitch decks.",
+    "role": "Motion design, editing",
+    "tools": ["After Effects", "Premiere Pro"],
+    "year": "2024",
+    "gallery": [
+      "/images/placeholders/gallery-3.svg",
+      "/images/placeholders/poster.svg"
+    ]
   },
   {
     "id": "p10",
+    "slug": "brand-guidelines",
     "title": "Brand Guidelines",
     "category": "Brand identity",
     "image": "/images/placeholders/gallery-4.svg",
-    "aspect": "wide",
-    "description": "Comprehensive brand book and asset library."
+    "description": "Comprehensive brand book and asset library.",
+    "overview": "Brand guidelines document — logo usage, color specs, typography, and downloadable asset library for teams.",
+    "role": "Brand systems, documentation",
+    "tools": ["InDesign", "Figma", "Illustrator"],
+    "year": "2024",
+    "gallery": [
+      "/images/placeholders/gallery-4.svg",
+      "/images/placeholders/gallery-1.svg",
+      "/images/placeholders/gallery-2.svg"
+    ]
   }
 ]

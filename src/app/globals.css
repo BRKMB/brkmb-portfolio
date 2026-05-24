@@ -523,6 +523,109 @@ main {
   background: rgba(201, 243, 29, 0.12);
 }
 
+/* Behance-style design grid & project pages */
+.behance-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem 1rem;
+}
+
+@media (min-width: 768px) {
+  .behance-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.75rem 1.25rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .behance-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2rem 1.35rem;
+  }
+}
+
+.behance-card {
+  height: 100%;
+}
+
+.behance-card__cover {
+  aspect-ratio: 4 / 3;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.behance-card__shade {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.55) 0%, transparent 55%);
+}
+
+.behance-card__meta {
+  padding-top: 0.65rem;
+}
+
+.behance-card__title {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.behance-card__category {
+  margin-top: 0.2rem;
+  font-size: 0.8125rem;
+  color: rgba(235, 235, 245, 0.45);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.behance-project__cover {
+  border-radius: 2px;
+  background: #0a0a0a;
+}
+
+.behance-project__header {
+  text-align: left;
+}
+
+.behance-chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.08);
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+}
+
+.behance-chip--muted {
+  color: rgba(235, 235, 245, 0.55);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.behance-project__gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.behance-project__frame {
+  margin: 0;
+  line-height: 0;
+}
+
+.behance-project__frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .links-page h1,
 .links-page p,
 .links-page a {

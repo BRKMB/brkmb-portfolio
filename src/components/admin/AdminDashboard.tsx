@@ -173,11 +173,12 @@ function PortfolioEditor({
       ...items,
       {
         id: `item-${Date.now()}`,
+        slug: `work-${Date.now()}`,
         title: "New work",
         category: "Brand identity",
         image: "/images/placeholders/gallery-1.svg",
-        aspect: "square",
         description: "",
+        gallery: ["/images/placeholders/gallery-1.svg"],
       },
     ]);
 
@@ -194,17 +195,12 @@ function PortfolioEditor({
               Delete
             </button>
           </div>
+          <input className="admin-input w-full" value={item.slug ?? ""} onChange={(e) => patch(items, idx, { slug: e.target.value }, onChange)} placeholder="URL slug (baryq-identity)" />
           <input className="admin-input w-full" value={item.category} onChange={(e) => patch(items, idx, { category: e.target.value }, onChange)} />
-          <input className="admin-input w-full" value={item.image} onChange={(e) => patch(items, idx, { image: e.target.value }, onChange)} />
-          <select
-            className="admin-input w-full"
-            value={item.aspect}
-            onChange={(e) => patch(items, idx, { aspect: e.target.value as PortfolioItem["aspect"] }, onChange)}
-          >
-            <option value="square">Square</option>
-            <option value="tall">Tall</option>
-            <option value="wide">Wide</option>
-          </select>
+          <input className="admin-input w-full" value={item.image} onChange={(e) => patch(items, idx, { image: e.target.value }, onChange)} placeholder="Cover image URL" />
+          <textarea className="admin-input min-h-[80px] w-full" value={(item.gallery ?? [item.image]).join("\n")} onChange={(e) => patch(items, idx, { gallery: e.target.value.split("\n").map((s) => s.trim()).filter(Boolean) }, onChange)} placeholder="Gallery URLs (one per line)" />
+          <input className="admin-input w-full" value={item.description ?? ""} onChange={(e) => patch(items, idx, { description: e.target.value }, onChange)} placeholder="Short description" />
+          <textarea className="admin-input min-h-[72px] w-full" value={item.overview ?? ""} onChange={(e) => patch(items, idx, { overview: e.target.value }, onChange)} placeholder="Overview (project page)" />
           <label className="text-footnote v-tertiary block">
             Upload
             <input

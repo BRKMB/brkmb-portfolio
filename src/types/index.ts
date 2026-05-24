@@ -44,13 +44,21 @@ export interface Project {
 
 export interface PortfolioItem {
   id: string;
+  slug: string;
   title: string;
   category: string;
   image: string;
-  aspect: "tall" | "wide" | "square";
+  /** @deprecated Grid uses fixed 4:3 — kept for CMS compatibility */
+  aspect?: "tall" | "wide" | "square";
   description?: string;
+  overview?: string;
+  role?: string;
+  tools?: string[];
   tags?: string[];
   year?: string;
+  /** Full-width blocks on the project page (Behance-style scroll) */
+  gallery?: string[];
+  hidden?: boolean;
 }
 
 export interface LinkItem {
