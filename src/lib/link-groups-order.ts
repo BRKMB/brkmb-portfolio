@@ -1,7 +1,7 @@
 import type { LinkGroup } from "@/types";
 import { defaultCmsData } from "@/lib/cms/defaults";
 
-/** Canonical display order for /links dropdowns */
+/** Fallback order when CMS has no custom order yet */
 export const LINK_GROUP_ORDER = [
   "personal",
   "baryq",
@@ -11,7 +11,7 @@ export const LINK_GROUP_ORDER = [
   "adzology",
 ] as const;
 
-export function sortLinkGroups(groups: LinkGroup[]): LinkGroup[] {
+export function sortLinkGroupsByDefault(groups: LinkGroup[]): LinkGroup[] {
   const rank = new Map<string, number>(LINK_GROUP_ORDER.map((id, i) => [id, i]));
   return [...groups].sort((a, b) => {
     const ai = rank.get(a.id) ?? 999;
@@ -21,22 +21,31 @@ export function sortLinkGroups(groups: LinkGroup[]): LinkGroup[] {
   });
 }
 
-/** Re-order stored CMS groups and fill any missing groups from repo defaults */
+/** Keep admin/CMS order; append any groups from defaults that are missing */
+export function ensureLinkGroupsComplete(stored: LinkGroup[]): LinkGroup[] {
+  if (!stored?.length) return defaultCmsData.linkGroups;
+
+  const seen = new Set(stored.map((g) => g.id));
+  const result = [...stored];
+
+  for (const def of defaultCmsData.linkGroups) {
+    if (!seen.has(def.id)) result.push(def);
+  }
+
+  return result;
+}
+
+/** @deprecated Use ensureLinkGroupsComplete — preserves stored order */
 export function mergeLinkGroupsWithDefaults(stored: LinkGroup[]): LinkGroup[] {
-  const storedById = new Map(stored.map((g) => [g.id, g]));
-  const defaultsById = new Map(defaultCmsData.linkGroups.map((g) => [g.id, g]));
+  return ensureLinkGroupsComplete(stored);
+}
 
-  const ordered: LinkGroup[] = [];
-  for (const id of LINK_GROUP_ORDER) {
-    const group = storedById.get(id) ?? defaultsById.get(id);
-    if (group) ordered.push(group);
+export function reorderList<T>(list: T[], from: number, to: number): T[] {
+  if (from === to || from < 0 || to < 0 || from >= list.length || to >= list.length) {
+    return list;
   }
-
-  for (const group of stored) {
-    if (!LINK_GROUP_ORDER.includes(group.id as (typeof LINK_GROUP_ORDER)[number])) {
-      ordered.push(group);
-    }
-  }
-
-  return ordered;
+  const next = [...list];
+  const [item] = next.splice(from, 1);
+  next.splice(to, 0, item);
+  return next;
 }

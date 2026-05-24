@@ -60,6 +60,8 @@ export interface LinkItem {
   href: string;
   platform: string;
   featured?: boolean;
+  /** Hidden on /links but kept in CMS */
+  hidden?: boolean;
 }
 
 export interface LinkGroup {
@@ -69,6 +71,8 @@ export interface LinkGroup {
   logoImage?: string;
   accent?: string;
   defaultOpen?: boolean;
+  /** Hidden on /links but kept in CMS */
+  hidden?: boolean;
   links: LinkItem[];
 }
 

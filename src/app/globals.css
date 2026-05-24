@@ -544,6 +544,112 @@ main {
   box-shadow: 0 0 0 2px rgba(201, 243, 29, 0.15);
 }
 
+.admin-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.06);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  transition: all 160ms var(--ease-apple);
+}
+
+.admin-icon-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(201, 243, 29, 0.25);
+}
+
+.admin-icon-btn--active {
+  color: var(--color-accent);
+  border-color: rgba(201, 243, 29, 0.35);
+  background: rgba(201, 243, 29, 0.1);
+}
+
+.admin-icon-btn--danger:hover {
+  color: #ff8a8a;
+  border-color: rgba(255, 100, 100, 0.4);
+  background: rgba(255, 60, 60, 0.12);
+}
+
+.admin-drag-handle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.45);
+  cursor: grab;
+  touch-action: none;
+}
+
+.admin-drag-handle:active {
+  cursor: grabbing;
+  color: var(--color-accent);
+}
+
+.admin-links-group--hidden,
+.admin-links-row--hidden {
+  opacity: 0.62;
+}
+
+.admin-links-group--hidden .admin-links-group__head {
+  background: rgba(255, 180, 60, 0.06);
+}
+
+.admin-links-row--hidden {
+  border-style: dashed;
+}
+
+.admin-links-group--dragging,
+.admin-links-row--dragging {
+  outline: 1px solid rgba(201, 243, 29, 0.45);
+  box-shadow: 0 0 0 2px rgba(201, 243, 29, 0.12);
+}
+
+.admin-links-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.875rem;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.28);
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (min-width: 640px) {
+  .admin-links-row {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.admin-links-row__tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.admin-links-row__fields {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-links-group__toggle {
+  border-radius: 8px;
+  padding: 0.25rem 0.5rem;
+  transition: background 160ms var(--ease-apple);
+}
+
+.admin-links-group__toggle:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
 .mobile-nav-root {
   position: fixed;
   inset: 0;

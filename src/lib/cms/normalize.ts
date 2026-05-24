@@ -1,13 +1,13 @@
 import type { CmsData, LegacyCmsData, LinkGroup } from "@/types";
-import { mergeLinkGroupsWithDefaults } from "@/lib/link-groups-order";
+import { ensureLinkGroupsComplete } from "@/lib/link-groups-order";
 import { defaultCmsData } from "./defaults";
 
 export function resolveLinkGroups(parsed: LegacyCmsData): LinkGroup[] {
   if (parsed.linkGroups?.length) {
-    return mergeLinkGroupsWithDefaults(parsed.linkGroups);
+    return ensureLinkGroupsComplete(parsed.linkGroups);
   }
   if (parsed.links?.length) {
-    return mergeLinkGroupsWithDefaults([
+    return ensureLinkGroupsComplete([
       {
         id: "personal",
         title: "Personal links",

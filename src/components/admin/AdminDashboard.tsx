@@ -3,7 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useCms } from "@/components/providers/CmsProvider";
-import type { LinkGroup, LinkItem, PortfolioItem, Project, ResumeData } from "@/types";
+import type { PortfolioItem, Project, ResumeData } from "@/types";
+import { LinksAdminEditor } from "@/components/admin/LinksAdminEditor";
 
 type Tab = "projects" | "design" | "links" | "resume" | "data";
 
@@ -70,7 +71,7 @@ export function AdminDashboard() {
         {tab === "design" && (
           <PortfolioEditor items={data.portfolio} onChange={setPortfolio} />
         )}
-        {tab === "links" && <LinkGroupsEditor groups={data.linkGroups} onChange={setLinkGroups} />}
+        {tab === "links" && <LinksAdminEditor groups={data.linkGroups} onChange={setLinkGroups} />}
         {tab === "resume" && <ResumeEditor resume={data.resume} onChange={setResume} />}
         {tab === "data" && <DataPanel />}
       </div>
@@ -219,154 +220,6 @@ function PortfolioEditor({
               }}
             />
           </label>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function LinkGroupsEditor({
-  groups,
-  onChange,
-}: {
-  groups: LinkGroup[];
-  onChange: (g: LinkGroup[]) => void;
-}) {
-  const addGroup = () =>
-    onChange([
-      ...groups,
-      {
-        id: `group-${Date.now()}`,
-        title: "New group",
-        subtitle: "",
-        defaultOpen: false,
-        links: [],
-      },
-    ]);
-
-  const addLink = (groupIdx: number) => {
-    const next = [...groups];
-    next[groupIdx] = {
-      ...next[groupIdx],
-      links: [
-        ...next[groupIdx].links,
-        {
-          id: `link-${Date.now()}`,
-          label: "New link",
-          description: "",
-          href: "https://",
-          platform: "website",
-        },
-      ],
-    };
-    onChange(next);
-  };
-
-  const patchGroup = (groupIdx: number, patchValue: Partial<LinkGroup>) => {
-    const next = [...groups];
-    next[groupIdx] = { ...next[groupIdx], ...patchValue };
-    onChange(next);
-  };
-
-  const patchLink = (groupIdx: number, linkIdx: number, patchValue: Partial<LinkItem>) => {
-    const next = [...groups];
-    const links = [...next[groupIdx].links];
-    links[linkIdx] = { ...links[linkIdx], ...patchValue };
-    next[groupIdx] = { ...next[groupIdx], links };
-    onChange(next);
-  };
-
-  const deleteLink = (groupIdx: number, linkIdx: number) => {
-    const next = [...groups];
-    next[groupIdx] = {
-      ...next[groupIdx],
-      links: next[groupIdx].links.filter((_, i) => i !== linkIdx),
-    };
-    onChange(next);
-  };
-
-  return (
-    <div className="mt-8 space-y-6">
-      <button type="button" className="btn-primary text-subheadline" onClick={addGroup}>
-        + Add dropdown group
-      </button>
-      {groups.map((group, gIdx) => (
-        <div key={group.id} className="glass-card space-y-4 p-5">
-          <div className="flex flex-wrap items-center justify-between gap-2">
-            <p className="text-caption v-tertiary uppercase tracking-wide">Dropdown</p>
-            <button
-              type="button"
-              className="chip-glass text-caption px-3 py-2 text-red-300"
-              onClick={() => onChange(groups.filter((_, i) => i !== gIdx))}
-            >
-              Delete group
-            </button>
-          </div>
-          <input
-            className="admin-input w-full"
-            value={group.title}
-            onChange={(e) => patchGroup(gIdx, { title: e.target.value })}
-            placeholder="Group title"
-          />
-          <input
-            className="admin-input w-full"
-            value={group.subtitle ?? ""}
-            onChange={(e) => patchGroup(gIdx, { subtitle: e.target.value })}
-            placeholder="Subtitle"
-          />
-          <input
-            className="admin-input w-full"
-            value={group.logoImage ?? ""}
-            onChange={(e) => patchGroup(gIdx, { logoImage: e.target.value || undefined })}
-            placeholder="Logo path (optional)"
-          />
-          <label className="flex items-center gap-2 text-subheadline v-secondary">
-            <input
-              type="checkbox"
-              checked={group.defaultOpen === true}
-              onChange={(e) => patchGroup(gIdx, { defaultOpen: e.target.checked })}
-            />
-            Open by default on /links
-          </label>
-
-          <div className="space-y-3 border-t border-white/10 pt-4">
-            <p className="text-subheadline v-secondary">Links in this group</p>
-            {group.links.map((link, lIdx) => (
-              <div key={link.id} className="space-y-2 rounded-xl bg-black/25 p-4">
-                <input
-                  className="admin-input w-full"
-                  value={link.label}
-                  onChange={(e) => patchLink(gIdx, lIdx, { label: e.target.value })}
-                />
-                <input
-                  className="admin-input w-full"
-                  value={link.href}
-                  onChange={(e) => patchLink(gIdx, lIdx, { href: e.target.value })}
-                />
-                <input
-                  className="admin-input w-full"
-                  value={link.description}
-                  onChange={(e) => patchLink(gIdx, lIdx, { description: e.target.value })}
-                />
-                <input
-                  className="admin-input w-full"
-                  value={link.platform}
-                  onChange={(e) => patchLink(gIdx, lIdx, { platform: e.target.value })}
-                  placeholder="linkedin, instagram, pinterest..."
-                />
-                <button
-                  type="button"
-                  className="chip-glass text-caption px-3 py-2 text-red-300"
-                  onClick={() => deleteLink(gIdx, lIdx)}
-                >
-                  Delete link
-                </button>
-              </div>
-            ))}
-            <button type="button" className="chip-glass text-subheadline px-4 py-2" onClick={() => addLink(gIdx)}>
-              + Add link
-            </button>
-          </div>
         </div>
       ))}
     </div>
