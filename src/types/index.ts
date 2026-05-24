@@ -8,6 +8,8 @@ export type ProjectCategory =
   | "Motion"
   | "External Client Work";
 
+export type ProjectKind = "venture" | "work";
+
 export interface Brand {
   id: string;
   name: string;
@@ -27,6 +29,7 @@ export interface Project {
   shortDescription: string;
   category: ProjectCategory;
   status: ProjectStatus;
+  kind?: ProjectKind;
   thumbnail: string;
   tools: string[];
   overview: string;
@@ -35,6 +38,7 @@ export interface Project {
   results: string[];
   gallery: string[];
   featured?: boolean;
+  externalUrl?: string;
 }
 
 export interface PortfolioItem {
@@ -43,6 +47,18 @@ export interface PortfolioItem {
   category: string;
   image: string;
   aspect: "tall" | "wide" | "square";
+  description?: string;
+  tags?: string[];
+  year?: string;
+}
+
+export interface LinkItem {
+  id: string;
+  label: string;
+  description: string;
+  href: string;
+  platform: string;
+  featured?: boolean;
 }
 
 export interface TimelineItem {
@@ -72,6 +88,14 @@ export interface Experience {
   description: string;
 }
 
+export interface ResumeData {
+  summary: string;
+  education: { school: string; degree: string };
+  skills: string[];
+  experience: Experience[];
+  cvDownloadUrl: string;
+}
+
 export interface SiteConfig {
   name: string;
   tagline: string;
@@ -79,4 +103,11 @@ export interface SiteConfig {
   description: string;
   email: string;
   stats: Stat[];
+}
+
+export interface CmsData {
+  projects: Project[];
+  portfolio: PortfolioItem[];
+  links: LinkItem[];
+  resume: ResumeData;
 }

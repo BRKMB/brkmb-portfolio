@@ -1,0 +1,314 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { useCms } from "@/components/providers/CmsProvider";
+import type { LinkItem, PortfolioItem, Project } from "@/types";
+
+type Tab = "projects" | "design" | "links" | "data";
+
+export function AdminDashboard() {
+  const cms = useCms();
+  const [tab, setTab] = useState<Tab>("projects");
+  const { data, setProjects, setPortfolio, setLinks, previewAsVisitor, setPreviewAsVisitor } = cms;
+
+  if (previewAsVisitor) {
+    return (
+      <div className="fixed bottom-6 left-1/2 z-[10003] -translate-x-1/2">
+        <button
+          type="button"
+          onClick={() => setPreviewAsVisitor(false)}
+          className="btn-primary text-subheadline shadow-lg"
+        >
+          Exit visitor preview
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen px-4 pt-28 pb-20 md:px-8">
+      <div className="mx-auto max-w-5xl">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h1 className="font-display text-title-1 v-primary">Admin</h1>
+            <p className="text-footnote mt-1 v-tertiary">Changes save in this browser. Export JSON to back up.</p>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <button type="button" className="chip-glass text-subheadline px-4 py-2" onClick={() => setPreviewAsVisitor(true)}>
+              Preview as visitor
+            </button>
+            <Link href="/" className="chip-glass text-subheadline px-4 py-2">
+              View site
+            </Link>
+            <button type="button" className="chip-glass text-subheadline px-4 py-2" onClick={cms.exportJson}>
+              Export JSON
+            </button>
+            <button type="button" className="chip-glass text-subheadline px-4 py-2" onClick={cms.logout}>
+              Log out
+            </button>
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-wrap gap-2">
+          {(["projects", "design", "links", "data"] as Tab[]).map((t) => (
+            <button
+              key={t}
+              type="button"
+              onClick={() => setTab(t)}
+              className={tab === t ? "chip-glass-active text-subheadline rounded-full px-4 py-2 capitalize" : "chip-glass text-subheadline rounded-full px-4 py-2 capitalize"}
+            >
+              {t}
+            </button>
+          ))}
+        </div>
+
+        {tab === "projects" && (
+          <ProjectsEditor projects={data.projects} onChange={setProjects} />
+        )}
+        {tab === "design" && (
+          <PortfolioEditor items={data.portfolio} onChange={setPortfolio} />
+        )}
+        {tab === "links" && <LinksEditor links={data.links} onChange={setLinks} />}
+        {tab === "data" && <DataPanel />}
+      </div>
+    </div>
+  );
+}
+
+function ProjectsEditor({
+  projects,
+  onChange,
+}: {
+  projects: Project[];
+  onChange: (p: Project[]) => void;
+}) {
+  const add = () => {
+    const slug = `project-${Date.now()}`;
+    onChange([
+      ...projects,
+      {
+        slug,
+        title: "New project",
+        shortDescription: "",
+        description: "",
+        category: "Branding",
+        status: "In Progress",
+        kind: "venture",
+        thumbnail: "/images/placeholders/gallery-1.svg",
+        tools: [],
+        overview: "",
+        role: "",
+        process: [],
+        results: [],
+        gallery: [],
+        featured: true,
+      },
+    ]);
+  };
+
+  return (
+    <div className="mt-8 space-y-4">
+      <button type="button" className="btn-primary text-subheadline" onClick={add}>
+        + Add project
+      </button>
+      {projects.map((p, idx) => (
+        <div key={p.slug} className="glass-card space-y-3 p-5">
+          <div className="flex flex-wrap gap-2">
+            <input
+              className="admin-input flex-1"
+              value={p.slug}
+              onChange={(e) => {
+                const next = [...projects];
+                next[idx] = { ...p, slug: e.target.value };
+                onChange(next);
+              }}
+              placeholder="Slug (e.g. BARYQ)"
+            />
+            <button
+              type="button"
+              className="chip-glass text-caption px-3 py-2 text-red-300"
+              onClick={() => onChange(projects.filter((_, i) => i !== idx))}
+            >
+              Delete
+            </button>
+          </div>
+          <input className="admin-input w-full" value={p.title} onChange={(e) => patch(projects, idx, { title: e.target.value }, onChange)} />
+          <textarea className="admin-input w-full min-h-[80px]" value={p.shortDescription} onChange={(e) => patch(projects, idx, { shortDescription: e.target.value }, onChange)} />
+          <textarea className="admin-input w-full min-h-[100px]" value={p.overview} onChange={(e) => patch(projects, idx, { overview: e.target.value }, onChange)} />
+          <input className="admin-input w-full" value={p.thumbnail} onChange={(e) => patch(projects, idx, { thumbnail: e.target.value }, onChange)} placeholder="Thumbnail URL or /images/..." />
+          <label className="text-footnote v-tertiary block">
+            Upload image
+            <input
+              type="file"
+              accept="image/*"
+              className="mt-1 block text-xs"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = () => patch(projects, idx, { thumbnail: reader.result as string }, onChange);
+                reader.readAsDataURL(file);
+              }}
+            />
+          </label>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function PortfolioEditor({
+  items,
+  onChange,
+}: {
+  items: PortfolioItem[];
+  onChange: (p: PortfolioItem[]) => void;
+}) {
+  const add = () =>
+    onChange([
+      ...items,
+      {
+        id: `item-${Date.now()}`,
+        title: "New work",
+        category: "Brand identity",
+        image: "/images/placeholders/gallery-1.svg",
+        aspect: "square",
+        description: "",
+      },
+    ]);
+
+  return (
+    <div className="mt-8 space-y-4">
+      <button type="button" className="btn-primary text-subheadline" onClick={add}>
+        + Add design piece
+      </button>
+      {items.map((item, idx) => (
+        <div key={item.id} className="glass-card space-y-3 p-5">
+          <div className="flex gap-2">
+            <input className="admin-input flex-1" value={item.title} onChange={(e) => patch(items, idx, { title: e.target.value }, onChange)} />
+            <button type="button" className="chip-glass text-caption px-3 py-2 text-red-300" onClick={() => onChange(items.filter((_, i) => i !== idx))}>
+              Delete
+            </button>
+          </div>
+          <input className="admin-input w-full" value={item.category} onChange={(e) => patch(items, idx, { category: e.target.value }, onChange)} />
+          <input className="admin-input w-full" value={item.image} onChange={(e) => patch(items, idx, { image: e.target.value }, onChange)} />
+          <select
+            className="admin-input w-full"
+            value={item.aspect}
+            onChange={(e) => patch(items, idx, { aspect: e.target.value as PortfolioItem["aspect"] }, onChange)}
+          >
+            <option value="square">Square</option>
+            <option value="tall">Tall</option>
+            <option value="wide">Wide</option>
+          </select>
+          <label className="text-footnote v-tertiary block">
+            Upload
+            <input
+              type="file"
+              accept="image/*"
+              className="mt-1 block text-xs"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = () => patch(items, idx, { image: reader.result as string }, onChange);
+                reader.readAsDataURL(file);
+              }}
+            />
+          </label>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function LinksEditor({
+  links,
+  onChange,
+}: {
+  links: LinkItem[];
+  onChange: (l: LinkItem[]) => void;
+}) {
+  const add = () =>
+    onChange([
+      ...links,
+      {
+        id: `link-${Date.now()}`,
+        label: "New link",
+        description: "",
+        href: "https://",
+        platform: "website",
+        featured: true,
+      },
+    ]);
+
+  return (
+    <div className="mt-8 space-y-4">
+      <button type="button" className="btn-primary text-subheadline" onClick={add}>
+        + Add link
+      </button>
+      {links.map((link, idx) => (
+        <div key={link.id} className="glass-card space-y-3 p-5">
+          <input className="admin-input w-full" value={link.label} onChange={(e) => patch(links, idx, { label: e.target.value }, onChange)} />
+          <input className="admin-input w-full" value={link.href} onChange={(e) => patch(links, idx, { href: e.target.value }, onChange)} />
+          <input className="admin-input w-full" value={link.description} onChange={(e) => patch(links, idx, { description: e.target.value }, onChange)} />
+          <input className="admin-input w-full" value={link.platform} onChange={(e) => patch(links, idx, { platform: e.target.value }, onChange)} placeholder="linkedin, github, instagram..." />
+          <label className="flex items-center gap-2 text-subheadline v-secondary">
+            <input type="checkbox" checked={link.featured !== false} onChange={(e) => patch(links, idx, { featured: e.target.checked }, onChange)} />
+            Featured on /links
+          </label>
+          <button type="button" className="chip-glass text-caption px-3 py-2 text-red-300" onClick={() => onChange(links.filter((_, i) => i !== idx))}>
+            Delete
+          </button>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function DataPanel() {
+  const cms = useCms();
+  const [json, setJson] = useState("");
+  const [msg, setMsg] = useState("");
+
+  return (
+    <div className="mt-8 space-y-4">
+      <div className="glass-card p-6">
+        <p className="text-body v-secondary">
+          Import/export full site content. For permanent deploy, export JSON and update files in{" "}
+          <code className="text-accent">src/data/</code> then push to GitHub.
+        </p>
+        <button type="button" className="btn-primary text-subheadline mt-4" onClick={cms.exportJson}>
+          Download backup
+        </button>
+        <button type="button" className="chip-glass text-subheadline mt-4 ml-2 px-4 py-2" onClick={cms.resetToDefaults}>
+          Reset to defaults
+        </button>
+      </div>
+      <textarea
+        className="admin-input min-h-[200px] w-full font-mono text-xs"
+        placeholder="Paste exported JSON here…"
+        value={json}
+        onChange={(e) => setJson(e.target.value)}
+      />
+      <button
+        type="button"
+        className="btn-primary text-subheadline"
+        onClick={() => {
+          const ok = cms.importJson(json);
+          setMsg(ok ? "Imported successfully." : "Invalid JSON format.");
+        }}
+      >
+        Import JSON
+      </button>
+      {msg ? <p className="text-footnote text-accent">{msg}</p> : null}
+    </div>
+  );
+}
+
+function patch<T>(arr: T[], idx: number, partial: Partial<T>, onChange: (a: T[]) => void) {
+  const next = [...arr];
+  next[idx] = { ...next[idx], ...partial };
+  onChange(next);
+}

@@ -53,12 +53,12 @@ export function Hero() {
           transition={{ delay: 2.8, duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
           className="mt-11 flex flex-wrap items-center justify-center gap-3"
         >
-          <Button href="#brands">My ventures</Button>
-          <Button href="#portfolio" variant="ghost">
+          <Button href="/projects/">My ventures</Button>
+          <Button href="/design/" variant="ghost">
             Design work
           </Button>
-          <Button href="#contact" variant="ghost">
-            Contact
+          <Button href="/links/" variant="ghost">
+            Links
           </Button>
         </motion.div>
 

@@ -6,6 +6,7 @@ import { Loader } from "@/components/ui/Loader";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { Navigation } from "@/components/layout/Navigation";
+import { CmsProvider } from "@/components/providers/CmsProvider";
 
 export function ClientProviders({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
@@ -19,7 +20,7 @@ export function ClientProviders({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <>
+    <CmsProvider>
       <ScrollProgress />
       <Navigation />
       <CustomCursor />
@@ -29,6 +30,6 @@ export function ClientProviders({ children }: { children: ReactNode }) {
       <main className={loading ? "opacity-0" : "opacity-100 transition-opacity duration-700 relative"}>
         {children}
       </main>
-    </>
+    </CmsProvider>
   );
 }

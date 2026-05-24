@@ -32,6 +32,7 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className="relative antialiased">
         <div className="site-backdrop" aria-hidden />
+        <div className="site-dim" aria-hidden />
         <div className="noise" aria-hidden />
         <ClientProviders>{children}</ClientProviders>
         <Footer />

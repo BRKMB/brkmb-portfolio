@@ -1,12 +1,13 @@
 [
   {
-    "slug": "baryq-brand",
-    "title": "BARYQ — Luxury Brand Identity",
-    "shortDescription": "Full visual identity for a premium clothing brand.",
-    "description": "End-to-end brand system: logo, typography, packaging, and campaign visuals.",
+    "slug": "BARYQ",
+    "title": "BARYQ",
+    "shortDescription": "Luxury clothing brand — my concept, visual world, and direction from day one.",
+    "description": "A premium fashion brand I founded and art-directed end to end: identity, campaigns, packaging, and digital presence.",
     "category": "Branding",
     "status": "In Progress",
-    "thumbnail": "/images/projects/baryq.svg",
+    "kind": "venture",
+    "thumbnail": "/images/projects/baryq.png",
     "tools": ["Illustrator", "Photoshop", "Figma"],
     "overview": "BARYQ is a luxury fashion brand requiring a distinctive, elevated visual language that communicates craftsmanship and exclusivity.",
     "role": "Founder, Creative Director, Lead Designer",
@@ -21,20 +22,22 @@
       "Scalable identity for digital and print",
       "Launch-ready campaign assets"
     ],
-    "gallery": ["/images/projects/baryq.svg", "/images/placeholders/gallery-1.svg", "/images/placeholders/gallery-2.svg"],
-    "featured": true
+    "gallery": ["/images/projects/baryq.png", "/images/placeholders/gallery-1.svg", "/images/placeholders/gallery-2.svg"],
+    "featured": true,
+    "externalUrl": ""
   },
   {
-    "slug": "benou-app",
-    "title": "BENOU — Travel Mobile App",
-    "shortDescription": "UI/UX and product design for a travel discovery platform.",
-    "description": "Mobile-first experience for exploring destinations and managing trips.",
+    "slug": "BENOU",
+    "title": "BENOU",
+    "shortDescription": "Travel mobile app — born from my idea, designed and product-led by me.",
+    "description": "Mobile-first travel discovery: curated destinations, trip planning, and a premium product experience.",
     "category": "UI/UX",
     "status": "In Progress",
+    "kind": "venture",
     "thumbnail": "/images/projects/benou.svg",
     "tools": ["Figma", "Principle", "After Effects"],
     "overview": "BENOU connects travelers with curated experiences through an intuitive, beautiful mobile interface.",
-    "role": "Co-founder, Product Designer",
+    "role": "Founder, Product Designer",
     "process": [
       "User flows and wireframes",
       "Design system and components",
@@ -47,16 +50,18 @@
       "Premium travel-app aesthetic"
     ],
     "gallery": ["/images/projects/benou.svg", "/images/placeholders/gallery-3.svg"],
-    "featured": true
+    "featured": true,
+    "externalUrl": ""
   },
   {
-    "slug": "blinkotp",
-    "title": "BlinkOTP — Chrome Extension",
-    "shortDescription": "Secure OTP extension with premium UX.",
-    "description": "Browser extension for capturing and managing one-time passwords efficiently.",
+    "slug": "BlinkOTP",
+    "title": "BlinkOTP",
+    "shortDescription": "Chrome extension for fast, secure OTP — imagined, designed, and shipped by me.",
+    "description": "Browser extension that streamlines 2FA workflows with a clean, premium interface.",
     "category": "Extensions",
     "status": "Live",
-    "thumbnail": "/images/projects/blinkotp.svg",
+    "kind": "venture",
+    "thumbnail": "/images/projects/blinkotp.png",
     "tools": ["Figma", "React", "Chrome APIs"],
     "overview": "BlinkOTP streamlines 2FA workflows for power users who need speed without sacrificing security.",
     "role": "Founder, Designer, Product Lead",
@@ -71,16 +76,18 @@
       "Sub-second OTP retrieval",
       "Clean, minimal interface"
     ],
-    "gallery": ["/images/projects/blinkotp.svg", "/images/placeholders/gallery-4.svg"],
-    "featured": true
+    "gallery": ["/images/projects/blinkotp.png", "/images/placeholders/gallery-4.svg"],
+    "featured": true,
+    "externalUrl": ""
   },
   {
-    "slug": "raby",
-    "title": "RABY — Business Management System",
-    "shortDescription": "Desktop ERP I founded — sales, inventory, accounting.",
-    "description": "Comprehensive ERP interface conceived and designed from my own product vision.",
+    "slug": "RABY",
+    "title": "RABY",
+    "shortDescription": "Desktop ERP I founded — sales, inventory, accounting, and operations.",
+    "description": "Comprehensive business management system conceived, designed, and built from my product vision.",
     "category": "Applications",
     "status": "In Progress",
+    "kind": "venture",
     "thumbnail": "/images/projects/raby.svg",
     "tools": ["Figma", "React", "Electron"],
     "overview": "RABY is a desktop-first ERP I created for SMEs — powerful operations without enterprise bloat.",
@@ -97,38 +104,7 @@
       "Reduced training time for operators"
     ],
     "gallery": ["/images/projects/raby.svg", "/images/placeholders/gallery-5.svg"],
-    "featured": true
-  },
-  {
-    "slug": "cinema-poster-series",
-    "title": "Cinema Poster Series",
-    "shortDescription": "Motion-inspired movie poster collection.",
-    "description": "Experimental poster designs blending typography and cinematic composition.",
-    "category": "Motion",
-    "status": "Completed",
-    "thumbnail": "/images/placeholders/poster.svg",
-    "tools": ["Photoshop", "Illustrator", "After Effects"],
-    "overview": "A personal series exploring film poster aesthetics and bold typographic treatments.",
-    "role": "Designer",
-    "process": ["Concept sketches", "Typography exploration", "Color grading", "Final compositing"],
-    "results": ["Portfolio-ready poster set", "Social engagement series"],
-    "gallery": ["/images/placeholders/poster.svg", "/images/placeholders/gallery-1.svg"],
-    "featured": false
-  },
-  {
-    "slug": "client-brand-refresh",
-    "title": "Client Brand Refresh",
-    "shortDescription": "External client identity modernization.",
-    "description": "Rebrand for a regional business — logo, stationery, and social templates.",
-    "category": "External Client Work",
-    "status": "Completed",
-    "thumbnail": "/images/placeholders/client.svg",
-    "tools": ["Figma", "Illustrator", "InDesign"],
-    "overview": "Strategic refresh to align an established brand with contemporary markets.",
-    "role": "Lead Graphic Designer",
-    "process": ["Brand audit", "Stakeholder workshops", "Identity design", "Guidelines delivery"],
-    "results": ["Approved identity system", "30+ template assets"],
-    "gallery": ["/images/placeholders/client.svg"],
-    "featured": false
+    "featured": true,
+    "externalUrl": ""
   }
 ]

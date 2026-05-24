@@ -1,29 +1,61 @@
+import Link from "next/link";
 import { Hero } from "@/components/sections/Hero";
-import { Brands } from "@/components/sections/Brands";
-import { PortfolioGallery } from "@/components/sections/PortfolioGallery";
-import { Projects } from "@/components/sections/Projects";
-import { About } from "@/components/sections/About";
-import { Contact } from "@/components/sections/Contact";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+
+const hubs = [
+  {
+    href: "/projects/",
+    title: "Projects",
+    desc: "BARYQ, BENOU, BlinkOTP, RABY — ventures I founded and built.",
+    emoji: "◆",
+  },
+  {
+    href: "/design/",
+    title: "Design",
+    desc: "Brand identity, UI, posters, packaging — Behance-style gallery.",
+    emoji: "◎",
+  },
+  {
+    href: "/links/",
+    title: "Links",
+    desc: "All my profiles and contact points in one place.",
+    emoji: "↗",
+  },
+  {
+    href: "/resume/",
+    title: "Resume",
+    desc: "Experience, skills, and a downloadable PDF CV.",
+    emoji: "▤",
+  },
+];
 
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <ScrollReveal variant="up">
-        <Brands />
-      </ScrollReveal>
-      <ScrollReveal variant="scale" delay={0.05}>
-        <PortfolioGallery />
-      </ScrollReveal>
-      <ScrollReveal variant="up" delay={0.08}>
-        <Projects homepage />
-      </ScrollReveal>
-      <ScrollReveal variant="left" delay={0.05}>
-        <About />
-      </ScrollReveal>
-      <ScrollReveal variant="up" delay={0.1}>
-        <Contact />
+      <ScrollReveal>
+        <section className="px-4 pb-24 md:px-8">
+          <div className="mx-auto max-w-4xl">
+            <p className="text-caption text-center tracking-[0.2em] uppercase text-accent">Explore</p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {hubs.map((hub) => (
+                <Link
+                  key={hub.href}
+                  href={hub.href}
+                  data-cursor
+                  className="hub-card focus-ring group block"
+                >
+                  <span className="text-title-2 text-accent">{hub.emoji}</span>
+                  <h2 className="font-display text-title-3 mt-4 v-primary">{hub.title}</h2>
+                  <p className="text-subheadline mt-2 v-secondary leading-relaxed">{hub.desc}</p>
+                  <span className="text-footnote mt-5 inline-block text-accent transition group-hover:translate-x-0.5">
+                    Open →
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
       </ScrollReveal>
     </>
   );

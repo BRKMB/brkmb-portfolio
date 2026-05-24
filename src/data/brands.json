@@ -8,7 +8,7 @@
     "ownership": "Founded & created by me",
     "status": "Building",
     "accent": "#c9a962",
-    "href": "/projects/baryq-brand/"
+    "href": "/projects/BARYQ/"
   },
   {
     "id": "benou",
@@ -19,7 +19,7 @@
     "ownership": "Founded & created by me",
     "status": "Building",
     "accent": "#c9f31d",
-    "href": "/projects/benou-app/"
+    "href": "/projects/BENOU/"
   },
   {
     "id": "blinkotp",
@@ -30,7 +30,7 @@
     "ownership": "Founded & created by me",
     "status": "Live",
     "accent": "#d4ff4d",
-    "href": "/projects/blinkotp/"
+    "href": "/projects/BlinkOTP/"
   },
   {
     "id": "raby",
@@ -41,7 +41,7 @@
     "ownership": "Founded & created by me",
     "status": "Building",
     "accent": "#7cb342",
-    "href": "/projects/raby/"
+    "href": "/projects/RABY/"
   },
   {
     "id": "future",
@@ -52,6 +52,6 @@
     "ownership": "In my pipeline",
     "status": "Coming Soon",
     "accent": "#a8d86a",
-    "href": "#contact"
+    "href": "/links/"
   }
 ]

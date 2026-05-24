@@ -1,40 +1,36 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
-import { resume, site } from "@/lib/data";
+import { site } from "@/lib/data";
+import { useResume } from "@/components/providers/CmsProvider";
+import { DownloadCvButton } from "@/components/resume/DownloadCvButton";
+import { PageHeader } from "@/components/layout/PageHeader";
 import { Button } from "@/components/ui/Button";
 
 export default function ResumePage() {
+  const resume = useResume();
+
   return (
     <div className="min-h-screen px-4 pt-32 pb-20 md:px-8">
       <div className="mx-auto max-w-3xl">
+        <PageHeader title="Resume / CV" subtitle={resume.summary} backLabel="← Home" />
+
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ ease: [0.32, 0.72, 0, 1] }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.1, ease: [0.32, 0.72, 0, 1] }}
+          className="mt-8 flex flex-wrap gap-3"
         >
-          <Link href="/" className="text-subheadline text-accent transition hover:opacity-80">
-            ← Back home
-          </Link>
-
-          <h1 className="font-display text-large-title mt-8 v-primary">Resume / CV</h1>
-          <p className="text-body mt-5 v-secondary leading-relaxed">{resume.summary}</p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button href={resume.cvDownloadUrl} external>
-              Download CV
-            </Button>
-            <Button href={`mailto:${site.email}`} variant="ghost" external>
-              Email me
-            </Button>
-          </div>
+          <DownloadCvButton resume={resume} className="btn-primary text-subheadline inline-flex min-h-[44px] items-center justify-center rounded-full px-6 py-3" />
+          <Button href={`mailto:${site.email}`} variant="ghost" external>
+            Email me
+          </Button>
         </motion.div>
 
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, ease: [0.32, 0.72, 0, 1] }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.15 }}
           className="mt-14"
         >
           <h2 className="text-caption text-accent tracking-[0.2em] uppercase">Education</h2>
@@ -45,9 +41,9 @@ export default function ResumePage() {
         </motion.section>
 
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.18, ease: [0.32, 0.72, 0, 1] }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
           className="mt-10"
         >
           <h2 className="text-caption text-accent tracking-[0.2em] uppercase">Skills</h2>
@@ -61,9 +57,9 @@ export default function ResumePage() {
         </motion.section>
 
         <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.26, ease: [0.32, 0.72, 0, 1] }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.25 }}
           className="mt-10"
         >
           <h2 className="text-caption text-accent tracking-[0.2em] uppercase">Experience</h2>

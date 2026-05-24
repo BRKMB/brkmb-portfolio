@@ -3,22 +3,21 @@
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { href: "#brands", label: "Ventures" },
-  { href: "#portfolio", label: "Design" },
-  { href: "#projects", label: "Work" },
-  { href: "#about", label: "About" },
+  { href: "/projects/", label: "Projects" },
+  { href: "/design/", label: "Design" },
+  { href: "/links/", label: "Links" },
   { href: "/resume/", label: "Resume" },
-  { href: "#contact", label: "Contact" },
 ];
 
 export function Navigation() {
+  const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
   const [ready, setReady] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState("");
 
   useEffect(() => setMounted(true), []);
 
@@ -33,25 +32,9 @@ export function Navigation() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
-    const sections = ["brands", "portfolio", "projects", "about", "contact"];
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActive(e.target.id);
-        });
-      },
-      { rootMargin: "-40% 0px -50% 0px" }
-    );
-    sections.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      observer.disconnect();
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const bar = (
@@ -75,26 +58,29 @@ export function Navigation() {
         </Link>
 
         <ul className="hidden items-center gap-0.5 lg:flex">
-          {links.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                data-cursor
-                className={cn(
-                  "focus-ring flex min-h-[44px] items-center rounded-full px-3.5 text-subheadline transition-all duration-200",
-                  active && link.href === `#${active}`
-                    ? "chip-glass-active"
-                    : "v-secondary hover:v-primary hover:bg-white/5"
-                )}
-                style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
+          {links.map((link) => {
+            const active = pathname === link.href || pathname.startsWith(link.href);
+            return (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  data-cursor
+                  className={cn(
+                    "focus-ring flex min-h-[44px] items-center rounded-full px-3.5 text-subheadline transition-all duration-200",
+                    active
+                      ? "chip-glass-active"
+                      : "v-secondary hover:v-primary hover:bg-white/5"
+                  )}
+                  style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
-        <Link href="#contact" data-cursor className="btn-primary text-subheadline shrink-0">
+        <Link href="/links/" data-cursor className="btn-primary text-subheadline shrink-0">
           Let&apos;s talk
         </Link>
       </nav>

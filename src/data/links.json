@@ -1,0 +1,98 @@
+[
+  {
+    "id": "website",
+    "label": "brkmb.com",
+    "description": "Portfolio & founder HQ",
+    "href": "https://brkmb.com",
+    "platform": "website",
+    "featured": true
+  },
+  {
+    "id": "email",
+    "label": "Email",
+    "description": "hello@brkmb.com",
+    "href": "mailto:hello@brkmb.com",
+    "platform": "email",
+    "featured": true
+  },
+  {
+    "id": "linkedin",
+    "label": "LinkedIn",
+    "description": "Professional profile",
+    "href": "https://linkedin.com",
+    "platform": "linkedin",
+    "featured": true
+  },
+  {
+    "id": "github",
+    "label": "GitHub",
+    "description": "@BRKMB",
+    "href": "https://github.com/BRKMB",
+    "platform": "github",
+    "featured": true
+  },
+  {
+    "id": "instagram",
+    "label": "Instagram",
+    "description": "Design & behind the build",
+    "href": "https://instagram.com",
+    "platform": "instagram",
+    "featured": true
+  },
+  {
+    "id": "twitter",
+    "label": "X (Twitter)",
+    "description": "Thoughts & updates",
+    "href": "https://x.com",
+    "platform": "twitter",
+    "featured": false
+  },
+  {
+    "id": "youtube",
+    "label": "YouTube",
+    "description": "Motion & tutorials",
+    "href": "https://youtube.com",
+    "platform": "youtube",
+    "featured": false
+  },
+  {
+    "id": "behance",
+    "label": "Behance",
+    "description": "Creative work",
+    "href": "https://behance.net",
+    "platform": "behance",
+    "featured": true
+  },
+  {
+    "id": "dribbble",
+    "label": "Dribbble",
+    "description": "UI shots",
+    "href": "https://dribbble.com",
+    "platform": "dribbble",
+    "featured": false
+  },
+  {
+    "id": "whatsapp",
+    "label": "WhatsApp",
+    "description": "Quick message",
+    "href": "https://wa.me/",
+    "platform": "whatsapp",
+    "featured": true
+  },
+  {
+    "id": "telegram",
+    "label": "Telegram",
+    "description": "Direct chat",
+    "href": "https://t.me",
+    "platform": "telegram",
+    "featured": false
+  },
+  {
+    "id": "tiktok",
+    "label": "TikTok",
+    "description": "Short-form",
+    "href": "https://tiktok.com",
+    "platform": "tiktok",
+    "featured": false
+  }
+]

@@ -63,6 +63,14 @@ body {
     radial-gradient(circle at 80% 20%, rgba(10, 132, 255, 0.05) 0%, transparent 30%);
 }
 
+.site-dim {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.2);
+}
+
 ::selection {
   background: rgba(201, 243, 29, 0.35);
   color: #fff;
@@ -70,7 +78,7 @@ body {
 
 main {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .font-display {
@@ -149,8 +157,8 @@ main {
   -webkit-text-fill-color: currentColor;
   background-clip: border-box;
   text-shadow:
-    0 0 48px rgba(201, 243, 29, 0.4),
-    0 2px 12px rgba(201, 243, 29, 0.25);
+    0 0 20px rgba(201, 243, 29, 0.22),
+    0 1px 6px rgba(201, 243, 29, 0.12);
 }
 
 /* Layer 2–4: Liquid Glass materials (dark) */
@@ -421,11 +429,62 @@ main {
   pointer-events: none;
   position: fixed;
   inset: 0;
-  z-index: 2;
+  z-index: 3;
   opacity: 0.085;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 140px 140px;
   background-repeat: repeat;
+}
+
+.hub-card {
+  background: rgba(28, 28, 30, 0.55);
+  backdrop-filter: blur(40px) saturate(160%);
+  -webkit-backdrop-filter: blur(40px) saturate(160%);
+  border: 0.5px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-glass-dark);
+  border-radius: 20px;
+  padding: 1.5rem;
+  transition: all 200ms var(--ease-apple);
+}
+
+.hub-card:hover {
+  background: rgba(38, 38, 42, 0.65);
+  border-color: rgba(201, 243, 29, 0.2);
+}
+
+.link-tree-card {
+  background: rgba(28, 28, 30, 0.55);
+  backdrop-filter: blur(36px) saturate(170%);
+  -webkit-backdrop-filter: blur(36px) saturate(170%);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1rem 1.125rem;
+  transition: all 200ms var(--ease-apple);
+}
+
+.link-tree-card:hover {
+  background: rgba(38, 38, 42, 0.68);
+  border-color: rgba(201, 243, 29, 0.25);
+  transform: translateY(-1px);
+}
+
+.link-tree-card--compact {
+  padding: 0.75rem 1rem;
+}
+
+.admin-input {
+  background: rgba(0, 0, 0, 0.35);
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.92);
+  outline: none;
+}
+
+.admin-input:focus {
+  border-color: rgba(201, 243, 29, 0.45);
+  box-shadow: 0 0 0 2px rgba(201, 243, 29, 0.15);
 }
 
 .focus-ring:focus-visible {
