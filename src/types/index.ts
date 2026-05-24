@@ -61,6 +61,12 @@ export interface PortfolioItem {
   /** Behance-style page content */
   blocks?: import("./design-blocks").DesignBlock[];
   hidden?: boolean;
+  /** Optional CTA button on project page */
+  cta?: { label: string; url: string };
+  /** Downloadable attachments (free files only) */
+  attachments?: { name: string; url: string }[];
+  /** Project-wide style defaults for new text blocks */
+  styleDefaults?: { textColor?: string; pageBackground?: string };
 }
 
 export type {

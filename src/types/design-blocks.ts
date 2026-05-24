@@ -1,4 +1,4 @@
-export type DesignBlockType = "image" | "text" | "split" | "embed" | "spacer";
+export type DesignBlockType = "image" | "text" | "grid" | "split" | "embed" | "spacer";
 
 export type TextAlign = "left" | "center" | "right";
 export type TextSize = "sm" | "md" | "lg";
@@ -22,6 +22,12 @@ export interface DesignTextBlock extends DesignBlockBase {
   align?: TextAlign;
   color?: string;
   fontSize?: TextSize;
+}
+
+export interface DesignGridBlock extends DesignBlockBase {
+  type: "grid";
+  images: string[];
+  columns?: 2 | 3;
 }
 
 export interface DesignSplitBlock extends DesignBlockBase {
@@ -49,6 +55,7 @@ export interface DesignSpacerBlock extends DesignBlockBase {
 export type DesignBlock =
   | DesignImageBlock
   | DesignTextBlock
+  | DesignGridBlock
   | DesignSplitBlock
   | DesignEmbedBlock
   | DesignSpacerBlock;

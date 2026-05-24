@@ -14,8 +14,21 @@ export function loadCmsData(): CmsData {
   }
 }
 
-export function saveCmsData(data: CmsData) {
-  localStorage.setItem(CMS_STORAGE_KEY, JSON.stringify(data));
+export function saveCmsData(data: CmsData): boolean {
+  try {
+    localStorage.setItem(CMS_STORAGE_KEY, JSON.stringify(data));
+    return true;
+  } catch (err) {
+    const quota =
+      err instanceof DOMException &&
+      (err.name === "QuotaExceededError" || err.code === 22);
+    if (quota && typeof window !== "undefined") {
+      window.alert(
+        "Could not save — browser storage is full. Export a JSON backup from Admin, use smaller images, or reset data."
+      );
+    }
+    return false;
+  }
 }
 
 export function resetCmsData() {

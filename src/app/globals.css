@@ -885,6 +885,660 @@ main {
   background: rgba(255, 255, 255, 0.05);
 }
 
+/* Behance-style design project studio (admin) */
+.behance-studio {
+  position: fixed;
+  inset: 0;
+  z-index: 10003;
+  display: flex;
+  flex-direction: column;
+  background: #e8e8e8;
+  color: #191919;
+}
+
+.behance-studio--page {
+  position: relative;
+  inset: auto;
+  z-index: auto;
+  min-height: 100vh;
+}
+
+body.design-editor-mode .nav-shell,
+body.design-editor-mode footer,
+body.design-editor-mode .site-dim,
+body.design-editor-mode .noise {
+  display: none !important;
+}
+
+body.design-editor-mode main {
+  padding: 0;
+}
+
+.behance-studio__header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  height: 3.25rem;
+  flex-shrink: 0;
+  padding: 0 1rem;
+  background: #fff;
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.behance-studio__back,
+.behance-studio__icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 8px;
+  color: #191919;
+  transition: background 140ms ease;
+}
+
+.behance-studio__back:hover,
+.behance-studio__icon-btn:hover {
+  background: #f0f0f0;
+}
+
+.behance-studio__title-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #191919;
+  outline: none;
+}
+
+.behance-studio__header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.behance-studio__link-preview {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #0057ff;
+  text-decoration: none;
+}
+
+.behance-studio__link-preview:hover {
+  text-decoration: underline;
+}
+
+.behance-studio__layout {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+
+.behance-studio__canvas {
+  flex: 1;
+  overflow: auto;
+  background: #f3f3f3;
+}
+
+.behance-studio__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: min(70vh, 640px);
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.behance-studio__empty-title {
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #696969;
+  margin-bottom: 2rem;
+}
+
+.behance-studio__empty-tiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem 1.5rem;
+  max-width: 52rem;
+}
+
+.behance-studio-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 5.5rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+
+.behance-studio-tile:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.behance-studio-tile__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #d8d8d8;
+  color: #0057ff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  transition:
+    border-color 140ms ease,
+    box-shadow 140ms ease,
+    transform 140ms ease;
+}
+
+.behance-studio-tile:hover:not(:disabled) .behance-studio-tile__icon {
+  border-color: #0057ff;
+  box-shadow: 0 4px 12px rgba(0, 87, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.behance-studio-tile__label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  color: #191919;
+  line-height: 1.2;
+}
+
+.behance-studio-tile__sub {
+  font-size: 0.625rem;
+  color: #888;
+  margin-top: -0.25rem;
+}
+
+.behance-studio-preview {
+  padding: 2rem 1.5rem 4rem;
+}
+
+.behance-studio-preview__inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.behance-studio-preview .behance-project__gallery {
+  max-width: none;
+  padding: 0;
+  space-y: 0;
+}
+
+.behance-studio-block {
+  position: relative;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: box-shadow 140ms ease;
+}
+
+.behance-studio-block--selected {
+  outline: 2px solid #0057ff;
+  outline-offset: 4px;
+}
+
+.behance-studio-block--hidden {
+  opacity: 0.45;
+}
+
+.behance-studio-block__toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 0.5rem;
+  padding: 0.35rem 0.5rem;
+  background: #fff;
+  border: 1px solid #d4d4d4;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.behance-studio-block__type {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #0057ff;
+  margin-right: 0.5rem;
+}
+
+.behance-studio-block__handle,
+.behance-studio-block__tool {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #444;
+  cursor: pointer;
+}
+
+.behance-studio-block__handle:hover,
+.behance-studio-block__tool:hover:not(:disabled) {
+  background: #f0f0f0;
+}
+
+.behance-studio-block__tool:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.behance-studio-block__tool--danger:hover {
+  background: #fee;
+  color: #c00;
+}
+
+.behance-studio-block__toolbar .behance-studio-block__handle {
+  margin-left: auto;
+  cursor: grab;
+}
+
+.behance-studio__sidebar {
+  width: 17.5rem;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-left: 1px solid #d4d4d4;
+  overflow: hidden;
+}
+
+.behance-studio-panel {
+  flex-shrink: 0;
+  max-height: 45vh;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #e8e8e8;
+  overflow: hidden;
+}
+
+.behance-studio-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.behance-studio-panel__title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #191919;
+}
+
+.behance-studio-panel__close {
+  display: flex;
+  padding: 0.25rem;
+  border: none;
+  background: transparent;
+  color: #666;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.behance-studio-panel__close:hover {
+  background: #f0f0f0;
+}
+
+.behance-studio-panel__body {
+  overflow: auto;
+  padding: 0.75rem 1rem 1rem;
+  flex: 1;
+  min-height: 0;
+}
+
+.behance-studio-block-editor .admin-input,
+.behance-studio-settings input,
+.behance-studio-settings textarea,
+.behance-studio-settings select,
+.behance-studio-thumb input {
+  width: 100%;
+  padding: 0.5rem 0.625rem;
+  font-size: 0.8125rem;
+  border: 1px solid #d4d4d4;
+  border-radius: 6px;
+  background: #fff;
+  color: #191919;
+}
+
+.behance-studio-block-editor .admin-input:focus,
+.behance-studio-settings input:focus,
+.behance-studio-settings textarea:focus {
+  border-color: #0057ff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 87, 255, 0.15);
+}
+
+.behance-studio-block-editor .text-caption,
+.behance-studio-block-editor span {
+  color: #696969;
+}
+
+.behance-studio-field {
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.behance-studio-field > span {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #888;
+  margin-bottom: 0.25rem;
+}
+
+.behance-studio-field--row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+}
+
+.behance-studio-thumb__label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  margin: 0.5rem 0 0;
+}
+
+.behance-studio-thumb__hint,
+.behance-studio-cover-hint {
+  font-size: 0.6875rem;
+  color: #888;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.behance-studio-thumb__frame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  max-width: 12rem;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #eee;
+  margin-bottom: 0.5rem;
+}
+
+.behance-studio-thumb__badge {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  font-size: 0.625rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+}
+
+.behance-studio-upload {
+  display: block;
+  font-size: 0.75rem;
+  color: #0057ff;
+  margin-top: 0.35rem;
+  cursor: pointer;
+}
+
+.behance-studio-upload input {
+  display: none;
+}
+
+.behance-studio-danger {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  font-size: 0.8125rem;
+  color: #c00;
+  background: #fff;
+  border: 1px solid #fcc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.behance-studio-danger:hover {
+  background: #fff5f5;
+}
+
+.behance-studio-sidebar-section {
+  flex: 1;
+  overflow: auto;
+  padding: 1rem;
+  min-height: 0;
+}
+
+.behance-studio-sidebar-section__title {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+  margin-bottom: 0.75rem;
+}
+
+.behance-studio-sidebar-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.behance-studio-sidebar-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-height: 4.25rem;
+  padding: 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.2;
+  color: #191919;
+  background: #f8f8f8;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    border-color 140ms ease,
+    background 140ms ease;
+}
+
+.behance-studio-sidebar-btn:hover:not(:disabled) {
+  border-color: #0057ff;
+  background: #f0f6ff;
+  color: #0057ff;
+}
+
+.behance-studio-sidebar-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.behance-studio-edit-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.behance-studio-edit-btn {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.625rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #191919;
+  background: #f8f8f8;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.behance-studio-edit-btn:hover,
+.behance-studio-edit-btn--active {
+  border-color: #0057ff;
+  background: #f0f6ff;
+  color: #0057ff;
+}
+
+.behance-studio__footer {
+  flex-shrink: 0;
+  padding: 1rem;
+  border-top: 1px solid #e8e8e8;
+  background: #fff;
+}
+
+.behance-studio-continue {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #fff;
+  background: #0cce6b;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 140ms ease;
+}
+
+.behance-studio-continue:hover {
+  background: #09b85f;
+}
+
+.behance-studio-panel__hint {
+  font-size: 0.75rem;
+  line-height: 1.45;
+  color: #888;
+  margin: 0 0 0.75rem;
+}
+
+.behance-studio-sideblock {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  background: #f8f8f8;
+  cursor: pointer;
+  transition:
+    border-color 140ms ease,
+    background 140ms ease;
+}
+
+.behance-studio-sideblock--with-icon {
+  display: flex;
+  gap: 0.65rem;
+  align-items: flex-start;
+}
+
+.behance-studio-sideblock:hover,
+.behance-studio-sideblock--active {
+  border-color: #0057ff;
+  background: #f0f6ff;
+}
+
+.behance-studio-sideblock__title {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #191919;
+}
+
+.behance-studio-sideblock__hint {
+  display: block;
+  font-size: 0.6875rem;
+  color: #888;
+  margin-top: 0.2rem;
+  line-height: 1.35;
+}
+
+.behance-studio-sidebar-section--compact {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.behance-studio-asset-row {
+  display: grid;
+  gap: 0.35rem;
+  margin-bottom: 0.65rem;
+  grid-template-columns: 1fr auto;
+}
+
+.behance-studio-asset-row input:first-of-type {
+  grid-column: 1 / -1;
+}
+
+.behance-studio-asset-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem;
+  border: none;
+  background: transparent;
+  color: #c00;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.behance-studio-asset-remove:hover {
+  background: #fee;
+}
+
+.behance-studio-asset-add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #0057ff;
+  border: 1px dashed #c8d8f8;
+  border-radius: 8px;
+  background: #fafcff;
+  cursor: pointer;
+}
+
+.behance-studio-asset-add:hover {
+  background: #f0f6ff;
+}
+
+@media (max-width: 900px) {
+  .behance-studio__layout {
+    flex-direction: column-reverse;
+  }
+
+  .behance-studio__sidebar {
+    width: 100%;
+    max-height: 42vh;
+    border-left: none;
+    border-top: 1px solid #d4d4d4;
+  }
+
+  .behance-studio__canvas {
+    min-height: 50vh;
+  }
+}
+
 .mobile-nav-root {
   position: fixed;
   inset: 0;

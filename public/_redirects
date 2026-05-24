@@ -1,0 +1,3 @@
+# Cloudflare Pages — trailing slashes (Next static export)
+/admin/design /admin/design/ 301
+/admin/design/new /admin/design/new/ 301

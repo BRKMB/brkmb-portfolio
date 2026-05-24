@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import type { DesignBlock, DesignBlockType, TextAlign } from "@/types/design-blocks";
-import { readImageFile } from "@/lib/portfolio-blocks";
+import type { DesignBlock, TextAlign } from "@/types/design-blocks";
+import { getEmbedIframeSrc, isCompactEmbed, readImageFile } from "@/lib/portfolio-blocks";
+import { cn } from "@/lib/utils";
 type Props = {
   block: DesignBlock;
   onChange: (block: DesignBlock) => void;
@@ -74,7 +75,13 @@ export function DesignBlockEditor({ block, onChange }: Props) {
               <input
                 type="color"
                 className="h-10 w-full cursor-pointer rounded-lg border border-white/10 bg-transparent"
-                value={block.color?.startsWith("#") ? block.color : "#ffffff"}
+                value={
+                  block.color?.startsWith("#")
+                    ? block.color
+                    : block.color?.includes("255,255,255")
+                      ? "#ffffff"
+                      : "#191919"
+                }
                 onChange={(e) => onChange({ ...block, color: e.target.value })}
               />
             </label>
@@ -111,6 +118,60 @@ export function DesignBlockEditor({ block, onChange }: Props) {
         </div>
       );
 
+    case "grid":
+      return (
+        <div className="space-y-3">
+          <label className="block">
+            <FieldLabel>Columns</FieldLabel>
+            <select
+              className="admin-input w-full"
+              value={block.columns ?? 2}
+              onChange={(e) =>
+                onChange({ ...block, columns: Number(e.target.value) as 2 | 3 })
+              }
+            >
+              <option value={2}>2 columns</option>
+              <option value={3}>3 columns</option>
+            </select>
+          </label>
+          <label className="block">
+            <FieldLabel>Image URLs (one per line)</FieldLabel>
+            <textarea
+              className="admin-input min-h-[100px] w-full font-mono text-xs"
+              value={block.images.join("\n")}
+              onChange={(e) =>
+                onChange({
+                  ...block,
+                  images: e.target.value
+                    .split("\n")
+                    .map((s) => s.trim())
+                    .filter(Boolean),
+                })
+              }
+              placeholder="https://…"
+            />
+          </label>
+          <label className="block">
+            <FieldLabel>Upload multiple</FieldLabel>
+            <input
+              type="file"
+              accept="image/*"
+              multiple
+              className="text-footnote w-full"
+              onChange={async (e) => {
+                const files = [...(e.target.files ?? [])];
+                if (!files.length) return;
+                const added: string[] = [];
+                for (const file of files) {
+                  added.push(await readImageFile(file));
+                }
+                onChange({ ...block, images: [...block.images, ...added] });
+              }}
+            />
+          </label>
+        </div>
+      );
+
     case "split":
       return (
         <div className="space-y-3">
@@ -144,7 +205,13 @@ export function DesignBlockEditor({ block, onChange }: Props) {
               <input
                 type="color"
                 className="h-10 w-full cursor-pointer rounded-lg border border-white/10 bg-transparent"
-                value={block.textColor?.startsWith("#") ? block.textColor : "#ffffff"}
+                value={
+                  block.textColor?.startsWith("#")
+                    ? block.textColor
+                    : block.textColor?.includes("255,255,255")
+                      ? "#ffffff"
+                      : "#191919"
+                }
                 onChange={(e) => onChange({ ...block, textColor: e.target.value })}
               />
             </label>
@@ -191,11 +258,13 @@ export function DesignBlockEditor({ block, onChange }: Props) {
         </div>
       );
 
-    case "embed":
+    case "embed": {
+      const embedSrc = getEmbedIframeSrc(block.url);
+      const compact = isCompactEmbed(block.url);
       return (
         <div className="space-y-3">
           <label className="block">
-            <FieldLabel>Embed URL (YouTube, Vimeo, or iframe embed link)</FieldLabel>
+            <FieldLabel>Link or embed URL</FieldLabel>
             <input
               className="admin-input w-full"
               value={block.url}
@@ -203,6 +272,30 @@ export function DesignBlockEditor({ block, onChange }: Props) {
               onChange={(e) => onChange({ ...block, url: e.target.value })}
             />
           </label>
+          <p className="text-caption leading-relaxed v-tertiary">
+            Works with YouTube, Vimeo, Spotify, SoundCloud, Loom, Figma, CodePen, Dailymotion — or paste
+            an iframe embed code. No paid Adobe / 3D hosts.
+          </p>
+          {embedSrc ? (
+            <div
+              className={cn(
+                "relative w-full overflow-hidden rounded-lg border border-white/10 bg-black/40",
+                compact ? "h-[152px]" : "aspect-video"
+              )}
+            >
+              <iframe
+                src={embedSrc}
+                title="Preview"
+                className="absolute inset-0 h-full w-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          ) : block.url.trim() ? (
+            <p className="text-footnote text-amber-400/90">
+              Could not read this URL — try the share / embed link from the platform.
+            </p>
+          ) : null}
           <input
             className="admin-input w-full"
             value={block.caption ?? ""}
@@ -211,6 +304,7 @@ export function DesignBlockEditor({ block, onChange }: Props) {
           />
         </div>
       );
+    }
 
     case "spacer":
       return (
@@ -233,10 +327,4 @@ export function DesignBlockEditor({ block, onChange }: Props) {
   }
 }
 
-export const BLOCK_TYPE_LABELS: Record<DesignBlockType, string> = {
-  image: "Full image",
-  text: "Text",
-  split: "Text + image columns",
-  embed: "Video / embed",
-  spacer: "Spacer",
-};
+export { BLOCK_TYPE_LABELS } from "@/lib/design-studio-tiles";

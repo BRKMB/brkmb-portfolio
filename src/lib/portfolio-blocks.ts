@@ -20,16 +20,18 @@ export function createBlock(type: DesignBlockType): DesignBlock {
         type: "text",
         content: "",
         align: "left",
-        color: "#ffffff",
+        color: "rgba(255,255,255,0.92)",
         fontSize: "md",
       };
+    case "grid":
+      return { id: newBlockId("grid"), type: "grid", images: [], columns: 2 };
     case "split":
       return {
         id: newBlockId("split"),
         type: "split",
         layout: "text-left",
         text: "",
-        textColor: "#ffffff",
+        textColor: "rgba(255,255,255,0.92)",
         textAlign: "left",
         image: "",
       };
@@ -86,28 +88,55 @@ export function ensurePortfolioBlocks(item: PortfolioItem): PortfolioItem {
   };
 }
 
-export function getEmbedIframeSrc(url: string): string | null {
-  const trimmed = url.trim();
-  if (!trimmed) return null;
+export { getEmbedIframeSrc, isCompactEmbed, parseEmbedUrl } from "@/lib/embed-url";
 
-  const yt = trimmed.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([\w-]+)/i);
-  if (yt) return `https://www.youtube.com/embed/${yt[1]}`;
+const IMAGE_MAX_WIDTH = 1920;
+const IMAGE_JPEG_QUALITY = 0.82;
 
-  const vimeo = trimmed.match(/vimeo\.com\/(?:video\/)?(\d+)/i);
-  if (vimeo) return `https://player.vimeo.com/video/${vimeo[1]}`;
-
-  if (/^https?:\/\//i.test(trimmed) && (trimmed.includes("embed") || trimmed.includes("player"))) {
-    return trimmed;
-  }
-
-  return null;
-}
-
-export async function readImageFile(file: File): Promise<string> {
+function readFileAsDataUrl(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = () => resolve(reader.result as string);
     reader.onerror = reject;
     reader.readAsDataURL(file);
   });
+}
+
+function compressDataUrl(dataUrl: string, maxWidth: number, quality: number): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => {
+      const scale = img.width > maxWidth ? maxWidth / img.width : 1;
+      const w = Math.round(img.width * scale);
+      const h = Math.round(img.height * scale);
+      const canvas = document.createElement("canvas");
+      canvas.width = w;
+      canvas.height = h;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) {
+        resolve(dataUrl);
+        return;
+      }
+      ctx.drawImage(img, 0, 0, w, h);
+      try {
+        resolve(canvas.toDataURL("image/jpeg", quality));
+      } catch {
+        resolve(dataUrl);
+      }
+    };
+    img.onerror = () => reject(new Error("Image decode failed"));
+    img.src = dataUrl;
+  });
+}
+
+export async function readImageFile(file: File): Promise<string> {
+  const dataUrl = await readFileAsDataUrl(file);
+  if (!file.type.startsWith("image/") || file.type === "image/svg+xml" || file.type === "image/gif") {
+    return dataUrl;
+  }
+  try {
+    return await compressDataUrl(dataUrl, IMAGE_MAX_WIDTH, IMAGE_JPEG_QUALITY);
+  } catch {
+    return dataUrl;
+  }
 }

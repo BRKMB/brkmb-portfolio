@@ -25,8 +25,13 @@ export function DesignDetail({ slug }: { slug: string }) {
   const blocks = item.blocks ?? [];
   const published = item.year ? `${item.year}` : "2024";
 
+  const pageBg = item.styleDefaults?.pageBackground;
+
   return (
-    <article className="behance-project min-h-screen pb-24">
+    <article
+      className="behance-project min-h-screen pb-24"
+      style={pageBg ? { backgroundColor: pageBg } : undefined}
+    >
       <div className="behance-project__hero-wrap mx-auto max-w-[1200px] px-4 pt-28 md:px-8 md:pt-32">
         <Link
           href="/design/"
@@ -101,6 +106,41 @@ export function DesignDetail({ slug }: { slug: string }) {
       </div>
 
       <DesignEngagement slug={item.slug} />
+
+      {item.attachments?.filter((a) => a.name && a.url).length ? (
+        <section className="mx-auto mt-14 max-w-[720px] px-4 md:px-8">
+          <h2 className="text-subheadline font-medium v-primary">Assets</h2>
+          <ul className="mt-4 space-y-2">
+            {item.attachments
+              .filter((a) => a.name && a.url)
+              .map((a) => (
+                <li key={a.url}>
+                  <a
+                    href={a.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-subheadline text-accent hover:opacity-80"
+                  >
+                    {a.name} ↗
+                  </a>
+                </li>
+              ))}
+          </ul>
+        </section>
+      ) : null}
+
+      {item.cta?.label && item.cta?.url ? (
+        <div className="mx-auto mt-10 flex justify-center px-4 md:px-8">
+          <a
+            href={item.cta.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary text-subheadline inline-flex min-h-[44px] items-center justify-center rounded-full px-8 py-2.5"
+          >
+            {item.cta.label}
+          </a>
+        </div>
+      ) : null}
 
       <footer className="mx-auto mt-16 max-w-[720px] border-t border-white/10 px-4 pt-10 md:px-8">
         <Link

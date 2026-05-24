@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useCms } from "@/components/providers/CmsProvider";
 import type { Project, ResumeData } from "@/types";
 import { LinksAdminEditor } from "@/components/admin/LinksAdminEditor";
-import { DesignPortfolioAdmin } from "@/components/admin/design/DesignPortfolioAdmin";
 
 type Tab = "projects" | "design" | "links" | "resume" | "data";
 
@@ -70,7 +69,21 @@ export function AdminDashboard() {
           <ProjectsEditor projects={data.projects} onChange={setProjects} />
         )}
         {tab === "design" && (
-          <DesignPortfolioAdmin items={data.portfolio} onChange={setPortfolio} />
+          <div className="mt-8">
+            <div className="glass-card p-6">
+              <h2 className="text-subheadline font-medium v-primary">Design portfolio</h2>
+              <p className="text-footnote mt-2 v-tertiary">
+                Grid editor with a Behance-style project builder — images, text, grids, embeds, and
+                columns.
+              </p>
+              <Link
+                href="/admin/design/"
+                className="btn-primary text-subheadline mt-4 inline-flex px-5 py-2"
+              >
+                Open design manager →
+              </Link>
+            </div>
+          </div>
         )}
         {tab === "links" && <LinksAdminEditor groups={data.linkGroups} onChange={setLinkGroups} />}
         {tab === "resume" && <ResumeEditor resume={data.resume} onChange={setResume} />}
