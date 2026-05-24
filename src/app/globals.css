@@ -181,14 +181,35 @@ main {
 }
 
 .glass-nav {
-  background: rgba(28, 28, 30, 0.55);
-  backdrop-filter: blur(30px) saturate(170%);
-  -webkit-backdrop-filter: blur(30px) saturate(170%);
-  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  background: rgba(18, 18, 20, 0.78);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
   box-shadow:
-    inset 0 1px 0.5px 0 rgba(255, 255, 255, 0.2),
-    0 12px 40px -8px rgba(0, 0, 0, 0.35);
+    inset 0 1px 0.5px 0 rgba(255, 255, 255, 0.22),
+    0 12px 40px -8px rgba(0, 0, 0, 0.45);
   border-radius: 9999px;
+}
+
+.glass-nav-scrolled {
+  background: rgba(12, 12, 14, 0.88);
+  backdrop-filter: blur(48px) saturate(190%);
+  -webkit-backdrop-filter: blur(48px) saturate(190%);
+  box-shadow:
+    inset 0 1px 0.5px 0 rgba(255, 255, 255, 0.25),
+    0 16px 48px -10px rgba(0, 0, 0, 0.55);
+}
+
+/* Custom cursor — hide system pointer on desktop */
+@media (pointer: fine) {
+  html.custom-cursor,
+  html.custom-cursor body,
+  html.custom-cursor a,
+  html.custom-cursor button,
+  html.custom-cursor [role="button"],
+  html.custom-cursor label {
+    cursor: none !important;
+  }
 }
 
 .glass-sheet {

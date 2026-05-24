@@ -19,7 +19,7 @@ export function Navigation() {
   const [active, setActive] = useState("");
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => setScrolled(window.scrollY > 8);
     const sections = ["brands", "portfolio", "projects", "about", "contact"];
     const observer = new IntersectionObserver(
       (entries) => {
@@ -33,6 +33,7 @@ export function Navigation() {
       const el = document.getElementById(id);
       if (el) observer.observe(el);
     });
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", onScroll);
@@ -46,8 +47,9 @@ export function Navigation() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: 2.1, duration: 0.55, ease: [0.32, 0.72, 0, 1] }}
       className={cn(
-        "fixed top-5 right-4 left-4 z-[9990] mx-auto max-w-4xl px-2 py-1.5 transition-all duration-200 md:top-6",
-        scrolled ? "glass-nav" : "glass-nav opacity-95"
+        "fixed top-5 right-4 left-4 z-[9990] mx-auto max-w-4xl px-2 py-1.5 transition-all duration-300 md:top-6",
+        "glass-nav",
+        scrolled && "glass-nav-scrolled"
       )}
     >
       <nav className="flex items-center justify-between gap-3">
