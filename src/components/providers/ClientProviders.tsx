@@ -23,7 +23,7 @@ export function ClientProviders({ children }: { children: ReactNode }) {
       <AnimatePresence mode="wait">
         {loading ? <Loader key="loader" /> : null}
       </AnimatePresence>
-      <main className={loading ? "opacity-0" : "opacity-100 transition-opacity duration-700"}>
+      <main className={loading ? "opacity-0" : "opacity-100 transition-opacity duration-700 relative z-[1]"}>
         {children}
       </main>
     </>
