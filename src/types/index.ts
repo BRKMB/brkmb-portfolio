@@ -56,10 +56,22 @@ export interface PortfolioItem {
   tools?: string[];
   tags?: string[];
   year?: string;
-  /** Full-width blocks on the project page (Behance-style scroll) */
+  /** @deprecated Migrated to `blocks` on load */
   gallery?: string[];
+  /** Behance-style page content */
+  blocks?: import("./design-blocks").DesignBlock[];
   hidden?: boolean;
 }
+
+export type {
+  DesignBlock,
+  DesignBlockType,
+  DesignEmbedBlock,
+  DesignImageBlock,
+  DesignSplitBlock,
+  DesignSpacerBlock,
+  DesignTextBlock,
+} from "./design-blocks";
 
 export interface LinkItem {
   id: string;

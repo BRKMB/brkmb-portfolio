@@ -1,4 +1,5 @@
 import portfolioData from "@/data/portfolio.json";
+import { ensurePortfolioBlocks } from "@/lib/portfolio-blocks";
 import type { PortfolioItem } from "@/types";
 
 const defaultPortfolio = portfolioData as PortfolioItem[];
@@ -13,11 +14,11 @@ export function resolvePortfolioSlug(item: PortfolioItem): string {
 
 export function normalizePortfolioItem(item: PortfolioItem): PortfolioItem {
   const slug = resolvePortfolioSlug(item);
-  return {
+  return ensurePortfolioBlocks({
     ...item,
     slug,
     gallery: item.gallery?.length ? item.gallery : [item.image],
-  };
+  });
 }
 
 export function normalizePortfolio(items: PortfolioItem[]): PortfolioItem[] {

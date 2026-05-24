@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { DesignBlocksRenderer } from "@/components/design/DesignBlocksRenderer";
 import { usePortfolioItem } from "@/components/providers/CmsProvider";
 import { site } from "@/lib/data";
 
@@ -20,7 +21,7 @@ export function DesignDetail({ slug }: { slug: string }) {
     );
   }
 
-  const gallery = item.gallery?.length ? item.gallery : [item.image];
+  const blocks = item.blocks ?? [];
   const published = item.year ? `${item.year}` : "2024";
 
   return (
@@ -94,28 +95,8 @@ export function DesignDetail({ slug }: { slug: string }) {
         </motion.div>
       </header>
 
-      <div className="behance-project__gallery mx-auto mt-14 max-w-[1200px] px-4 md:px-8">
-        {gallery.map((src, i) => (
-          <motion.figure
-            key={`${src}-${i}`}
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.45, delay: Math.min(i * 0.04, 0.2) }}
-            className="behance-project__frame"
-          >
-            <div className="relative w-full overflow-hidden bg-black/30">
-              <Image
-                src={src}
-                alt={`${item.title} — ${i + 1}`}
-                width={1600}
-                height={1000}
-                className="h-auto w-full object-cover"
-                sizes="(max-width: 1200px) 100vw, 1200px"
-              />
-            </div>
-          </motion.figure>
-        ))}
+      <div className="mt-14">
+        <DesignBlocksRenderer blocks={blocks} />
       </div>
 
       <footer className="mx-auto mt-16 max-w-[720px] border-t border-white/10 px-4 pt-10 md:px-8">

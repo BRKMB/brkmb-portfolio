@@ -626,6 +626,79 @@ main {
   height: auto;
 }
 
+.behance-split {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .behance-split {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .behance-split--text-right .behance-split__text {
+    order: 2;
+  }
+
+  .behance-split--text-right .behance-split__media {
+    order: 1;
+  }
+}
+
+.behance-embed {
+  margin: 0;
+}
+
+.admin-thumb-frame {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  max-width: 280px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
+}
+
+.admin-thumb-frame--wide {
+  max-width: 100%;
+}
+
+.admin-thumb-frame--split {
+  max-width: 100%;
+  margin-top: 0.5rem;
+}
+
+.admin-thumb-ratio-overlay,
+.admin-thumb-ratio-badge {
+  position: absolute;
+  z-index: 2;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: rgba(0, 0, 0, 0.65);
+  border: 0.5px solid rgba(201, 243, 29, 0.35);
+  border-radius: 4px;
+  padding: 0.15rem 0.35rem;
+  pointer-events: none;
+}
+
+.admin-thumb-ratio-overlay {
+  right: 0.35rem;
+  bottom: 0.35rem;
+}
+
+.admin-thumb-ratio-badge {
+  right: 2px;
+  bottom: 2px;
+  font-size: 0.5rem;
+}
+
 .links-page h1,
 .links-page p,
 .links-page a {

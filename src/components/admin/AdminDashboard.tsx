@@ -3,8 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useCms } from "@/components/providers/CmsProvider";
-import type { PortfolioItem, Project, ResumeData } from "@/types";
+import type { Project, ResumeData } from "@/types";
 import { LinksAdminEditor } from "@/components/admin/LinksAdminEditor";
+import { DesignPortfolioAdmin } from "@/components/admin/design/DesignPortfolioAdmin";
 
 type Tab = "projects" | "design" | "links" | "resume" | "data";
 
@@ -69,7 +70,7 @@ export function AdminDashboard() {
           <ProjectsEditor projects={data.projects} onChange={setProjects} />
         )}
         {tab === "design" && (
-          <PortfolioEditor items={data.portfolio} onChange={setPortfolio} />
+          <DesignPortfolioAdmin items={data.portfolio} onChange={setPortfolio} />
         )}
         {tab === "links" && <LinksAdminEditor groups={data.linkGroups} onChange={setLinkGroups} />}
         {tab === "resume" && <ResumeEditor resume={data.resume} onChange={setResume} />}
@@ -151,67 +152,6 @@ function ProjectsEditor({
                 if (!file) return;
                 const reader = new FileReader();
                 reader.onload = () => patch(projects, idx, { thumbnail: reader.result as string }, onChange);
-                reader.readAsDataURL(file);
-              }}
-            />
-          </label>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function PortfolioEditor({
-  items,
-  onChange,
-}: {
-  items: PortfolioItem[];
-  onChange: (p: PortfolioItem[]) => void;
-}) {
-  const add = () =>
-    onChange([
-      ...items,
-      {
-        id: `item-${Date.now()}`,
-        slug: `work-${Date.now()}`,
-        title: "New work",
-        category: "Brand identity",
-        image: "/images/placeholders/gallery-1.svg",
-        description: "",
-        gallery: ["/images/placeholders/gallery-1.svg"],
-      },
-    ]);
-
-  return (
-    <div className="mt-8 space-y-4">
-      <button type="button" className="btn-primary text-subheadline" onClick={add}>
-        + Add design piece
-      </button>
-      {items.map((item, idx) => (
-        <div key={item.id} className="glass-card space-y-3 p-5">
-          <div className="flex gap-2">
-            <input className="admin-input flex-1" value={item.title} onChange={(e) => patch(items, idx, { title: e.target.value }, onChange)} />
-            <button type="button" className="chip-glass text-caption px-3 py-2 text-red-300" onClick={() => onChange(items.filter((_, i) => i !== idx))}>
-              Delete
-            </button>
-          </div>
-          <input className="admin-input w-full" value={item.slug ?? ""} onChange={(e) => patch(items, idx, { slug: e.target.value }, onChange)} placeholder="URL slug (baryq-identity)" />
-          <input className="admin-input w-full" value={item.category} onChange={(e) => patch(items, idx, { category: e.target.value }, onChange)} />
-          <input className="admin-input w-full" value={item.image} onChange={(e) => patch(items, idx, { image: e.target.value }, onChange)} placeholder="Cover image URL" />
-          <textarea className="admin-input min-h-[80px] w-full" value={(item.gallery ?? [item.image]).join("\n")} onChange={(e) => patch(items, idx, { gallery: e.target.value.split("\n").map((s) => s.trim()).filter(Boolean) }, onChange)} placeholder="Gallery URLs (one per line)" />
-          <input className="admin-input w-full" value={item.description ?? ""} onChange={(e) => patch(items, idx, { description: e.target.value }, onChange)} placeholder="Short description" />
-          <textarea className="admin-input min-h-[72px] w-full" value={item.overview ?? ""} onChange={(e) => patch(items, idx, { overview: e.target.value }, onChange)} placeholder="Overview (project page)" />
-          <label className="text-footnote v-tertiary block">
-            Upload
-            <input
-              type="file"
-              accept="image/*"
-              className="mt-1 block text-xs"
-              onChange={(e) => {
-                const file = e.target.files?.[0];
-                if (!file) return;
-                const reader = new FileReader();
-                reader.onload = () => patch(items, idx, { image: reader.result as string }, onChange);
                 reader.readAsDataURL(file);
               }}
             />
