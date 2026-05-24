@@ -51,6 +51,79 @@
     ]
   },
   {
+    "id": "behance-128573121",
+    "slug": "port-hapi-manipulation",
+    "title": "Port Hapi - Manipulation",
+    "category": "Graphic design",
+    "image": "/images/behance/port-hapi-manipulation/cover.jpg",
+    "description": "Photo manipulation celebrating Port Said — compositing, color grading, and cinematic atmosphere.",
+    "overview": "A personal manipulation piece inspired by Port Said (Port Hapi), blending photography and digital compositing in Photoshop. Published October 2021.",
+    "role": "Photography, photo manipulation, art direction",
+    "tools": [
+      "Photoshop"
+    ],
+    "tags": [
+      "manipulation",
+      "photography",
+      "Port Said",
+      "composite",
+      "visual"
+    ],
+    "year": "2021",
+    "blocks": [
+      {
+        "id": "port-hapi-cover",
+        "type": "image",
+        "src": "/images/behance/port-hapi-manipulation/cover.jpg",
+        "alt": "Port Hapi manipulation"
+      },
+      {
+        "id": "port-hapi-intro",
+        "type": "text",
+        "content": "Port Hapi — a photo manipulation tribute to Port Said. Built from layered composites, lighting, and color work in Photoshop.\n\nPublished October 2021 on Behance.",
+        "align": "left",
+        "color": "rgba(255,255,255,0.92)",
+        "fontSize": "lg"
+      },
+      {
+        "id": "port-hapi-01",
+        "type": "image",
+        "src": "/images/behance/port-hapi-manipulation/01.jpg",
+        "alt": "Port Hapi detail"
+      },
+      {
+        "id": "port-hapi-02",
+        "type": "image",
+        "src": "/images/behance/port-hapi-manipulation/02.jpg",
+        "alt": "Port Hapi composite"
+      },
+      {
+        "id": "port-hapi-03",
+        "type": "image",
+        "src": "/images/behance/port-hapi-manipulation/03.jpg",
+        "alt": "Port Hapi scene"
+      },
+      {
+        "id": "port-hapi-04",
+        "type": "image",
+        "src": "/images/behance/port-hapi-manipulation/04.png",
+        "alt": "Port Hapi graphic"
+      },
+      {
+        "id": "port-hapi-05",
+        "type": "image",
+        "src": "/images/behance/port-hapi-manipulation/05.jpg",
+        "alt": "Port Hapi finish"
+      },
+      {
+        "id": "port-hapi-06",
+        "type": "image",
+        "src": "/images/behance/port-hapi-manipulation/06.gif",
+        "alt": "Port Hapi process animation"
+      }
+    ]
+  },
+  {
     "id": "p1",
     "slug": "baryq-identity",
     "title": "BARYQ Identity",

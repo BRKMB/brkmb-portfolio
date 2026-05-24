@@ -1,7 +1,10 @@
 {
   "profile": "https://www.behance.net/baher-bottros",
   "note": "Oldest first (bottom of Behance grid = published earliest). Import index 0 is next.",
-  "imported": ["pre-tea-packaging-logo-design"],
+  "imported": [
+    "pre-tea-packaging-logo-design",
+    "port-hapi-manipulation"
+  ],
   "projects": [
     {
       "order": 1,
@@ -18,7 +21,8 @@
       "slug": "port-hapi-manipulation",
       "galleryId": 128573121,
       "url": "https://www.behance.net/gallery/128573121/Port-Hapi-Manipulation",
-      "status": "pending"
+      "status": "imported",
+      "published": "2021-10-03"
     },
     {
       "order": 3,
