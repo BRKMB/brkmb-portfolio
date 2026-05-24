@@ -8,6 +8,13 @@ export const metadata: Metadata = {
   title: site.title,
   description: site.description,
   metadataBase: new URL("https://brkmb.com"),
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: [{ url: "/apple-icon.svg", type: "image/svg+xml", sizes: "180x180" }],
+  },
   openGraph: {
     title: site.title,
     description: site.description,

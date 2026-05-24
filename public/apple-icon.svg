@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-label="brkmb">
+  <defs>
+    <linearGradient id="bg" x1="12" y1="0" x2="168" y2="180" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#161c18"/>
+      <stop offset="0.5" stop-color="#0a0f0e"/>
+      <stop offset="1" stop-color="#121018"/>
+    </linearGradient>
+    <linearGradient id="lime" x1="52" y1="40" x2="128" y2="140" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f0ff9e"/>
+      <stop offset="0.35" stop-color="#d4ff4d"/>
+      <stop offset="1" stop-color="#9ecc18"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="90" y1="6" x2="90" y2="78" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="146" cy="34" r="78" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#c9f31d" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#c9f31d" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="violet" cx="28" cy="158" r="62" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9356dc" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#9356dc" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="180" height="180" rx="40" fill="url(#bg)"/>
+  <rect width="180" height="180" rx="40" fill="url(#glow)"/>
+  <rect width="180" height="180" rx="40" fill="url(#violet)"/>
+  <rect width="180" height="180" rx="40" fill="url(#shine)"/>
+  <rect
+    x="3.5"
+    y="3.5"
+    width="173"
+    height="173"
+    rx="36.5"
+    fill="none"
+    stroke="#c9f31d"
+    stroke-opacity="0.32"
+    stroke-width="3.5"
+  />
+  <path
+    fill="url(#lime)"
+    d="M57.5 43.5h33.2c15.5 0 25.4 7.9 25.4 20 0 8.4-4.4 14.8-11.5 17.6 8.9 3 15 10 15 20.7 0 13.6-10.8 23.4-28.5 23.4H57.5V43.5zm18 15.2v17.2h11.8c6.6 0 10.7-3.5 10.7-8.6 0-5.1-4.1-8.6-10.7-8.6H75.5zm0 32.3v19.7h13.2c9.1 0 14.4-4.4 14.4-9.9 0-5.6-5.2-9.8-14.4-9.8H75.5z"
+  />
+</svg>
