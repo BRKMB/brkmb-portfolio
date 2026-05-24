@@ -111,15 +111,18 @@ main {
   letter-spacing: 0.02em;
 }
 
-/* Vibrancy (dark) */
+/* Vibrancy (dark) + soft shadow on light text for glass / busy backgrounds */
 .v-primary {
   color: rgba(255, 255, 255, 0.96);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.32);
 }
 .v-secondary {
   color: rgba(235, 235, 245, 0.6);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.28);
 }
 .v-tertiary {
   color: rgba(235, 235, 245, 0.3);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.22);
 }
 .v-quaternary {
   color: rgba(235, 235, 245, 0.18);
@@ -251,6 +254,26 @@ main {
 .nav-glass > * {
   position: relative;
   z-index: 1;
+}
+
+.nav-glass .v-primary,
+.nav-glass .v-secondary,
+.nav-glass .font-display {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
+}
+
+.nav-glass .btn-primary,
+.nav-glass .chip-glass-active {
+  text-shadow: none;
+}
+
+/* Custom cursor — above nav (10001), portaled to body */
+.custom-cursor-ring {
+  z-index: 11000;
+}
+
+.custom-cursor-core {
+  z-index: 11001;
 }
 
 /* Custom cursor — hide system pointer on desktop */

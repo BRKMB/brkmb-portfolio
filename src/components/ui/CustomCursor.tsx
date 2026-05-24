@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { motion, useSpring } from "framer-motion";
 
 export function CustomCursor() {
+  const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(false);
   const [hovering, setHovering] = useState(false);
   const [clicking, setClicking] = useState(false);
@@ -12,6 +14,8 @@ export function CustomCursor() {
   const cursorY = useSpring(0, { stiffness: 900, damping: 45, mass: 0.2 });
   const ringX = useSpring(0, { stiffness: 280, damping: 28, mass: 0.4 });
   const ringY = useSpring(0, { stiffness: 280, damping: 28, mass: 0.4 });
+
+  useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const fine = window.matchMedia("(pointer: fine)").matches;
@@ -49,13 +53,12 @@ export function CustomCursor() {
     };
   }, [cursorX, cursorY, ringX, ringY]);
 
-  if (!visible) return null;
+  if (!mounted || !visible) return null;
 
-  return (
+  const cursor = (
     <>
-      {/* Trailing ring — no blur, glow only */}
       <motion.div
-        className="pointer-events-none fixed z-[9999] hidden md:block"
+        className="custom-cursor-ring pointer-events-none fixed hidden md:block"
         style={{
           left: ringX,
           top: ringY,
@@ -78,9 +81,8 @@ export function CustomCursor() {
         />
       </motion.div>
 
-      {/* Core dot — black + white stroke + green glow */}
       <motion.div
-        className="pointer-events-none fixed z-[10000] hidden md:block"
+        className="custom-cursor-core pointer-events-none fixed hidden md:block"
         style={{
           left: cursorX,
           top: cursorY,
@@ -103,4 +105,6 @@ export function CustomCursor() {
       </motion.div>
     </>
   );
+
+  return createPortal(cursor, document.body);
 }
