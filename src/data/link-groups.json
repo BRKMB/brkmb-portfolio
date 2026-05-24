@@ -3,7 +3,7 @@
     "id": "personal",
     "title": "Baher · Personal",
     "subtitle": "Profiles, contact & payments",
-    "defaultOpen": true,
+    "defaultOpen": false,
     "links": [
       {
         "id": "behance",
@@ -69,18 +69,55 @@
         "platform": "email"
       },
       {
-        "id": "adzology",
-        "label": "ADZOLOGY",
-        "description": "AdZology links",
-        "href": "https://linktr.ee/adz.ology",
-        "platform": "linktree"
-      },
-      {
         "id": "bolder-fb",
         "label": "BOLDER",
         "description": "Facebook page",
         "href": "https://www.facebook.com/BR.BoldeR/",
         "platform": "facebook"
+      }
+    ]
+  },
+  {
+    "id": "adzology",
+    "title": "AdZology",
+    "subtitle": "Digital marketing agency",
+    "accent": "#43E660",
+    "defaultOpen": false,
+    "links": [
+      {
+        "id": "adz-hub",
+        "label": "All AdZology links",
+        "description": "linktr.ee/adz.ology",
+        "href": "https://linktr.ee/adz.ology",
+        "platform": "linktree"
+      },
+      {
+        "id": "adz-instagram",
+        "label": "Instagram",
+        "description": "@adz.ology",
+        "href": "https://www.instagram.com/adz.ology",
+        "platform": "instagram"
+      },
+      {
+        "id": "adz-facebook",
+        "label": "Facebook",
+        "description": "AdZology Agency",
+        "href": "https://www.facebook.com/AdZology.Agency",
+        "platform": "facebook"
+      },
+      {
+        "id": "adz-tiktok",
+        "label": "TikTok",
+        "description": "@adz.ology",
+        "href": "https://www.tiktok.com/@adz.ology",
+        "platform": "tiktok"
+      },
+      {
+        "id": "adz-behance",
+        "label": "Behance",
+        "description": "Agency portfolio",
+        "href": "https://www.behance.net/baher-bottros",
+        "platform": "behance"
       }
     ]
   },

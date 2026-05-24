@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import type { LinkGroup } from "@/types";
 import { PlatformIcon } from "@/components/ui/PlatformIcon";
+import { HiChevronDown } from "react-icons/hi2";
 import { cn } from "@/lib/utils";
 
 function LinkRow({ link }: { link: LinkGroup["links"][0] }) {
@@ -48,7 +49,7 @@ function GroupPanel({ group }: { group: LinkGroup }) {
 
 export function LinkGroups({ groups }: { groups: LinkGroup[] }) {
   const [open, setOpen] = useState<Record<string, boolean>>(() =>
-    Object.fromEntries(groups.map((g) => [g.id, g.defaultOpen === true]))
+    Object.fromEntries(groups.map((g) => [g.id, false]))
   );
 
   const toggle = (id: string) => setOpen((prev) => ({ ...prev, [id]: !prev[id] }));
@@ -95,14 +96,13 @@ export function LinkGroups({ groups }: { groups: LinkGroup[] }) {
                   ) : null}
                 </span>
               </span>
-              <span
-                className={cn(
-                  "link-accordion__chevron text-accent transition-transform duration-200",
-                  isOpen && "rotate-180"
-                )}
-                aria-hidden
-              >
-                ▾
+              <span className="link-accordion__chevron" aria-hidden>
+                <HiChevronDown
+                  className={cn(
+                    "h-5 w-5 transition-transform duration-200",
+                    isOpen && "rotate-180"
+                  )}
+                />
               </span>
             </button>
             <AnimatePresence initial={false}>

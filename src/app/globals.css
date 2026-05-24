@@ -321,6 +321,11 @@ main {
   html.custom-cursor label {
     cursor: none !important;
   }
+
+  html.custom-cursor
+    :not(input):not(textarea):not(select):not([contenteditable="true"]) {
+    caret-color: transparent;
+  }
 }
 
 .glass-sheet {
@@ -495,8 +500,33 @@ main {
 
 .link-accordion__chevron {
   flex-shrink: 0;
-  font-size: 1.125rem;
-  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.08);
+  border: 0.5px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 0 0 1px rgba(201, 243, 29, 0.06);
+  transition:
+    background 200ms var(--ease-apple),
+    border-color 200ms var(--ease-apple),
+    color 200ms var(--ease-apple);
+}
+
+.link-accordion__trigger:hover .link-accordion__chevron,
+.link-accordion__trigger[aria-expanded="true"] .link-accordion__chevron {
+  color: var(--color-accent);
+  border-color: rgba(201, 243, 29, 0.35);
+  background: rgba(201, 243, 29, 0.12);
+}
+
+.links-page h1,
+.links-page p,
+.links-page a {
+  caret-color: transparent;
 }
 
 .admin-input {
