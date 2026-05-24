@@ -19,28 +19,34 @@ html {
   scroll-behavior: smooth;
 }
 
-/* Layer 1: vibrant environment (required for glass refraction) */
 body {
   font-family: var(--font-sans);
   color: rgba(255, 255, 255, 0.96);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  /* Solid only — fixed gradients on body break backdrop-filter on scrolling text (Chromium) */
+  background-color: #0a120e;
+}
+
+/* Fixed environment behind scrollable content (same backdrop root as hero text) */
+.site-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
   background:
     radial-gradient(ellipse 80% 55% at 10% -10%, rgba(201, 243, 29, 0.45), transparent 52%),
     radial-gradient(ellipse 65% 50% at 95% 15%, rgba(52, 199, 89, 0.35), transparent 48%),
     radial-gradient(ellipse 70% 45% at 50% 110%, rgba(90, 200, 250, 0.2), transparent 55%),
     radial-gradient(ellipse 50% 40% at 70% 60%, rgba(175, 82, 222, 0.15), transparent 50%),
     linear-gradient(165deg, #0c1210 0%, #061008 38%, #0a1620 100%);
-  background-attachment: fixed;
 }
 
-body::before {
+.site-backdrop::after {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
-  z-index: 0;
-  pointer-events: none;
   opacity: 0.5;
   background:
     radial-gradient(circle at 20% 80%, rgba(201, 243, 29, 0.12) 0%, transparent 35%),
@@ -54,6 +60,7 @@ body::before {
 
 main {
   position: relative;
+  z-index: 1;
 }
 
 .font-display {
@@ -122,11 +129,15 @@ main {
   color: var(--color-accent);
 }
 
+/* background-clip:text prevents backdrop-filter from blurring the headline under nav */
 .gradient-text {
-  background: linear-gradient(135deg, #f8ffe8 0%, var(--color-accent-soft) 40%, var(--color-accent) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #e2ff9a;
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  background-clip: border-box;
+  text-shadow:
+    0 0 48px rgba(201, 243, 29, 0.4),
+    0 2px 12px rgba(201, 243, 29, 0.25);
 }
 
 /* Layer 2–4: Liquid Glass materials (dark) */
@@ -203,6 +214,8 @@ main {
 }
 
 .nav-glass {
+  position: relative;
+  overflow: hidden;
   pointer-events: auto;
   display: flex;
   align-items: center;
@@ -211,21 +224,33 @@ main {
   padding: 0.375rem 0.5rem;
   border-radius: 9999px;
   border: 0.5px solid rgba(255, 255, 255, 0.16);
-  background-color: rgba(28, 28, 30, 0.22);
-  -webkit-backdrop-filter: blur(40px) saturate(180%);
-  backdrop-filter: blur(40px) saturate(180%);
+  background: transparent;
   box-shadow:
     inset 0 1px 0.5px 0 rgba(255, 255, 255, 0.32),
     0 12px 40px -8px rgba(0, 0, 0, 0.45);
-  transition:
-    background-color 0.25s ease,
-    backdrop-filter 0.25s ease;
 }
 
-.nav-glass--scrolled {
-  background-color: rgba(22, 22, 24, 0.3);
+.nav-glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background-color: rgba(28, 28, 30, 0.2);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  backdrop-filter: blur(40px) saturate(180%);
+  transition: background-color 0.25s ease;
+}
+
+.nav-glass--scrolled::before {
+  background-color: rgba(22, 22, 24, 0.28);
   -webkit-backdrop-filter: blur(52px) saturate(190%);
   backdrop-filter: blur(52px) saturate(190%);
+}
+
+.nav-glass > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* Custom cursor — hide system pointer on desktop */
@@ -341,13 +366,13 @@ main {
   border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Grain behind content only — mix-blend-mode + high z-index breaks nav backdrop-filter */
+/* Grain overlay — no mix-blend-mode (breaks nav backdrop-filter in Chromium) */
 .noise {
   pointer-events: none;
   position: fixed;
   inset: 0;
-  z-index: 0;
-  opacity: 0.045;
+  z-index: 2;
+  opacity: 0.04;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size: 200px 200px;
 }

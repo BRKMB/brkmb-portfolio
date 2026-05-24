@@ -55,8 +55,13 @@ export function CustomCursor() {
     <>
       {/* Trailing ring — no blur, glow only */}
       <motion.div
-        className="pointer-events-none fixed top-0 left-0 z-[9999] hidden md:block"
-        style={{ x: ringX, y: ringY, translateX: "-50%", translateY: "-50%" }}
+        className="pointer-events-none fixed z-[9999] hidden md:block"
+        style={{
+          left: ringX,
+          top: ringY,
+          marginLeft: -18,
+          marginTop: -18,
+        }}
       >
         <motion.div
           className="rounded-full border border-[#c9f31d]/40"
@@ -75,8 +80,13 @@ export function CustomCursor() {
 
       {/* Core dot — black + white stroke + green glow */}
       <motion.div
-        className="pointer-events-none fixed top-0 left-0 z-[10000] hidden md:block"
-        style={{ x: cursorX, y: cursorY, translateX: "-50%", translateY: "-50%" }}
+        className="pointer-events-none fixed z-[10000] hidden md:block"
+        style={{
+          left: cursorX,
+          top: cursorY,
+          marginLeft: -5,
+          marginTop: -5,
+        }}
       >
         <motion.div
           animate={{ scale: clicking ? 0.85 : hovering ? 1.35 : 1 }}
