@@ -6,26 +6,27 @@ import { cn } from "@/lib/utils";
 
 const ease = [0.32, 0.72, 0, 1] as const;
 
+/* Opacity-only: transform on sections breaks backdrop-filter on fixed nav (Chromium/Brave) */
 const variants: Record<string, Variants> = {
   up: {
-    hidden: { opacity: 0, y: 48 },
-    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
   },
   fade: {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
   },
   scale: {
-    hidden: { opacity: 0, scale: 0.96, y: 24 },
-    visible: { opacity: 1, scale: 1, y: 0 },
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
   },
   left: {
-    hidden: { opacity: 0, x: -40 },
-    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
   },
   right: {
-    hidden: { opacity: 0, x: 40 },
-    visible: { opacity: 1, x: 0 },
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
   },
 };
 

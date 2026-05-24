@@ -30,8 +30,8 @@ export function Contact() {
               target="_blank"
               rel="noopener noreferrer"
               data-cursor
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05, ease: [0.32, 0.72, 0, 1] }}
               className="glass-card focus-ring flex min-h-[72px] items-center gap-4 p-5 !rounded-[20px]"

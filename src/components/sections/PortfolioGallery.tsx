@@ -25,8 +25,8 @@ export function PortfolioGallery() {
               key={item.id}
               type="button"
               data-cursor
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: (i % 6) * 0.04, ease: [0.32, 0.72, 0, 1] }}
               onClick={() => setLightbox(item.id)}

@@ -13,8 +13,8 @@ export function About() {
 
         <div className="grid gap-8 lg:grid-cols-2">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ ease: [0.32, 0.72, 0, 1] }}
             className="glass-sheet space-y-6 p-8"
@@ -36,8 +36,8 @@ export function About() {
             {about.roles.map((role, i) => (
               <motion.div
                 key={role.title}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.06, ease: [0.32, 0.72, 0, 1] }}
                 className={cn(

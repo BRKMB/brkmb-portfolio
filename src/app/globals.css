@@ -180,37 +180,57 @@ main {
   transition-duration: 100ms;
 }
 
-/*
- * Nav bar — single element, no overflow:hidden, no isolation.
- * Brave/Chromium: opaque base + backdrop-filter (frost when supported).
- */
-.nav-bar {
-  border: 0.5px solid rgba(255, 255, 255, 0.14);
-  /* Solid enough that hero text never bleeds through */
-  background-color: rgba(8, 8, 10, 0.94);
-  backdrop-filter: blur(48px) saturate(200%);
-  -webkit-backdrop-filter: blur(48px) saturate(200%);
+/* Fixed frost plate — real glass blur (Chromium needs no transform on content behind) */
+.nav-frost-plate {
+  position: fixed;
+  top: 1.25rem;
+  right: 1rem;
+  left: 1rem;
+  z-index: 9999;
+  margin-right: auto;
+  margin-left: auto;
+  height: 3.75rem;
+  max-width: 56rem;
+  pointer-events: none;
+  border-radius: 9999px;
+  border: 0.5px solid rgba(255, 255, 255, 0.16);
+  background: rgba(28, 28, 30, 0.38);
+  backdrop-filter: blur(50px) saturate(210%);
+  -webkit-backdrop-filter: blur(50px) saturate(210%);
   box-shadow:
-    inset 0 1px 0.5px 0 rgba(255, 255, 255, 0.28),
-    0 12px 40px -8px rgba(0, 0, 0, 0.55);
+    inset 0 1px 0.5px 0 rgba(255, 255, 255, 0.32),
+    0 12px 40px -8px rgba(0, 0, 0, 0.45);
   opacity: 0;
   transition:
     opacity 0.5s cubic-bezier(0.32, 0.72, 0, 1) 2s,
-    background-color 0.3s ease,
-    box-shadow 0.3s ease;
+    background-color 0.25s ease,
+    backdrop-filter 0.25s ease;
 }
 
-html.site-ready .nav-bar {
+@media (min-width: 768px) {
+  .nav-frost-plate {
+    top: 1.5rem;
+  }
+}
+
+html.site-ready .nav-frost-plate {
   opacity: 1;
 }
 
-.nav-bar-scrolled {
-  background-color: rgba(4, 4, 6, 0.97);
-  backdrop-filter: blur(56px) saturate(210%);
-  -webkit-backdrop-filter: blur(56px) saturate(210%);
-  box-shadow:
-    inset 0 1px 0.5px 0 rgba(255, 255, 255, 0.32),
-    0 16px 48px -10px rgba(0, 0, 0, 0.65);
+.nav-frost-plate-scrolled {
+  background: rgba(22, 22, 24, 0.48);
+  backdrop-filter: blur(64px) saturate(220%);
+  -webkit-backdrop-filter: blur(64px) saturate(220%);
+}
+
+.nav-chrome {
+  background: transparent;
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.32, 0.72, 0, 1) 2s;
+}
+
+html.site-ready .nav-chrome {
+  opacity: 1;
 }
 
 /* Custom cursor — hide system pointer on desktop */

@@ -64,9 +64,9 @@ export function Projects({ homepage }: Props) {
               <motion.article
                 key={project.slug}
                 layout
-                initial={{ opacity: 0, scale: 0.98 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.98 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
               >
                 <Link href={`/projects/${project.slug}/`} data-cursor className="group block focus-ring rounded-[20px]">
