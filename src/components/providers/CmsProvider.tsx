@@ -11,6 +11,7 @@ import {
 } from "react";
 import type { CmsData, LegacyCmsData, LinkGroup, PortfolioItem, Project, ResumeData } from "@/types";
 import { normalizeCmsData } from "@/lib/cms/normalize";
+import { mergeLinkGroupsWithDefaults } from "@/lib/link-groups-order";
 import {
   CMS_AUTH_KEY,
   CMS_PREVIEW_KEY,
@@ -86,7 +87,8 @@ export function CmsProvider({ children }: { children: ReactNode }) {
       updateData,
       setProjects: (projects) => updateData({ projects }),
       setPortfolio: (portfolio) => updateData({ portfolio }),
-      setLinkGroups: (linkGroups) => updateData({ linkGroups }),
+      setLinkGroups: (linkGroups) =>
+        updateData({ linkGroups: mergeLinkGroupsWithDefaults(linkGroups) }),
       setResume: (resume) => updateData({ resume }),
       resetToDefaults: () => {
         resetCmsData();
@@ -142,7 +144,7 @@ export function usePortfolio() {
 
 export function useLinkGroups() {
   const { data } = useCms();
-  return data.linkGroups;
+  return mergeLinkGroupsWithDefaults(data.linkGroups);
 }
 
 export function useResume() {

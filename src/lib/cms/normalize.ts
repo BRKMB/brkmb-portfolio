@@ -1,18 +1,21 @@
 import type { CmsData, LegacyCmsData, LinkGroup } from "@/types";
+import { mergeLinkGroupsWithDefaults } from "@/lib/link-groups-order";
 import { defaultCmsData } from "./defaults";
 
 export function resolveLinkGroups(parsed: LegacyCmsData): LinkGroup[] {
-  if (parsed.linkGroups?.length) return parsed.linkGroups;
+  if (parsed.linkGroups?.length) {
+    return mergeLinkGroupsWithDefaults(parsed.linkGroups);
+  }
   if (parsed.links?.length) {
-    return [
+    return mergeLinkGroupsWithDefaults([
       {
         id: "personal",
-        title: "Baher · Personal",
+        title: "Personal links",
         subtitle: "Imported from previous CMS",
-        defaultOpen: true,
+        defaultOpen: false,
         links: parsed.links,
       },
-    ];
+    ]);
   }
   return defaultCmsData.linkGroups;
 }
