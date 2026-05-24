@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { DesignBlocksRenderer } from "@/components/design/DesignBlocksRenderer";
+import { DesignEngagement } from "@/components/design/DesignEngagement";
 import { usePortfolioItem } from "@/components/providers/CmsProvider";
 import { site } from "@/lib/data";
 
@@ -98,6 +99,8 @@ export function DesignDetail({ slug }: { slug: string }) {
       <div className="mt-14">
         <DesignBlocksRenderer blocks={blocks} />
       </div>
+
+      <DesignEngagement slug={item.slug} />
 
       <footer className="mx-auto mt-16 max-w-[720px] border-t border-white/10 px-4 pt-10 md:px-8">
         <Link
