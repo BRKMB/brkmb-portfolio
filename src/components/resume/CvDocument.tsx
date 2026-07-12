@@ -1,121 +1,145 @@
-import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import { Document, Link, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
 import type { ReactNode } from "react";
 import type { ResumeData } from "@/types";
 import { buildCvGenerationFooter } from "@/lib/cv-generation";
+import { phoneToTel, toLinkedInUrl, toMailto, toWebsiteUrl } from "@/lib/cv-links";
 
 const ink = "#1a1a1a";
-const muted = "#444444";
-const faint = "#777777";
-const rule = "#cccccc";
+const muted = "#333333";
+const faint = "#555555";
+const rule = "#bdbdbd";
+const linkBlue = "#1155cc";
 
 const s = StyleSheet.create({
   page: {
-    paddingTop: 40,
-    paddingBottom: 52,
-    paddingHorizontal: 44,
+    paddingTop: 42,
+    paddingBottom: 58,
+    paddingHorizontal: 48,
     fontFamily: "Helvetica",
-    fontSize: 9.25,
+    fontSize: 9.5,
     color: ink,
-    lineHeight: 1.45,
+    lineHeight: 1.42,
   },
   name: {
-    fontSize: 20,
+    fontSize: 19,
     fontFamily: "Helvetica-Bold",
-    letterSpacing: 0.4,
+    letterSpacing: 0.6,
     textTransform: "uppercase",
-    marginBottom: 4,
+    marginBottom: 5,
   },
   headline: {
     fontSize: 9.5,
     color: muted,
-    marginBottom: 6,
-    lineHeight: 1.35,
+    marginBottom: 7,
+    lineHeight: 1.38,
   },
   contact: {
-    fontSize: 8.5,
+    fontSize: 8.75,
     color: faint,
-    marginBottom: 14,
-    lineHeight: 1.4,
+    marginBottom: 16,
+    lineHeight: 1.5,
+  },
+  link: {
+    color: linkBlue,
+    textDecoration: "underline",
   },
   section: {
-    marginTop: 12,
-    marginBottom: 2,
+    marginTop: 11,
+    marginBottom: 1,
   },
   sectionTitle: {
-    fontSize: 8.5,
+    fontSize: 8.75,
     fontFamily: "Helvetica-Bold",
-    letterSpacing: 0.9,
+    letterSpacing: 0.85,
     textTransform: "uppercase",
-    marginBottom: 4,
+    marginBottom: 5,
   },
   sectionRule: {
-    height: 1,
+    height: 0.75,
     backgroundColor: rule,
-    marginBottom: 7,
+    marginBottom: 8,
   },
   body: {
-    fontSize: 9.25,
+    fontSize: 9.5,
     color: ink,
-    lineHeight: 1.48,
+    lineHeight: 1.46,
     textAlign: "justify",
   },
   competencyLine: {
-    fontSize: 9,
+    fontSize: 9.25,
     color: ink,
-    lineHeight: 1.42,
-    marginBottom: 3,
-  },
-  expHeader: {
-    fontSize: 9.75,
-    fontFamily: "Helvetica-Bold",
-    marginBottom: 1,
-  },
-  expPeriod: {
-    fontSize: 8.5,
-    color: faint,
+    lineHeight: 1.48,
     marginBottom: 4,
   },
-  bullet: {
-    fontSize: 9.1,
-    color: ink,
-    lineHeight: 1.44,
-    marginBottom: 3,
-    paddingLeft: 8,
+  expBlock: {
+    marginBottom: 11,
   },
-  bulletPrefix: {
-    fontFamily: "Helvetica",
+  expHeaderRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    gap: 12,
+    marginBottom: 5,
+  },
+  expHeader: {
+    flex: 1,
+    fontSize: 9.75,
+    fontFamily: "Helvetica-Bold",
+    lineHeight: 1.35,
+  },
+  expPeriod: {
+    flexShrink: 0,
+    fontSize: 8.75,
+    color: faint,
+    lineHeight: 1.35,
+  },
+  bulletRow: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    marginBottom: 3.5,
+    paddingRight: 2,
+  },
+  bulletMark: {
+    width: 11,
+    fontSize: 9.25,
+    lineHeight: 1.46,
+  },
+  bulletText: {
+    flex: 1,
+    fontSize: 9.25,
+    color: ink,
+    lineHeight: 1.46,
+    textAlign: "justify",
   },
   certLine: {
-    fontSize: 9,
-    marginBottom: 2.5,
-    lineHeight: 1.35,
+    fontSize: 9.25,
+    marginBottom: 3,
+    lineHeight: 1.38,
+  },
+  toolLine: {
+    fontSize: 9.25,
+    color: ink,
+    lineHeight: 1.42,
+    marginBottom: 5,
   },
   toolCategory: {
-    fontSize: 9,
     fontFamily: "Helvetica-Bold",
-    marginBottom: 2,
-  },
-  toolItems: {
-    fontSize: 9,
-    color: muted,
-    marginBottom: 6,
-    lineHeight: 1.35,
   },
   portfolioNote: {
-    marginTop: 10,
-    fontSize: 8.5,
+    marginTop: 12,
+    fontSize: 8.75,
     color: muted,
-    lineHeight: 1.35,
+    lineHeight: 1.42,
   },
   genFooter: {
     position: "absolute",
-    bottom: 22,
-    left: 44,
-    right: 44,
-    fontSize: 6.25,
-    color: "#b8b8b8",
+    bottom: 24,
+    left: 48,
+    right: 48,
+    fontSize: 6,
+    color: "#c4c4c4",
     textAlign: "center",
-    letterSpacing: 0.15,
+    letterSpacing: 0.12,
   },
 });
 
@@ -133,11 +157,61 @@ function Bullets({ items }: { items: string[] }) {
   return (
     <>
       {items.map((item) => (
-        <Text key={item} style={s.bullet}>
-          • {item}
-        </Text>
+        <View key={item} style={s.bulletRow}>
+          <Text style={s.bulletMark}>•</Text>
+          <Text style={s.bulletText}>{item}</Text>
+        </View>
       ))}
     </>
+  );
+}
+
+function ContactLine({
+  location,
+  phone,
+  email,
+  website,
+  linkedin,
+}: {
+  location?: string;
+  phone?: string;
+  email: string;
+  website?: string;
+  linkedin?: string;
+}) {
+  const site = website ?? "brkmb.com";
+  const siteUrl = toWebsiteUrl(site);
+  const siteLabel = site.replace(/^https?:\/\//i, "").replace(/\/$/, "");
+  const linkedInUrl = linkedin ? toLinkedInUrl(linkedin) : null;
+  const linkedInLabel = linkedin?.replace(/^https?:\/\//i, "").replace(/\/$/, "") ?? "";
+
+  return (
+    <Text style={s.contact}>
+      {location ? <>{location}  |  </> : null}
+      {phone ? (
+        <>
+          <Link src={phoneToTel(phone)} style={s.link}>
+            {phone}
+          </Link>
+          {"  |  "}
+        </>
+      ) : null}
+      <Link src={toMailto(email)} style={s.link}>
+        {email}
+      </Link>
+      {"  |  "}
+      <Link src={siteUrl} style={s.link}>
+        {siteLabel}
+      </Link>
+      {linkedInUrl ? (
+        <>
+          {"  |  "}
+          <Link src={linkedInUrl} style={s.link}>
+            {linkedInLabel}
+          </Link>
+        </>
+      ) : null}
+    </Text>
   );
 }
 
@@ -152,33 +226,29 @@ export function CvDocument({
   email: string;
   generatedAt?: Date;
 }) {
-  const contactParts = [
-    resume.location,
-    resume.phone,
-    email,
-    resume.website ?? "brkmb.com",
-    resume.linkedin,
-  ].filter(Boolean);
+  const cvEmail = resume.cvEmail ?? email;
+  const website = resume.website ?? "brkmb.com";
+  const websiteUrl = toWebsiteUrl(website);
+  const websiteLabel = website.replace(/^https?:\/\//i, "").replace(/\/$/, "");
 
   const competencyLines =
     resume.competencies?.length ? resume.competencies : [resume.skills.join(" · ")];
 
-  const educationLine = [
-    resume.education.degree,
-    resume.education.graduated,
-    resume.education.gpa ? `GPA: ${resume.education.gpa}` : null,
-  ]
-    .filter(Boolean)
-    .join(" · ");
+  const footerSite = websiteLabel;
 
   return (
     <Document title={`${siteName} — CV`} author={siteName}>
-      <Page size="A4" style={s.page}>
+      <Page size="A4" style={s.page} wrap>
         <Text style={s.name}>{siteName.toUpperCase()}</Text>
-        <Text style={s.headline}>
-          {resume.title ?? "Graphic Designer — Print Production & Color Quality Consistency"}
-        </Text>
-        <Text style={s.contact}>{contactParts.join("  |  ")}</Text>
+        <Text style={s.headline}>{resume.title}</Text>
+
+        <ContactLine
+          location={resume.location}
+          phone={resume.phone}
+          email={cvEmail}
+          website={website}
+          linkedin={resume.linkedin}
+        />
 
         <Section title="Professional Summary">
           <Text style={s.body}>{resume.summary}</Text>
@@ -187,18 +257,20 @@ export function CvDocument({
         <Section title="Core Competencies">
           {competencyLines.map((line) => (
             <Text key={line} style={s.competencyLine}>
-              {line}
+              {line.replace(/\s·\s/g, "   ·   ")}
             </Text>
           ))}
         </Section>
 
         <Section title="Professional Experience">
           {resume.experience.map((exp) => (
-            <View key={`${exp.period}-${exp.role}`} style={{ marginBottom: 8 }}>
-              <Text style={s.expHeader}>
-                {exp.role} · {exp.company}
-              </Text>
-              <Text style={s.expPeriod}>{exp.period}</Text>
+            <View key={`${exp.period}-${exp.role}`} style={s.expBlock} wrap={false}>
+              <View style={s.expHeaderRow}>
+                <Text style={s.expHeader}>
+                  {exp.role} · {exp.company}
+                </Text>
+                <Text style={s.expPeriod}>{exp.period}</Text>
+              </View>
               {exp.highlights?.length ? (
                 <Bullets items={exp.highlights} />
               ) : (
@@ -209,16 +281,25 @@ export function CvDocument({
         </Section>
 
         <Section title="Education">
-          <Text style={s.expHeader}>{resume.education.school}</Text>
-          <Text style={s.body}>{educationLine}</Text>
+          <View style={s.expHeaderRow}>
+            <Text style={s.expHeader}>{resume.education.degree}</Text>
+            {resume.education.graduated ? (
+              <Text style={s.expPeriod}>{resume.education.graduated}</Text>
+            ) : null}
+          </View>
+          <Text style={s.body}>
+            {resume.education.school}
+            {resume.education.gpa ? `   ·   GPA: ${resume.education.gpa}` : ""}
+          </Text>
         </Section>
 
         {resume.certifications?.length ? (
           <Section title="Certifications">
             {resume.certifications.map((cert) => (
-              <Text key={cert} style={s.certLine}>
-                {cert}
-              </Text>
+              <View key={cert} style={s.bulletRow}>
+                <Text style={s.bulletMark}>•</Text>
+                <Text style={s.bulletText}>{cert}</Text>
+              </View>
             ))}
           </Section>
         ) : null}
@@ -226,26 +307,33 @@ export function CvDocument({
         {resume.tools?.length ? (
           <Section title="Tools & Software">
             {resume.tools.map((group) => (
-              <View key={group.category}>
-                <Text style={s.toolCategory}>{group.category}:</Text>
-                <Text style={s.toolItems}>{group.items.join(" · ")}</Text>
-              </View>
+              <Text key={group.category} style={s.toolLine}>
+                <Text style={s.toolCategory}>{group.category}: </Text>
+                {group.items.join("   ·   ")}
+              </Text>
             ))}
           </Section>
         ) : null}
 
         {resume.languages?.length ? (
           <Section title="Languages">
-            <Text style={s.body}>{resume.languages.join("  ·  ")}</Text>
+            <Text style={s.body}>{resume.languages.join("   ·   ")}</Text>
           </Section>
         ) : null}
 
         {resume.portfolioNote ? (
-          <Text style={s.portfolioNote}>{resume.portfolioNote}</Text>
+          <Text style={s.portfolioNote}>
+            Portfolio available at{" "}
+            <Link src={websiteUrl} style={s.link}>
+              {websiteLabel}
+            </Link>
+            {" — "}
+            {resume.portfolioNote.replace(/^Portfolio available at\s+\S+\s*—\s*/i, "")}
+          </Text>
         ) : null}
 
         <Text style={s.genFooter} fixed>
-          {buildCvGenerationFooter(generatedAt, resume.website ?? "brkmb.com")}
+          {buildCvGenerationFooter(generatedAt, footerSite)}
         </Text>
       </Page>
     </Document>

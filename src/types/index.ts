@@ -171,6 +171,8 @@ export interface ResumeData {
   title?: string;
   location?: string;
   phone?: string;
+  /** Email shown on generated CV PDF (may differ from site contact email). */
+  cvEmail?: string;
   website?: string;
   linkedin?: string;
   cvRevision?: string;
