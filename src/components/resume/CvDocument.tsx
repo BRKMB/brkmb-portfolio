@@ -2,7 +2,7 @@ import { Document, Link, Page, Text, View, StyleSheet } from "@react-pdf/rendere
 import type { ReactNode } from "react";
 import type { ResumeData } from "@/types";
 import { buildCvGenerationFooter } from "@/lib/cv-generation";
-import { phoneToTel, toLinkedInUrl, toMailto, toWebsiteUrl } from "@/lib/cv-links";
+import { toLinkedInUrl, toMailto, toWebsiteUrl } from "@/lib/cv-links";
 
 const OFFICIAL_EMAIL = "hi@brkmb.com";
 
@@ -297,11 +297,7 @@ function ContactRow({
       <Text style={s.contactPlain}>
         {hasLocation ? <Text>{location}</Text> : null}
         {hasLocation && hasMoreAfterLocation ? <ContactSep /> : null}
-        {hasPhone ? (
-          <Link src={phoneToTel(phone!)}>
-            <Text style={s.linkText}>{phone}</Text>
-          </Link>
-        ) : null}
+        {hasPhone ? <Text>{phone}</Text> : null}
         {hasPhone && hasMoreAfterPhone ? <ContactSep /> : null}
         {hasEmail ? (
           <Link src={toMailto(email)}>

@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import type { ResumeData } from "@/types";
 import { buildCvGenerationFooter } from "@/lib/cv-generation";
-import { phoneToTel, toLinkedInUrl, toMailto, toWebsiteUrl } from "@/lib/cv-links";
+import { toLinkedInUrl, toMailto, toWebsiteUrl } from "@/lib/cv-links";
 
 const OFFICIAL_EMAIL = "hi@brkmb.com";
 
@@ -26,7 +26,7 @@ function contactLineParts(resume: ResumeData, email: string) {
   if (resume.location) parts.push({ type: "text", value: resume.location });
   if (resume.phone) {
     if (parts.length) pushSep();
-    parts.push({ type: "link", value: resume.phone, href: phoneToTel(resume.phone) });
+    parts.push({ type: "text", value: resume.phone });
   }
   if (email) {
     if (parts.length) pushSep();
