@@ -18,7 +18,10 @@ export async function generateCvPdfFromHtml(element: HTMLElement, options: Optio
         logging: false,
       },
       jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
-      pagebreak: { mode: ["css", "legacy"] },
+      pagebreak: {
+        mode: ["css", "legacy"],
+        avoid: [".cv-bullet", ".cv-job-header", ".cv-cert-line", ".cv-section-heading"],
+      },
     } as Record<string, unknown>)
     .from(element)
     .toPdf();

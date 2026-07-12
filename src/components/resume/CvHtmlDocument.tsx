@@ -43,6 +43,19 @@ function contactLineParts(resume: ResumeData, email: string) {
   return { parts, websiteUrl, websiteLabel };
 }
 
+function CvBullets({ items }: { items: string[] }) {
+  return (
+    <div className="cv-bullets">
+      {items.map((item) => (
+        <div key={item} className="cv-bullet">
+          <span className="cv-bullet-mark">•</span>
+          <span className="cv-bullet-text">{item}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <section className="cv-section">
@@ -71,22 +84,32 @@ export function CvHtmlDocument({
   );
 
   return (
-    <div className="cv-root">
+    <div className="cv-root" lang="en">
       <style>{`
         .cv-root {
           box-sizing: border-box;
           width: 7.27in;
           margin: 0;
-          padding: 0;
+          padding: 0 0 20pt;
           background: #fff;
           color: #0d0d0d;
           font-family: "Times New Roman", Times, serif;
           font-size: 9.5pt;
           line-height: 1.42;
+          hyphens: none;
+          -webkit-hyphens: none;
+          word-break: normal;
+          overflow-wrap: normal;
           -webkit-print-color-adjust: exact;
           print-color-adjust: exact;
         }
-        .cv-root * { box-sizing: border-box; }
+        .cv-root * {
+          box-sizing: border-box;
+          hyphens: none;
+          -webkit-hyphens: none;
+          word-break: normal;
+          overflow-wrap: normal;
+        }
         .cv-name {
           margin: 0 0 0.5pt;
           font-size: 26pt;
@@ -160,19 +183,33 @@ export function CvHtmlDocument({
           font-weight: 700;
           color: #718096;
           line-height: 1.34;
+          page-break-inside: avoid;
+          break-inside: avoid;
         }
         .cv-job-title { flex: 1; }
         .cv-job-date { flex-shrink: 0; white-space: nowrap; }
-        .cv-list {
+        .cv-bullets {
           margin: 0;
-          padding-left: 18pt;
-          list-style-type: disc;
+          padding: 0;
         }
-        .cv-list li {
-          margin-bottom: 1.8pt;
+        .cv-bullet {
+          display: flex;
+          align-items: flex-start;
+          margin: 0 0 1.8pt;
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+        .cv-bullet-mark {
+          width: 11pt;
+          flex-shrink: 0;
+          font-size: 9.5pt;
+          line-height: 1.42;
+        }
+        .cv-bullet-text {
+          flex: 1;
           font-size: 9.5pt;
           color: #0d0d0d;
-          text-align: justify;
+          text-align: left;
           line-height: 1.42;
         }
         .cv-school-line {
@@ -183,9 +220,13 @@ export function CvHtmlDocument({
           line-height: 1.38;
         }
         .cv-cert-line {
+          display: flex;
+          align-items: flex-start;
           margin: 0 0 1.8pt;
           font-size: 9.5pt;
           line-height: 1.42;
+          page-break-inside: avoid;
+          break-inside: avoid;
         }
         .cv-tool-line {
           margin: 0 0 1.2pt;
@@ -241,11 +282,7 @@ export function CvHtmlDocument({
               <span className="cv-job-date">{exp.period}</span>
             </div>
             {exp.highlights?.length ? (
-              <ul className="cv-list">
-                {exp.highlights.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+              <CvBullets items={exp.highlights} />
             ) : (
               <p className="cv-body">{exp.description}</p>
             )}
@@ -269,9 +306,10 @@ export function CvHtmlDocument({
       {resume.certifications?.length ? (
         <Section title="Certifications">
           {resume.certifications.map((cert) => (
-            <p key={cert} className="cv-cert-line">
-              • {cert}
-            </p>
+            <div key={cert} className="cv-cert-line">
+              <span className="cv-bullet-mark">•</span>
+              <span className="cv-bullet-text">{cert}</span>
+            </div>
           ))}
         </Section>
       ) : null}
