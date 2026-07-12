@@ -1,5 +1,5 @@
 [
-  { "id": "email", "label": "Email", "href": "mailto:baherody@gmail.com", "icon": "mail" },
+  { "id": "email", "label": "Email", "href": "mailto:hi@brkmb.com", "icon": "mail" },
   { "id": "linkedin", "label": "LinkedIn", "href": "https://linkedin.com/in/baher-bottros", "icon": "linkedin" },
   { "id": "github", "label": "GitHub", "href": "https://github.com/BRKMB", "icon": "github" },
   { "id": "instagram", "label": "Instagram", "href": "https://instagram.com", "icon": "instagram" },

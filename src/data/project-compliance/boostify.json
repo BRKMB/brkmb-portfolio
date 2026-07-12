@@ -1,6 +1,6 @@
 {
   "productName": "Boostify",
-  "supportEmail": "baherody@gmail.com",
+  "supportEmail": "hi@brkmb.com",
   "verifiedDomain": "brkmb.com",
   "lastUpdated": "2026-07-08",
   "privacy": {
@@ -36,7 +36,7 @@
     "singlePurpose": "All data access exists solely to provide Boostify's core functionality: local audio/video enhancement, per-site controls, Quiet Ads volume adjustment on supported sites, and saving your preferences. Data is not used for advertising, profiling, or unrelated purposes.",
     "noDataSelling": "We do not sell, rent, trade, or share your personal data or browsing information with third parties for marketing or commercial purposes. Boostify does not include third-party analytics or advertising SDKs.",
     "retention": "Settings persist in chrome.storage.local until you change them, reset the extension, or uninstall Boostify. We do not retain copies on our servers because no user data is sent to us.",
-    "deletion": "Uninstall the extension or clear its storage in Chrome (Settings → Extensions → Boostify → Remove, or clear site/extension data) to delete all locally stored preferences. Email baherody@gmail.com if you need help.",
+    "deletion": "Uninstall the extension or clear its storage in Chrome (Settings → Extensions → Boostify → Remove, or clear site/extension data) to delete all locally stored preferences. Email hi@brkmb.com if you need help.",
     "thirdParties": "Boostify does not integrate third-party data processors. Chrome Web Store distribution is subject to Google's policies; we do not receive your browsing data through that channel."
   },
   "terms": {
@@ -69,7 +69,7 @@
       },
       {
         "question": "How do I report a bug?",
-        "answer": "Email baherody@gmail.com with your Chrome version, Boostify version, the site URL, and steps to reproduce. Screenshots help."
+        "answer": "Email hi@brkmb.com with your Chrome version, Boostify version, the site URL, and steps to reproduce. Screenshots help."
       }
     ]
   }

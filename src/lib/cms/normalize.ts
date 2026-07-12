@@ -52,21 +52,48 @@ export function mergePortfolioWithDefaults(
 }
 
 export function resolveLinkGroups(parsed: LegacyCmsData): LinkGroup[] {
-  if (parsed.linkGroups?.length) {
-    return ensureLinkGroupsComplete(parsed.linkGroups);
-  }
-  if (parsed.links?.length) {
-    return ensureLinkGroupsComplete([
-      {
-        id: "personal",
-        title: "Personal links",
-        subtitle: "Imported from previous CMS",
-        defaultOpen: false,
-        links: parsed.links,
-      },
-    ]);
-  }
-  return defaultCmsData.linkGroups;
+  const groups = (() => {
+    if (parsed.linkGroups?.length) {
+      return ensureLinkGroupsComplete(parsed.linkGroups);
+    }
+    if (parsed.links?.length) {
+      return ensureLinkGroupsComplete([
+        {
+          id: "personal",
+          title: "Personal links",
+          subtitle: "Imported from previous CMS",
+          defaultOpen: false,
+          links: parsed.links,
+        },
+      ]);
+    }
+    return defaultCmsData.linkGroups;
+  })();
+
+  return syncOfficialEmailLink(groups);
+}
+
+/** Keep cached CMS email links aligned with site.json. */
+function syncOfficialEmailLink(groups: LinkGroup[]): LinkGroup[] {
+  const defaultPersonal = defaultCmsData.linkGroups.find((g) => g.id === "personal");
+  const defaultEmail = defaultPersonal?.links.find((l) => l.platform === "email");
+  if (!defaultEmail) return groups;
+
+  return groups.map((group) => {
+    if (group.id !== "personal") return group;
+    return {
+      ...group,
+      links: group.links.map((link) =>
+        link.platform === "email"
+          ? {
+              ...link,
+              href: defaultEmail.href,
+              description: defaultEmail.description,
+            }
+          : link
+      ),
+    };
+  });
 }
 
 export function normalizeCmsData(parsed: LegacyCmsData): CmsData {

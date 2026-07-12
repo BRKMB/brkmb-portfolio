@@ -1,6 +1,6 @@
 {
   "productName": "BlinkOTP",
-  "supportEmail": "baherody@gmail.com",
+  "supportEmail": "hi@brkmb.com",
   "verifiedDomain": "brkmb.com",
   "lastUpdated": "2026-07-08",
   "privacy": {
@@ -36,7 +36,7 @@
     "singlePurpose": "All access is limited to BlinkOTP's core function: helping you find, copy, or autofill one-time passwords you are already receiving in the browser. Data is not used for advertising, analytics, or unrelated tracking.",
     "noDataSelling": "We do not sell, rent, or share user data, OTP content, or browsing information with third parties for marketing or commercial purposes.",
     "retention": "OTP history and settings remain on your device in chrome.storage.local until you clear them, reset the extension, or uninstall BlinkOTP. We do not maintain server-side copies.",
-    "deletion": "Clear data via the extension settings, uninstall BlinkOTP, or remove extension storage in Chrome. Contact baherody@gmail.com for assistance.",
+    "deletion": "Clear data via the extension settings, uninstall BlinkOTP, or remove extension storage in Chrome. Contact hi@brkmb.com for assistance.",
     "thirdParties": "BlinkOTP does not use third-party analytics or ad networks. Chrome Web Store distribution is governed by Google's policies."
   },
   "terms": {
@@ -69,7 +69,7 @@
       },
       {
         "question": "How do I contact support?",
-        "answer": "Email baherody@gmail.com with BlinkOTP version, Chrome version, and steps to reproduce. Do not send live OTP codes in email."
+        "answer": "Email hi@brkmb.com with BlinkOTP version, Chrome version, and steps to reproduce. Do not send live OTP codes in email."
       }
     ]
   }

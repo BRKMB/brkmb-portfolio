@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PlatformIcon } from "@/components/ui/PlatformIcon";
 import { PhoneReveal } from "@/components/contact/PhoneReveal";
+import { site } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Let's talk — Baher Magally",
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
     "Reach Baher Magally for brand, print, or product work. Email, LinkedIn, Behance, or Instagram.",
 };
 
-const EMAIL = "baherody@gmail.com";
+const EMAIL = site.email;
 
 const channels = [
   {

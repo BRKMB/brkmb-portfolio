@@ -66,8 +66,8 @@
   {
     "id": "contact",
     "label": "Contact",
-    "description": "hello@brkmb.com",
-    "href": "mailto:hello@brkmb.com",
+    "description": "hi@brkmb.com",
+    "href": "mailto:hi@brkmb.com",
     "platform": "email",
     "featured": true
   },

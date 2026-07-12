@@ -70,8 +70,8 @@ function getSocialLinks() {
   return result;
 }
 
-const emailHref = "mailto:baherody@gmail.com";
-const emailAddress = "baherody@gmail.com";
+const emailHref = `mailto:${site.email}`;
+const emailAddress = site.email;
 
 export function Footer() {
   const socials = getSocialLinks();
