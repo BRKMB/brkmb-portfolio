@@ -28,7 +28,12 @@ const s = StyleSheet.create({
     fontFamily: "Times-Roman",
     fontSize: 9.5,
     color: palette.body,
-    lineHeight: 1.38,
+  },
+  headerBlock: {
+    marginBottom: 4,
+  },
+  nameBlock: {
+    paddingBottom: 12,
   },
   name: {
     fontSize: 26,
@@ -36,21 +41,22 @@ const s = StyleSheet.create({
     color: palette.name,
     letterSpacing: 0.3,
     textTransform: "uppercase",
-    marginBottom: 4,
+    lineHeight: 1.2,
+  },
+  headlineBlock: {
+    paddingBottom: 10,
   },
   headline: {
     fontSize: 10.5,
     fontFamily: "Times-Bold",
     color: palette.headline,
-    marginBottom: 8,
-    lineHeight: 1.32,
+    lineHeight: 1.45,
   },
   contactRow: {
     flexDirection: "row",
     flexWrap: "wrap",
     alignItems: "center",
     marginBottom: 18,
-    gap: 0,
   },
   contactPlain: {
     fontSize: 9.5,
@@ -76,7 +82,7 @@ const s = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 8,
-    gap: 8,
+    paddingBottom: 2,
   },
   sectionTitle: {
     fontSize: 8,
@@ -89,7 +95,7 @@ const s = StyleSheet.create({
     flex: 1,
     height: 1,
     backgroundColor: palette.sectionRule,
-    marginTop: 1,
+    marginLeft: 8,
   },
   body: {
     fontSize: 9.5,
@@ -110,8 +116,8 @@ const s = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-start",
-    gap: 10,
-    marginBottom: 4,
+    marginBottom: 5,
+    paddingBottom: 1,
   },
   expHeader: {
     flex: 1,
@@ -286,8 +292,14 @@ export function CvDocument({
   return (
     <Document title={`${siteName} — CV`} author={siteName}>
       <Page size="A4" style={s.page} wrap>
-        <Text style={s.name}>{siteName.toUpperCase()}</Text>
-        <Text style={s.headline}>{resume.title}</Text>
+        <View style={s.headerBlock}>
+          <View style={s.nameBlock}>
+            <Text style={s.name}>{siteName.toUpperCase()}</Text>
+          </View>
+          <View style={s.headlineBlock}>
+            <Text style={s.headline}>{resume.title}</Text>
+          </View>
+        </View>
 
         <ContactRow
           location={resume.location}
