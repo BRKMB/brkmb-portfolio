@@ -167,7 +167,7 @@ const s = StyleSheet.create({
     fontSize: 9.5,
     color: palette.body,
     lineHeight: 1.42,
-    textAlign: "justify",
+    textAlign: "left",
   },
   toolGroup: {
     marginBottom: 7,
@@ -438,11 +438,7 @@ export function CvDocument({
 
         {resume.certifications?.length ? (
           <Section title="Certifications">
-            {resume.certifications.map((cert) => (
-              <Text key={cert} style={[s.body, { marginBottom: 3, textAlign: "left" }]}>
-                • {cert}
-              </Text>
-            ))}
+            <Bullets items={resume.certifications.map((cert) => cert)} />
           </Section>
         ) : null}
 
