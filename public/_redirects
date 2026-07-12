@@ -1,3 +1,8 @@
 # Cloudflare Pages — trailing slashes (Next static export)
+/about /resume/ 301
+/about/ /resume/ 301
+/design /designs/ 301
+/design/ /designs/ 301
+/design/* /designs/:splat 301
 /admin/design /admin/design/ 301
 /admin/design/new /admin/design/new/ 301

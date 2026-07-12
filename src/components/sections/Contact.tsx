@@ -37,11 +37,7 @@ export function Contact() {
               className="glass-card focus-ring flex min-h-[72px] items-center gap-4 p-5 !rounded-[20px]"
             >
               <span
-                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[12px] text-headline font-semibold text-accent"
-                style={{
-                  background: "rgba(201, 243, 29, 0.12)",
-                  boxShadow: "inset 0 1px 0.5px rgba(255,255,255,0.2)",
-                }}
+                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[12px] text-headline font-semibold text-accent bg-[var(--accent-subtle-bg)]"
               >
                 {icons[item.icon] || "→"}
               </span>

@@ -1,15 +1,75 @@
 [
   {
+    "slug": "lnki",
+    "title": "lnki.to",
+    "shortDescription": "Smart links, bio pages & analytics — a link-in-bio platform I designed and shipped on Cloudflare.",
+    "description": "Free link-in-bio and URL shortening: custom bio pages, short links with click tracking, QR codes, themes, and a unified analytics dashboard.",
+    "category": "Applications",
+    "status": "Live",
+    "kind": "venture",
+    "thumbnail": "/images/projects/lnki-mark.png",
+    "tools": ["Figma", "React", "Cloudflare Workers", "Cloudflare Pages"],
+    "overview": "lnki.to combines bio pages, short URLs, and analytics in one place. Creators publish lnki.to/yourname pages with unlimited links, QR codes, and themes; campaigns get lnki.to/r/slug short links with click tracking — all measured in a single dashboard. Built on Cloudflare with Google sign-in and privacy-first analytics.",
+    "role": "Founder, Product Designer, Developer",
+    "process": [
+      "Product positioning and landing page design",
+      "Bio page editor UX and theme system",
+      "Short-link flows with custom slugs",
+      "Analytics dashboard and Cloudflare deployment"
+    ],
+    "results": [
+      "Live platform with bio pages and URL shortening",
+      "Custom lnki.to/yourname pages and lnki.to/r/code short links",
+      "Unified analytics: page views, clicks, devices, and locations",
+      "Free tier with QR codes, themes, and HTTPS on Cloudflare"
+    ],
+    "gallery": [],
+    "featured": true,
+    "externalUrl": "https://lnki.baherody.workers.dev/"
+  },
+  {
+    "slug": "Boostify",
+    "title": "Boostify",
+    "shortDescription": "Free Chrome extension that boosts audio and video on any HTML5 site — designed and shipped by me.",
+    "description": "Manifest V3 extension for volume up to 600%, playback speed, video enhancement, EQ, vocal/music split, Quiet Ads on YouTube, and per-site control — 100% client-side, no accounts, no tracking.",
+    "category": "Extensions",
+    "status": "Live",
+    "kind": "venture",
+    "thumbnail": "/images/projects/boostify-cover.png",
+    "tools": ["Figma", "JavaScript", "Web Audio API", "Chrome Extension APIs"],
+    "overview": "Boostify is a free Chrome extension that enhances audio and video on any site with HTML5 media. A master ON/OFF toggle controls all processing — when off, nothing runs. Boost volume up to 600% via Web Audio API, set playback speed from 0.25× to 4×, and tune video clarity, brightness, contrast, and saturation with a live before/after preview in the popup. Presets cover 4K, Movie, and Game modes, plus a custom preset you can save and pin. The equalizer adds bass, mid, treble, and echo; audio modes include 8D, Voice Focus, and mono. Vocal and music sliders use mid/side separation on stereo sources — useful for karaoke and podcasts, not AI stem separation. Quiet Ads lowers or mutes ad audio on YouTube (volume only — not an ad blocker). Picture-in-Picture, auto-pause when you leave a tab, per-domain allow/block lists, customizable keyboard shortcuts, and dark/light themes round out the experience. All settings stay in chrome.storage.local on the device — no server, no analytics, no sign-in. Version 1.7.7.",
+    "role": "Founder, Product Designer, Developer",
+    "process": [
+      "Problem framing for YouTube, streaming, and learning use cases",
+      "Popup UX with master toggle, presets, and before/after preview",
+      "Web Audio pipeline: gain, EQ, mid/side split, echo, 8D, mono",
+      "Video filter system with SVG unsharp mask for clarity",
+      "Per-site persistence, site list, and keyboard shortcuts",
+      "Privacy-first architecture — strict CSP, no network requests"
+    ],
+    "results": [
+      "Live extension v1.7.7 — load unpacked or Chrome Web Store (coming soon)",
+      "Volume boost to 600% with graceful DRM/CORS fallbacks",
+      "Video presets plus custom save-and-pin workflow",
+      "Quiet Ads for YouTube ad audio without blocking ads",
+      "100% free — local-only storage, no accounts or tracking"
+    ],
+    "gallery": ["/images/projects/boostify-cover.png", "/images/projects/boostify-logo.png"],
+    "featured": true,
+    "externalUrl": "",
+    "storeCompliance": true
+  },
+  {
     "slug": "BARYQ",
     "title": "BARYQ",
     "shortDescription": "Luxury clothing brand — my concept, visual world, and direction from day one.",
     "description": "A premium fashion brand I founded and art-directed end to end: identity, campaigns, packaging, and digital presence.",
     "category": "Branding",
-    "status": "In Progress",
+    "status": "Live",
     "kind": "venture",
     "thumbnail": "/images/projects/baryq.png",
     "tools": ["Illustrator", "Photoshop", "Figma"],
-    "overview": "BARYQ is a luxury fashion brand requiring a distinctive, elevated visual language that communicates craftsmanship and exclusivity.",
+    "overview": "BARYQ is a luxury streetwear label I founded and run end to end — from naming and positioning to identity, packaging, campaigns, and the Shopify store. The visual language draws on Egyptian heritage with a European craft sensibility: restrained typography, gold accents, and production-ready assets across print and digital.",
     "role": "Founder, Creative Director, Lead Designer",
     "process": [
       "Market & competitor research",
@@ -22,9 +82,9 @@
       "Scalable identity for digital and print",
       "Launch-ready campaign assets"
     ],
-    "gallery": ["/images/projects/baryq.png", "/images/placeholders/gallery-1.svg", "/images/placeholders/gallery-2.svg"],
+    "gallery": ["/images/projects/baryq.png"],
     "featured": true,
-    "externalUrl": ""
+    "externalUrl": "https://www.baryq.com/"
   },
   {
     "slug": "BENOU",
@@ -36,7 +96,7 @@
     "kind": "venture",
     "thumbnail": "/images/projects/benou.svg",
     "tools": ["Figma", "Principle", "After Effects"],
-    "overview": "BENOU connects travelers with curated experiences through an intuitive, beautiful mobile interface.",
+    "overview": "BENOU is a travel app I'm product-leading from concept through UI. The goal is curated discovery without clutter — fast onboarding, clear trip planning, and a premium mobile aesthetic that feels calm on small screens.",
     "role": "Founder, Product Designer",
     "process": [
       "User flows and wireframes",
@@ -49,7 +109,7 @@
       "Reduced onboarding friction",
       "Premium travel-app aesthetic"
     ],
-    "gallery": ["/images/projects/benou.svg", "/images/placeholders/gallery-3.svg"],
+    "gallery": [],
     "featured": true,
     "externalUrl": ""
   },
@@ -63,7 +123,7 @@
     "kind": "venture",
     "thumbnail": "/images/projects/blinkotp.png",
     "tools": ["Figma", "React", "Chrome APIs"],
-    "overview": "BlinkOTP streamlines 2FA workflows for power users who need speed without sacrificing security.",
+    "overview": "BlinkOTP is a Chrome extension I built for people who live in 2FA workflows. It captures and surfaces one-time codes quickly, with a minimal interface that stays out of the way until you need it — speed without trading off security.",
     "role": "Founder, Designer, Product Lead",
     "process": [
       "Problem validation with users",
@@ -76,9 +136,10 @@
       "Sub-second OTP retrieval",
       "Clean, minimal interface"
     ],
-    "gallery": ["/images/projects/blinkotp.png", "/images/placeholders/gallery-4.svg"],
+    "gallery": ["/images/projects/blinkotp.png"],
     "featured": true,
-    "externalUrl": ""
+    "externalUrl": "",
+    "storeCompliance": true
   },
   {
     "slug": "RABY",
@@ -90,7 +151,7 @@
     "kind": "venture",
     "thumbnail": "/images/projects/raby.svg",
     "tools": ["Figma", "React", "Electron"],
-    "overview": "RABY is a desktop-first ERP I created for SMEs — powerful operations without enterprise bloat.",
+    "overview": "RABY is a desktop ERP I designed for small and mid-size businesses that need sales, inventory, and accounting in one place — without enterprise bloat. Modular dashboards, a shared design system across modules, and workflows mapped with real operators in mind.",
     "role": "Founder, Product Designer, UX Architect",
     "process": [
       "Workflow mapping with stakeholders",
@@ -103,8 +164,8 @@
       "Unified design language across modules",
       "Reduced training time for operators"
     ],
-    "gallery": ["/images/projects/raby.svg", "/images/placeholders/gallery-5.svg"],
+    "gallery": [],
     "featured": true,
-    "externalUrl": ""
+    "externalUrl": "https://raby.pages.dev/"
   }
 ]

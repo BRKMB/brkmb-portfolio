@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import type { LinkGroup } from "@/types";
 import { PlatformIcon } from "@/components/ui/PlatformIcon";
+import { LinkGroupLogo } from "@/components/links/LinkGroupLogo";
 import { HiChevronDown } from "react-icons/hi2";
 import { cn } from "@/lib/utils";
 
@@ -15,12 +15,12 @@ function LinkRow({ link }: { link: LinkGroup["links"][0] }) {
       target="_blank"
       rel="noopener noreferrer"
       data-cursor
-      className="link-tree-card focus-ring group flex items-center gap-3 !rounded-[14px] !py-3"
+      className="link-tree-card focus-ring group flex min-w-0 max-w-full items-center gap-3 !rounded-[14px] !py-3"
     >
       <PlatformIcon platform={link.platform} variant="badge" badgeSize="sm" className="h-4 w-4" />
       <span className="min-w-0 flex-1 text-left">
         <span className="text-subheadline block font-medium v-primary">{link.label}</span>
-        <span className="text-footnote block truncate v-tertiary">{link.description}</span>
+        <span className="text-footnote block truncate break-all v-tertiary">{link.description}</span>
       </span>
       <span className="text-footnote v-quaternary transition group-hover:v-secondary">↗</span>
     </a>
@@ -68,27 +68,7 @@ export function LinkGroups({ groups }: { groups: LinkGroup[] }) {
               className="link-accordion__trigger focus-ring w-full"
             >
               <span className="flex min-w-0 flex-1 items-center gap-3 text-left">
-                {group.logoImage ? (
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-[10px] bg-white/8">
-                    <Image
-                      src={group.logoImage}
-                      alt=""
-                      width={40}
-                      height={40}
-                      className="h-full w-full object-cover"
-                    />
-                  </span>
-                ) : (
-                  <span
-                    className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] text-sm font-bold"
-                    style={{
-                      background: `${group.accent ?? "#c9f31d"}22`,
-                      color: group.accent ?? "#c9f31d",
-                    }}
-                  >
-                    {group.title.charAt(0)}
-                  </span>
-                )}
+                <LinkGroupLogo group={group} />
                 <span className="min-w-0">
                   <span className="font-display text-headline block v-primary">{group.title}</span>
                   {group.subtitle ? (

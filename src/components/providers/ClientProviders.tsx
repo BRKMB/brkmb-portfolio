@@ -3,8 +3,7 @@
 import { useState, useEffect, type ReactNode } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Loader } from "@/components/ui/Loader";
-import { CustomCursor } from "@/components/ui/CustomCursor";
-import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { LinkCopiedToastHost } from "@/components/ui/LinkCopiedToastHost";
 import { Navigation } from "@/components/layout/Navigation";
 import { CmsProvider } from "@/components/providers/CmsProvider";
 
@@ -12,24 +11,24 @@ export function ClientProviders({ children }: { children: ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const t = setTimeout(() => {
+    document.documentElement.classList.add("site-ready");
+    if (sessionStorage.getItem("brkmb-visited") === "1") {
       setLoading(false);
-      document.documentElement.classList.add("site-ready");
-    }, 2200);
+      return;
+    }
+    const t = setTimeout(() => {
+      sessionStorage.setItem("brkmb-visited", "1");
+      setLoading(false);
+    }, 400);
     return () => clearTimeout(t);
   }, []);
 
   return (
     <CmsProvider>
-      <ScrollProgress />
       <Navigation />
-      <CustomCursor />
-      <AnimatePresence mode="wait">
-        {loading ? <Loader key="loader" /> : null}
-      </AnimatePresence>
-      <main className={loading ? "opacity-0" : "opacity-100 transition-opacity duration-700 relative"}>
-        {children}
-      </main>
+      <LinkCopiedToastHost />
+      <AnimatePresence>{loading ? <Loader key="loader" /> : null}</AnimatePresence>
+      <main className="relative">{children}</main>
     </CmsProvider>
   );
 }

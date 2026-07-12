@@ -7,7 +7,7 @@
     "logoImage": "/images/projects/baryq.png",
     "description": "Luxury clothing brand — my concept, my visual world, my direction from day one.",
     "ownership": "Founded & created by me",
-    "status": "Building",
+    "status": "Live",
     "accent": "#c9a962",
     "href": "/projects/BARYQ/"
   },
@@ -15,7 +15,7 @@
     "id": "benou",
     "name": "BENOU",
     "slug": "benou",
-    "logo": "Bn",
+    "logo": "B",
     "description": "Travel mobile app — born from my idea, designed and product-led by me.",
     "ownership": "Founded & created by me",
     "status": "Building",
@@ -46,14 +46,27 @@
     "href": "/projects/RABY/"
   },
   {
-    "id": "future",
-    "name": "Next ventures",
-    "slug": "future",
-    "logo": "∞",
-    "description": "More SaaS and brand experiments already forming — same playbook: idea first, then build.",
-    "ownership": "In my pipeline",
-    "status": "Coming Soon",
-    "accent": "#a8d86a",
-    "href": "/links/"
+    "id": "lnki",
+    "name": "lnki.to",
+    "slug": "lnki",
+    "logo": "B",
+    "logoImage": "/images/projects/lnki-mark.png",
+    "description": "Smart links, bio pages & analytics — link-in-bio SaaS I designed and built on Cloudflare.",
+    "ownership": "Founded & created by me",
+    "status": "Live",
+    "accent": "#4ade80",
+    "href": "/projects/lnki/"
+  },
+  {
+    "id": "boostify",
+    "name": "Boostify",
+    "slug": "boostify",
+    "logo": "B",
+    "logoImage": "/images/projects/boostify-icon.png",
+    "description": "Free Chrome extension — boost audio & video on any HTML5 site, fully client-side.",
+    "ownership": "Founded & created by me",
+    "status": "Live",
+    "accent": "#22d3ee",
+    "href": "/projects/Boostify/"
   }
 ]

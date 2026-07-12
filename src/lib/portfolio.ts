@@ -1,5 +1,6 @@
 import portfolioData from "@/data/portfolio.json";
 import { sortPortfolioNewestFirst } from "@/lib/behance-dates";
+import { normalizeDesignCategory } from "@/lib/design-categories";
 import { ensurePortfolioBlocks } from "@/lib/portfolio-blocks";
 import type { PortfolioItem } from "@/types";
 
@@ -15,9 +16,13 @@ export function resolvePortfolioSlug(item: PortfolioItem): string {
 
 export function normalizePortfolioItem(item: PortfolioItem): PortfolioItem {
   const slug = resolvePortfolioSlug(item);
+  const category = normalizeDesignCategory(item.category, item.tags, item.title);
+  const engagement = item.engagement ?? item.behanceEngagement;
   return ensurePortfolioBlocks({
     ...item,
     slug,
+    category,
+    engagement,
     gallery: item.gallery?.length ? item.gallery : [item.image],
   });
 }

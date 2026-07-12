@@ -7,9 +7,9 @@ import { cn } from "@/lib/utils";
 
 export function About() {
   return (
-    <section id="about" className="scroll-mt-32 px-4 py-24 md:px-8 md:py-32">
+    <section id="about" className="scroll-mt-32 px-4 py-16 md:px-8 md:py-32">
       <div className="mx-auto max-w-6xl">
-        <SectionHeader label="Story" title="Founder first. Designer always." />
+        <SectionHeader label="About" title="Design with production built in." />
 
         <div className="grid gap-8 lg:grid-cols-2">
           <motion.div
@@ -20,10 +20,10 @@ export function About() {
             className="glass-sheet space-y-6 p-8"
           >
             {[
-              { label: "Who I am", text: about.who },
-              { label: "What I build", text: about.build },
-              { label: "What I believe", text: about.believe },
-              { label: "How I work", text: about.process },
+              { label: "Background", text: about.who },
+              { label: "Products", text: about.build },
+              { label: "Principle", text: about.believe },
+              { label: "Process", text: about.process },
             ].map((block) => (
               <p key={block.label} className="text-body v-secondary leading-relaxed">
                 <span className="font-display text-headline v-primary">{block.label}. </span>
@@ -32,7 +32,7 @@ export function About() {
             ))}
           </motion.div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {about.roles.map((role, i) => (
               <motion.div
                 key={role.title}
@@ -42,7 +42,7 @@ export function About() {
                 transition={{ delay: i * 0.06, ease: [0.32, 0.72, 0, 1] }}
                 className={cn(
                   "glass-card p-5 md:p-6 !rounded-[16px]",
-                  role.title === "Graphic Designer" && "ring-1 ring-[#c9f31d]/20"
+                  role.title === "Graphic Designer" && "ring-1 ring-accent/20"
                 )}
               >
                 <span className="text-title-2 text-accent">◆</span>

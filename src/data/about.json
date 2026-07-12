@@ -1,12 +1,12 @@
 {
-  "who": "I'm Baher. I don't wait for a client to say \"design us a brand.\" I conceive the brand, the product, and the business — then I make it real.",
-  "build": "BARYQ, BENOU, BlinkOTP, RABY — every one started as my idea. Strategy, naming, visual identity, UX, and build: mine. They all live here at brkmb.com.",
-  "believe": "The best work happens when design and ownership sit in the same hands. Luxury isn't decoration — it's clarity. Speed without soul is noise.",
-  "process": "Idea → Art direction → Brand world → Product → Ship. Graphic design is how I think; founding is how I finish.",
+  "who": "Graphic designer in Warsaw since 2018. Identity, advertising, and print — with the discipline to get files through prepress and onto press.",
+  "build": "BARYQ is my streetwear label: strategy through Shopify. Boostify, lnki.to, BENOU, BlinkOTP, and RABY are products I designed and shipped myself.",
+  "believe": "Ideas only hold up when the specs do. Color accuracy, typography, and prepress are part of the design — not an afterthought.",
+  "process": "Direction, identity, production-ready artwork, launch. When it's software, the same rigor applies to UX, build, and ship.",
   "roles": [
-    { "title": "Founder", "desc": "I create ventures — not deliverables on someone else's vision." },
-    { "title": "Builder", "desc": "Apps, extensions, ERP — shipped, not slideware." },
-    { "title": "Creative Director", "desc": "End-to-end visual and product direction." },
-    { "title": "Graphic Designer", "desc": "The craft behind everything — always, but never the only label." }
+    { "title": "Graphic Designer", "desc": "Identity, advertising, and print for clients and personal work since 2018." },
+    { "title": "Founder", "desc": "BARYQ — naming, identity, packaging, and retail." },
+    { "title": "Print Production", "desc": "CMYK workflows, prepress, and color accuracy across 15+ client deliveries." },
+    { "title": "Visual QA", "desc": "Layout, typography, and consistency across localized UI at Lionbridge." }
   ]
 }

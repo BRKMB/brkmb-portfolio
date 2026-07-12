@@ -1,0 +1,56 @@
+[
+  {
+    "id": "salesforce-sdr",
+    "title": "Salesforce Sales Development Representative",
+    "issuer": "Coursera · SV Academy",
+    "year": "2025",
+    "image": "/images/certificates/salesforce-sdr.jpeg",
+    "verifyUrl": "https://coursera.org/share/8d46d1817dd6d0b29f19e6e164e5c160",
+    "description": "Professional certificate (5 courses) covering the SDR role end-to-end: prospecting, qualification, cold calling, and sales enablement with SV Academy's Conversational Selling methodology."
+  },
+  {
+    "id": "calarts-graphic-design",
+    "title": "Fundamentals of Graphic Design",
+    "issuer": "California Institute of the Arts",
+    "year": "2021",
+    "image": "/images/certificates/calarts-graphic-design.jpeg",
+    "verifyUrl": "https://coursera.org/share/e567b88e9c7680ffbb142c04e1da394a",
+    "description": "Design principles, typography, color theory, and composition — image-making techniques and creative use of Adobe Creative Cloud applied to digital and print projects."
+  },
+  {
+    "id": "efset-english-c2",
+    "title": "EF SET English Certificate — C2 Proficient",
+    "issuer": "EF SET",
+    "year": "2022",
+    "image": "/images/certificates/efset-c2.jpg",
+    "verifyUrl": "https://cert.efset.org/2QSCs6",
+    "description": "Scored 75/100 (C2 Proficient — CEFR): advanced reading and listening comprehension, complex texts, technical writing, and fast native-level spoken language."
+  },
+  {
+    "id": "google-ads",
+    "title": "Google Ads",
+    "issuer": "Google Skillshop",
+    "year": "2022–2023",
+    "image": "/images/certificates/google-ads.jpg",
+    "verifyUrl": "https://skillshop.credential.net/profile/bahermagally/wallet",
+    "description": "Search and display campaign creation and management — keyword targeting, audience segmentation, bidding strategies, ad copywriting, analytics, and ROI measurement."
+  },
+  {
+    "id": "accenture-digital-marketing",
+    "title": "Digital Skills: Digital Marketing",
+    "issuer": "Accenture · FutureLearn",
+    "year": "2021",
+    "image": "/images/certificates/accenture-digital-marketing.jpg",
+    "verifyUrl": "https://www.futurelearn.com/certificates/flt7850",
+    "description": "Digital marketing fundamentals — SEO, PPC, display advertising, and email marketing, with integrated digital strategy and data-driven customer targeting."
+  },
+  {
+    "id": "udemy-digital-marketing",
+    "title": "VIP Digital Marketing Master Course",
+    "issuer": "Udemy",
+    "year": "2019",
+    "image": "/images/certificates/udemy-digital-marketing.jpg",
+    "verifyUrl": "https://www.udemy.com/certificate/UC-G41KJPWG/",
+    "description": "All-in-one program: SEO, Google Ads, social media marketing, email marketing, copywriting, and analytics — plus client acquisition and freelancing strategies."
+  }
+]

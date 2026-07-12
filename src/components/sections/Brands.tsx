@@ -59,12 +59,12 @@ export function Brands() {
       <div className="mx-auto max-w-6xl">
         <SectionHeader
           label="Founder"
-          title="Brands I conceived & built"
-          description="Not client work. Not a logo brief. These started in my head — strategy, name, visual world, product — then I built them."
+          title="Ventures from first sketch"
+          description="Not client work — products and brands I conceived, designed, and built."
         />
 
         <p className="text-subheadline -mt-6 mb-10 max-w-3xl v-tertiary">
-          BARYQ · BENOU · BlinkOTP · RABY — every venture below is mine from the first sketch.
+          Boostify · lnki.to · BARYQ · BENOU · BlinkOTP · RABY
         </p>
 
         <div className="glass-sheet relative overflow-hidden p-2">

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Projects | Baher Magally",
-  description: "Ventures I founded and built — BARYQ, BENOU, BlinkOTP, RABY.",
+  description: "Ventures I founded and built — Boostify, lnki.to, BARYQ, BENOU, BlinkOTP, RABY.",
 };
 
 export default function ProjectsLayout({ children }: { children: React.ReactNode }) {

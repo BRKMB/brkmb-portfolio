@@ -2,7 +2,7 @@
   {
     "id": "personal",
     "title": "Personal links",
-    "subtitle": "Profiles, contact & payments",
+    "subtitle": "Contact, profiles & payments",
     "defaultOpen": false,
     "links": [
       {
@@ -64,8 +64,8 @@
       {
         "id": "contact",
         "label": "Email",
-        "description": "hello@brkmb.com",
-        "href": "mailto:hello@brkmb.com",
+        "description": "baherody@gmail.com",
+        "href": "mailto:baherody@gmail.com",
         "platform": "email"
       },
       {
@@ -81,7 +81,7 @@
     "id": "baryq",
     "title": "BARYQ",
     "subtitle": "Luxury fashion brand",
-    "logoImage": "/images/projects/baryq.svg",
+    "logoImage": "/images/projects/baryq.png",
     "accent": "#c9a962",
     "defaultOpen": false,
     "links": [
@@ -140,7 +140,6 @@
     "id": "benou",
     "title": "BENOU",
     "subtitle": "Travel mobile app",
-    "logoImage": "/images/projects/benou.svg",
     "accent": "#c9f31d",
     "defaultOpen": false,
     "links": [
@@ -157,7 +156,7 @@
     "id": "blinkotp",
     "title": "BlinkOTP",
     "subtitle": "Chrome extension",
-    "logoImage": "/images/projects/blinkotp.svg",
+    "logoImage": "/images/projects/blinkotp.png",
     "accent": "#d4ff4d",
     "defaultOpen": false,
     "links": [
@@ -181,7 +180,6 @@
     "id": "raby",
     "title": "RABY",
     "subtitle": "Business management ERP",
-    "logoImage": "/images/projects/raby.svg",
     "accent": "#7cb342",
     "defaultOpen": false,
     "links": [
@@ -197,6 +195,55 @@
         "label": "RABY website",
         "description": "raby.pages.dev",
         "href": "https://raby.pages.dev/",
+        "platform": "website"
+      }
+    ]
+  },
+  {
+    "id": "boostify",
+    "title": "Boostify",
+    "subtitle": "Chrome extension — media enhancer",
+    "logoImage": "/images/projects/boostify-mark.png",
+    "accent": "#22d3ee",
+    "defaultOpen": false,
+    "links": [
+      {
+        "id": "boostify-project",
+        "label": "Project page",
+        "description": "Case study on brkmb.com",
+        "href": "https://brkmb.com/projects/Boostify/",
+        "platform": "website"
+      },
+      {
+        "id": "boostify-chrome",
+        "label": "Chrome Web Store",
+        "description": "Extension link — coming soon",
+        "href": "#chrome-extension",
+        "platform": "website"
+      }
+    ]
+  },
+  {
+    "id": "lnki",
+    "title": "lnki.to",
+    "subtitle": "Smart links, bio pages & analytics",
+    "logoImage": "/images/projects/lnki-mark.png",
+    "logoInvert": true,
+    "accent": "#4ade80",
+    "defaultOpen": false,
+    "links": [
+      {
+        "id": "lnki-project",
+        "label": "Project page",
+        "description": "Case study on brkmb.com",
+        "href": "https://brkmb.com/projects/lnki/",
+        "platform": "website"
+      },
+      {
+        "id": "lnki-app",
+        "label": "lnki.to",
+        "description": "Live app",
+        "href": "https://lnki.baherody.workers.dev/",
         "platform": "website"
       }
     ]

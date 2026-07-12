@@ -1,40 +1,121 @@
 {
-  "summary": "Graphic designer, founder, and product builder. I design premium brands, ship SaaS and mobile products, and lead creative direction from concept to launch.",
+  "cvRevision": "2026-06-01",
+  "cvRevisionLabel": "Q3 · 01 June 2026",
+  "title": "Graphic Designer · Print Production, Prepress & Color Quality Consistency · Brand Identity",
+  "summary": "Graphic Designer with production-focused experience across Brand Identity, Artwork Preparation, Color Management, and Visual Quality Assurance. Skilled in preparing and preflighting print-ready files using CMYK color workflows, bleed, crop marks, and high-resolution print specifications for commercial print. Built BARYQ end-to-end — from brand strategy through production-ready artwork, packaging concepts, and multi-channel marketing assets — maintaining strict brand guideline compliance across every touchpoint. Currently applies structured visual QA discipline at Lionbridge, ensuring layout accuracy, typography consistency, and defect-free output across multilingual digital products. Strong track record of cross-functional collaboration, problem-solving, and translating design intent into production-ready output.",
+  "location": "Warsaw, Poland",
+  "phone": "+48 573 707 027",
+  "website": "brkmb.com",
+  "linkedin": "linkedin.com/in/baher-bottros",
   "education": {
-    "school": "Vistula University",
-    "degree": "Bachelor of Graphic Design"
+    "school": "Vistula University, Warsaw, Poland",
+    "degree": "Bachelor of Graphic Design",
+    "graduated": "March 2025",
+    "gpa": "4.02 / 5.0"
   },
+  "competencies": [
+    "Production-Ready Artwork · Artwork Preparation · Print-Ready Files · Print Specifications",
+    "Prepress & Preflight · CMYK Color Workflows · Color Management & Accuracy",
+    "Bleed · Crop Marks · Trapping · Brand Identity Systems · Brand Guidelines Compliance",
+    "Packaging Concepts · Typography & Layout Design · Visual Quality Assurance",
+    "Asset Management · Cross-Functional Collaboration · Stakeholder Communication",
+    "Problem-Solving & Troubleshooting · Attention to Detail · Production Workflow",
+    "Adobe Creative Suite · Adobe Illustrator · Adobe Photoshop · Adobe InDesign · Figma"
+  ],
   "skills": [
-    "Graphic Design",
-    "Branding",
-    "UI/UX",
-    "Photoshop",
-    "Illustrator",
-    "Figma",
-    "Motion Design",
-    "Product Design",
-    "Founding",
-    "Creative Direction"
+    "Production-Ready Artwork",
+    "Artwork Preparation",
+    "Print-Ready Files",
+    "Prepress & Preflight",
+    "CMYK Color Workflows",
+    "Color Management",
+    "Bleed & Crop Marks",
+    "Brand Identity Systems",
+    "Brand Guidelines Compliance",
+    "Packaging Concepts",
+    "Typography & Layout",
+    "Visual Quality Assurance",
+    "Adobe Illustrator",
+    "Adobe Photoshop",
+    "Adobe InDesign",
+    "Adobe XD",
+    "Figma"
+  ],
+  "tools": [
+    {
+      "category": "Design & Production",
+      "items": [
+        "Adobe Creative Suite",
+        "Adobe Illustrator",
+        "Adobe Photoshop",
+        "Adobe InDesign",
+        "Adobe Premiere",
+        "Adobe XD",
+        "Figma"
+      ]
+    },
+    {
+      "category": "QA & Collaboration",
+      "items": ["Jira", "Microsoft Office", "Structured Defect Reporting Workflows"]
+    }
+  ],
+  "certifications": [
+    "Fundamentals of Graphic Design — California Institute of the Arts (Coursera, 2021)",
+    "Salesforce Sales Development Representative — Coursera · SV Academy (2025)",
+    "EF SET English Certificate — C2 Proficient, 75/100 (2022)",
+    "Google Ads — Google Skillshop (2022–2023)",
+    "Digital Skills: Digital Marketing — Accenture · FutureLearn (2021)",
+    "VIP Digital Marketing Master Course — Udemy (2019)"
+  ],
+  "languages": ["Arabic (Native)", "English (Advanced)", "Polish (Basic)"],
+  "achievements": [
+    "Built BARYQ end-to-end — brand strategy, visual identity, packaging concepts, and 20+ production-ready deliverables with strict guideline compliance.",
+    "Prepared professional print-ready artwork for 15+ freelance clients using CMYK workflows, bleed, crop marks, and commercial print specifications.",
+    "Executed structured visual QA on hundreds of localized UI screens per release at Lionbridge, documenting defects and validating RTL layouts across markets."
   ],
   "experience": [
     {
-      "period": "2022 — Present",
+      "period": "Nov 2024 – Present",
+      "role": "Visual QA & Localization Specialist",
+      "company": "Lionbridge · Warsaw, Poland",
+      "description": "Structured visual quality checks on localized UI screens — layout, typography, alignment, spacing, and color rendering against production standards.",
+      "highlights": [
+        "Executed structured visual quality checks on hundreds of localized UI screens per release cycle, verifying layout accuracy, typography consistency, alignment, spacing, and color rendering against production standards.",
+        "Identified and documented visual defects — text truncation, font rendering issues, overlapping elements, layout breaks — using systematic QA workflows and defect reporting tools, enabling on-time product delivery.",
+        "Validated RTL (right-to-left) and bidirectional layout systems, ensuring visual consistency and brand guideline compliance across multiple languages and markets.",
+        "Partnered with international QA, Design, and Product teams to communicate defects clearly and drive resolution, applying cross-functional collaboration skills directly comparable to print vendor management."
+      ]
+    },
+    {
+      "period": "2025 – Present",
       "role": "Founder & Creative Director",
-      "company": "Baher Magally / Independent Ventures",
-      "description": "Building BARYQ, Benou, BlinkOTP, ERP Desktop, and multiple SaaS products. Leading brand, UI, and product strategy."
+      "company": "BARYQ · Warsaw, Poland",
+      "description": "End-to-end brand development — strategy, identity, production-ready artwork, packaging, and multi-channel launch.",
+      "highlights": [
+        "Directed end-to-end development of BARYQ — a premium streetwear brand with Egyptian heritage influences — from brand strategy, naming, and visual identity through production-ready artwork and multi-channel launch.",
+        "Designed complete brand identity system: logotype, crown/star mark, typography hierarchy, CMYK color palette, and apparel graphic artwork — all delivered as print-ready production files meeting commercial print specifications.",
+        "Developed packaging concepts and product label artwork, applying bleed, crop marks, and substrate-appropriate color profiles to ensure design intent is maintained from file through physical output.",
+        "Managed asset library of 20+ brand deliverables across apparel, digital, packaging, and marketing categories — maintaining strict visual consistency and brand guideline compliance at every touchpoint.",
+        "Oversaw Shopify storefront UI/UX, aligning digital product presentation with brand identity standards and executing rapid design iterations based on performance feedback.",
+        "Established a scalable visual identity system supporting future product expansion across apparel, packaging, and digital platforms."
+      ]
     },
     {
-      "period": "2020 — 2022",
-      "role": "Senior Graphic Designer",
-      "company": "Freelance & Agency Clients",
-      "description": "Brand identity, campaigns, and UI for regional and international clients."
-    },
-    {
-      "period": "2018 — 2020",
+      "period": "2018 – Present",
       "role": "Graphic Designer",
-      "company": "Creative Studio",
-      "description": "Print, digital, and social design across fashion, tech, and lifestyle brands."
+      "company": "Freelance · Warsaw, Poland",
+      "description": "Visual identity systems and print-ready artwork for 15+ clients — logos, collateral, posters, and event branding.",
+      "highlights": [
+        "Delivered complete visual identity systems for 15+ clients across small businesses and personal brands — including logos, typography, color systems, and multi-format marketing collateral.",
+        "Prepared professional print-ready artwork using CMYK color workflows, correct bleed settings, crop marks, and high-resolution output specifications for commercial print vendors — ensuring defect-free production files.",
+        "Designed movie poster artwork, event branding, apparel graphics, and promotional print materials, combining strong visual design with technical production accuracy.",
+        "Managed client communication from creative brief through final delivery, adapting design intent to technical and print requirements — a workflow directly applicable to brand-to-printer production pipelines."
+      ]
     }
   ],
-  "cvDownloadUrl": "/cv/baher-cv.pdf"
+  "featuredProject": {
+    "name": "BARYQ — Luxury Streetwear Brand",
+    "description": "A premium streetwear label I founded and run end to end — naming, positioning, identity, packaging, campaigns, and the Shopify store. Egyptian heritage meets European craft: restrained typography, gold accents, and production-ready assets across print and digital."
+  },
+  "portfolioNote": "Portfolio available at brkmb.com — Brand Identity · Graphic Production · UI/UX · Packaging Concepts · Commercial Projects"
 }

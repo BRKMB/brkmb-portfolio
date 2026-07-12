@@ -40,7 +40,29 @@ export interface Project {
   gallery: string[];
   featured?: boolean;
   externalUrl?: string;
+  /** Enables /projects/{slug}/privacy|terms|support/ when compliance data exists */
+  storeCompliance?: boolean;
 }
+
+export type ProjectComment = {
+  id: string;
+  authorName: string;
+  body: string;
+  createdAt: string;
+};
+
+export type ProjectEngagement = {
+  views: number;
+  likes: number;
+  commentCount?: number;
+  comments: ProjectComment[];
+};
+
+/** @deprecated Use ProjectComment */
+export type BehanceComment = ProjectComment;
+
+/** @deprecated Use ProjectEngagement */
+export type BehanceEngagement = ProjectEngagement;
 
 export interface PortfolioItem {
   id: string;
@@ -48,6 +70,11 @@ export interface PortfolioItem {
   title: string;
   category: string;
   image: string;
+  /** Import-only; not shown in UI */
+  behanceGalleryId?: number;
+  engagement?: ProjectEngagement;
+  /** @deprecated Migrated to `engagement` */
+  behanceEngagement?: ProjectEngagement;
   /** @deprecated Grid uses fixed 4:3 — kept for CMS compatibility */
   aspect?: "tall" | "wide" | "square";
   description?: string;
@@ -97,6 +124,8 @@ export interface LinkGroup {
   title: string;
   subtitle?: string;
   logoImage?: string;
+  /** Light marks on dark PNGs — invert to black/white per theme */
+  logoInvert?: boolean;
   accent?: string;
   defaultOpen?: boolean;
   /** Hidden on /links but kept in CMS */
@@ -129,14 +158,38 @@ export interface Experience {
   role: string;
   company: string;
   description: string;
+  highlights?: string[];
+}
+
+export interface ResumeToolGroup {
+  category: string;
+  items: string[];
 }
 
 export interface ResumeData {
   summary: string;
-  education: { school: string; degree: string };
+  title?: string;
+  location?: string;
+  phone?: string;
+  website?: string;
+  linkedin?: string;
+  cvRevision?: string;
+  cvRevisionLabel?: string;
+  education: {
+    school: string;
+    degree: string;
+    graduated?: string;
+    gpa?: string;
+  };
+  competencies?: string[];
   skills: string[];
+  tools?: ResumeToolGroup[];
+  certifications?: string[];
+  languages?: string[];
+  achievements?: string[];
   experience: Experience[];
-  cvDownloadUrl: string;
+  featuredProject?: { name: string; description: string };
+  portfolioNote?: string;
 }
 
 export interface SiteConfig {

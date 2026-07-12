@@ -1,0 +1,14 @@
+---
+description: Deploy site changes to production after every update
+alwaysApply: true
+---
+
+# Auto-deploy to brkmb.com
+
+After any change that affects the live site (pages, components, data, styles, functions, public assets):
+
+1. Run `npm run build` and fix failures before pushing.
+2. Commit with a clear message (only when the user asked for changes or deploy).
+3. Push to `origin main` — Cloudflare Pages deploys automatically from `main`.
+
+Do not skip deploy when the user says to publish or expects changes on brkmb.com. Do not push secrets (`.env`, `.dev.vars`).

@@ -48,24 +48,42 @@ function behanceToolNames(project) {
     .filter(Boolean);
 }
 
-/** Category chip: from Behance tags only (never invented). */
+/** General discipline for filters/chips (not raw Behance tag names). */
 function behanceCategory(project) {
-  const tags = project.tags?.map((t) => t.title).filter(Boolean) ?? [];
+  const tags = project.tags?.map((t) => t.title?.trim()).filter(Boolean) ?? [];
+  const title = project.name ?? "";
+  const raw = tags[0] ?? "";
+  const combined = `${raw} ${tags.join(" ")} ${title}`.toLowerCase();
+
+  if (
+    /poster|fan\s*made|fanmade|unofficial|movie\s*poster|film\s*poster|fifa\s*\d|sherlock\s*holmes|harry\s*potter|pirates\s*of\s*the\s*caribbean|la\s*casa\s*de\s*papel|zaebak|paranormal|assassin'?s\s*creed/i.test(
+      combined
+    )
+  )
+    return "Posters";
+  if (/packaging|package design/i.test(combined)) return "Packaging";
+  if (/logo design|re-?branding|brand identity/i.test(combined)) return "Branding";
+  if (/advertising|advertisement|manipulation ad/i.test(combined)) return "Advertising";
+  if (/premiere|slo-?mo|videography|motion reel/i.test(combined)) return "Motion";
+  if (/photography|photograph|eos|canon|outdoor|hdr/i.test(combined)) return "Photography";
+  if (/website|web design|html|javascript|\bcss\b/i.test(combined)) return "Graphic Design";
+
   const prefer = [
-    "Packaging",
-    "Logo Design",
-    "Photography",
-    "Advertising",
-    "Web Design",
-    "Branding",
-    "Illustration",
-    "Art Direction",
+    ["Packaging", "Packaging"],
+    ["Logo Design", "Branding"],
+    ["Branding", "Branding"],
+    ["Photography", "Photography"],
+    ["Advertising", "Advertising"],
+    ["Web Design", "Graphic Design"],
+    ["Illustration", "Graphic Design"],
+    ["Art Direction", "Graphic Design"],
+    ["Graphic design", "Graphic Design"],
   ];
-  for (const p of prefer) {
-    const hit = tags.find((t) => t.toLowerCase().includes(p.toLowerCase()));
-    if (hit) return hit;
+  for (const [needle, out] of prefer) {
+    const hit = tags.find((t) => t.toLowerCase().includes(needle.toLowerCase()));
+    if (hit) return out;
   }
-  return (tags[0] ?? "Graphic design").trim();
+  return "Graphic Design";
 }
 
 function pickImageUrl(mod) {
@@ -168,7 +186,17 @@ function modulesToBlocks(modules, slug) {
   return blocks;
 }
 
-async function fetchProject(galleryId, slugPath) {
+export function parseBehanceEngagement(project) {
+  const stats = project?.stats ?? {};
+  const commentCount = stats.comments?.all ?? 0;
+  return {
+    views: stats.views?.all ?? 0,
+    likes: stats.appreciations?.all ?? 0,
+    commentCount,
+  };
+}
+
+export async function fetchProject(galleryId, slugPath) {
   const url = slugPath
     ? `https://www.behance.net/gallery/${galleryId}/${slugPath}`
     : `https://www.behance.net/gallery/${galleryId}`;
@@ -262,11 +290,24 @@ export async function importBehanceGallery(galleryId, opts = {}) {
   const pageBg = parsePageBackground(project.stylesInline);
 
   const description = stripHtml(project.description);
+  const engagement = parseBehanceEngagement(project);
+
   const item = {
     id: `behance-${galleryId}`,
     slug,
     title: project.name,
     category: behanceCategory(project),
+    behanceGalleryId: Number(galleryId),
+    behanceUrl: slugPath
+      ? `https://www.behance.net/gallery/${galleryId}/${slugPath}`
+      : `https://www.behance.net/gallery/${galleryId}`,
+    behanceEngagement: {
+      views: engagement.views,
+      likes: engagement.likes,
+      commentCount: engagement.commentCount,
+      comments: [],
+      syncedAt: Math.floor(Date.now() / 1000),
+    },
     image: coverLocal,
     description: description || undefined,
     overview: description || undefined,

@@ -1,13 +1,14 @@
 {
   "name": "Baher Magally",
-  "tagline": "Founder • Product Builder • Graphic Designer",
-  "heroLine": "I conceive brands from zero — then build them into real products.",
-  "title": "Baher Magally — Founder & Builder",
-  "description": "Founder-led brands and products. BARYQ, BENOU, BlinkOTP, RABY — conceived, designed, and built by Baher. Graphic design is the craft; building is the mission.",
-  "email": "hello@brkmb.com",
+  "tagline": "Design · Product · Brands",
+  "heroLine": "Brand systems and print that survive prepress. I run BARYQ and build the tools I work with — Boostify, lnki.to, and more.",
+  "title": "Baher Magally — Graphic Designer & Founder",
+  "description": "Warsaw-based graphic designer and founder. Identity, print, and products built end to end — from BARYQ streetwear to Chrome extensions and web tools.",
+  "email": "baherody@gmail.com",
+  "location": "Warsaw, Poland",
   "stats": [
-    { "label": "Brands I founded", "value": "5", "suffix": "" },
-    { "label": "Products shipped", "value": "8", "suffix": "+" },
-    { "label": "Years creating", "value": "6", "suffix": "+" }
+    { "label": "Years of exp", "value": "7", "suffix": "+" },
+    { "label": "Ventures built", "value": "6", "suffix": "+" },
+    { "label": "Design work", "value": "35", "suffix": "+" }
   ]
 }

@@ -1,16 +1,35 @@
 "use client";
 
+import type { CSSProperties } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useProject } from "@/components/providers/CmsProvider";
-import { statusColor, cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { useProject, useProjects } from "@/components/providers/CmsProvider";
+import {
+  getProjectAccent,
+  getProjectListThumb,
+  getAdjacentProjectSlugs,
+} from "@/lib/project-brand";
+import { ProjectComplianceLinks } from "@/components/projects/ProjectComplianceLinks";
+import { Button } from "@/components/ui/Button";
+import { cn } from "@/lib/utils";
+
+const ease = [0.16, 1, 0.3, 1] as const;
 
 export function ProjectDetail({ slug }: { slug: string }) {
   const project = useProject(slug);
+  const allProjects = useProjects();
+  const adjacent = getAdjacentProjectSlugs(slug);
+  const prevProject = adjacent.prev
+    ? allProjects.find((p) => p.slug === adjacent.prev)
+    : undefined;
+  const nextProject = adjacent.next
+    ? allProjects.find((p) => p.slug === adjacent.next)
+    : undefined;
 
   if (!project) {
     return (
-      <div className="mx-auto max-w-4xl px-4 pt-32 text-center">
+      <div className="mx-auto max-w-3xl px-5 pt-32 text-center">
         <p className="v-secondary">Project not found.</p>
         <Link href="/projects/" className="text-accent mt-4 inline-block">
           ← All projects
@@ -19,84 +38,168 @@ export function ProjectDetail({ slug }: { slug: string }) {
     );
   }
 
+  const accent = getProjectAccent(project);
+  const thumb = getProjectListThumb(project);
+  const isLive = project.status === "Live";
+  const gallery = project.gallery.filter(
+    (src) => !src.includes("/placeholders/") && src !== project.thumbnail
+  );
+
   return (
-    <article className="min-h-screen px-4 pt-32 pb-20 md:px-8">
-      <div className="mx-auto max-w-4xl">
-        <Link href="/projects/" className="text-subheadline text-accent transition hover:opacity-80">
-          ← All projects
-        </Link>
+    <article
+      className="case-study min-h-screen px-5 pt-28 pb-24 md:px-10 md:pt-32"
+      style={{ "--case-accent": accent } as CSSProperties}
+    >
+      <div className="mx-auto max-w-3xl">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease }}
+        >
+          <Link href="/projects/" className="text-subheadline text-accent transition hover:opacity-80">
+            ← All projects
+          </Link>
 
-        <div className="glass-card relative mt-8 aspect-[21/9] overflow-hidden !p-0 bg-black/40">
-          <Image
-            src={project.thumbnail}
-            alt={project.title}
-            fill
-            className="object-contain p-6 rounded-[19px]"
-            priority
-          />
-        </div>
-
-        <div className="mt-8 flex flex-wrap items-center gap-3">
-          <span className="chip-glass text-caption v-secondary px-3 py-1">{project.category}</span>
-          <span className={cn("chip-glass text-caption px-3 py-1", statusColor(project.status))}>
-            {project.status}
-          </span>
-        </div>
-
-        <h1 className="font-display text-large-title mt-6 v-primary">{project.title}</h1>
-        <p className="text-body mt-4 v-secondary leading-relaxed">{project.description}</p>
-
-        <section className="glass-sheet mt-12 p-8">
-          <h2 className="text-caption text-accent tracking-[0.2em] uppercase">Overview</h2>
-          <p className="text-body mt-4 v-secondary leading-relaxed">{project.overview}</p>
-        </section>
-
-        <section className="mt-8 px-2">
-          <h2 className="text-caption text-accent tracking-[0.2em] uppercase">My role</h2>
-          <p className="text-body mt-4 v-secondary">{project.role}</p>
-        </section>
-
-        <section className="glass-card mt-8 p-8">
-          <h2 className="text-caption text-accent tracking-[0.2em] uppercase">Process</h2>
-          <ol className="text-body mt-4 list-decimal space-y-2 pl-5 v-secondary">
-            {project.process.map((step) => (
-              <li key={step}>{step}</li>
-            ))}
-          </ol>
-        </section>
-
-        <section className="mt-8 px-2">
-          <h2 className="text-caption text-accent tracking-[0.2em] uppercase">Results</h2>
-          <ul className="text-body mt-4 space-y-2">
-            {project.results.map((r) => (
-              <li key={r} className="flex gap-2 v-secondary">
-                <span className="text-accent">✓</span> {r}
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="mt-8 px-2">
-          <h2 className="text-caption text-accent tracking-[0.2em] uppercase">Tools</h2>
-          <div className="mt-4 flex flex-wrap gap-2">
-            {project.tools.map((t) => (
-              <span key={t} className="chip-glass text-subheadline v-secondary px-4 py-2">
-                {t}
-              </span>
-            ))}
-          </div>
-        </section>
-
-        <section className="mt-12">
-          <h2 className="text-caption text-accent tracking-[0.2em] uppercase">Gallery</h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
-            {project.gallery.map((src, i) => (
-              <div key={`${src}-${i}`} className="glass-card relative aspect-video overflow-hidden !p-0 bg-black/20">
-                <Image src={src} alt={`${project.title} ${i + 1}`} fill className="rounded-[19px] object-cover" />
+          <div className="case-head mt-8">
+            <div className="case-head__mark" aria-hidden>
+              {thumb.kind === "letter" ? (
+                <span className="case-head__letter font-display">{thumb.letter}</span>
+              ) : (
+                <Image
+                  src={thumb.src}
+                  alt=""
+                  width={48}
+                  height={48}
+                  className={cn(thumb.invert && "case-head__mark-img--invert")}
+                />
+              )}
+            </div>
+            <div className="min-w-0 flex-1">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="case-pill">{project.category}</span>
+                <span className={cn("case-pill", isLive && "case-pill--live")}>{project.status}</span>
               </div>
-            ))}
+              <h1 className="font-display text-large-title mt-4 uppercase v-primary">{project.title}</h1>
+            </div>
           </div>
-        </section>
+
+          <p className="text-body md:text-lg mt-6 v-secondary leading-relaxed">{project.description}</p>
+
+          <div className="mt-6 flex flex-wrap gap-3">
+            {project.externalUrl ? (
+              <Button href={project.externalUrl} external>
+                Visit live →
+              </Button>
+            ) : null}
+            <Button href="/contact/" variant="ghost">
+              Work with me
+            </Button>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.1, duration: 0.6 }}
+          className="case-facts mt-10 grid gap-6 border-y border-subtle py-8 sm:grid-cols-2"
+        >
+          <div>
+            <p className="case-meta__label">Role</p>
+            <p className="text-subheadline mt-2 v-primary leading-relaxed">{project.role}</p>
+          </div>
+          <div>
+            <p className="case-meta__label">Stack &amp; tools</p>
+            <ul className="case-meta__tools mt-3">
+              {project.tools.map((tool) => (
+                <li key={tool}>{tool}</li>
+              ))}
+            </ul>
+          </div>
+        </motion.div>
+
+        <div className="mt-12 space-y-12">
+          <section>
+            <h2 className="font-display text-title-2 v-primary">Overview</h2>
+            <p className="text-body mt-4 v-secondary leading-relaxed">{project.overview}</p>
+          </section>
+
+          <section>
+            <h2 className="font-display text-title-2 v-primary">Approach</h2>
+            <ol className="case-steps mt-5">
+              {project.process.map((step, i) => (
+                <li key={step} className="case-step">
+                  <span className="case-step__num font-display tabular-nums">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="text-body v-secondary leading-relaxed">{step}</p>
+                </li>
+              ))}
+            </ol>
+          </section>
+
+          <section>
+            <h2 className="font-display text-title-2 v-primary">Outcomes</h2>
+            <ul className="case-outcomes mt-5">
+              {project.results.map((item) => (
+                <li key={item} className="case-outcome">
+                  <span className="case-outcome__mark" aria-hidden />
+                  <span className="text-body v-secondary leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          {gallery.length > 0 ? (
+            <section>
+              <h2 className="font-display text-title-2 v-primary">Visuals</h2>
+              <div className="case-gallery mt-5">
+                {gallery.map((src, i) => (
+                  <div key={`${src}-${i}`} className="case-gallery__item">
+                    <Image
+                      src={src}
+                      alt={`${project.title} visual ${i + 1}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 672px"
+                      className={cn(
+                        src.includes("logo") || src.endsWith(".svg")
+                          ? "object-contain p-8"
+                          : "object-cover"
+                      )}
+                    />
+                  </div>
+                ))}
+              </div>
+            </section>
+          ) : null}
+
+          <ProjectComplianceLinks slug={slug} />
+        </div>
+
+        <nav className="case-nav mt-16 border-t border-subtle pt-8" aria-label="Other projects">
+          <div className="grid gap-4 sm:grid-cols-2">
+            {prevProject ? (
+              <Link href={`/projects/${prevProject.slug}/`} className="case-nav__link focus-ring group">
+                <span className="text-footnote v-tertiary">Previous</span>
+                <span className="font-display text-headline mt-1 block v-primary transition group-hover:text-accent">
+                  ← {prevProject.title}
+                </span>
+              </Link>
+            ) : (
+              <span />
+            )}
+            {nextProject ? (
+              <Link
+                href={`/projects/${nextProject.slug}/`}
+                className="case-nav__link case-nav__link--next focus-ring group sm:text-right"
+              >
+                <span className="text-footnote v-tertiary">Next</span>
+                <span className="font-display text-headline mt-1 block v-primary transition group-hover:text-accent">
+                  {nextProject.title} →
+                </span>
+              </Link>
+            ) : null}
+          </div>
+        </nav>
       </div>
     </article>
   );

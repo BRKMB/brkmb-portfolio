@@ -1,0 +1,76 @@
+{
+  "productName": "BlinkOTP",
+  "supportEmail": "baherody@gmail.com",
+  "verifiedDomain": "brkmb.com",
+  "lastUpdated": "2026-07-08",
+  "privacy": {
+    "introduction": "BlinkOTP is a Chrome extension that helps you capture and use one-time passwords (OTPs) from web pages. This policy describes what the extension accesses and how that information is handled.",
+    "dataCollected": [
+      {
+        "label": "OTP codes detected on pages",
+        "detail": "When you use BlinkOTP, it may read OTP text visible on the active page or in notifications you interact with, solely to surface or autofill codes you request. Codes are processed locally in the browser."
+      },
+      {
+        "label": "Extension preferences",
+        "detail": "UI settings and optional history of recently used codes — stored in chrome.storage.local on your device unless you clear them."
+      },
+      {
+        "label": "Clipboard (when you choose)",
+        "detail": "If you use copy/autofill actions, the extension may write an OTP to your clipboard at your direction. We do not upload clipboard contents to our servers."
+      }
+    ],
+    "permissions": [
+      {
+        "label": "storage",
+        "detail": "Persist your settings and optional local OTP history on the device."
+      },
+      {
+        "label": "activeTab / scripting",
+        "detail": "Detect OTP patterns on the page you are viewing when you invoke BlinkOTP."
+      },
+      {
+        "label": "clipboardWrite (if enabled)",
+        "detail": "Copy a code to your clipboard when you explicitly request it."
+      }
+    ],
+    "singlePurpose": "All access is limited to BlinkOTP's core function: helping you find, copy, or autofill one-time passwords you are already receiving in the browser. Data is not used for advertising, analytics, or unrelated tracking.",
+    "noDataSelling": "We do not sell, rent, or share user data, OTP content, or browsing information with third parties for marketing or commercial purposes.",
+    "retention": "OTP history and settings remain on your device in chrome.storage.local until you clear them, reset the extension, or uninstall BlinkOTP. We do not maintain server-side copies.",
+    "deletion": "Clear data via the extension settings, uninstall BlinkOTP, or remove extension storage in Chrome. Contact baherody@gmail.com for assistance.",
+    "thirdParties": "BlinkOTP does not use third-party analytics or ad networks. Chrome Web Store distribution is governed by Google's policies."
+  },
+  "terms": {
+    "introduction": "These Terms govern your use of BlinkOTP. By installing or using the extension, you agree to them.",
+    "eligibility": "You must be permitted to use Chrome in your region and are responsible for securing your accounts and 2FA devices. BlinkOTP is a convenience tool — you remain responsible for verifying codes before submission.",
+    "acceptableUse": "Use BlinkOTP only on accounts and devices you own or are authorized to access. Do not use it to intercept others' codes, bypass security controls unlawfully, or violate service providers' terms. Do not redistribute or modify the extension except as allowed by its license and the Chrome Web Store.",
+    "payments": "BlinkOTP is free. There are no subscriptions or in-app purchases at this time. If pricing changes in the future, details will be posted here and in the store listing before any charge.",
+    "intellectualProperty": "BlinkOTP and its branding are owned by Baher Magally. You receive a limited license to use the extension for personal use through authorized distribution channels.",
+    "liability": "BlinkOTP is provided \"as is.\" OTP detection may fail on some sites or formats. We are not liable for account lockouts, failed logins, or damages from reliance on autofill. Always confirm codes match what your service sent.",
+    "changes": "We may update these terms or the product. The \"Last updated\" date on this page will change when we do. Continued use means acceptance of the revised terms."
+  },
+  "support": {
+    "introduction": "Support for BlinkOTP — setup, common issues, and how to reach us.",
+    "faq": [
+      {
+        "question": "BlinkOTP did not detect my code",
+        "answer": "Some sites hide OTPs in non-standard elements or iframes. Try selecting the code manually or refreshing after the SMS/email arrives. Report the site URL if detection should work."
+      },
+      {
+        "question": "Is my OTP history stored in the cloud?",
+        "answer": "No. History and settings stay in chrome.storage.local on your device unless you clear them."
+      },
+      {
+        "question": "Can I disable clipboard access?",
+        "answer": "Use in-extension copy only if clipboard permission is disabled, or revoke clipboard permission in Chrome extension settings."
+      },
+      {
+        "question": "How do I delete stored codes?",
+        "answer": "Use clear history in the popup if available, or uninstall the extension to remove all local data."
+      },
+      {
+        "question": "How do I contact support?",
+        "answer": "Email baherody@gmail.com with BlinkOTP version, Chrome version, and steps to reproduce. Do not send live OTP codes in email."
+      }
+    ]
+  }
+}

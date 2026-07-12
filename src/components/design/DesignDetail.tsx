@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { DesignBlocksRenderer } from "@/components/design/DesignBlocksRenderer";
 import { DesignEngagement } from "@/components/design/DesignEngagement";
+import { getProjectEngagement } from "@/lib/portfolio-engagement";
 import { usePortfolioItem } from "@/components/providers/CmsProvider";
 import { formatBehancePublishedDate } from "@/lib/behance-dates";
 import { site } from "@/lib/data";
@@ -16,7 +17,7 @@ export function DesignDetail({ slug }: { slug: string }) {
     return (
       <div className="mx-auto max-w-4xl px-4 pt-32 text-center">
         <p className="v-secondary">Project not found.</p>
-        <Link href="/design/" className="text-accent mt-4 inline-block">
+        <Link href="/designs/" className="text-accent mt-4 inline-block">
           ← All design work
         </Link>
       </div>
@@ -30,16 +31,11 @@ export function DesignDetail({ slug }: { slug: string }) {
       ? item.year
       : null;
 
-  const pageBg = item.styleDefaults?.pageBackground;
-
   return (
-    <article
-      className="behance-project min-h-screen pb-24"
-      style={pageBg ? { backgroundColor: pageBg } : undefined}
-    >
+    <article className="behance-project min-h-screen bg-black pb-24">
       <div className="behance-project__hero-wrap mx-auto max-w-[1200px] px-4 pt-28 md:px-8 md:pt-32">
         <Link
-          href="/design/"
+          href="/designs/"
           className="text-subheadline inline-flex items-center gap-1 text-accent transition hover:opacity-80"
         >
           ← All work
@@ -48,7 +44,7 @@ export function DesignDetail({ slug }: { slug: string }) {
         <motion.div
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45 }}
+          transition={{ duration: 0.35 }}
           className="behance-project__cover relative mt-6 aspect-[16/10] overflow-hidden md:aspect-[16/9]"
         >
           <Image
@@ -116,7 +112,7 @@ export function DesignDetail({ slug }: { slug: string }) {
         <DesignBlocksRenderer blocks={blocks} />
       </div>
 
-      <DesignEngagement slug={item.slug} />
+      <DesignEngagement engagement={getProjectEngagement(item)} />
 
       {item.attachments?.filter((a) => a.name && a.url).length ? (
         <section className="mx-auto mt-14 max-w-[720px] px-4 md:px-8">
@@ -161,9 +157,9 @@ export function DesignDetail({ slug }: { slug: string }) {
         </p>
       ) : null}
 
-      <footer className="mx-auto mt-10 max-w-[720px] border-t border-white/10 px-4 pt-10 md:px-8">
+      <footer className="mx-auto mt-10 max-w-[720px] border-t border-subtle px-4 pt-10 md:px-8">
         <Link
-          href="/design/"
+          href="/designs/"
           data-cursor
           className="btn-primary text-subheadline inline-flex min-h-[44px] items-center justify-center rounded-full px-6 py-2.5"
         >

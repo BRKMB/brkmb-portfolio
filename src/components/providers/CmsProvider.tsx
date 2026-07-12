@@ -14,20 +14,18 @@ import { normalizeCmsData } from "@/lib/cms/normalize";
 import { normalizePortfolio } from "@/lib/portfolio";
 import { ensureLinkGroupsComplete } from "@/lib/link-groups-order";
 import { visibleLinkGroups } from "@/lib/link-groups-visible";
-import {
-  CMS_AUTH_KEY,
-  CMS_PREVIEW_KEY,
-  defaultCmsData,
-} from "@/lib/cms/defaults";
+import { CMS_PREVIEW_KEY, defaultCmsData } from "@/lib/cms/defaults";
 import { exportCmsJson, loadCmsData, resetCmsData, saveCmsData } from "@/lib/cms/storage";
+import { fetchAdminSession, loginAdminPin, logoutAdmin } from "@/lib/admin-auth";
 
 type CmsContextValue = {
   data: CmsData;
   previewAsVisitor: boolean;
   isAdminAuthed: boolean;
+  adminAuthReady: boolean;
   setPreviewAsVisitor: (v: boolean) => void;
-  login: (pin: string) => boolean;
-  logout: () => void;
+  login: (pin: string) => Promise<"ok" | "invalid" | "not-configured">;
+  logout: () => Promise<void>;
   updateData: (patch: Partial<CmsData>) => void;
   setProjects: (projects: Project[]) => void;
   setPortfolio: (portfolio: PortfolioItem[]) => void;
@@ -40,19 +38,22 @@ type CmsContextValue = {
 
 const CmsContext = createContext<CmsContextValue | null>(null);
 
-const ADMIN_PIN = process.env.NEXT_PUBLIC_ADMIN_PIN ?? "brkmb2026";
-
 export function CmsProvider({ children }: { children: ReactNode }) {
   const [data, setData] = useState<CmsData>(defaultCmsData);
   const [hydrated, setHydrated] = useState(false);
   const [isAdminAuthed, setIsAdminAuthed] = useState(false);
+  const [adminAuthReady, setAdminAuthReady] = useState(false);
   const [previewAsVisitor, setPreviewAsVisitor] = useState(false);
 
   useEffect(() => {
     setData(loadCmsData());
-    setIsAdminAuthed(sessionStorage.getItem(CMS_AUTH_KEY) === "1");
     setPreviewAsVisitor(sessionStorage.getItem(CMS_PREVIEW_KEY) === "1");
     setHydrated(true);
+
+    fetchAdminSession()
+      .then(setIsAdminAuthed)
+      .catch(() => setIsAdminAuthed(false))
+      .finally(() => setAdminAuthReady(true));
   }, []);
 
   const persist = useCallback((next: CmsData) => {
@@ -72,18 +73,18 @@ export function CmsProvider({ children }: { children: ReactNode }) {
       data: hydrated ? data : defaultCmsData,
       previewAsVisitor,
       isAdminAuthed,
+      adminAuthReady,
       setPreviewAsVisitor: (v) => {
         setPreviewAsVisitor(v);
         sessionStorage.setItem(CMS_PREVIEW_KEY, v ? "1" : "0");
       },
-      login: (pin) => {
-        if (pin !== ADMIN_PIN) return false;
-        sessionStorage.setItem(CMS_AUTH_KEY, "1");
-        setIsAdminAuthed(true);
-        return true;
+      login: async (pin) => {
+        const result = await loginAdminPin(pin);
+        if (result === "ok") setIsAdminAuthed(true);
+        return result;
       },
-      logout: () => {
-        sessionStorage.removeItem(CMS_AUTH_KEY);
+      logout: async () => {
+        await logoutAdmin();
         setIsAdminAuthed(false);
       },
       updateData,
@@ -117,7 +118,7 @@ export function CmsProvider({ children }: { children: ReactNode }) {
         }
       },
     }),
-    [data, hydrated, previewAsVisitor, isAdminAuthed, updateData, persist]
+    [data, hydrated, previewAsVisitor, isAdminAuthed, adminAuthReady, updateData, persist]
   );
 
   return <CmsContext.Provider value={value}>{children}</CmsContext.Provider>;

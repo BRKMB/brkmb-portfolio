@@ -5,9 +5,9 @@ import resumeData from "@/data/resume.json";
 import type { CmsData, LinkGroup } from "@/types";
 
 /** Bumped when default portfolio structure changes — invalidates stale browser CMS. */
-export const CMS_STORAGE_KEY = "brkmb-cms-v5";
+export const CMS_STORAGE_KEY = "brkmb-cms-v12";
 /** Must match `portfolioRevision` saved in localStorage; bump when portfolio.json changes. */
-export const CMS_PORTFOLIO_REVISION = 5;
+export const CMS_PORTFOLIO_REVISION = 12;
 export const CMS_AUTH_KEY = "brkmb-cms-auth";
 export const CMS_PREVIEW_KEY = "brkmb-cms-preview";
 

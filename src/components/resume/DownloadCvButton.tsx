@@ -4,6 +4,7 @@ import { pdf } from "@react-pdf/renderer";
 import { CvDocument } from "./CvDocument";
 import type { ResumeData } from "@/types";
 import { site } from "@/lib/data";
+import { buildCvFilename } from "@/lib/cv-generation";
 
 type Props = {
   resume: ResumeData;
@@ -12,11 +13,19 @@ type Props = {
 
 export function DownloadCvButton({ resume, className }: Props) {
   const download = async () => {
-    const blob = await pdf(<CvDocument resume={resume} siteName={site.name} email={site.email} />).toBlob();
+    const generatedAt = new Date();
+    const blob = await pdf(
+      <CvDocument
+        resume={resume}
+        siteName={site.name}
+        email={site.email}
+        generatedAt={generatedAt}
+      />
+    ).toBlob();
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "Baher-Magally-CV.pdf";
+    a.download = buildCvFilename(site.name, generatedAt);
     a.click();
     URL.revokeObjectURL(url);
   };

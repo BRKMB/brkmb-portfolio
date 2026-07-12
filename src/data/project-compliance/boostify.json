@@ -1,0 +1,76 @@
+{
+  "productName": "Boostify",
+  "supportEmail": "baherody@gmail.com",
+  "verifiedDomain": "brkmb.com",
+  "lastUpdated": "2026-07-08",
+  "privacy": {
+    "introduction": "Boostify is a free Chrome extension that enhances audio and video in your browser. This policy explains what data the extension accesses, why, and how it is handled. Boostify is built privacy-first: processing runs locally in your browser and we do not operate backend servers for the extension.",
+    "dataCollected": [
+      {
+        "label": "Extension settings & preferences",
+        "detail": "Volume, speed, EQ, video filters, presets, themes, keyboard shortcuts, and per-site allow/block rules — stored in chrome.storage.local on your device only."
+      },
+      {
+        "label": "Per-site configuration",
+        "detail": "Domain-specific settings so preferences persist when you return to a site. Stored locally; never transmitted to us."
+      },
+      {
+        "label": "Active tab media context",
+        "detail": "While the extension is ON, it interacts with HTML5 audio/video on the active page to apply your chosen enhancements. No page content, history, or media files are uploaded or stored on our servers."
+      }
+    ],
+    "permissions": [
+      {
+        "label": "storage",
+        "detail": "Save your settings and per-site preferences on the device."
+      },
+      {
+        "label": "activeTab / scripting",
+        "detail": "Apply audio and video processing on the page you are viewing when you enable Boostify."
+      },
+      {
+        "label": "Host access (declared sites)",
+        "detail": "Required to inject enhancement scripts only on pages where you use the extension. We do not read or collect browsing history beyond what is needed to apply settings on the current tab."
+      }
+    ],
+    "singlePurpose": "All data access exists solely to provide Boostify's core functionality: local audio/video enhancement, per-site controls, Quiet Ads volume adjustment on supported sites, and saving your preferences. Data is not used for advertising, profiling, or unrelated purposes.",
+    "noDataSelling": "We do not sell, rent, trade, or share your personal data or browsing information with third parties for marketing or commercial purposes. Boostify does not include third-party analytics or advertising SDKs.",
+    "retention": "Settings persist in chrome.storage.local until you change them, reset the extension, or uninstall Boostify. We do not retain copies on our servers because no user data is sent to us.",
+    "deletion": "Uninstall the extension or clear its storage in Chrome (Settings → Extensions → Boostify → Remove, or clear site/extension data) to delete all locally stored preferences. Email baherody@gmail.com if you need help.",
+    "thirdParties": "Boostify does not integrate third-party data processors. Chrome Web Store distribution is subject to Google's policies; we do not receive your browsing data through that channel."
+  },
+  "terms": {
+    "introduction": "By installing or using Boostify, you agree to these Terms of Service. If you do not agree, do not use the extension.",
+    "eligibility": "You must be old enough to use Chrome and accept Google's terms in your jurisdiction. You are responsible for complying with laws that apply to you and for how you use enhanced playback on third-party sites.",
+    "acceptableUse": "Do not use Boostify to circumvent DRM, violate a website's terms, harass others, or engage in illegal activity. Do not reverse-engineer, redistribute, or resell the extension except as allowed by applicable open-source or store licenses. Quiet Ads adjusts ad volume only — it is not an ad blocker and must not be presented as one.",
+    "payments": "Boostify is 100% free. There are no subscriptions, in-app purchases, or paid tiers at this time. If paid features are introduced later, pricing, billing cycles, and refund rules will be disclosed here and in the Chrome Web Store listing before you are charged.",
+    "intellectualProperty": "Boostify, its branding, code, and documentation are owned by Baher Magally. Third-party trademarks (e.g. YouTube, site names) belong to their respective owners. You receive a limited, non-exclusive license to use the extension for personal use via the Chrome Web Store or an authorized distribution channel.",
+    "liability": "Boostify is provided \"as is\" without warranties. Audio/video processing may not work on all sites (e.g. DRM-protected streams). To the fullest extent permitted by law, we are not liable for indirect, incidental, or consequential damages arising from use of the extension. Your use of third-party websites remains at your own risk.",
+    "changes": "We may update these terms or the extension. Material changes will be reflected on this page with an updated date. Continued use after changes constitutes acceptance."
+  },
+  "support": {
+    "introduction": "Need help with Boostify? Use the resources below for setup, troubleshooting, and bug reports.",
+    "faq": [
+      {
+        "question": "Boostify shows ON but nothing changes on the site",
+        "answer": "Confirm the site uses HTML5 audio/video (not all players are supported). DRM-protected streams may block processing. Try refreshing the page, toggling Boostify off and on, and checking that the domain is not on your block list."
+      },
+      {
+        "question": "Volume boost is limited or silent",
+        "answer": "Some sites cap gain or use protected media. Boostify falls back gracefully when Web Audio cannot attach. Lower boost slightly or use presets designed for that site type."
+      },
+      {
+        "question": "Quiet Ads is not working",
+        "answer": "Quiet Ads targets YouTube ad audio patterns and may need an update when YouTube changes layout. It lowers ad volume — it does not remove ads. Ensure Boostify is ON and you are on a supported YouTube layout."
+      },
+      {
+        "question": "How do I reset all settings?",
+        "answer": "Open the extension popup → settings/reset if available, or remove and reinstall Boostify to clear chrome.storage.local."
+      },
+      {
+        "question": "How do I report a bug?",
+        "answer": "Email baherody@gmail.com with your Chrome version, Boostify version, the site URL, and steps to reproduce. Screenshots help."
+      }
+    ]
+  }
+}

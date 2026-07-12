@@ -1,19 +1,17 @@
-# Design engagement — already configured
+# Design engagement
 
-Views, likes, and comments on `/design` use **Cloudflare D1** (`brkmb-portfolio-engagement`).
+Views, likes, and comments on `/design` are stored in `portfolio.json` under each project’s `engagement` field.
 
-Setup is done in this repo:
-
-- `wrangler.toml` — D1 binding `DB`
-- `migrations/d1/001_design_engagement.sql` — applied on Cloudflare
-- `functions/api/design/` — API routes
-
-No dashboard steps needed unless you create a new Pages project from scratch.
-
-## Quick test
+## Refresh stats & comments
 
 ```bash
-curl "https://brkmb.com/api/design/stats?slugs=baryq-identity"
+npm run build:engagement
 ```
 
-You should see JSON with `views` and `likes`.
+Optional: merge real comment text from Behance (slow; API key recommended):
+
+```bash
+BEHANCE_API_KEY=your_client_id npm run build:engagement -- --fetch-comments
+```
+
+Then rebuild and deploy.

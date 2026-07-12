@@ -38,6 +38,8 @@ export function mergePortfolioWithDefaults(
       blocks:
         fromStore.blocks?.length && !storedUsesLegacyAssets ? fromStore.blocks : def.blocks,
       hidden: fromStore.hidden ?? def.hidden,
+      behanceGalleryId: def.behanceGalleryId ?? fromStore.behanceGalleryId,
+      engagement: def.engagement ?? fromStore.engagement ?? def.behanceEngagement ?? fromStore.behanceEngagement,
     });
   }
 

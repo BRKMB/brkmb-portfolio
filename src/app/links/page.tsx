@@ -27,8 +27,8 @@ export default function LinksPage() {
           <h1 className="font-display text-large-title v-primary select-none" tabIndex={-1}>
             Links
           </h1>
-          <p className="text-subheadline md:text-body mx-auto mt-3 max-w-[36rem] v-secondary select-none whitespace-nowrap px-2">
-            Personal profiles and links for every venture — tap a section to expand.
+          <p className="text-subheadline md:text-body mx-auto mt-3 max-w-[34rem] v-secondary select-none px-2 text-balance">
+            Profiles for me and every venture. Expand a section below.
           </p>
         </motion.header>
 

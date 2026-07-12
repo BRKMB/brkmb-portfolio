@@ -5,13 +5,15 @@ import { createPortal } from "react-dom";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
+import { SiteLogo } from "@/components/ui/SiteLogo";
 
 const links = [
   { href: "/projects/", label: "Projects" },
-  { href: "/design/", label: "Design" },
-  { href: "/links/", label: "Links" },
-  { href: "/about/", label: "About" },
+  { href: "/designs/", label: "Designs" },
+  { href: "/certificates/", label: "Certificates" },
   { href: "/resume/", label: "Resume" },
+  { href: "/links/", label: "Links" },
 ];
 
 export function Navigation() {
@@ -63,15 +65,12 @@ export function Navigation() {
           <Link
             href="/"
             data-cursor
-            className="focus-ring flex min-h-[44px] items-center gap-2.5 rounded-full px-2 v-primary"
+            className="nav-glass__brand focus-ring flex min-h-[44px] min-w-0 items-center rounded-full px-1.5 sm:px-2 v-primary"
           >
-            <span className="flex h-9 w-9 items-center justify-center rounded-full btn-primary !min-h-0 !px-0 !py-0 text-sm font-bold">
-              B
-            </span>
-            <span className="font-display text-headline hidden sm:inline">Baher</span>
+            <SiteLogo size="sm" priority />
           </Link>
 
-          <ul className="hidden items-center gap-0.5 lg:flex">
+          <ul className="nav-glass__links hidden items-center gap-0.5 lg:flex">
             {links.map((link) => {
               const active = pathname === link.href || pathname.startsWith(link.href);
               return (
@@ -83,7 +82,7 @@ export function Navigation() {
                       "focus-ring flex min-h-[44px] items-center rounded-full px-3.5 text-subheadline transition-all duration-200",
                       active
                         ? "chip-glass-active"
-                        : "v-secondary hover:v-primary hover:bg-white/5"
+                        : "v-secondary hover:v-primary bg-glass-hover"
                     )}
                     style={{ transitionTimingFunction: "cubic-bezier(0.32, 0.72, 0, 1)" }}
                   >
@@ -94,11 +93,12 @@ export function Navigation() {
             })}
           </ul>
 
-          <div className="flex items-center gap-2">
+          <div className="nav-glass__actions flex shrink-0 items-center gap-1.5 sm:gap-2">
+            <ThemeToggle compact className="nav-glass__theme hidden lg:inline-flex" />
             <Link
-              href="/links/"
+              href="/contact/"
               data-cursor
-              className="btn-primary text-subheadline hidden shrink-0 sm:inline-flex"
+              className="btn-primary nav-glass__cta text-subheadline hidden shrink-0 lg:inline-flex"
             >
               Let&apos;s talk
             </Link>
@@ -107,25 +107,25 @@ export function Navigation() {
               data-cursor
               aria-expanded={menuOpen}
               aria-label={menuOpen ? "Close menu" : "Open menu"}
-              className="focus-ring flex h-11 w-11 items-center justify-center rounded-full bg-white/8 lg:hidden"
-              onClick={() => setMenuOpen((o) => !o)}
+              className="focus-ring nav-menu-btn flex h-11 w-11 items-center justify-center rounded-full lg:hidden"
+              onClick={() => setMenuOpen((open) => !open)}
             >
               <span className="relative block h-3.5 w-4">
                 <span
                   className={cn(
-                    "absolute left-0 h-0.5 w-4 rounded-full bg-white transition",
+                    "nav-menu-line absolute left-0 h-0.5 w-4 rounded-full transition",
                     menuOpen ? "top-[7px] rotate-45" : "top-0"
                   )}
                 />
                 <span
                   className={cn(
-                    "absolute left-0 top-[7px] h-0.5 w-4 rounded-full bg-white transition",
+                    "nav-menu-line absolute left-0 top-[7px] h-0.5 w-4 rounded-full transition",
                     menuOpen && "opacity-0"
                   )}
                 />
                 <span
                   className={cn(
-                    "absolute left-0 h-0.5 w-4 rounded-full bg-white transition",
+                    "nav-menu-line absolute left-0 h-0.5 w-4 rounded-full transition",
                     menuOpen ? "top-[7px] -rotate-45" : "top-[14px]"
                   )}
                 />
@@ -144,7 +144,22 @@ export function Navigation() {
             onClick={() => setMenuOpen(false)}
           />
           <div className="mobile-nav-panel">
-            <ul className="flex flex-col gap-1 p-4">
+            <div className="mobile-nav-panel__head">
+              <div>
+                <p className="mobile-nav-panel__eyebrow">Navigate</p>
+                <p className="mobile-nav-panel__title v-primary">Baher Magally</p>
+              </div>
+              <button
+                type="button"
+                className="mobile-nav-panel__close focus-ring"
+                aria-label="Close menu"
+                onClick={() => setMenuOpen(false)}
+              >
+                <span aria-hidden>×</span>
+              </button>
+            </div>
+
+            <ul className="mobile-nav-panel__links">
               {links.map((link) => {
                 const active = pathname === link.href || pathname.startsWith(link.href);
                 return (
@@ -152,8 +167,8 @@ export function Navigation() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "flex min-h-[52px] items-center rounded-2xl px-4 text-headline transition",
-                        active ? "chip-glass-active" : "v-secondary hover:bg-white/5 hover:v-primary"
+                        "mobile-nav-panel__link",
+                        active ? "mobile-nav-panel__link--active" : "v-secondary"
                       )}
                     >
                       {link.label}
@@ -161,12 +176,18 @@ export function Navigation() {
                   </li>
                 );
               })}
-              <li className="mt-2 border-t border-white/10 pt-3">
-                <Link href="/links/" className="btn-primary text-subheadline flex min-h-[52px] items-center justify-center">
-                  Let&apos;s talk
-                </Link>
-              </li>
             </ul>
+
+            <div className="mobile-nav-panel__foot">
+              <ThemeToggle />
+              <Link
+                href="/contact/"
+                className="btn-primary text-subheadline mobile-nav-panel__cta"
+                onClick={() => setMenuOpen(false)}
+              >
+                Let&apos;s talk
+              </Link>
+            </div>
           </div>
         </div>
       ) : null}

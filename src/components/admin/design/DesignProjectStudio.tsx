@@ -148,7 +148,7 @@ export function DesignProjectStudio({ item, onChange, onClose, onDelete }: Props
         />
         <div className="behance-studio__header-actions">
           {item.slug !== NEW_PROJECT_SLUG ? (
-            <Link href={`/design/${item.slug}/`} className="behance-studio__link-preview" target="_blank">
+            <Link href={`/designs/${item.slug}/`} className="behance-studio__link-preview" target="_blank">
               Preview
             </Link>
           ) : null}

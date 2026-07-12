@@ -1,103 +1,252 @@
 import { Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import type { ReactNode } from "react";
 import type { ResumeData } from "@/types";
+import { buildCvGenerationFooter } from "@/lib/cv-generation";
+
+const ink = "#1a1a1a";
+const muted = "#444444";
+const faint = "#777777";
+const rule = "#cccccc";
 
 const s = StyleSheet.create({
   page: {
-    padding: 48,
+    paddingTop: 40,
+    paddingBottom: 52,
+    paddingHorizontal: 44,
     fontFamily: "Helvetica",
-    fontSize: 10,
-    color: "#1a1a1a",
-    backgroundColor: "#fafafa",
+    fontSize: 9.25,
+    color: ink,
+    lineHeight: 1.45,
   },
-  accentBar: {
-    height: 4,
-    backgroundColor: "#c9f31d",
-    marginBottom: 28,
-    borderRadius: 2,
-  },
-  name: { fontSize: 26, fontWeight: 700, letterSpacing: -0.5, marginBottom: 4 },
-  tagline: { fontSize: 11, color: "#555", marginBottom: 6 },
-  contact: { fontSize: 9, color: "#666", marginBottom: 20 },
-  sectionTitle: {
-    fontSize: 9,
-    fontWeight: 700,
+  name: {
+    fontSize: 20,
+    fontFamily: "Helvetica-Bold",
+    letterSpacing: 0.4,
     textTransform: "uppercase",
-    letterSpacing: 1.2,
-    color: "#6b8e00",
-    marginTop: 18,
-    marginBottom: 8,
+    marginBottom: 4,
   },
-  body: { fontSize: 10, lineHeight: 1.55, color: "#333" },
-  skillWrap: { flexDirection: "row", flexWrap: "wrap", gap: 6, marginTop: 4 },
-  skill: {
-    fontSize: 8,
-    paddingVertical: 4,
-    paddingHorizontal: 8,
-    backgroundColor: "#eef5d6",
-    borderRadius: 4,
-    color: "#2d3a00",
+  headline: {
+    fontSize: 9.5,
+    color: muted,
+    marginBottom: 6,
+    lineHeight: 1.35,
   },
-  expBlock: { marginBottom: 12 },
-  expPeriod: { fontSize: 8, color: "#6b8e00", marginBottom: 2 },
-  expRole: { fontSize: 11, fontWeight: 700, marginBottom: 2 },
-  expCompany: { fontSize: 9, color: "#555", marginBottom: 4 },
-  footer: {
+  contact: {
+    fontSize: 8.5,
+    color: faint,
+    marginBottom: 14,
+    lineHeight: 1.4,
+  },
+  section: {
+    marginTop: 12,
+    marginBottom: 2,
+  },
+  sectionTitle: {
+    fontSize: 8.5,
+    fontFamily: "Helvetica-Bold",
+    letterSpacing: 0.9,
+    textTransform: "uppercase",
+    marginBottom: 4,
+  },
+  sectionRule: {
+    height: 1,
+    backgroundColor: rule,
+    marginBottom: 7,
+  },
+  body: {
+    fontSize: 9.25,
+    color: ink,
+    lineHeight: 1.48,
+    textAlign: "justify",
+  },
+  competencyLine: {
+    fontSize: 9,
+    color: ink,
+    lineHeight: 1.42,
+    marginBottom: 3,
+  },
+  expHeader: {
+    fontSize: 9.75,
+    fontFamily: "Helvetica-Bold",
+    marginBottom: 1,
+  },
+  expPeriod: {
+    fontSize: 8.5,
+    color: faint,
+    marginBottom: 4,
+  },
+  bullet: {
+    fontSize: 9.1,
+    color: ink,
+    lineHeight: 1.44,
+    marginBottom: 3,
+    paddingLeft: 8,
+  },
+  bulletPrefix: {
+    fontFamily: "Helvetica",
+  },
+  certLine: {
+    fontSize: 9,
+    marginBottom: 2.5,
+    lineHeight: 1.35,
+  },
+  toolCategory: {
+    fontSize: 9,
+    fontFamily: "Helvetica-Bold",
+    marginBottom: 2,
+  },
+  toolItems: {
+    fontSize: 9,
+    color: muted,
+    marginBottom: 6,
+    lineHeight: 1.35,
+  },
+  portfolioNote: {
+    marginTop: 10,
+    fontSize: 8.5,
+    color: muted,
+    lineHeight: 1.35,
+  },
+  genFooter: {
     position: "absolute",
-    bottom: 36,
-    left: 48,
-    right: 48,
-    fontSize: 8,
-    color: "#999",
+    bottom: 22,
+    left: 44,
+    right: 44,
+    fontSize: 6.25,
+    color: "#b8b8b8",
     textAlign: "center",
+    letterSpacing: 0.15,
   },
 });
+
+function Section({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <View style={s.section}>
+      <Text style={s.sectionTitle}>{title}</Text>
+      <View style={s.sectionRule} />
+      {children}
+    </View>
+  );
+}
+
+function Bullets({ items }: { items: string[] }) {
+  return (
+    <>
+      {items.map((item) => (
+        <Text key={item} style={s.bullet}>
+          • {item}
+        </Text>
+      ))}
+    </>
+  );
+}
 
 export function CvDocument({
   resume,
   siteName,
   email,
+  generatedAt = new Date(),
 }: {
   resume: ResumeData;
   siteName: string;
   email: string;
+  generatedAt?: Date;
 }) {
+  const contactParts = [
+    resume.location,
+    resume.phone,
+    email,
+    resume.website ?? "brkmb.com",
+    resume.linkedin,
+  ].filter(Boolean);
+
+  const competencyLines =
+    resume.competencies?.length ? resume.competencies : [resume.skills.join(" · ")];
+
+  const educationLine = [
+    resume.education.degree,
+    resume.education.graduated,
+    resume.education.gpa ? `GPA: ${resume.education.gpa}` : null,
+  ]
+    .filter(Boolean)
+    .join(" · ");
+
   return (
     <Document title={`${siteName} — CV`} author={siteName}>
       <Page size="A4" style={s.page}>
-        <View style={s.accentBar} />
-        <Text style={s.name}>{siteName}</Text>
-        <Text style={s.tagline}>Founder · Product Builder · Graphic Designer</Text>
-        <Text style={s.contact}>
-          {email} · brkmb.com
+        <Text style={s.name}>{siteName.toUpperCase()}</Text>
+        <Text style={s.headline}>
+          {resume.title ?? "Graphic Designer — Print Production & Color Quality Consistency"}
         </Text>
+        <Text style={s.contact}>{contactParts.join("  |  ")}</Text>
 
-        <Text style={s.sectionTitle}>Profile</Text>
-        <Text style={s.body}>{resume.summary}</Text>
+        <Section title="Professional Summary">
+          <Text style={s.body}>{resume.summary}</Text>
+        </Section>
 
-        <Text style={s.sectionTitle}>Education</Text>
-        <Text style={s.expRole}>{resume.education.school}</Text>
-        <Text style={s.expCompany}>{resume.education.degree}</Text>
-
-        <Text style={s.sectionTitle}>Skills</Text>
-        <View style={s.skillWrap}>
-          {resume.skills.map((skill) => (
-            <Text key={skill} style={s.skill}>
-              {skill}
+        <Section title="Core Competencies">
+          {competencyLines.map((line) => (
+            <Text key={line} style={s.competencyLine}>
+              {line}
             </Text>
           ))}
-        </View>
+        </Section>
 
-        <Text style={s.sectionTitle}>Experience</Text>
-        {resume.experience.map((exp) => (
-          <View key={exp.period} style={s.expBlock}>
-            <Text style={s.expPeriod}>{exp.period}</Text>
-            <Text style={s.expRole}>{exp.role}</Text>
-            <Text style={s.expCompany}>{exp.company}</Text>
-            <Text style={s.body}>{exp.description}</Text>
-          </View>
-        ))}
+        <Section title="Professional Experience">
+          {resume.experience.map((exp) => (
+            <View key={`${exp.period}-${exp.role}`} style={{ marginBottom: 8 }}>
+              <Text style={s.expHeader}>
+                {exp.role} · {exp.company}
+              </Text>
+              <Text style={s.expPeriod}>{exp.period}</Text>
+              {exp.highlights?.length ? (
+                <Bullets items={exp.highlights} />
+              ) : (
+                <Text style={s.body}>{exp.description}</Text>
+              )}
+            </View>
+          ))}
+        </Section>
 
-        <Text style={s.footer}>Generated from brkmb.com · {new Date().getFullYear()}</Text>
+        <Section title="Education">
+          <Text style={s.expHeader}>{resume.education.school}</Text>
+          <Text style={s.body}>{educationLine}</Text>
+        </Section>
+
+        {resume.certifications?.length ? (
+          <Section title="Certifications">
+            {resume.certifications.map((cert) => (
+              <Text key={cert} style={s.certLine}>
+                {cert}
+              </Text>
+            ))}
+          </Section>
+        ) : null}
+
+        {resume.tools?.length ? (
+          <Section title="Tools & Software">
+            {resume.tools.map((group) => (
+              <View key={group.category}>
+                <Text style={s.toolCategory}>{group.category}:</Text>
+                <Text style={s.toolItems}>{group.items.join(" · ")}</Text>
+              </View>
+            ))}
+          </Section>
+        ) : null}
+
+        {resume.languages?.length ? (
+          <Section title="Languages">
+            <Text style={s.body}>{resume.languages.join("  ·  ")}</Text>
+          </Section>
+        ) : null}
+
+        {resume.portfolioNote ? (
+          <Text style={s.portfolioNote}>{resume.portfolioNote}</Text>
+        ) : null}
+
+        <Text style={s.genFooter} fixed>
+          {buildCvGenerationFooter(generatedAt, resume.website ?? "brkmb.com")}
+        </Text>
       </Page>
     </Document>
   );
