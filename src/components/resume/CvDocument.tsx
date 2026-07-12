@@ -164,13 +164,21 @@ const s = StyleSheet.create({
   },
   genFooter: {
     position: "absolute",
-    bottom: 26,
+    bottom: 18,
     left: 54,
     right: 54,
     fontSize: 6,
     color: palette.footer,
     textAlign: "center",
     letterSpacing: 0.1,
+  },
+  pageNumberFooter: {
+    position: "absolute",
+    bottom: 28,
+    right: 54,
+    fontSize: 7,
+    color: palette.footer,
+    textAlign: "right",
   },
 });
 
@@ -382,6 +390,12 @@ export function CvDocument({
             {portfolioSuffix(resume.portfolioNote)}
           </Text>
         ) : null}
+
+        <Text
+          style={s.pageNumberFooter}
+          fixed
+          render={({ pageNumber, totalPages }) => `Page ${pageNumber} of ${totalPages}`}
+        />
 
         <Text style={s.genFooter} fixed>
           {buildCvGenerationFooter(generatedAt, websiteLabel)}
