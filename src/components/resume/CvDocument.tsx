@@ -20,20 +20,35 @@ const palette = {
   footer: "#C4C4C4",
 } as const;
 
+/** Word paragraph spacing: docx twips / 20 */
+const pt = (twips: number) => twips / 20;
+
+const space = {
+  page: pt(720),
+  sectionBefore: pt(140),
+  sectionAfter: pt(20),
+  jobBefore: pt(120),
+  jobHeaderAfter: pt(16),
+  bulletAfter: pt(36),
+  competencyAfter: pt(24),
+  nameAfter: pt(10),
+  headlineAfter: pt(28),
+} as const;
+
 const s = StyleSheet.create({
   page: {
-    paddingTop: 46,
-    paddingBottom: 62,
-    paddingHorizontal: 54,
+    paddingTop: space.page,
+    paddingBottom: space.page + 22,
+    paddingHorizontal: space.page,
     fontFamily: "Times-Roman",
     fontSize: 9.5,
     color: palette.body,
   },
   headerBlock: {
-    marginBottom: 4,
+    marginBottom: 0,
   },
   nameBlock: {
-    paddingBottom: 12,
+    paddingBottom: space.nameAfter,
   },
   name: {
     fontSize: 26,
@@ -44,7 +59,7 @@ const s = StyleSheet.create({
     lineHeight: 1.2,
   },
   headlineBlock: {
-    paddingBottom: 10,
+    paddingBottom: space.headlineAfter,
   },
   headline: {
     fontSize: 10.5,
@@ -53,7 +68,7 @@ const s = StyleSheet.create({
     lineHeight: 1.45,
   },
   contactBlock: {
-    marginBottom: 18,
+    marginBottom: 0,
   },
   contactPlain: {
     fontSize: 9.5,
@@ -72,14 +87,13 @@ const s = StyleSheet.create({
     lineHeight: 1.45,
   },
   sectionWrap: {
-    marginTop: 13,
-    marginBottom: 2,
+    marginTop: space.sectionBefore,
+    marginBottom: 0,
   },
   sectionHeaderRow: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 8,
-    paddingBottom: 2,
+    marginBottom: space.sectionAfter,
   },
   sectionTitle: {
     fontSize: 8,
@@ -104,17 +118,17 @@ const s = StyleSheet.create({
     fontSize: 9.5,
     color: palette.body,
     lineHeight: 1.44,
-    marginBottom: 3,
+    marginBottom: space.competencyAfter,
   },
   expBlock: {
-    marginBottom: 10,
+    marginTop: space.jobBefore,
+    marginBottom: 0,
   },
   expHeaderRow: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-start",
-    marginBottom: 5,
-    paddingBottom: 1,
+    marginBottom: space.jobHeaderAfter,
   },
   expHeader: {
     flex: 1,
@@ -139,8 +153,8 @@ const s = StyleSheet.create({
   bulletRow: {
     flexDirection: "row",
     alignItems: "flex-start",
-    marginBottom: 3,
-    paddingRight: 4,
+    marginBottom: space.bulletAfter,
+    paddingRight: 2,
   },
   bulletMark: {
     width: 10,
@@ -193,9 +207,9 @@ const s = StyleSheet.create({
   },
   genFooter: {
     position: "absolute",
-    bottom: 18,
-    left: 54,
-    right: 54,
+    bottom: space.page - 18,
+    left: space.page,
+    right: space.page,
     fontSize: 6,
     color: palette.footer,
     textAlign: "center",
@@ -203,8 +217,8 @@ const s = StyleSheet.create({
   },
   pageNumberFooter: {
     position: "absolute",
-    bottom: 28,
-    right: 54,
+    bottom: space.page - 8,
+    right: space.page,
     fontSize: 7,
     color: palette.footer,
     textAlign: "right",
@@ -393,8 +407,8 @@ export function CvDocument({
 
         <Section title="Professional Experience">
           {resume.experience.map((exp) => (
-            <View key={`${exp.period}-${exp.role}`} style={s.expBlock} wrap={false}>
-              <View style={s.expHeaderRow}>
+            <View key={`${exp.period}-${exp.role}`} style={s.expBlock}>
+              <View style={s.expHeaderRow} wrap={false}>
                 <Text style={s.expHeader}>
                   {exp.role} · {exp.company}
                 </Text>
