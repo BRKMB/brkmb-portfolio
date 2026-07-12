@@ -52,18 +52,10 @@ const s = StyleSheet.create({
     color: palette.headline,
     lineHeight: 1.45,
   },
-  contactRow: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    alignItems: "center",
+  contactBlock: {
     marginBottom: 18,
   },
   contactPlain: {
-    fontSize: 9.5,
-    color: palette.contact,
-    lineHeight: 1.45,
-  },
-  contactSep: {
     fontSize: 9.5,
     color: palette.contact,
     lineHeight: 1.45,
@@ -169,9 +161,6 @@ const s = StyleSheet.create({
   },
   portfolioNote: {
     marginTop: 14,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    alignItems: "center",
   },
   genFooter: {
     position: "absolute",
@@ -185,17 +174,7 @@ const s = StyleSheet.create({
   },
 });
 
-function CvLink({ href, label }: { href: string; label: string }) {
-  return (
-    <Link src={href}>
-      <Text style={s.linkText}>{label}</Text>
-    </Link>
-  );
-}
-
-function ContactSep() {
-  return <Text style={s.contactSep}>{"  |  "}</Text>;
-}
+const CONTACT_SEP = "   |   ";
 
 function ContactRow({
   location,
@@ -216,29 +195,43 @@ function ContactRow({
   const linkedInUrl = linkedin ? toLinkedInUrl(linkedin) : null;
   const linkedInLabel = linkedin?.replace(/^https?:\/\//i, "").replace(/\/$/, "") ?? "";
 
-  const items: ReactNode[] = [];
+  const hasLocation = Boolean(location);
+  const hasPhone = Boolean(phone);
+  const hasEmail = Boolean(email);
+  const hasSite = Boolean(siteLabel);
+  const hasLinkedIn = Boolean(linkedInUrl && linkedInLabel);
 
-  if (location) {
-    items.push(<Text key="loc" style={s.contactPlain}>{location}</Text>);
-  }
-  if (phone) {
-    if (items.length) items.push(<ContactSep key="sep-phone" />);
-    items.push(<CvLink key="phone" href={phoneToTel(phone)} label={phone} />);
-  }
-  if (email) {
-    if (items.length) items.push(<ContactSep key="sep-email" />);
-    items.push(<CvLink key="email" href={toMailto(email)} label={email} />);
-  }
-  if (siteLabel) {
-    if (items.length) items.push(<ContactSep key="sep-site" />);
-    items.push(<CvLink key="site" href={siteUrl} label={siteLabel} />);
-  }
-  if (linkedInUrl && linkedInLabel) {
-    if (items.length) items.push(<ContactSep key="sep-li" />);
-    items.push(<CvLink key="linkedin" href={linkedInUrl} label={linkedInLabel} />);
-  }
-
-  return <View style={s.contactRow}>{items}</View>;
+  return (
+    <View style={s.contactBlock}>
+      <Text style={s.contactPlain}>
+        {hasLocation ? location : null}
+        {hasLocation && hasPhone ? CONTACT_SEP : null}
+        {hasPhone ? (
+          <Link src={phoneToTel(phone!)}>
+            <Text style={s.linkText}>{phone}</Text>
+          </Link>
+        ) : null}
+        {(hasLocation || hasPhone) && hasEmail ? CONTACT_SEP : null}
+        {hasEmail ? (
+          <Link src={toMailto(email)}>
+            <Text style={s.linkText}>{email}</Text>
+          </Link>
+        ) : null}
+        {(hasLocation || hasPhone || hasEmail) && hasSite ? CONTACT_SEP : null}
+        {hasSite ? (
+          <Link src={siteUrl}>
+            <Text style={s.linkText}>{siteLabel}</Text>
+          </Link>
+        ) : null}
+        {(hasLocation || hasPhone || hasEmail || hasSite) && hasLinkedIn ? CONTACT_SEP : null}
+        {hasLinkedIn ? (
+          <Link src={linkedInUrl!}>
+            <Text style={s.linkText}>{linkedInLabel}</Text>
+          </Link>
+        ) : null}
+      </Text>
+    </View>
+  );
 }
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
@@ -380,11 +373,14 @@ export function CvDocument({
         ) : null}
 
         {resume.portfolioNote ? (
-          <View style={s.portfolioNote}>
-            <Text style={s.contactPlain}>Portfolio available at </Text>
-            <CvLink href={websiteUrl} label={websiteLabel} />
-            <Text style={s.contactPlain}> — {portfolioSuffix(resume.portfolioNote)}</Text>
-          </View>
+          <Text style={[s.contactPlain, s.portfolioNote]}>
+            Portfolio available at{" "}
+            <Link src={websiteUrl}>
+              <Text style={s.linkText}>{websiteLabel}</Text>
+            </Link>
+            {" — "}
+            {portfolioSuffix(resume.portfolioNote)}
+          </Text>
         ) : null}
 
         <Text style={s.genFooter} fixed>
