@@ -155,14 +155,38 @@ const s = StyleSheet.create({
     lineHeight: 1.42,
     textAlign: "justify",
   },
-  toolLine: {
+  toolGroup: {
+    marginBottom: 7,
+  },
+  toolGroupRow: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "center",
+  },
+  toolCategoryLabel: {
+    fontSize: 9.5,
+    fontFamily: "Times-Bold",
+    color: palette.body,
+    lineHeight: 1.42,
+  },
+  inlineListRow: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "center",
+  },
+  inlineListItem: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  inlineSep: {
     fontSize: 9.5,
     color: palette.body,
-    lineHeight: 1.4,
-    marginBottom: 4,
+    lineHeight: 1.42,
   },
-  toolCategory: {
-    fontFamily: "Times-Bold",
+  inlineListText: {
+    fontSize: 9.5,
+    color: palette.body,
+    lineHeight: 1.42,
   },
   portfolioNote: {
     marginTop: 14,
@@ -189,6 +213,36 @@ const s = StyleSheet.create({
 
 /** Non-breaking spaces prevent react-pdf from collapsing padding around links. */
 const CONTACT_PIPE = "\u00A0\u00A0|\u00A0\u00A0";
+
+function keepPhrase(text: string): string {
+  return text.replace(/ /g, "\u00A0");
+}
+
+function InlineDotList({ items }: { items: string[] }) {
+  return (
+    <View style={s.inlineListRow}>
+      {items.map((item, index) => (
+        <View key={item} wrap={false} style={s.inlineListItem}>
+          {index > 0 ? <Text style={s.inlineSep}>{"   ·   "}</Text> : null}
+          <Text style={s.inlineListText}>{keepPhrase(item)}</Text>
+        </View>
+      ))}
+    </View>
+  );
+}
+
+function ToolGroup({ category, items }: { category: string; items: string[] }) {
+  return (
+    <View style={s.toolGroup}>
+      <View style={s.toolGroupRow}>
+        <Text style={s.toolCategoryLabel} wrap={false}>
+          {category}:{" "}
+        </Text>
+        <InlineDotList items={items} />
+      </View>
+    </View>
+  );
+}
 
 function ContactSep() {
   return <Text style={s.contactSep}>{CONTACT_PIPE}</Text>;
@@ -381,17 +435,14 @@ export function CvDocument({
         {resume.tools?.length ? (
           <Section title="Tools & Software">
             {resume.tools.map((group) => (
-              <Text key={group.category} style={s.toolLine}>
-                <Text style={s.toolCategory}>{group.category}: </Text>
-                {group.items.join("   ·   ")}
-              </Text>
+              <ToolGroup key={group.category} category={group.category} items={group.items} />
             ))}
           </Section>
         ) : null}
 
         {resume.languages?.length ? (
           <Section title="Languages">
-            <Text style={s.body}>{resume.languages.join("   ·   ")}</Text>
+            <InlineDotList items={resume.languages} />
           </Section>
         ) : null}
 
