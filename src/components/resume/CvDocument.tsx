@@ -60,6 +60,11 @@ const s = StyleSheet.create({
     color: palette.contact,
     lineHeight: 1.45,
   },
+  contactSep: {
+    fontSize: 9.5,
+    color: palette.contact,
+    lineHeight: 1.45,
+  },
   linkText: {
     fontSize: 9.5,
     color: palette.link,
@@ -182,7 +187,12 @@ const s = StyleSheet.create({
   },
 });
 
-const CONTACT_SEP = "   |   ";
+/** Non-breaking spaces prevent react-pdf from collapsing padding around links. */
+const CONTACT_PIPE = "\u00A0\u00A0|\u00A0\u00A0";
+
+function ContactSep() {
+  return <Text style={s.contactSep}>{CONTACT_PIPE}</Text>;
+}
 
 function ContactRow({
   location,
@@ -209,29 +219,34 @@ function ContactRow({
   const hasSite = Boolean(siteLabel);
   const hasLinkedIn = Boolean(linkedInUrl && linkedInLabel);
 
+  const hasMoreAfterLocation = hasPhone || hasEmail || hasSite || hasLinkedIn;
+  const hasMoreAfterPhone = hasEmail || hasSite || hasLinkedIn;
+  const hasMoreAfterEmail = hasSite || hasLinkedIn;
+  const hasMoreAfterSite = hasLinkedIn;
+
   return (
     <View style={s.contactBlock}>
       <Text style={s.contactPlain}>
-        {hasLocation ? location : null}
-        {hasLocation && hasPhone ? CONTACT_SEP : null}
+        {hasLocation ? <Text>{location}</Text> : null}
+        {hasLocation && hasMoreAfterLocation ? <ContactSep /> : null}
         {hasPhone ? (
           <Link src={phoneToTel(phone!)}>
             <Text style={s.linkText}>{phone}</Text>
           </Link>
         ) : null}
-        {(hasLocation || hasPhone) && hasEmail ? CONTACT_SEP : null}
+        {hasPhone && hasMoreAfterPhone ? <ContactSep /> : null}
         {hasEmail ? (
           <Link src={toMailto(email)}>
             <Text style={s.linkText}>{email}</Text>
           </Link>
         ) : null}
-        {(hasLocation || hasPhone || hasEmail) && hasSite ? CONTACT_SEP : null}
+        {hasEmail && hasMoreAfterEmail ? <ContactSep /> : null}
         {hasSite ? (
           <Link src={siteUrl}>
             <Text style={s.linkText}>{siteLabel}</Text>
           </Link>
         ) : null}
-        {(hasLocation || hasPhone || hasEmail || hasSite) && hasLinkedIn ? CONTACT_SEP : null}
+        {hasSite && hasMoreAfterSite ? <ContactSep /> : null}
         {hasLinkedIn ? (
           <Link src={linkedInUrl!}>
             <Text style={s.linkText}>{linkedInLabel}</Text>
