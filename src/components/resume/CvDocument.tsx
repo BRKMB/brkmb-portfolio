@@ -150,24 +150,14 @@ const s = StyleSheet.create({
     color: palette.school,
     lineHeight: 1.38,
   },
-  bulletRow: {
-    flexDirection: "row",
-    alignItems: "flex-start",
-    marginBottom: space.bulletAfter,
-    paddingRight: 2,
-  },
-  bulletMark: {
-    width: 10,
-    fontSize: 9.5,
-    lineHeight: 1.42,
-    color: palette.body,
-  },
-  bulletText: {
-    flex: 1,
+  bulletItem: {
     fontSize: 9.5,
     color: palette.body,
     lineHeight: 1.42,
     textAlign: "left",
+    marginBottom: space.bulletAfter,
+    paddingLeft: 10,
+    textIndent: -10,
   },
   toolGroup: {
     marginBottom: 7,
@@ -337,10 +327,9 @@ function Bullets({ items }: { items: string[] }) {
   return (
     <>
       {items.map((item) => (
-        <View key={item} style={s.bulletRow}>
-          <Text style={s.bulletMark}>•</Text>
-          <Text style={s.bulletText}>{item}</Text>
-        </View>
+        <Text key={item} style={s.bulletItem}>
+          • {item}
+        </Text>
       ))}
     </>
   );
