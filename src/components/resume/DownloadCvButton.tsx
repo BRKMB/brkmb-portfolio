@@ -18,7 +18,7 @@ export function DownloadCvButton({ resume, className }: Props) {
       <CvDocument
         resume={resume}
         siteName={site.name}
-        email={site.email}
+        email={resume.cvEmail ?? site.email}
         generatedAt={generatedAt}
       />
     ).toBlob();

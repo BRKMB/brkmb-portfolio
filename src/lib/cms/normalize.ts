@@ -110,7 +110,11 @@ export function normalizeCmsData(parsed: LegacyCmsData): CmsData {
     projects: parsed.projects?.length ? parsed.projects : defaultCmsData.projects,
     portfolio,
     linkGroups: resolveLinkGroups(parsed),
-    resume: { ...defaultCmsData.resume, ...parsed.resume },
+    resume: {
+      ...defaultCmsData.resume,
+      ...parsed.resume,
+      cvEmail: parsed.resume?.cvEmail ?? defaultCmsData.resume.cvEmail,
+    },
     portfolioRevision: CMS_PORTFOLIO_REVISION,
   };
 }
