@@ -1,38 +1,20 @@
-"use client";
-
-import { pdf } from "@react-pdf/renderer";
-import { CvDocument } from "./CvDocument";
-import type { ResumeData } from "@/types";
-import { site } from "@/lib/data";
-import { buildCvFilename } from "@/lib/cv-generation";
+import { CV_PDF_PATH, CV_PDF_URL } from "@/lib/cv-generation";
 
 type Props = {
-  resume: ResumeData;
   className?: string;
 };
 
-export function DownloadCvButton({ resume, className }: Props) {
-  const download = async () => {
-    const generatedAt = new Date();
-    const blob = await pdf(
-      <CvDocument
-        resume={resume}
-        siteName={site.name}
-        email={resume.cvEmail ?? site.email}
-        generatedAt={generatedAt}
-      />
-    ).toBlob();
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = buildCvFilename(site.name, generatedAt);
-    a.click();
-    URL.revokeObjectURL(url);
-  };
-
+export function DownloadCvButton({ className }: Props) {
   return (
-    <button type="button" onClick={download} data-cursor className={className}>
-      Download CV (PDF)
-    </button>
+    <a
+      href={CV_PDF_PATH}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-cursor
+      className={className}
+      title={CV_PDF_URL}
+    >
+      View CV (PDF)
+    </a>
   );
 }

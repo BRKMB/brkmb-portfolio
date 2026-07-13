@@ -1,5 +1,10 @@
 const SITE_URL = "brkmb.com";
 
+/** Stable path on brkmb.com — regenerated on each deploy, never expires. */
+export const CV_PDF_PUBLIC_FILE = "cv/baher-magally-cv.pdf";
+export const CV_PDF_PATH = `/${CV_PDF_PUBLIC_FILE}`;
+export const CV_PDF_URL = `https://${SITE_URL}${CV_PDF_PATH}`;
+
 export function buildCvGenerationFooter(at: Date = new Date(), siteUrl = SITE_URL): string {
   const stamp = new Intl.DateTimeFormat("en-GB", {
     day: "2-digit",

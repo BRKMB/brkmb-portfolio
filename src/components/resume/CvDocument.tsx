@@ -1,5 +1,5 @@
+import React, { type ReactNode } from "react";
 import { Document, Link, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
-import type { ReactNode } from "react";
 import type { ResumeData } from "@/types";
 import { buildCvGenerationFooter } from "@/lib/cv-generation";
 import { toLinkedInUrl, toMailto, toWebsiteUrl } from "@/lib/cv-links";

@@ -1,7 +1,6 @@
 "use client";
 
 import type { ReactNode } from "react";
-import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import type { IconType } from "react-icons";
@@ -26,20 +25,10 @@ import {
 } from "react-icons/hi2";
 import { about, site } from "@/lib/data";
 import { useResume } from "@/components/providers/CmsProvider";
+import { DownloadCvButton } from "@/components/resume/DownloadCvButton";
 import { Button } from "@/components/ui/Button";
+import { CV_PDF_URL } from "@/lib/cv-generation";
 import { cn } from "@/lib/utils";
-
-const DownloadCvButton = dynamic(
-  () => import("@/components/resume/DownloadCvButton").then((m) => m.DownloadCvButton),
-  {
-    ssr: false,
-    loading: () => (
-      <span className="btn-primary text-subheadline inline-flex min-h-[44px] cursor-wait items-center justify-center rounded-full px-6 py-3 opacity-70">
-        Loading PDF…
-      </span>
-    ),
-  }
-);
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -130,16 +119,21 @@ export function ResumePageContent() {
             transition={{ delay: 0.12, duration: 0.6 }}
             className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center"
           >
-            <DownloadCvButton
-              resume={resume}
-              className="btn-primary text-subheadline inline-flex min-h-[44px] items-center justify-center rounded-full px-6 py-3"
-            />
+            <DownloadCvButton className="btn-primary text-subheadline inline-flex min-h-[44px] items-center justify-center rounded-full px-6 py-3" />
             <Button href={`mailto:${site.email}`} variant="ghost">
               <HiOutlineEnvelope className="mr-2 h-4 w-4" aria-hidden />
               Email me
             </Button>
-            <p className="text-caption v-quaternary max-w-xs leading-relaxed sm:ml-1">
-              PDF is generated live from this page — always matches the latest resume data.
+            <p className="text-caption v-quaternary max-w-sm leading-relaxed sm:ml-1">
+              Shareable link (opens in a new tab):{" "}
+              <a
+                href={CV_PDF_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent underline-offset-2 hover:underline"
+              >
+                {CV_PDF_URL.replace(/^https:\/\//, "")}
+              </a>
             </p>
           </motion.div>
 
