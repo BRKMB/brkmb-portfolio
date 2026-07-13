@@ -125,7 +125,7 @@ export function ResumePageContent() {
               Email me
             </Button>
             <p className="text-caption v-quaternary max-w-sm leading-relaxed sm:ml-1">
-              Shareable link (opens in a new tab):{" "}
+              Permanent PDF from your Word CV — share{" "}
               <a
                 href={CV_PDF_URL}
                 target="_blank"

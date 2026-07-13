@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build:cv": "tsx scripts/build-cv-pdf.tsx",
+    "build:cv": "node scripts/build-cv-pdf.mjs",
     "build": "npm run build:cv && next build",
     "start": "next start",
     "lint": "next lint",
