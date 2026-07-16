@@ -27,7 +27,6 @@ import { about, site } from "@/lib/data";
 import { useResume } from "@/components/providers/CmsProvider";
 import { DownloadCvButton } from "@/components/resume/DownloadCvButton";
 import { Button } from "@/components/ui/Button";
-import { CV_PDF_URL } from "@/lib/cv-generation";
 import { cn } from "@/lib/utils";
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -124,17 +123,6 @@ export function ResumePageContent() {
               <HiOutlineEnvelope className="mr-2 h-4 w-4" aria-hidden />
               Email me
             </Button>
-            <p className="text-caption v-quaternary max-w-sm leading-relaxed sm:ml-1">
-              Permanent PDF from your Word CV — share{" "}
-              <a
-                href={CV_PDF_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent underline-offset-2 hover:underline"
-              >
-                {CV_PDF_URL.replace(/^https:\/\//, "")}
-              </a>
-            </p>
           </motion.div>
 
           {site.stats?.length ? (
