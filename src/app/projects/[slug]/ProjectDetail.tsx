@@ -88,7 +88,9 @@ export function ProjectDetail({ slug }: { slug: string }) {
           <div className="mt-6 flex flex-wrap gap-3">
             {project.externalUrl ? (
               <Button href={project.externalUrl} external>
-                Visit live →
+                {project.externalUrl.includes("chromewebstore.google.com")
+                  ? "Add to Chrome →"
+                  : "Visit live →"}
               </Button>
             ) : null}
             <Button href="/contact/" variant="ghost">

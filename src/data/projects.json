@@ -116,14 +116,14 @@
   {
     "slug": "BlinkOTP",
     "title": "BlinkOTP",
-    "shortDescription": "Chrome extension for fast, secure OTP — imagined, designed, and shipped by me.",
-    "description": "Browser extension that streamlines 2FA workflows with a clean, premium interface.",
+    "shortDescription": "Instant OTP autofill from Gmail — private, free, and live on the Chrome Web Store.",
+    "description": "Chrome extension that finds verification codes in your email and fills them instantly — no tab-switching, no copy-paste.",
     "category": "Extensions",
     "status": "Live",
     "kind": "venture",
     "thumbnail": "/images/projects/blinkotp.png",
     "tools": ["Figma", "React", "Chrome APIs"],
-    "overview": "BlinkOTP is a Chrome extension I built for people who live in 2FA workflows. It captures and surfaces one-time codes quickly, with a minimal interface that stays out of the way until you need it — speed without trading off security.",
+    "overview": "BlinkOTP automatically finds verification codes from your Gmail and fills them instantly — no more switching tabs, opening your inbox, or manually copying codes. Instant OTP detection, one-click autofill, multiple Gmail accounts, read-only access, and local-only processing. Free to use and live on the Chrome Web Store.",
     "role": "Founder, Designer, Product Lead",
     "process": [
       "Problem validation with users",
@@ -133,12 +133,12 @@
     ],
     "results": [
       "Live on Chrome Web Store",
-      "Sub-second OTP retrieval",
-      "Clean, minimal interface"
+      "Instant Gmail OTP detection & autofill",
+      "Privacy-first — local, read-only, free"
     ],
     "gallery": ["/images/projects/blinkotp.png"],
     "featured": true,
-    "externalUrl": "",
+    "externalUrl": "https://chromewebstore.google.com/detail/blinkotp/leknghmcahnbcdlahcnmfbllfoblnmoa",
     "storeCompliance": true
   },
   {

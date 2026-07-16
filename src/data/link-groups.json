@@ -161,17 +161,17 @@
     "defaultOpen": false,
     "links": [
       {
+        "id": "blinkotp-chrome",
+        "label": "Chrome Web Store",
+        "description": "Install BlinkOTP — free",
+        "href": "https://chromewebstore.google.com/detail/blinkotp/leknghmcahnbcdlahcnmfbllfoblnmoa",
+        "platform": "website"
+      },
+      {
         "id": "blinkotp-project",
         "label": "Project page",
         "description": "Case study on brkmb.com",
         "href": "https://brkmb.com/projects/BlinkOTP/",
-        "platform": "website"
-      },
-      {
-        "id": "blinkotp-chrome",
-        "label": "Chrome Web Store",
-        "description": "Extension link — coming soon",
-        "href": "#chrome-extension",
         "platform": "website"
       }
     ]

@@ -1,7 +1,7 @@
 [
   { "id": "t0", "project": "Boostify", "task": "Media enhancer v1.7.7 — audio, video & Quiet Ads", "progress": 92 },
   { "id": "t0b", "project": "lnki.to", "task": "Bio pages, short links & analytics", "progress": 72 },
-  { "id": "t1", "project": "BlinkOTP", "task": "Improving features & UX polish", "progress": 85 },
+  { "id": "t1", "project": "BlinkOTP", "task": "Live on Chrome Web Store — OTP autofill", "progress": 100 },
   { "id": "t2", "project": "Benou", "task": "Mobile app development", "progress": 62 },
   { "id": "t3", "project": "ERP System", "task": "Desktop architecture & modules", "progress": 45 },
   { "id": "t4", "project": "BARYQ", "task": "Brand growth & campaign rollout", "progress": 38 }

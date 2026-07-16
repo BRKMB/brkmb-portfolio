@@ -28,7 +28,7 @@
     "slug": "blinkotp",
     "logo": "⚡",
     "logoImage": "/images/projects/blinkotp.png",
-    "description": "Chrome extension I imagined, designed, and shipped — not a client brief.",
+    "description": "Instant OTP autofill from Gmail — live on the Chrome Web Store.",
     "ownership": "Founded & created by me",
     "status": "Live",
     "accent": "#d4ff4d",
