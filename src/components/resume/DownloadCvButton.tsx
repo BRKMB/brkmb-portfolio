@@ -1,4 +1,4 @@
-import { CV_PDF_PATH, CV_PDF_URL } from "@/lib/cv-generation";
+import { CV_PDF_PATH } from "@/lib/cv-generation";
 
 type Props = {
   className?: string;
@@ -12,7 +12,6 @@ export function DownloadCvButton({ className }: Props) {
       rel="noopener noreferrer"
       data-cursor
       className={className}
-      title={CV_PDF_URL}
     >
       View CV (PDF)
     </a>
