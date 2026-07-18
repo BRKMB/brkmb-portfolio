@@ -2435,8 +2435,8 @@ html.light .project-index-row__thumb-img--invert {
 }
 
 .product-split__title {
-  font-size: clamp(1.65rem, 2.6vw, 2.35rem);
-  line-height: 1.15;
+  font-size: clamp(1.75rem, 2.8vw, 2.6rem);
+  line-height: 1.12;
   letter-spacing: -0.02em;
 }
 
@@ -2453,32 +2453,43 @@ html.light .project-index-row__thumb-img--invert {
 
 @media (min-width: 900px) {
   .product-split {
-    gap: 5.5rem;
+    gap: 5rem;
   }
 
-  /* Exact half / half page split */
+  /* Text slightly narrower, image larger — fills the wide page */
   .product-split__row {
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    min-height: 0;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .product-split__row--rtl {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
   }
 
   .product-split__copy {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-inline: 0.5rem 1rem;
-    max-width: 28rem;
+    padding-inline: 0.25rem 0.75rem;
+    max-width: none;
   }
 
   .product-split__row--rtl .product-split__copy {
-    padding-inline: 1rem 0.5rem;
-    margin-inline-start: auto;
+    padding-inline: 0.75rem 0.25rem;
+    margin-inline-start: 0;
   }
 
   .product-split__media {
     aspect-ratio: 16 / 10;
-    border-radius: 20px;
+    min-height: 340px;
+    border-radius: 22px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .product-split__media {
+    min-height: 420px;
   }
 }
 
