@@ -39,6 +39,51 @@ type Props = {
   storeUrl: string;
 };
 
+function ShotCopy({
+  index,
+  shot,
+}: {
+  index: number;
+  shot: ProjectShot;
+}) {
+  return (
+    <div className="product-split__copy">
+      <p className="text-caption tracking-[0.22em] uppercase text-accent">
+        {String(index + 1).padStart(2, "0")}
+      </p>
+      {shot.title ? (
+        <h3 className="font-display product-split__title mt-4 v-primary">{shot.title}</h3>
+      ) : null}
+      {shot.caption ? (
+        <p className="text-body md:text-lg mt-5 v-secondary leading-relaxed">{shot.caption}</p>
+      ) : null}
+    </div>
+  );
+}
+
+function ShotMedia({
+  projectTitle,
+  shot,
+  index,
+}: {
+  projectTitle: string;
+  shot: ProjectShot;
+  index: number;
+}) {
+  return (
+    <div className="product-split__media">
+      <Image
+        src={shot.src}
+        alt={shot.alt ?? `${projectTitle} screenshot ${index + 1}`}
+        fill
+        priority={index === 0}
+        sizes="(max-width: 900px) 100vw, 50vw"
+        className="object-cover"
+      />
+    </div>
+  );
+}
+
 export function ProductShowcase({
   project,
   features,
@@ -48,53 +93,35 @@ export function ProductShowcase({
   storeUrl,
 }: Props) {
   return (
-    <div className="product-showcase mt-12 space-y-16 md:space-y-20">
-      <section>
-        <div className="product-section-head">
-          <p className="text-caption tracking-[0.22em] uppercase text-accent">Product visuals</p>
-          <h2 className="font-display text-title-1 mt-2 v-primary">See it in action</h2>
-        </div>
-        <div className="product-zigzag mt-10">
+    <div className="product-showcase mt-14 space-y-16 md:space-y-24">
+      <section aria-label={`${project.title} visuals`}>
+        <div className="product-split">
           {shots.map((shot, i) => {
-            const imageRight = i % 2 === 0;
+            const imageOnRight = i % 2 === 0;
             return (
-              <motion.article
+              <motion.div
                 key={shot.src}
-                initial={{ opacity: 0, y: 28 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.65, ease }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.6, ease }}
                 className={cn(
-                  "product-zigzag__row",
-                  imageRight ? "product-zigzag__row--image-right" : "product-zigzag__row--image-left"
+                  "product-split__row",
+                  imageOnRight ? "product-split__row--ltr" : "product-split__row--rtl"
                 )}
               >
-                <div className="product-zigzag__copy">
-                  <p className="text-caption tracking-[0.2em] uppercase text-accent">
-                    {String(i + 1).padStart(2, "0")}
-                  </p>
-                  {shot.title ? (
-                    <h3 className="font-display text-title-1 mt-3 v-primary leading-tight">
-                      {shot.title}
-                    </h3>
-                  ) : null}
-                  {shot.caption ? (
-                    <p className="text-body mt-4 v-secondary leading-relaxed">{shot.caption}</p>
-                  ) : null}
-                </div>
-                <div className="product-zigzag__media">
-                  <div className="product-shot__frame">
-                    <Image
-                      src={shot.src}
-                      alt={shot.alt ?? `${project.title} screenshot ${i + 1}`}
-                      fill
-                      priority={i === 0}
-                      sizes="(max-width: 768px) 100vw, 55vw"
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-              </motion.article>
+                {imageOnRight ? (
+                  <>
+                    <ShotCopy index={i} shot={shot} />
+                    <ShotMedia projectTitle={project.title} shot={shot} index={i} />
+                  </>
+                ) : (
+                  <>
+                    <ShotMedia projectTitle={project.title} shot={shot} index={i} />
+                    <ShotCopy index={i} shot={shot} />
+                  </>
+                )}
+              </motion.div>
             );
           })}
         </div>
@@ -104,10 +131,6 @@ export function ProductShowcase({
         <div className="product-section-head">
           <p className="text-caption tracking-[0.22em] uppercase text-accent">Features</p>
           <h2 className="font-display text-title-1 mt-2 v-primary">Built for speed and privacy</h2>
-          <p className="text-body mt-3 max-w-2xl v-secondary leading-relaxed">
-            Everything from the Chrome Web Store listing — automatic detection, one-click fill, and
-            local-only processing.
-          </p>
         </div>
         <ul className="product-feature-grid mt-8">
           {features.map((feature, i) => {

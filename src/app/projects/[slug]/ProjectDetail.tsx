@@ -54,10 +54,13 @@ export function ProjectDetail({ slug }: { slug: string }) {
 
   return (
     <article
-      className={cn("case-study min-h-screen px-5 pt-28 pb-24 md:px-10 md:pt-32", isProductPage && "case-study--product")}
+      className={cn(
+        "case-study min-h-screen px-5 pt-28 pb-24 md:px-10 md:pt-32",
+        isProductPage && "case-study--product"
+      )}
       style={{ "--case-accent": accent } as CSSProperties}
     >
-      <div className={cn("mx-auto", isProductPage ? "max-w-5xl" : "max-w-3xl")}>
+      <div className={cn("mx-auto w-full", isProductPage ? "max-w-6xl" : "max-w-3xl")}>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
