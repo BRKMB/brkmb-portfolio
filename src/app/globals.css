@@ -2509,12 +2509,22 @@ html.light .project-index-row__thumb-img--invert {
   }
 }
 
+.product-section-head {
+  margin-bottom: 0;
+}
+
 .product-feature-grid {
   list-style: none;
   display: grid;
   gap: 0.85rem;
-  margin: 0;
+  margin: 2.75rem 0 0;
   padding: 0;
+}
+
+@media (min-width: 768px) {
+  .product-feature-grid {
+    margin-top: 3.25rem;
+  }
 }
 
 @media (min-width: 640px) {
@@ -2556,7 +2566,7 @@ html.light .project-index-row__thumb-img--invert {
 
 .product-steps {
   list-style: none;
-  margin: 0;
+  margin: 2.75rem 0 0;
   padding: 0;
   display: grid;
   gap: 0.75rem;
@@ -2564,6 +2574,7 @@ html.light .project-index-row__thumb-img--invert {
 
 @media (min-width: 768px) {
   .product-steps {
+    margin-top: 3.25rem;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
