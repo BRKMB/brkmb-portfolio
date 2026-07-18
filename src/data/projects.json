@@ -192,22 +192,26 @@
     "shots": [
       {
         "src": "/images/projects/blinkotp/01.jpg",
-        "caption": "Verification codes, automatically — detect from Gmail, one-click fill, secure & private.",
+        "title": "Verification codes, automatically",
+        "caption": "BlinkOTP detects OTP codes from Gmail and fills them instantly — secure, private, and local.",
         "alt": "BlinkOTP promo — automatic OTP detection and fill"
       },
       {
         "src": "/images/projects/blinkotp/02.jpg",
-        "caption": "Light & dark mode — your codes, one click away.",
+        "title": "Your codes. One click away",
+        "caption": "Works in light and dark mode. Auto-detect, one-click fill, and free forever.",
         "alt": "BlinkOTP popup in light and dark mode"
       },
       {
         "src": "/images/projects/blinkotp/03.jpg",
-        "caption": "In-page detection on sites like GitHub — click the icon or Fill to autofill.",
+        "title": "Smart detection. One-click fill",
+        "caption": "In-page detection on sites like GitHub — tap Fill or the lightning icon to autofill.",
         "alt": "BlinkOTP filling a verification code on GitHub"
       },
       {
         "src": "/images/projects/blinkotp/04.jpg",
-        "caption": "Unlimited Gmail accounts — connect every inbox, still 100% free.",
+        "title": "Unlimited emails. 100% free",
+        "caption": "Connect every Gmail account you need — no caps, no paywall for core features.",
         "alt": "BlinkOTP connected accounts with unlimited Gmail"
       }
     ],

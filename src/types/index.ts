@@ -17,6 +17,7 @@ export type ProjectFeature = {
 
 export type ProjectShot = {
   src: string;
+  title?: string;
   caption?: string;
   alt?: string;
 };

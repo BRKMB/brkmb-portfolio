@@ -47,34 +47,58 @@ export function ProductShowcase({
   trustBadges,
   storeUrl,
 }: Props) {
-  const hero = shots[0];
-  const rest = shots.slice(1);
-
   return (
     <div className="product-showcase mt-12 space-y-16 md:space-y-20">
-      {hero ? (
-        <motion.figure
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.7, ease }}
-          className="product-hero-shot"
-        >
-          <div className="product-hero-shot__frame">
-            <Image
-              src={hero.src}
-              alt={hero.alt ?? `${project.title} product shot`}
-              fill
-              priority
-              sizes="(max-width: 1024px) 100vw, 960px"
-              className="object-cover"
-            />
-          </div>
-          {hero.caption ? (
-            <figcaption className="product-shot__caption">{hero.caption}</figcaption>
-          ) : null}
-        </motion.figure>
-      ) : null}
+      <section>
+        <div className="product-section-head">
+          <p className="text-caption tracking-[0.22em] uppercase text-accent">Product visuals</p>
+          <h2 className="font-display text-title-1 mt-2 v-primary">See it in action</h2>
+        </div>
+        <div className="product-zigzag mt-10">
+          {shots.map((shot, i) => {
+            const imageRight = i % 2 === 0;
+            return (
+              <motion.article
+                key={shot.src}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.65, ease }}
+                className={cn(
+                  "product-zigzag__row",
+                  imageRight ? "product-zigzag__row--image-right" : "product-zigzag__row--image-left"
+                )}
+              >
+                <div className="product-zigzag__copy">
+                  <p className="text-caption tracking-[0.2em] uppercase text-accent">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                  {shot.title ? (
+                    <h3 className="font-display text-title-1 mt-3 v-primary leading-tight">
+                      {shot.title}
+                    </h3>
+                  ) : null}
+                  {shot.caption ? (
+                    <p className="text-body mt-4 v-secondary leading-relaxed">{shot.caption}</p>
+                  ) : null}
+                </div>
+                <div className="product-zigzag__media">
+                  <div className="product-shot__frame">
+                    <Image
+                      src={shot.src}
+                      alt={shot.alt ?? `${project.title} screenshot ${i + 1}`}
+                      fill
+                      priority={i === 0}
+                      sizes="(max-width: 768px) 100vw, 55vw"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </motion.article>
+            );
+          })}
+        </div>
+      </section>
 
       <section>
         <div className="product-section-head">
@@ -126,40 +150,6 @@ export function ProductShowcase({
           ))}
         </ol>
       </section>
-
-      {rest.length > 0 ? (
-        <section>
-          <div className="product-section-head">
-            <p className="text-caption tracking-[0.22em] uppercase text-accent">Product visuals</p>
-            <h2 className="font-display text-title-1 mt-2 v-primary">See it in action</h2>
-          </div>
-          <div className="product-shots mt-8">
-            {rest.map((shot, i) => (
-              <motion.figure
-                key={shot.src}
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.65, delay: 0.05, ease }}
-                className={cn("product-shot", i % 2 === 1 && "product-shot--offset")}
-              >
-                <div className="product-shot__frame">
-                  <Image
-                    src={shot.src}
-                    alt={shot.alt ?? `${project.title} screenshot ${i + 2}`}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 900px"
-                    className="object-cover"
-                  />
-                </div>
-                {shot.caption ? (
-                  <figcaption className="product-shot__caption">{shot.caption}</figcaption>
-                ) : null}
-              </motion.figure>
-            ))}
-          </div>
-        </section>
-      ) : null}
 
       {trustBadges.length > 0 ? (
         <section className="product-trust" aria-label="Privacy and trust">
