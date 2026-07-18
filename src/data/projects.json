@@ -116,27 +116,101 @@
   {
     "slug": "BlinkOTP",
     "title": "BlinkOTP",
-    "shortDescription": "Instant OTP autofill from Gmail — private, free, and live on the Chrome Web Store.",
-    "description": "Chrome extension that finds verification codes in your email and fills them instantly — no tab-switching, no copy-paste.",
+    "tagline": "Smart. Fast. Private.",
+    "shortDescription": "Instant, automatic OTP autofill from your email — private, free, and fully automatic.",
+    "description": "BlinkOTP automatically finds verification codes from your Gmail and fills them instantly — no more switching tabs, opening your inbox, or manually copying codes.",
     "category": "Extensions",
     "status": "Live",
     "kind": "venture",
     "thumbnail": "/images/projects/blinkotp.png",
-    "tools": ["Figma", "React", "Chrome APIs"],
-    "overview": "BlinkOTP automatically finds verification codes from your Gmail and fills them instantly — no more switching tabs, opening your inbox, or manually copying codes. Instant OTP detection, one-click autofill, multiple Gmail accounts, read-only access, and local-only processing. Free to use and live on the Chrome Web Store.",
+    "tools": ["Figma", "React", "Chrome APIs", "Gmail API"],
+    "overview": "Instant, automatic OTP autofill from your email — private, free, and fully automatic. Connect Gmail, receive verification emails as usual, and BlinkOTP detects codes and fills them for you. Built for speed, convenience, and privacy.",
     "role": "Founder, Designer, Product Lead",
     "process": [
-      "Problem validation with users",
-      "UX for capture and autofill flows",
-      "Visual design and icon system",
-      "Launch on Chrome Web Store"
+      "Connect your Gmail account",
+      "Receive verification emails normally",
+      "BlinkOTP detects OTP codes automatically",
+      "Fill your code instantly"
+    ],
+    "howItWorks": [
+      "Connect your Gmail account",
+      "Receive verification emails normally",
+      "BlinkOTP detects OTP codes automatically",
+      "Fill your code instantly"
+    ],
+    "features": [
+      {
+        "title": "Instant OTP detection",
+        "description": "Codes are found in Gmail the moment they arrive — no searching your inbox."
+      },
+      {
+        "title": "One-click autofill",
+        "description": "Fill verification fields instantly. No copy, paste, or tab switching."
+      },
+      {
+        "title": "Multiple Gmail accounts",
+        "description": "Connect every inbox you use and switch between them without friction."
+      },
+      {
+        "title": "Unlimited connected accounts",
+        "description": "Add as many Gmail accounts as you need — free, with no caps."
+      },
+      {
+        "title": "Read-only Gmail access",
+        "description": "Only what’s needed to detect codes. No send, delete, or modify permissions."
+      },
+      {
+        "title": "Runs locally on your device",
+        "description": "Processing stays on your machine. Built for privacy by default."
+      },
+      {
+        "title": "No email storage",
+        "description": "We don’t keep your messages or codes on our servers."
+      },
+      {
+        "title": "Free to use",
+        "description": "All core features included — no paywall for the essentials."
+      }
+    ],
+    "trustBadges": [
+      "Read-only Gmail access",
+      "Local processing",
+      "No email storage",
+      "Free forever"
     ],
     "results": [
-      "Live on Chrome Web Store",
-      "Instant Gmail OTP detection & autofill",
-      "Privacy-first — local, read-only, free"
+      "Live on the Chrome Web Store",
+      "Works on Chrome, Brave, Edge, Arc & other Chromium browsers",
+      "Privacy-first OTP autofill from Gmail"
     ],
-    "gallery": ["/images/projects/blinkotp.png"],
+    "gallery": [
+      "/images/projects/blinkotp/01.jpg",
+      "/images/projects/blinkotp/02.jpg",
+      "/images/projects/blinkotp/03.jpg",
+      "/images/projects/blinkotp/04.jpg"
+    ],
+    "shots": [
+      {
+        "src": "/images/projects/blinkotp/01.jpg",
+        "caption": "Verification codes, automatically — detect from Gmail, one-click fill, secure & private.",
+        "alt": "BlinkOTP promo — automatic OTP detection and fill"
+      },
+      {
+        "src": "/images/projects/blinkotp/02.jpg",
+        "caption": "Light & dark mode — your codes, one click away.",
+        "alt": "BlinkOTP popup in light and dark mode"
+      },
+      {
+        "src": "/images/projects/blinkotp/03.jpg",
+        "caption": "In-page detection on sites like GitHub — click the icon or Fill to autofill.",
+        "alt": "BlinkOTP filling a verification code on GitHub"
+      },
+      {
+        "src": "/images/projects/blinkotp/04.jpg",
+        "caption": "Unlimited Gmail accounts — connect every inbox, still 100% free.",
+        "alt": "BlinkOTP connected accounts with unlimited Gmail"
+      }
+    ],
     "featured": true,
     "externalUrl": "https://chromewebstore.google.com/detail/blinkotp/leknghmcahnbcdlahcnmfbllfoblnmoa",
     "storeCompliance": true

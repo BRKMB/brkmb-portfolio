@@ -10,6 +10,17 @@ export type ProjectCategory =
 
 export type ProjectKind = "venture" | "work";
 
+export type ProjectFeature = {
+  title: string;
+  description: string;
+};
+
+export type ProjectShot = {
+  src: string;
+  caption?: string;
+  alt?: string;
+};
+
 export interface Brand {
   id: string;
   name: string;
@@ -38,6 +49,12 @@ export interface Project {
   process: string[];
   results: string[];
   gallery: string[];
+  /** Rich product shots with captions (Chrome Web Store-style pages) */
+  shots?: ProjectShot[];
+  features?: ProjectFeature[];
+  howItWorks?: string[];
+  trustBadges?: string[];
+  tagline?: string;
   featured?: boolean;
   externalUrl?: string;
   /** Enables /projects/{slug}/privacy|terms|support/ when compliance data exists */

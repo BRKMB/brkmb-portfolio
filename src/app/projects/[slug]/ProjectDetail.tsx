@@ -11,10 +11,16 @@ import {
   getAdjacentProjectSlugs,
 } from "@/lib/project-brand";
 import { ProjectComplianceLinks } from "@/components/projects/ProjectComplianceLinks";
+import { ProductShowcase } from "@/components/projects/ProductShowcase";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
 const ease = [0.16, 1, 0.3, 1] as const;
+
+function storeCtaLabel(url: string): string {
+  if (url.includes("chromewebstore.google.com")) return "Add to your browser →";
+  return "Visit live →";
+}
 
 export function ProjectDetail({ slug }: { slug: string }) {
   const project = useProject(slug);
@@ -41,16 +47,17 @@ export function ProjectDetail({ slug }: { slug: string }) {
   const accent = getProjectAccent(project);
   const thumb = getProjectListThumb(project);
   const isLive = project.status === "Live";
+  const isProductPage = Boolean(project.features?.length && project.shots?.length);
   const gallery = project.gallery.filter(
     (src) => !src.includes("/placeholders/") && src !== project.thumbnail
   );
 
   return (
     <article
-      className="case-study min-h-screen px-5 pt-28 pb-24 md:px-10 md:pt-32"
+      className={cn("case-study min-h-screen px-5 pt-28 pb-24 md:px-10 md:pt-32", isProductPage && "case-study--product")}
       style={{ "--case-accent": accent } as CSSProperties}
     >
-      <div className="mx-auto max-w-3xl">
+      <div className={cn("mx-auto", isProductPage ? "max-w-5xl" : "max-w-3xl")}>
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -80,17 +87,20 @@ export function ProjectDetail({ slug }: { slug: string }) {
                 <span className={cn("case-pill", isLive && "case-pill--live")}>{project.status}</span>
               </div>
               <h1 className="font-display text-large-title mt-4 uppercase v-primary">{project.title}</h1>
+              {project.tagline ? (
+                <p className="text-headline mt-2 v-secondary">{project.tagline}</p>
+              ) : null}
             </div>
           </div>
 
-          <p className="text-body md:text-lg mt-6 v-secondary leading-relaxed">{project.description}</p>
+          <p className="text-body md:text-lg mt-6 max-w-3xl v-secondary leading-relaxed">
+            {project.description}
+          </p>
 
           <div className="mt-6 flex flex-wrap gap-3">
             {project.externalUrl ? (
               <Button href={project.externalUrl} external>
-                {project.externalUrl.includes("chromewebstore.google.com")
-                  ? "Add to Chrome →"
-                  : "Visit live →"}
+                {storeCtaLabel(project.externalUrl)}
               </Button>
             ) : null}
             <Button href="/contact/" variant="ghost">
@@ -99,81 +109,96 @@ export function ProjectDetail({ slug }: { slug: string }) {
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.1, duration: 0.6 }}
-          className="case-facts mt-10 grid gap-6 border-y border-subtle py-8 sm:grid-cols-2"
-        >
-          <div>
-            <p className="case-meta__label">Role</p>
-            <p className="text-subheadline mt-2 v-primary leading-relaxed">{project.role}</p>
-          </div>
-          <div>
-            <p className="case-meta__label">Stack &amp; tools</p>
-            <ul className="case-meta__tools mt-3">
-              {project.tools.map((tool) => (
-                <li key={tool}>{tool}</li>
-              ))}
-            </ul>
-          </div>
-        </motion.div>
-
-        <div className="mt-12 space-y-12">
-          <section>
-            <h2 className="font-display text-title-2 v-primary">Overview</h2>
-            <p className="text-body mt-4 v-secondary leading-relaxed">{project.overview}</p>
-          </section>
-
-          <section>
-            <h2 className="font-display text-title-2 v-primary">Approach</h2>
-            <ol className="case-steps mt-5">
-              {project.process.map((step, i) => (
-                <li key={step} className="case-step">
-                  <span className="case-step__num font-display tabular-nums">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <p className="text-body v-secondary leading-relaxed">{step}</p>
-                </li>
-              ))}
-            </ol>
-          </section>
-
-          <section>
-            <h2 className="font-display text-title-2 v-primary">Outcomes</h2>
-            <ul className="case-outcomes mt-5">
-              {project.results.map((item) => (
-                <li key={item} className="case-outcome">
-                  <span className="case-outcome__mark" aria-hidden />
-                  <span className="text-body v-secondary leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          {gallery.length > 0 ? (
-            <section>
-              <h2 className="font-display text-title-2 v-primary">Visuals</h2>
-              <div className="case-gallery mt-5">
-                {gallery.map((src, i) => (
-                  <div key={`${src}-${i}`} className="case-gallery__item">
-                    <Image
-                      src={src}
-                      alt={`${project.title} visual ${i + 1}`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 672px"
-                      className={cn(
-                        src.includes("logo") || src.endsWith(".svg")
-                          ? "object-contain p-8"
-                          : "object-cover"
-                      )}
-                    />
-                  </div>
-                ))}
+        {isProductPage && project.features && project.shots && project.externalUrl ? (
+          <ProductShowcase
+            project={project}
+            features={project.features}
+            shots={project.shots}
+            howItWorks={project.howItWorks ?? project.process}
+            trustBadges={project.trustBadges ?? []}
+            storeUrl={project.externalUrl}
+          />
+        ) : (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+              className="case-facts mt-10 grid gap-6 border-y border-subtle py-8 sm:grid-cols-2"
+            >
+              <div>
+                <p className="case-meta__label">Role</p>
+                <p className="text-subheadline mt-2 v-primary leading-relaxed">{project.role}</p>
               </div>
-            </section>
-          ) : null}
+              <div>
+                <p className="case-meta__label">Stack &amp; tools</p>
+                <ul className="case-meta__tools mt-3">
+                  {project.tools.map((tool) => (
+                    <li key={tool}>{tool}</li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
 
+            <div className="mt-12 space-y-12">
+              <section>
+                <h2 className="font-display text-title-2 v-primary">Overview</h2>
+                <p className="text-body mt-4 v-secondary leading-relaxed">{project.overview}</p>
+              </section>
+
+              <section>
+                <h2 className="font-display text-title-2 v-primary">Approach</h2>
+                <ol className="case-steps mt-5">
+                  {project.process.map((step, i) => (
+                    <li key={step} className="case-step">
+                      <span className="case-step__num font-display tabular-nums">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <p className="text-body v-secondary leading-relaxed">{step}</p>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+
+              <section>
+                <h2 className="font-display text-title-2 v-primary">Outcomes</h2>
+                <ul className="case-outcomes mt-5">
+                  {project.results.map((item) => (
+                    <li key={item} className="case-outcome">
+                      <span className="case-outcome__mark" aria-hidden />
+                      <span className="text-body v-secondary leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
+              {gallery.length > 0 ? (
+                <section>
+                  <h2 className="font-display text-title-2 v-primary">Visuals</h2>
+                  <div className="case-gallery mt-5">
+                    {gallery.map((src, i) => (
+                      <div key={`${src}-${i}`} className="case-gallery__item">
+                        <Image
+                          src={src}
+                          alt={`${project.title} visual ${i + 1}`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 672px"
+                          className={cn(
+                            src.includes("logo") || src.endsWith(".svg")
+                              ? "object-contain p-8"
+                              : "object-cover"
+                          )}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              ) : null}
+            </div>
+          </>
+        )}
+
+        <div className="mt-14">
           <ProjectComplianceLinks slug={slug} />
         </div>
 
