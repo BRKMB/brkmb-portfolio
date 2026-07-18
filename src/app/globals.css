@@ -2453,30 +2453,30 @@ html.light .project-index-row__thumb-img--invert {
 
 @media (min-width: 900px) {
   .product-split {
-    gap: 4.25rem;
+    gap: 4.5rem;
   }
 
-  /* Text ~36% · image ~64% — fills almost the full viewport width */
+  /* Balanced split — image a bit larger, still room for copy */
   .product-split__row {
-    grid-template-columns: minmax(16rem, 0.72fr) minmax(0, 1.28fr);
-    gap: 1.75rem;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 2.25rem;
     align-items: center;
   }
 
   .product-split__row--rtl {
-    grid-template-columns: minmax(0, 1.28fr) minmax(16rem, 0.72fr);
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   }
 
   .product-split__copy {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-inline: 0.35rem 0.5rem;
-    max-width: 26rem;
+    padding-inline: 0.35rem 0.75rem;
+    max-width: 28rem;
   }
 
   .product-split__row--rtl .product-split__copy {
-    padding-inline: 0.5rem 0.35rem;
+    padding-inline: 0.75rem 0.35rem;
     margin-inline-start: auto;
     margin-inline-end: 0;
   }
@@ -2484,14 +2484,14 @@ html.light .project-index-row__thumb-img--invert {
   .product-split__media {
     aspect-ratio: 16 / 10;
     width: 100%;
-    min-height: clamp(380px, 42vw, 560px);
+    min-height: 360px;
     border-radius: 20px;
   }
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1280px) {
   .product-split__media {
-    min-height: clamp(460px, 38vw, 640px);
+    min-height: 400px;
   }
 }
 
