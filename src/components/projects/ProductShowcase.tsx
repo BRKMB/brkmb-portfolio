@@ -132,7 +132,7 @@ export function ProductShowcase({
           <p className="text-caption tracking-[0.22em] uppercase text-accent">Features</p>
           <h2 className="font-display text-title-1 mt-2 v-primary">Built for speed and privacy</h2>
         </div>
-        <ul className="product-feature-grid mt-8">
+        <ul className="product-feature-grid mt-12 md:mt-14">
           {features.map((feature, i) => {
             const Icon = featureIcons[i % featureIcons.length];
             return (
@@ -162,7 +162,7 @@ export function ProductShowcase({
           <p className="text-caption tracking-[0.22em] uppercase text-accent">How it works</p>
           <h2 className="font-display text-title-1 mt-2 v-primary">Four steps. Zero friction.</h2>
         </div>
-        <ol className="product-steps mt-8">
+        <ol className="product-steps mt-12 md:mt-14">
           {howItWorks.map((step, i) => (
             <li key={step} className="product-step">
               <span className="product-step__num font-display tabular-nums">
