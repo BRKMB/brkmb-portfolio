@@ -14,6 +14,7 @@ const links = [
   { href: "/certificates/", label: "Certificates" },
   { href: "/resume/", label: "Resume" },
   { href: "/links/", label: "Links" },
+  { href: "/support/", label: "Support" },
 ];
 
 export function Navigation() {
