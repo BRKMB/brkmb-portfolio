@@ -1,13 +1,30 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
 
-const PRESETS = [500, 1000, 2500, 5000] as const;
+const PRESETS = [100, 1000, 10000, 100000] as const;
+
+type Cadence = "once" | "month" | "year";
+
+const CADENCES: { id: Cadence; label: string }[] = [
+  { id: "once", label: "Once" },
+  { id: "month", label: "Monthly" },
+  { id: "year", label: "Yearly" },
+];
 
 function formatUsd(cents: number) {
+  if (cents >= 100000) return "$1,000";
   return `$${cents / 100}`;
+}
+
+function ctaLabel(cents: number, cadence: Cadence, loading: boolean) {
+  if (loading) return "Opening Stripe…";
+  const amount = formatUsd(cents);
+  if (cadence === "month") return `Continue · ${amount}/mo`;
+  if (cadence === "year") return `Continue · ${amount}/yr`;
+  return `Continue · ${amount}`;
 }
 
 export function SupportPageContent() {
@@ -15,33 +32,19 @@ export function SupportPageContent() {
   const thanks = searchParams.get("thanks") === "1";
   const cancelled = searchParams.get("cancelled") === "1";
 
+  const [cadence, setCadence] = useState<Cadence>("once");
   const [selected, setSelected] = useState<number>(1000);
-  const [custom, setCustom] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const amountCents = useMemo(() => {
-    if (custom.trim()) {
-      const dollars = Number(custom);
-      if (!Number.isFinite(dollars) || dollars <= 0) return null;
-      return Math.round(dollars * 100);
-    }
-    return selected;
-  }, [custom, selected]);
-
   const startCheckout = async () => {
     setError(null);
-    if (amountCents == null || amountCents < 100 || amountCents > 50000) {
-      setError("Enter an amount between $1 and $500.");
-      return;
-    }
-
     setLoading(true);
     try {
       const res = await fetch("/api/support/checkout", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ amountCents }),
+        body: JSON.stringify({ amountCents: selected, cadence }),
       });
       const data = (await res.json()) as {
         success?: boolean;
@@ -70,39 +73,67 @@ export function SupportPageContent() {
 
   if (thanks) {
     return (
-      <div className="mt-14 border-t border-subtle pt-10">
+      <div className="mt-12 border-t border-subtle pt-10">
         <p className="font-display text-title-2 v-primary">Thank you.</p>
-        <p className="text-body mt-3 v-secondary leading-relaxed">
-          Appreciated — it goes toward keeping free tools online and moving.
+        <p className="text-body mt-3 max-w-md v-secondary leading-relaxed">
+          Appreciated — it goes toward keeping free tools online and shipping
+          the next ones.
         </p>
       </div>
     );
   }
 
   return (
-    <div className="mt-14 border-t border-subtle pt-10">
+    <div className="mt-12">
       {cancelled ? (
         <p className="text-subheadline mb-8 v-tertiary">
           Checkout cancelled. Nothing was charged.
         </p>
       ) : null}
 
-      <p className="case-meta__label">Amount</p>
-
+      <p className="case-meta__label">Frequency</p>
       <div
-        className="support-amounts mt-4"
+        className="support-cadence mt-3"
+        role="group"
+        aria-label="Payment frequency"
+      >
+        {CADENCES.map((item) => {
+          const active = cadence === item.id;
+          return (
+            <button
+              key={item.id}
+              type="button"
+              data-cursor
+              onClick={() => {
+                setCadence(item.id);
+                setError(null);
+              }}
+              className={cn(
+                "support-cadence__btn focus-ring",
+                active && "support-cadence__btn--active"
+              )}
+              aria-pressed={active}
+            >
+              {item.label}
+            </button>
+          );
+        })}
+      </div>
+
+      <p className="case-meta__label mt-8">Amount</p>
+      <div
+        className="support-amounts mt-3"
         role="group"
         aria-label="Contribution amount"
       >
         {PRESETS.map((cents) => {
-          const active = !custom && selected === cents;
+          const active = selected === cents;
           return (
             <button
               key={cents}
               type="button"
               data-cursor
               onClick={() => {
-                setCustom("");
                 setSelected(cents);
                 setError(null);
               }}
@@ -117,29 +148,6 @@ export function SupportPageContent() {
           );
         })}
       </div>
-
-      <label className="mt-6 block">
-        <span className="sr-only">Custom amount in USD</span>
-        <div className="support-custom">
-          <span className="support-custom__prefix" aria-hidden>
-            $
-          </span>
-          <input
-            type="number"
-            min={1}
-            max={500}
-            step={1}
-            inputMode="decimal"
-            placeholder="Custom"
-            value={custom}
-            onChange={(e) => {
-              setCustom(e.target.value);
-              setError(null);
-            }}
-            className="support-custom__input"
-          />
-        </div>
-      </label>
 
       {error ? (
         <p
@@ -157,12 +165,13 @@ export function SupportPageContent() {
         onClick={startCheckout}
         className="btn-primary text-subheadline mt-8 inline-flex min-h-[44px] items-center justify-center rounded-full px-7 py-2.5 disabled:opacity-60"
       >
-        {loading ? "Opening Stripe…" : "Continue"}
+        {ctaLabel(selected, cadence, loading)}
       </button>
 
       <p className="text-footnote mt-6 max-w-sm v-quaternary leading-relaxed">
-        Processed by Stripe. One-time payment — no account required, no
-        subscription.
+        {cadence === "once"
+          ? "Processed by Stripe. One-time payment."
+          : "Processed by Stripe. Recurring — cancel anytime from your Stripe receipt or by emailing me."}
       </p>
     </div>
   );

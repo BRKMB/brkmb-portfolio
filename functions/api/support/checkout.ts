@@ -1,5 +1,5 @@
 /**
- * Creates a Stripe Checkout Session for a one-time support payment.
+ * Creates a Stripe Checkout Session for one-time or recurring support.
  * Secret key lives in STRIPE_SECRET_KEY (Pages secret / .dev.vars) — never in the client.
  */
 
@@ -8,9 +8,9 @@ interface Env {
   SITE_URL?: string;
 }
 
-const ALLOWED_CENTS = new Set([300, 500, 1000, 2500, 5000, 10000]);
-const MIN_CUSTOM_CENTS = 100; // $1
-const MAX_CUSTOM_CENTS = 50000; // $500
+type Cadence = "once" | "month" | "year";
+
+const ALLOWED_CENTS = new Set([100, 1000, 10000, 100000]); // $1, $10, $100, $1000
 
 function cors(request: Request) {
   const origin = request.headers.get("Origin");
@@ -41,6 +41,11 @@ function siteBase(request: Request, env: Env): string {
   return `${url.protocol}//${url.host}`;
 }
 
+function parseCadence(value: unknown): Cadence | null {
+  if (value === "once" || value === "month" || value === "year") return value;
+  return null;
+}
+
 export const onRequestOptions: PagesFunction<Env> = async ({ request }) =>
   new Response(null, { headers: cors(request) });
 
@@ -51,48 +56,73 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   }
 
   let amountCents = 0;
+  let cadence: Cadence = "once";
   try {
-    const body = (await request.json()) as { amountCents?: number };
+    const body = (await request.json()) as {
+      amountCents?: number;
+      cadence?: string;
+    };
     amountCents = Number(body?.amountCents);
+    const parsed = parseCadence(body?.cadence);
+    if (!parsed) {
+      return json({ success: false, error: "invalid-cadence" }, 400, request);
+    }
+    cadence = parsed;
   } catch {
     return json({ success: false, error: "invalid-body" }, 400, request);
   }
 
-  if (!Number.isFinite(amountCents) || !Number.isInteger(amountCents)) {
+  if (
+    !Number.isFinite(amountCents) ||
+    !Number.isInteger(amountCents) ||
+    !ALLOWED_CENTS.has(amountCents)
+  ) {
     return json({ success: false, error: "invalid-amount" }, 400, request);
   }
 
-  const allowed =
-    ALLOWED_CENTS.has(amountCents) ||
-    (amountCents >= MIN_CUSTOM_CENTS && amountCents <= MAX_CUSTOM_CENTS);
-
-  if (!allowed) {
-    return json({ success: false, error: "amount-out-of-range" }, 400, request);
-  }
-
   const base = siteBase(request, env);
+  const isRecurring = cadence !== "once";
+  const productName =
+    cadence === "once"
+      ? "Support — Baher Magally"
+      : cadence === "month"
+        ? "Monthly support — Baher Magally"
+        : "Yearly support — Baher Magally";
+  const productDescription =
+    cadence === "once"
+      ? "One-time support for free tools and projects from brkmb.com"
+      : cadence === "month"
+        ? "Monthly support for free tools and projects from brkmb.com"
+        : "Yearly support for free tools and projects from brkmb.com";
+
   const params = new URLSearchParams();
-  params.set("mode", "payment");
+  params.set("mode", isRecurring ? "subscription" : "payment");
   // Tips stay under your Stripe account (not Stripe Managed Payments MoR).
   params.set("managed_payments[enabled]", "false");
   params.set("success_url", `${base}/support/?thanks=1&session_id={CHECKOUT_SESSION_ID}`);
   params.set("cancel_url", `${base}/support/?cancelled=1`);
-  params.set("submit_type", "donate");
+  if (!isRecurring) {
+    params.set("submit_type", "donate");
+  }
   params.set("billing_address_collection", "auto");
   params.set("line_items[0][quantity]", "1");
   params.set("line_items[0][price_data][currency]", "usd");
   params.set("line_items[0][price_data][unit_amount]", String(amountCents));
-  params.set("line_items[0][price_data][product_data][name]", "Support Baher Magally");
+  params.set("line_items[0][price_data][product_data][name]", productName);
   params.set(
     "line_items[0][price_data][product_data][description]",
-    "One-time support for free tools and projects from brkmb.com"
+    productDescription
   );
   params.set(
     "line_items[0][price_data][product_data][tax_code]",
     "txcd_10000000"
   );
+  if (isRecurring) {
+    params.set("line_items[0][price_data][recurring][interval]", cadence);
+  }
   params.set("metadata[source]", "brkmb-support-page");
   params.set("metadata[amount_cents]", String(amountCents));
+  params.set("metadata[cadence]", cadence);
 
   const stripeRes = await fetch("https://api.stripe.com/v1/checkout/sessions", {
     method: "POST",
