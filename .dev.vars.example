@@ -3,3 +3,7 @@
 
 STRIPE_SECRET_KEY=sk_test_replace_me
 SITE_URL=http://localhost:8788
+
+# Optional: Stripe File IDs for Checkout branding (upload via Files API)
+# STRIPE_CHECKOUT_ICON_FILE=file_...
+# STRIPE_CHECKOUT_LOGO_FILE=file_...

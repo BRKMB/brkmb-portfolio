@@ -6,6 +6,9 @@
 interface Env {
   STRIPE_SECRET_KEY?: string;
   SITE_URL?: string;
+  /** Stripe File IDs from Files API (purpose: business_icon / business_logo) */
+  STRIPE_CHECKOUT_ICON_FILE?: string;
+  STRIPE_CHECKOUT_LOGO_FILE?: string;
 }
 
 type Cadence = "once" | "month" | "year";
@@ -46,6 +49,25 @@ function siteBase(request: Request, env: Env): string {
 function parseCadence(value: unknown): Cadence | null {
   if (value === "once" || value === "month" || value === "year") return value;
   return null;
+}
+
+function applyBranding(params: URLSearchParams, env: Env) {
+  params.set("branding_settings[display_name]", "BRKMB");
+  params.set("branding_settings[background_color]", "#050506");
+  params.set("branding_settings[button_color]", "#c9f31d");
+  params.set("branding_settings[font_family]", "inter");
+  params.set("branding_settings[border_style]", "pill");
+
+  const icon = env.STRIPE_CHECKOUT_ICON_FILE?.trim();
+  const logo = env.STRIPE_CHECKOUT_LOGO_FILE?.trim();
+  if (icon) {
+    params.set("branding_settings[icon][type]", "file");
+    params.set("branding_settings[icon][file]", icon);
+  }
+  if (logo) {
+    params.set("branding_settings[logo][type]", "file");
+    params.set("branding_settings[logo][file]", logo);
+  }
 }
 
 export const onRequestOptions: PagesFunction<Env> = async ({ request }) =>
@@ -90,16 +112,11 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   const isRecurring = cadence !== "once";
   const productName =
     cadence === "once"
-      ? "Support — Baher Magally"
+      ? "One-time support"
       : cadence === "month"
-        ? "Monthly support — Baher Magally"
-        : "Yearly support — Baher Magally";
-  const productDescription =
-    cadence === "once"
-      ? "One-time support for free tools and projects from brkmb.com"
-      : cadence === "month"
-        ? "Monthly support for free tools and projects from brkmb.com"
-        : "Yearly support for free tools and projects from brkmb.com";
+        ? "Monthly support"
+        : "Yearly support";
+  const productDescription = "Support for free tools and projects from brkmb.com";
 
   const params = new URLSearchParams();
   params.set("mode", isRecurring ? "subscription" : "payment");
@@ -129,6 +146,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   params.set("metadata[source]", "brkmb-support-page");
   params.set("metadata[amount_cents]", String(amountCents));
   params.set("metadata[cadence]", cadence);
+  applyBranding(params, env);
 
   const stripeRes = await fetch("https://api.stripe.com/v1/checkout/sessions", {
     method: "POST",
