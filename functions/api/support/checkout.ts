@@ -10,7 +10,9 @@ interface Env {
 
 type Cadence = "once" | "month" | "year";
 
-const ALLOWED_CENTS = new Set([100, 1000, 10000, 100000]); // $1, $10, $100, $1000
+const ALLOWED_PRESETS = new Set([100, 1000, 10000, 100000]); // $1, $10, $100, $1000
+const MIN_CUSTOM_CENTS = 100; // $1
+const MAX_CUSTOM_CENTS = 100000; // $1,000
 
 function cors(request: Request) {
   const origin = request.headers.get("Origin");
@@ -72,12 +74,16 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     return json({ success: false, error: "invalid-body" }, 400, request);
   }
 
-  if (
-    !Number.isFinite(amountCents) ||
-    !Number.isInteger(amountCents) ||
-    !ALLOWED_CENTS.has(amountCents)
-  ) {
+  if (!Number.isFinite(amountCents) || !Number.isInteger(amountCents)) {
     return json({ success: false, error: "invalid-amount" }, 400, request);
+  }
+
+  const allowed =
+    ALLOWED_PRESETS.has(amountCents) ||
+    (amountCents >= MIN_CUSTOM_CENTS && amountCents <= MAX_CUSTOM_CENTS);
+
+  if (!allowed) {
+    return json({ success: false, error: "amount-out-of-range" }, 400, request);
   }
 
   const base = siteBase(request, env);

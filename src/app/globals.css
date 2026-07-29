@@ -3828,3 +3828,37 @@ html.light .case-compliance__checks li {
   background: color-mix(in srgb, var(--color-accent) 12%, transparent);
   color: var(--ink-primary);
 }
+
+.support-custom {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--glass-border);
+  transition: border-color 0.2s var(--ease-apple);
+}
+
+.support-custom:focus-within {
+  border-color: color-mix(in srgb, var(--color-accent) 45%, var(--glass-border));
+}
+
+.support-custom__prefix {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: 1.05rem;
+  color: var(--ink-tertiary);
+}
+
+.support-custom__input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  color: var(--ink-primary);
+  font-size: 1.05rem;
+  outline: none;
+  text-align: left;
+}
+
+.support-custom__input::placeholder {
+  color: var(--ink-quaternary);
+}
