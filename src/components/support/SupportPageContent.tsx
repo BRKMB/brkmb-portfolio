@@ -73,9 +73,9 @@ export function SupportPageContent() {
 
   if (thanks) {
     return (
-      <div className="mt-12 border-t border-subtle pt-10">
+      <div className="mx-auto mt-12 max-w-md border-t border-subtle pt-10">
         <p className="font-display text-title-2 v-primary">Thank you.</p>
-        <p className="text-body mt-3 max-w-md v-secondary leading-relaxed">
+        <p className="text-body mx-auto mt-3 max-w-md v-secondary leading-relaxed">
           Appreciated — it goes toward keeping free tools online and shipping
           the next ones.
         </p>
@@ -84,7 +84,7 @@ export function SupportPageContent() {
   }
 
   return (
-    <div className="mt-12">
+    <div className="mx-auto mt-12 max-w-md">
       {cancelled ? (
         <p className="text-subheadline mb-8 v-tertiary">
           Checkout cancelled. Nothing was charged.
@@ -93,7 +93,7 @@ export function SupportPageContent() {
 
       <p className="case-meta__label">Frequency</p>
       <div
-        className="support-cadence mt-3"
+        className="support-cadence mx-auto mt-3"
         role="group"
         aria-label="Payment frequency"
       >
@@ -163,12 +163,12 @@ export function SupportPageContent() {
         data-cursor
         disabled={loading}
         onClick={startCheckout}
-        className="btn-primary text-subheadline mt-8 inline-flex min-h-[44px] items-center justify-center rounded-full px-7 py-2.5 disabled:opacity-60"
+        className="btn-primary text-subheadline mx-auto mt-8 inline-flex min-h-[44px] items-center justify-center rounded-full px-7 py-2.5 disabled:opacity-60"
       >
         {ctaLabel(selected, cadence, loading)}
       </button>
 
-      <p className="text-footnote mt-6 max-w-sm v-quaternary leading-relaxed">
+      <p className="text-footnote mx-auto mt-6 max-w-sm v-quaternary leading-relaxed">
         {cadence === "once"
           ? "Processed by Stripe. One-time payment."
           : "Processed by Stripe. Recurring — cancel anytime from your Stripe receipt or by emailing me."}
