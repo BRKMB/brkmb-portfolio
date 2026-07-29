@@ -73,6 +73,8 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   const base = siteBase(request, env);
   const params = new URLSearchParams();
   params.set("mode", "payment");
+  // Tips stay under your Stripe account (not Stripe Managed Payments MoR).
+  params.set("managed_payments[enabled]", "false");
   params.set("success_url", `${base}/support/?thanks=1&session_id={CHECKOUT_SESSION_ID}`);
   params.set("cancel_url", `${base}/support/?cancelled=1`);
   params.set("submit_type", "donate");
@@ -84,6 +86,10 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   params.set(
     "line_items[0][price_data][product_data][description]",
     "One-time support for free tools and projects from brkmb.com"
+  );
+  params.set(
+    "line_items[0][price_data][product_data][tax_code]",
+    "txcd_10000000"
   );
   params.set("metadata[source]", "brkmb-support-page");
   params.set("metadata[amount_cents]", String(amountCents));
